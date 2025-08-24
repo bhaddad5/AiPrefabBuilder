@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1535600059261352}
-  m_IsPrefabParent: 1
 --- !u!1 &1535600059261352
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4373219185902810}
   - component: {fileID: 33499841377912278}
   - component: {fileID: 23902524961131828}
   - component: {fileID: 64603281369174892}
+  - component: {fileID: 6249997203129642951}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_Angled_01
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4373219185902810
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535600059261352}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33499841377912278
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535600059261352}
+  m_Mesh: {fileID: 4300000, guid: 23a8ffb12be002b4da4247e677f5fdaa, type: 3}
 --- !u!23 &23902524961131828
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535600059261352}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,56 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33499841377912278
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535600059261352}
-  m_Mesh: {fileID: 4300000, guid: 23a8ffb12be002b4da4247e677f5fdaa, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64603281369174892
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535600059261352}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43316854778828154, guid: 1d8248d7dd409834b80b21d9d7d6abcf, type: 2}
+--- !u!114 &6249997203129642951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535600059261352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual: A single angled thatch roof section \u2014 a sloped
+    triangular roof panel (thatch texture) whose highest edge is at the prefab origin
+    and which slopes down away from that edge.\n\nBounding / placement data:\n- Bounds
+    (local): min (-1.39, -2.66, -2.50), max (0.14, 0.02, 0.00)\n- Size (max - min):
+    X = 1.53, Y = 2.68, Z = 2.50\n- Local center (min+max)/2: (-0.625, -1.32, -1.25)\n-
+    Half-extents: (0.765, 1.34, 1.25)\n- Pivot location: at the box max corner (0.14,
+    0.02, 0.00) \u2014 i.e., the top/front/right corner of the piece (ridge/eave
+    corner).\n\nUseful placement notes:\n- The top/ridge is at local Z = 0. If your
+    world uses Z-up, set the prefab's world Z to the desired ridge height and no
+    extra vertical offset is needed.\n- The panel extends negatively along X and
+    Y from the pivot. When snapping by pivot, place the pivot at the target roof
+    ridge/eave corner of the neighboring piece.\n- If your placement workflow uses
+    centers, translate by the center offset (-0.625, -1.32, -1.25) to convert between
+    pivot and center positioning.\n- Footprint to consider for occlusion/collisions:
+    width X = 1.53, depth Y = 2.68, height Z = 2.50.\n- Orientation: the slope drops
+    away from the pivot (downwards into the negative Z/local depth negative Y), so
+    rotate 180\xB0/90\xB0 as needed to mirror slope direction when tiling with other
+    roof prefabs."

@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1573208527356996}
-  m_IsPrefabParent: 1
 --- !u!1 &1573208527356996
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4853380568151822}
   - component: {fileID: 33539838220898012}
   - component: {fileID: 23025731082110830}
   - component: {fileID: 64096240760932508}
+  - component: {fileID: 4041392145077228539}
   m_Layer: 0
   m_Name: SM_Bld_House_Base_Corner_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4853380568151822
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573208527356996}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33539838220898012
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573208527356996}
+  m_Mesh: {fileID: 4300000, guid: 018f30c40aad9594eb519236eafd9456, type: 3}
 --- !u!23 &23025731082110830
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573208527356996}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,55 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33539838220898012
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573208527356996}
-  m_Mesh: {fileID: 4300000, guid: 018f30c40aad9594eb519236eafd9456, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64096240760932508
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573208527356996}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43937682575973874, guid: 77c0f9beece9d91448d4108d6f401689, type: 2}
+--- !u!114 &4041392145077228539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573208527356996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "I can't see any visible detail in the provided renders, so I\u2019m
+    describing this prefab from its name and bounds.\n\nKey geometry and placement
+    info:\n- Name: SM_Bld_House_Base_Corner_02 \u2014 implies a corner/base modular
+    piece (use with 90\xB0 rotations).\n- Local bounds:\n  - Min = (-0.46, -2.51,
+    -0.47)\n  - Max = ( 0.47,  0.00,  0.48)\n- Size (extents):\n  - Width (X) = 0.93\n 
+    - Height (Y) = 2.51\n  - Depth (Z) = 0.95\n- Local center = (~0.005, -1.255,
+    ~0.005) \u2014 origin (0,0,0) is at the top surface, roughly centered in X/Z.\n-
+    Half-extents \u2248 (0.465, 1.255, 0.475) \u2014 useful for collision boxes and
+    snap guides.\n\nPlacement notes:\n- The pivot/origin is at the piece\u2019s top
+    (Y=0). When laying multiple pieces flush at the same floor level, align their
+    origins to the same Y.\n- To stack an identical piece directly above, translate
+    the upper piece up by the height (2.51) so its bottom aligns with the lower piece\u2019s
+    top.\n- For horizontal tiling, treat the footprint as ~0.93 \xD7 0.95; snap adjacent
+    pieces so their X/Z faces meet at \xB10.46/\xB10.47 local boundaries. Rotate
+    by 90\xB0 increments around Y to place other corner orientations.\n- Use the
+    local center and half-extents above to set bounding boxes, collision, or physics
+    shapes; note the slight 0.005 offset in X/Z is negligible but present."

@@ -4,35 +4,44 @@ using UnityEngine;
 
 public static class TextureRenderer
 {
-	/// <summary>
-	/// Renders 6 square textures (Top, Bottom, Left, Right, Front, Back) of the target object at (0,0,0).
-	/// Uses the supplied camera; restores the camera's state before returning.
-	/// Returns a dictionary with keys: "Top","Bottom","Left","Right","Front","Back".
-	/// </summary>
-	public static Dictionary<string, Texture2D> RenderSixViews(GameObject target, Camera cam, int size = 128, float paddingPercent = 0.05f)
+	public static Dictionary<string, Texture2D> RenderAllSides(GameObject ob)
 	{
-		if (target == null) throw new System.ArgumentNullException(nameof(target));
-		if (cam == null) throw new System.ArgumentNullException(nameof(cam));
+		var cam = new GameObject("Test Camera").AddComponent<Camera>();
+		cam.orthographic = true;
 
-		// Collect renderers; we need bounds to determine a safe distance.
+		var res = RenderSixViews(ob, cam);
+
+		GameObject.DestroyImmediate(cam.gameObject);
+
+		return res;
+	}
+
+	/// <param name="transparentBackground">Clear to transparent so background alpha = 0.</param>
+	/// <param name="isolateTarget">Temporarily render only the target by isolating it to a layer.</param>
+	/// <param name="isolateLayer">Layer index to use for isolation (defaults to 31).</param>
+	private static Dictionary<string, Texture2D> RenderSixViews(
+		GameObject target, Camera cam, int size = 128, float paddingPercent = 0.05f,
+		bool transparentBackground = true, bool isolateTarget = true, int isolateLayer = 31)
+	{
+		if (!target) throw new System.ArgumentNullException(nameof(target));
+		if (!cam) throw new System.ArgumentNullException(nameof(cam));
+
 		var renderers = target.GetComponentsInChildren<Renderer>();
 		if (renderers == null || renderers.Length == 0)
 			throw new System.InvalidOperationException("Target has no renderers to capture.");
 
-		// Compute a radius that fully encloses the object *around the world origin* (0,0,0).
-		// This works even if the mesh pivot isn't exactly at the origin.
+		// --- compute radius enclosing object around origin ---
 		float radius = 0f;
 		foreach (var r in renderers)
 		{
 			var c = r.bounds.center;
 			var e = r.bounds.extents;
-			// Farthest point of this AABB from the origin
-			var far = new Vector3(Mathf.Abs(c.x) + e.x, Mathf.Abs(c.y) + e.y, Mathf.Abs(c.z) + e.z).magnitude;
+			float far = new Vector3(Mathf.Abs(c.x) + e.x, Mathf.Abs(c.y) + e.y, Mathf.Abs(c.z) + e.z).magnitude;
 			if (far > radius) radius = far;
 		}
-		radius *= (1f + Mathf.Max(0, paddingPercent)); // small padding margin
+		radius *= (1f + Mathf.Max(0, paddingPercent));
 
-		// Save camera state
+		// --- save camera state ---
 		var originalPos = cam.transform.position;
 		var originalRot = cam.transform.rotation;
 		var originalTargetRT = cam.targetTexture;
@@ -42,37 +51,58 @@ public static class TextureRenderer
 		var originalFar = cam.farClipPlane;
 		var originalAspect = cam.aspect;
 		var originalOrtho = cam.orthographic;
+		var originalClear = cam.clearFlags;
+		var originalBG = cam.backgroundColor;
+		var originalCulling = cam.cullingMask;
 
-		// We will render square images.
+		// --- optionally isolate the target to a single layer ---
+		List<(Transform t, int oldLayer)> layerChanges = null;
+		if (isolateTarget)
+		{
+			layerChanges = new List<(Transform, int)>(64);
+			foreach (var t in target.GetComponentsInChildren<Transform>(true))
+			{
+				if (t.gameObject.layer != isolateLayer)
+				{
+					layerChanges.Add((t, t.gameObject.layer));
+					t.gameObject.layer = isolateLayer;
+				}
+			}
+			cam.cullingMask = (1 << isolateLayer);
+		}
+
+		// --- configure camera for transparent background & square render ---
 		cam.aspect = 1f;
+		if (transparentBackground)
+		{
+			cam.clearFlags = CameraClearFlags.SolidColor;
+			cam.backgroundColor = new Color(0f, 0f, 0f, 0f); // fully transparent
+		}
 
-		// Compute distance so a sphere of radius 'radius' fits the view.
+		// --- compute consistent distance ---
 		float distance;
 		if (!cam.orthographic)
 		{
 			float fovRad = cam.fieldOfView * Mathf.Deg2Rad;
-			// Distance so the sphere fits vertically; aspect=1 means horizontal matches.
 			distance = radius / Mathf.Sin(fovRad * 0.5f);
-			// Keep clipping planes sensible around the shell
 			cam.nearClipPlane = Mathf.Max(0.01f, distance - radius * 1.2f);
 			cam.farClipPlane = distance + radius * 1.2f;
 		}
 		else
 		{
-			// Orthographic: size must cover the radius; distance can be arbitrary but consistent.
 			cam.orthographicSize = radius;
 			distance = Mathf.Max(radius * 2f, cam.nearClipPlane + radius);
 			cam.nearClipPlane = Mathf.Max(0.01f, distance - radius * 1.2f);
 			cam.farClipPlane = distance + radius * 1.2f;
 		}
 
-		// Prepare a reusable RenderTexture and capture helper
-		var rt = new RenderTexture(size, size, 24, RenderTextureFormat.ARGB32);
+		// --- render target ---
+		var rt = new RenderTexture(size, size, 24, RenderTextureFormat.ARGB32) { antiAliasing = 1 };
 		var results = new Dictionary<string, Texture2D>(6);
 
 		void CaptureAt(Vector3 dir, Vector3 up, string key)
 		{
-			cam.transform.position = dir.normalized * distance;      // same distance for all shots
+			cam.transform.position = dir.normalized * distance;
 			cam.transform.rotation = Quaternion.LookRotation(-dir, up);
 			cam.targetTexture = rt;
 
@@ -83,8 +113,7 @@ public static class TextureRenderer
 
 			var tex = new Texture2D(size, size, TextureFormat.RGBA32, false);
 			tex.ReadPixels(new Rect(0, 0, size, size), 0, 0);
-			tex.Apply();
-
+			tex.Apply(false, false);
 			results[key] = tex;
 
 			RenderTexture.active = prevActive;
@@ -93,14 +122,6 @@ public static class TextureRenderer
 
 		try
 		{
-			// Define the six directions from the origin and capture.
-			// Conventions:
-			//  Front: +Z  (camera at +Z looking toward -Z)
-			//  Back:  -Z
-			//  Right: +X
-			//  Left:  -X
-			//  Top:   +Y  (up set to +Z for a stable image)
-			//  Bottom:-Y  (up set to +Z to keep orientation consistent)
 			CaptureAt(Vector3.up, Vector3.forward, "Top");
 			CaptureAt(Vector3.down, Vector3.forward, "Bottom");
 			CaptureAt(Vector3.left, Vector3.up, "Left");
@@ -110,7 +131,11 @@ public static class TextureRenderer
 		}
 		finally
 		{
-			// Restore camera and clean up
+			// restore layers
+			if (layerChanges != null)
+				foreach (var (t, oldLayer) in layerChanges) t.gameObject.layer = oldLayer;
+
+			// restore camera
 			cam.transform.SetPositionAndRotation(originalPos, originalRot);
 			cam.targetTexture = originalTargetRT;
 			cam.fieldOfView = originalFOV;
@@ -119,10 +144,13 @@ public static class TextureRenderer
 			cam.farClipPlane = originalFar;
 			cam.aspect = originalAspect;
 			cam.orthographic = originalOrtho;
+			cam.clearFlags = originalClear;
+			cam.backgroundColor = originalBG;
+			cam.cullingMask = originalCulling;
 
-			RenderTexture.ReleaseTemporary(null); // no-op safety
+			// cleanup
 			rt.Release();
-			Object.Destroy(rt);
+			Object.DestroyImmediate(rt);
 		}
 
 		return results;
