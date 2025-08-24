@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1532942660885006}
-  m_IsPrefabParent: 1
 --- !u!1 &1532942660885006
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4968230240740478}
   - component: {fileID: 33852131947200952}
   - component: {fileID: 23803854493492090}
   - component: {fileID: 64466451687535008}
+  - component: {fileID: 2569802044561521159}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_End_01
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4968230240740478
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532942660885006}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33852131947200952
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532942660885006}
+  m_Mesh: {fileID: 4300000, guid: 2085ad199a7676c4182b1309893ba581, type: 3}
 --- !u!23 &23803854493492090
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532942660885006}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,58 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33852131947200952
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532942660885006}
-  m_Mesh: {fileID: 4300000, guid: 2085ad199a7676c4182b1309893ba581, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64466451687535008
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532942660885006}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43681842787557182, guid: 4c63f5b89e8c024408f8114026b89b56, type: 2}
+--- !u!114 &2569802044561521159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532942660885006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it is: a low, wedge-shaped thatch roof end cap (brown thatch
+    with black straps). Top is a sloped wedge; underside has small rectangular mounting
+    tabs along the length for seating/locking into adjacent pieces.\n\n- Size and
+    origin:\n  - Local bounds min (-0.76, -0.35, -2.50), max (0.18, 0.17, 0.01).\n 
+    - Extents (size) \u2248 (0.94 X, 0.52 Y, 2.51 Z) (X=width, Y=height/thickness,
+    Z=length).\n  - Local center \u2248 (-0.29, -0.09, -1.245) relative to the object
+    origin (0,0,0) \u2014 origin sits toward one end/edge, slightly above the bottom
+    (-0.35) and close to the near Z face (0.01).\n\n- Orientation notes:\n  - Long
+    axis runs along local Z (piece projects toward negative Z from the origin).\n 
+    - Wedge/top slope faces up; underside tabs face negative/positive Y (downwards).\n 
+    - To use as a left/right end, mirror/rotate around Y (180\xB0) as needed.\n\n-
+    Placement tips:\n  - Because the origin is offset, align by using the bounds
+    or center rather than assuming the origin is centered. If you want the bottom
+    to sit on Y=0, set object Y = 0.35 (abs of min Y).\n  - To butt this to an adjacent
+    roof segment, place the origin flush at the junction and extend the other piece
+    along +Z so their ends meet (or mirror and join oppositely).\n  - Snap to or
+    slot into the small underside tabs \u2014 leave a small tolerance for mesh clearance.\n 
+    - Keep in mind the piece projects mostly in negative Z from its pivot; adjust
+    translations by ~2.51 in Z if you want to offset by a full length.\n\nBackground
+    color in images is fuchsia (used for transparency)."

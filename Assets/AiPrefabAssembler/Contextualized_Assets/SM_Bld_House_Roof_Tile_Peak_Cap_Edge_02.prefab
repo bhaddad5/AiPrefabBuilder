@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1925298438774712}
-  m_IsPrefabParent: 1
 --- !u!1 &1925298438774712
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4261087246121590}
   - component: {fileID: 33454309909707904}
   - component: {fileID: 23584484991267100}
   - component: {fileID: 64027955793395356}
+  - component: {fileID: -5461689560863262145}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Tile_Peak_Cap_Edge_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4261087246121590
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925298438774712}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33454309909707904
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925298438774712}
+  m_Mesh: {fileID: 4300000, guid: 716d316bf4dcd3c46afc48d3fbcc05ed, type: 3}
 --- !u!23 &23584484991267100
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925298438774712}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,60 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33454309909707904
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1925298438774712}
-  m_Mesh: {fileID: 4300000, guid: 716d316bf4dcd3c46afc48d3fbcc05ed, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64027955793395356
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925298438774712}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43328685179744848, guid: 442eceeefa0d1da44a7896a6ed5122b0, type: 2}
+--- !u!114 &-5461689560863262145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925298438774712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description\n- Small brown roof ridge/corner cap: two
+    sloped tile faces meet at a sharp V/apex (ridge). Dark central plate and small
+    dark rectangular tabs at the sides (likely attachment/overlap surfaces).\n- Designed
+    as an external peak/edge cap (fits over a corner where two roof planes meet).\n\nBounds
+    & pivot\n- Local bounds min = (-0.28, -0.13, -0.09), max = (0.30, 0.48, 0.53).\n-
+    Size (XYZ) = (0.58, 0.61, 0.62). Half-extents = (0.29, 0.305, 0.31).\n- Pivot
+    is at the object origin (0,0,0). Lowest vertex is at Y = -0.13 relative to pivot;
+    highest at Y = +0.48.\n\nPlacement notes (useful for tiling with other prefabs)\n-
+    To make the prefab sit flush on a roof surface at world Y = 0, place the prefab
+    at world Y = +0.13 (so its lowest point sits at 0).\n- The piece is symmetric
+    across its center plane; rotate around Y in 90\xB0 increments to orient it to
+    different corner directions (180\xB0 also valid). Mirroring likely unnecessary.\n-
+    Allow small overlap clearance on X/Z when snapping: geometry extends ~0.29 (X)
+    and ~0.31 (Z) from pivot \u2014 factor this when arranging adjacent caps/tiles
+    to avoid gaps or intersections.\n- Dark side tabs extend slightly beyond main
+    faces (\u22480.02\u20130.05 units) \u2014 account for these when matching adjoining
+    tiles so they can overlap or tuck under.\n- Collision/physics: use bounds above
+    as the collision box or simplify to a slightly shrunk box (reduce each half-extent
+    by ~0.01\u20130.02) to avoid visible z-fighting with adjacent pieces.\n\nQuick
+    summary\n- Small V-shaped ridge/edge cap, centered at origin, ~0.6 units across,
+    lowest point at -0.13. Rotate in 90\xB0 steps, raise +0.13 in world Y to sit
+    on a flat roof plane."

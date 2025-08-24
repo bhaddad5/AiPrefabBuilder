@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1021795591418196}
-  m_IsPrefabParent: 1
 --- !u!1 &1021795591418196
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4871242148485328}
   - component: {fileID: 33143409469677702}
   - component: {fileID: 23396587664716580}
   - component: {fileID: 64589610100137088}
+  - component: {fileID: -5563127231057554983}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_Edge_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4871242148485328
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021795591418196}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33143409469677702
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021795591418196}
+  m_Mesh: {fileID: 4300000, guid: 2cb1481aae95015478d328c36ad7a245, type: 3}
 --- !u!23 &23396587664716580
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021795591418196}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,60 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33143409469677702
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1021795591418196}
-  m_Mesh: {fileID: 4300000, guid: 2cb1481aae95015478d328c36ad7a245, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64589610100137088
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021795591418196}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43729011282056138, guid: bebfd677479d2be47b07b894b582e29e, type: 2}
+--- !u!114 &-5563127231057554983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021795591418196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it is: a low-poly thatch roof edge piece \u2014 an elongated,
+    slightly tapered bundle of thatch/beam with irregular facets. Top faces are lighter
+    brown; underside/darker shading on one side. Images rendered on magenta background.\n\n-
+    Bounds & size (local space):\n  - Min = (-1.48, -1.36, -0.38), Max = (0.11, 0.23,
+    0.38)\n  - Size = (1.59, 1.59, 0.76)\n  - Center = (-0.685, -0.565, 0.00)\n 
+    - Half-extents = (0.795, 0.795, 0.38)\n\n- Pivot/origin:\n  - Origin is at the
+    positive X/top edge of the piece (near one end and near the top surface). The
+    mesh extends mostly in the negative X and negative Y directions from the origin
+    (i.e., it hangs downward and away from the origin).\n\n- Placement notes (useful
+    when composing with other prefabs):\n  - Treat local +Y as the top/attachment
+    face (origin near the join), so place the origin against the roof plane to seat
+    the piece.\n  - The piece runs along local X for tiling. For a continuous edge,
+    translate by ~1.59 units along local X (negative direction from the origin) to
+    place the next piece, or snap min/max X to align ends.\n  - Thickness in local
+    Z is ~0.76 \u2014 symmetric about Z, so no Z offset needed for centering.\n 
+    - To mirror for the opposite side/corner, rotate 180\xB0 around local Y (or flip
+    X) and/or use the origin offset to align mirrored ends.\n  - Keep origin-based
+    placement in mind: because center is offset (-0.685, -0.565, 0), any physics/collider
+    centered on the mesh will need that offset accounted for if you want true mesh-centered
+    behavior.\n\n- Quick summary: long, low roof-edge element ~1.6 units long, pivot
+    at a top/end corner, hangs ~1.36 units down \u2014 snap along local X by its
+    length and attach origin to the roof surface for predictable tiling."

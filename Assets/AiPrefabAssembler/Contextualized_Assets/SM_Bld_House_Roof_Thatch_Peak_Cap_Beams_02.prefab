@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1927980194253116}
-  m_IsPrefabParent: 1
 --- !u!1 &1927980194253116
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4121220629111614}
   - component: {fileID: 33267298825281278}
   - component: {fileID: 23701790056849598}
   - component: {fileID: 64802163330371676}
+  - component: {fileID: 642792828499936099}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_Peak_Cap_Beams_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4121220629111614
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927980194253116}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33267298825281278
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927980194253116}
+  m_Mesh: {fileID: 4300000, guid: 558420d1bd71518428e55ffa51846c3d, type: 3}
 --- !u!23 &23701790056849598
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927980194253116}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,61 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33267298825281278
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927980194253116}
-  m_Mesh: {fileID: 4300000, guid: 558420d1bd71518428e55ffa51846c3d, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64802163330371676
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927980194253116}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43689355379905520, guid: b27be584831779b408db2573465849c6, type: 2}
+--- !u!114 &642792828499936099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927980194253116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description\n- Two long, tapered wooden beams that cross
+    near the top to form an A/V-shaped peak-cap (ridge-beam) \u2014 looks like a
+    thatch-roof peak support.\n- Very thin vertically, long and slightly splayed
+    legs when viewed front/back.\n\nBounds and basic metrics (local space)\n- Min
+    = (-1.28, -2.22, -0.17), Max = (1.26, 1.24, 0.23)\n- Size \u2248 (X=2.54, Y=3.46,
+    Z=0.40)\n- Origin at (0,0,0) roughly centered in the piece.\n\nOrientation notes\n-
+    Longest dimension is Y (3.46) \u2014 that is the fore/aft direction of the crossed
+    beams.\n- Symmetric about the center plane; the crossing is centered near the
+    origin.\n- Very shallow height (Z), so it\u2019s essentially a thin cap that
+    sits on the ridge.\n\nPlacement tips for composing with other prefabs\n- To place
+    the top/cross at a specific world height H_ridge: set prefab world Z = H_ridge
+    - 0.23 (aligns prefab\u2019s highest point to H_ridge).\n- To place the lowest
+    points flush to a surface at H_surface: set prefab world Z = H_surface + 0.17.\n-
+    Align the prefab\u2019s Y axis with the roof ridge direction; rotate 90\xB0 if
+    needed so beams run along the ridge.\n- Center the prefab on the ridge midpoint
+    (origin \u2248 center of crossing) to keep symmetry.\n- Allow a small overlap
+    (0.02\u20130.1 units) into adjacent roof geometry to avoid visible gaps; because
+    the piece is thin, slight embedding is fine.\n- It\u2019s mirrorable and can
+    be tiled end-to-end along the ridge; watch for leg collisions with neighboring
+    thatch geometry because legs extend ~1.2\u20131.7 units from center.\n\nQuick
+    checklist\n- Rotate so Y = ridge direction.\n- Set world Z = H_ridge - 0.23 (or
+    H_surface + 0.17 depending on desired contact).\n- Center on ridge midpoint and
+    allow slight overlap to hide seams."

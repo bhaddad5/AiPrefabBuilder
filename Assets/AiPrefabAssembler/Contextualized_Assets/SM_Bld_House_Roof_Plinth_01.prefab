@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33194225851678438}
   - component: {fileID: 23314286154328006}
   - component: {fileID: 64291451397053340}
+  - component: {fileID: 6835177258390990444}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Plinth_01
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757565643456586}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33194225851678438
 MeshFilter:
@@ -92,9 +93,44 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757565643456586}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43003282713920346, guid: f4dd62077c096ad4fa6c641272c12f33, type: 2}
+--- !u!114 &6835177258390990444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757565643456586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it looks like: a small square plinth/block with chamfered/beveled
+    top edges and one corner cut into a diagonal/sloped face. From top it reads as
+    a nearly-square cap with a slightly inset chamfer; from front/back it appears
+    as a triangular/sloped profile; left/right faces are mostly flat with a slight
+    bevel at the top.\n\n- Bounds/origin: AABB = X: -0.44..0.44, Y: 0.00..1.00, Z:
+    -0.44..0.44. Overall footprint = 0.88 x 0.88 units, height = 1.0 unit. Object
+    positioned at (0,0,0) with its base sitting on Y=0 (pivot at center horizontally).\n\n-
+    Placement notes:\n  - Snap spacing: tile on a 0.88-unit grid (or use the 0.44
+    half-extents) so adjacent prefabs align without overlap.\n  - Orientation: the
+    diagonal/sloped corner is on the face shown as \"Front\" in the images \u2014
+    rotate in 90\xB0 increments to orient that diagonal toward the desired corner
+    or adjacent piece.\n  - Top chamfers and slight overhang may hide small gaps
+    but expect seams if neighboring pieces are exactly flush; allow slight overlap
+    or matching chamfers when tiling.\n  - Y origin = ground level, so stack by adding
+    integer heights (e.g., +1.0) or align to other prefabs with base at Y=0."

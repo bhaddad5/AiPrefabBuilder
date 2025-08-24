@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33096405926862204}
   - component: {fileID: 23498646986749540}
   - component: {fileID: 64085129549333688}
+  - component: {fileID: -1789023122101372501}
   m_Layer: 0
   m_Name: SM_Bld_House_Chimney_08
   m_TagString: Untagged
@@ -106,3 +107,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43899273519260168, guid: 03395e6161157d148bdf958987e0e73e, type: 2}
+--- !u!114 &-1789023122101372501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591940227894830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief description:\n- Tall, narrow exterior chimney/vent with a thin
+    vertical shaft, a slight bend near the top, and a small conical/hexagonal cap.
+    Looks like a metal pipe-style chimney rather than a masonry stack.\n- Base sits
+    on Y=0 (object bottom is at world origin).\n\nKey placement info (useful for
+    composing with other prefabs):\n- Bounding box: X size = 0.72 (minX -0.57 to
+    maxX 0.15), Y height = 2.63 (0.00 to 2.63), Z size = 0.67 (minZ -0.31 to maxZ
+    0.36).\n- Pivot/position: object positioned at (0,0,0). The bounding-box center
+    is offset from the pivot: center \u2248 (-0.21, 1.315, 0.025). In other words,
+    the prefab\u2019s base/shaft is shifted ~0.21 units toward negative X relative
+    to its local origin.\n- Footprint: roughly 0.72 \xD7 0.67 on the roof/ground
+    \u2014 allow that clearance when placing or snapping to tiles.\n- Clearance:
+    total height 2.63, so ensure no overhead collisions; allow extra clearance for
+    the cap and bend (recommend +0.2\u20130.5 units).\n- Orientation notes: chimney
+    has a noticeable bend near the top; rotation may be needed to align the bend/cap
+    with roof ridges or wind direction. The cap projects slightly beyond the shaft
+    \u2014 account for that when placing near edges.\n- Placement tips: snap base
+    to Y=0, or recenter pivot to the base center if you want symmetric placement.
+    If tiling multiple chimneys, either align using the model\u2019s bbox center
+    offset or re-zero the pivot to avoid consistent lateral offset."

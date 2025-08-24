@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33230412087108122}
   - component: {fileID: 23792688104004686}
   - component: {fileID: 64917276916236036}
+  - component: {fileID: 4066224742276314331}
   m_Layer: 0
   m_Name: SM_Bld_House_Railing_Half_01
   m_TagString: Untagged
@@ -106,3 +107,29 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43918738234547456, guid: 7abb11ea83e2e56419d01b91ab21a333, type: 2}
+--- !u!114 &4066224742276314331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257098891770210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description:\n- A narrow half-rail segment: a single
+    vertical post with a top cap and three short horizontal rails (a T-like rail
+    profile). Thin in X, tall in Y, and extends backward in Z.\n\nKey bounds & placement
+    info (object at (0,0,0)):\n- Bounds: min (-0.07, 0.00, -1.16), max (0.07, 1.03,
+    0.00)\n- Size: X \u2248 0.14 m, Y \u2248 1.03 m, Z \u2248 1.16 m\n- Sits on ground:
+    min Y = 0 (origin at floor level)\n- Front connection at origin: max Z = 0 \u2014
+    the piece extends along negative Z (open/connection face is at Z = 0)\n- Narrow
+    footprint: centered on X around origin (\xB10.07)\n\nPlacement tips:\n- Use the
+    origin/front face (Z = 0) as the attachment point to walls or next segment.\n-
+    To tile along the rail direction, translate successive pieces by (0, 0, -1.16).\n-
+    To reverse facing, rotate 180\xB0 about Y (origin/front face remains the connection).\n-
+    Collider/occlusion: a thin box approx (0.14 \xD7 1.03 \xD7 1.16) is sufficient
+    for placement snapping.\n- Be mindful of the small X extent when placing adjacent
+    prefabs so rails align horizontally."

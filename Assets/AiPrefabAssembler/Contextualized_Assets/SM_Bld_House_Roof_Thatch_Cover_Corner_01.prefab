@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1445522406057046}
-  m_IsPrefabParent: 1
 --- !u!1 &1445522406057046
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4149613865185076}
   - component: {fileID: 33528796729085864}
   - component: {fileID: 23619894353548336}
   - component: {fileID: 64225524071277392}
+  - component: {fileID: -5784169953816021712}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_Cover_Corner_01
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4149613865185076
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445522406057046}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33528796729085864
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445522406057046}
+  m_Mesh: {fileID: 4300000, guid: aa53a3e1fd3f3834c81a4820e441cf99, type: 3}
 --- !u!23 &23619894353548336
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445522406057046}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33528796729085864
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445522406057046}
-  m_Mesh: {fileID: 4300000, guid: aa53a3e1fd3f3834c81a4820e441cf99, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64225524071277392
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445522406057046}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43373184024498334, guid: 53b91b86895ceff4a8a45a25c737f2b7, type: 2}
+--- !u!114 &-5784169953816021712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445522406057046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description\n- A small thatch roof corner cover: a triangular/quarter-square
+    thatch panel with visible straw/top detail on the top face and a wooden-framed
+    underside. The piece is relatively flat and tapered (thicker at the inner corner,
+    thinner at the outer edge). There is a short support nub on the underside.\n\nKey
+    placement / integration facts (use these when snapping into a larger roof)\n-
+    Bounding box (local space): min (-4.28, -0.71, -4.28), max (0.03, 0.12, 0.03).\n 
+    - Footprint ~ 4.31 x 4.31 units (X \xD7 Z).\n  - Vertical thickness ~ 0.83 units
+    (Y).\n- Origin/pivot is at the inner (positive) corner of the piece (the model
+    extends mostly into the negative X and Z directions). Use the origin as the corner
+    anchor when placing against walls/other roof pieces.\n- Rotation: rotate around
+    Y in 90\xB0 increments to use this same piece for any roof corner orientation.\n-
+    Translation for tiling: to place an adjacent corner piece that occupies the next
+    quadrant, translate by approximately \xB14.28 units along X and/or Z (depending
+    on rotation) to align bounding boxes without gaps.\n- Vertical alignment: the
+    base sits below the origin (min Y = -0.71), so when aligning to a roof plane
+    or floor, offset by +0.71 if you want the underside to sit at world Y = 0.\n-
+    Collision/snap: use the provided bounding box for collision and snap calculations;
+    account for the small underside nub so collisions may need a tiny clearance.\n-
+    Note: background/mask is magenta (irrelevant to model)."

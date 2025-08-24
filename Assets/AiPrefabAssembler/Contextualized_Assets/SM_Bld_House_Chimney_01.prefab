@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33193549586750826}
   - component: {fileID: 23658616904900164}
   - component: {fileID: 64628228742475260}
+  - component: {fileID: 916182520069314692}
   m_Layer: 0
   m_Name: SM_Bld_House_Chimney_01
   m_TagString: Untagged
@@ -106,3 +107,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43522584314274160, guid: 32d8d45e973602e4abbd26c0ba3378f1, type: 2}
+--- !u!114 &916182520069314692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266801941185094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it is: a tall, narrow house chimney with a square base plinth,
+    a slender shaft, decorative panel on one side, and two small flue pipes at the
+    top (slightly offset/tilted).\n- Exact bounds/origin: AABB = X/Z: -0.54 \u2192
+    0.54 (footprint = 1.08 m \xD7 1.08 m), Y: 0.00 \u2192 4.15 (height = 4.15 m).
+    The object is positioned with its base on Y=0 (origin at center of the base).\n-
+    Orientation details: slightly asymmetric (one side has a relief/panel); top flues
+    lean/twist consistently \u2014 rotate prefab to present the desired face toward
+    camera/street.\n- Placement notes:\n  - Snap base to roof surface at Y = roof_height
+    (no extra vertical offset unless you want a gap).\n  - Footprint is square; ensure
+    center-to-center spacing \u2265 1.08 m to avoid bbox overlap (1.2 m+ recommended
+    for margin).\n  - Keep nearby roof geometry clear above ~4.15 m to avoid clipping;
+    if placing behind a parapet, allow extra clearance for the flues.\n  - Use the
+    base center as snap/rotation pivot for consistent alignment with other prefabs."

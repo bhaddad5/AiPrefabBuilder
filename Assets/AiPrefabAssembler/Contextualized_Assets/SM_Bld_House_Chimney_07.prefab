@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33348299100509328}
   - component: {fileID: 23584383568949138}
   - component: {fileID: 64564880437905442}
+  - component: {fileID: -6658809707933714215}
   m_Layer: 0
   m_Name: SM_Bld_House_Chimney_07
   m_TagString: Untagged
@@ -106,3 +107,30 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43320219521193274, guid: f246efbd1e40e294db17460bdebd248c, type: 2}
+--- !u!114 &-6658809707933714215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928649313076826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "SM_Bld_House_Chimney_07 \u2014 brief notes for placement\n\nWhat it
+    looks like\n- Low\u2011poly crooked chimney pipe (narrow rectangular/segmented
+    shaft with two elbows) topped by a small pointed/conical octagonal cap. Uniform
+    dark gray. Top has an octagonal opening.\n\nBounds & geometry\n- Min bounds:
+    (-0.42, 0.00, -0.30)\n- Max bounds: (0.21, 1.79, 0.38)\n- Size (W\xD7H\xD7D):
+    0.63 \xD7 1.79 \xD7 0.68 units\n- Pivot/position: object positioned at (0,0,0);
+    base sits at y = 0 (ground level)\n- Bounding-box center: approximately (-0.105,
+    0.895, 0.04) \u2014 the pivot is slightly offset from the geometric center (about
+    0.105 units to +X).\n\nPlacement tips\n- Snap Y to ground (base at 0). Because
+    the pivot is offset, position using the bounds or center rather than assuming
+    the pivot is the geometric center.\n- Small footprint (radius ~0.35) \u2014 allow
+    that clearance for roof intersections and nearby prefabs.\n- Chimney leans to
+    one side: rotate to match roof/wall orientation or to control the lean direction.\n-
+    Avoid placing directly under low eaves \u2014 cap extends upward to 1.79 units.\n-
+    Background in renders: magenta (for reference)."

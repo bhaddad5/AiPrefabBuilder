@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33539838220898012}
   - component: {fileID: 23025731082110830}
   - component: {fileID: 64096240760932508}
+  - component: {fileID: 7279679542006092002}
   m_Layer: 0
   m_Name: SM_Bld_House_Base_Corner_02
   m_TagString: Untagged
@@ -106,3 +107,30 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43937682575973874, guid: 77c0f9beece9d91448d4108d6f401689, type: 2}
+--- !u!114 &7279679542006092002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573208527356996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it is: a narrow vertical corner pillar / base corner module
+    with stacked stone/brick blocks on the outside faces. Dark gray stones with beveled
+    edges; top has a small central seam; bottom is flat/darker.\n- Bounds & size:
+    X = -0.46 \u2192 0.47 (width \u2248 0.94), Y = -2.51 \u2192 0.00 (height \u2248
+    2.51), Z = -0.47 \u2192 0.48 (depth \u2248 0.95).\n- Pivot/origin: object origin
+    is at the top center (max Y = 0). The geometric center is \u2248 (0.0, -1.255,
+    0.0) relative to origin.\n- Placement notes:\n  - When placing on a ground plane
+    (y = 0) you must raise the prefab by +2.51 units so its bottom sits on the ground
+    (or translate by +1.255 to center it if your system expects centered placement).\n 
+    - X/Z tile spacing for grid placement: use ~0.94 (X) and ~0.95 (Z) as the step
+    to avoid gaps/overlap.\n  - It\u2019s a corner piece: orient by 90\xB0 increments
+    so the brick-pattern face aligns with adjacent wall prefabs; one outside face
+    shows distinct block seams while the adjacent face is more uniform \u2014 rotate
+    accordingly to make seams match surrounding geometry.\n- Technical: preview images
+    use a fuchsia (1,0,1) background (likely alpha/mask)."

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33114769265523808}
   - component: {fileID: 23698603046264572}
   - component: {fileID: 64872613956287418}
+  - component: {fileID: 754272745151425563}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_Angled_02
   m_TagString: Untagged
@@ -106,3 +107,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43234308084654774, guid: ec42e8927c09e9f41a010bc5be7411e1, type: 2}
+--- !u!114 &754272745151425563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944094263911416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief description\n- A thin, angled thatch roof panel (~thatched surface
+    on one broad side, wooden plank/beam detail on the opposite side). Scalloped/stepped
+    profile along the long edge and small mounting/clip feet on the bottom edge.\n-
+    Sloped, rectangular segment \u2014 looks like a roof rafter/tile rather than
+    a full ridge piece.\n\nBounds & pivot\n- Local bounds: min (-1.41, -3.87, -2.50),
+    max (0.10, 0.00, 0.00).\n- Size (approx): X = 1.51, Y = 3.87, Z = 2.50 units.\n-
+    Pivot / origin sits at the max corner (approx top/front/right at local (0.10,
+    0, 0)). Top edge = Y = 0.\n\nOrientation/facing\n- One broad face = thatch (exterior),
+    opposite face = wooden planks (underside/interior).\n- The piece extends negatively
+    in X (left), Y (down), and Z (back) from its pivot.\n\nPlacement notes for composing
+    with other prefabs\n- Align pieces by the top edge (Y = 0) so their tops sit
+    flush.\n- Translate by approx X = -1.51 to tile side-by-side, and Z = -2.50 to
+    stack/step along depth; check a small overlap because geometry has clip feet
+    and scalloped edges.\n- To mirror for the opposite roof slope, rotate 180\xB0
+    around the Y axis (or flip X) and reapply the same translation steps.\n- Remember
+    pivot is at a corner \u2014 rotations will pivot around that corner, so you may
+    need to offset by half-bounds if you want center-based placement.\n- Background
+    was rendered with fuchsia (1,0,1) \u2014 object uses alpha cutouts; watch for
+    transparent edges when snapping."

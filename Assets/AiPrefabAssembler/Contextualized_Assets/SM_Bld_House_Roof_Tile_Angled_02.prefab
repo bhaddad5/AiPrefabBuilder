@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1018250429421814}
-  m_IsPrefabParent: 1
 --- !u!1 &1018250429421814
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4983543164737018}
   - component: {fileID: 33487604542183068}
   - component: {fileID: 23616376925864530}
   - component: {fileID: 64859466695892092}
+  - component: {fileID: -8375525022223508848}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Tile_Angled_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4983543164737018
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018250429421814}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33487604542183068
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018250429421814}
+  m_Mesh: {fileID: 4300000, guid: 60b7addefaf43c84a98211a05e48e784, type: 3}
 --- !u!23 &23616376925864530
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018250429421814}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33487604542183068
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1018250429421814}
-  m_Mesh: {fileID: 4300000, guid: 60b7addefaf43c84a98211a05e48e784, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64859466695892092
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018250429421814}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43075854191654902, guid: b5853cae1ca4000419fc7a87326301a1, type: 2}
+--- !u!114 &-8375525022223508848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018250429421814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Name: SM_Bld_House_Roof_Tile_Angled_02\n\nVisual summary\n- Rectangular,
+    single sloped roof tile / roof panel. Top face: brown shingled texture. Bottom
+    face: visible wooden plank framing/underside. Small fastener/peg details along
+    the long edges.\n- Long dimension runs along Y, short along X, thin/sloped in
+    Z (appears as a narrow sloping panel when viewed edge-on).\n\nBounds & size (local
+    space)\n- Min = (-1.31, -3.87, -2.50)\n- Max = ( 0.10,  0.06,  0.00)\n- Size
+    = (1.41, 3.93, 2.50)  (X, Y, Z)\n\nOrientation & pivot\n- The top/shingle surface
+    is at Z = 0 (max Z) and the underside extends to Z = -2.50. In other words the
+    \u201Ctop\u201D of the tile aligns with the prefab origin at Z = 0.\n- The prefab
+    origin is at the top/right/near end of the panel (near Max X and Max Y). The
+    tile extends predominantly in the negative Y and negative X directions from the
+    origin.\n\nPlacement tips for combining with other prefabs\n- Align the Z = 0
+    plane of this tile with the roof plane of adjacent pieces (its shingle/top face
+    is at z = 0).\n- When tiling along the long axis, place adjacent tiles by matching
+    their Y edges (remember these prefabs extend negative Y from their origin).\n-
+    Because the pivot is at a corner, either:\n  - Position by using the min/max
+    bounds directly, or\n  - Re-center the mesh if you prefer origin-centered placement.
+    Center offset = (min+max)/2 = (-0.605, -1.905, -1.25). To make the origin the
+    geometric center, translate the mesh by -(-0.605, -1.905, -1.25) = (0.605, 1.905,
+    1.25).\n- Allow small overlap or snapping for the fastener/peg areas at the long
+    edges to avoid visible gaps; edge clearance is narrow.\n- Rotation: the panel\u2019s
+    long axis is along local Y; rotating 180\xB0 around Z will flip which end attaches
+    to the ridge vs eave.\n\nQuick notes\n- Top is outward-facing at max Z. Pivot
+    at a top corner \u2014 plan offsets or re-center for grid-based placement."

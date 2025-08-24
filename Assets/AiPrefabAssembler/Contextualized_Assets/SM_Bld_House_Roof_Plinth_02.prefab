@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33957869298682448}
   - component: {fileID: 23850016061394076}
   - component: {fileID: 64919747244143978}
+  - component: {fileID: -4513956781311687570}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Plinth_02
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608381977343522}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33957869298682448
 MeshFilter:
@@ -92,9 +93,42 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608381977343522}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43587658890736116, guid: 7e22709343aa4de45a98370944807ffc, type: 2}
+--- !u!114 &-4513956781311687570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608381977343522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- Name: SM_Bld_House_Roof_Plinth_02\n- Overall shape: a narrow vertical
+    wedge/plinth \u2014 mostly rectangular in X and Y with a tapered/triangular profile
+    along the Z axis and a small chamfer on the top edge.\n- Bounds (local): min
+    (-0.46, 0.00, -0.44), max (0.46, 1.96, 0.44)\n  - Footprint (X\xD7Z): ~0.92 \xD7
+    0.88 units (centered on origin)\n  - Height (Y): 1.96 units; base sits at Y =
+    0\n- Pivot/origin: at the center of the base (object is centered in X/Z and rests
+    on Y=0) \u2014 can be placed directly on floors/sills without vertical offset.\n-
+    Orientation notes: taper/slope runs along the Z axis (front/back show the triangular
+    taper). Faces on the X sides are nearly flat rectangular panels.\n- Placement
+    tips: bounding box is tight, so align by origin to snap flush with adjacent plinths;
+    tile/array along the X axis for a continuous band, or rotate 180\xB0 around Y
+    to mirror the tapered face. Consider collision/occlusion on the tapered side
+    when placing against other geometry."

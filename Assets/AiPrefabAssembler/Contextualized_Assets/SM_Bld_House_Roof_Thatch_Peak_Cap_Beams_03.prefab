@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1432570825145818}
-  m_IsPrefabParent: 1
 --- !u!1 &1432570825145818
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4619390660666942}
   - component: {fileID: 33843126958242734}
   - component: {fileID: 23462977855207800}
   - component: {fileID: 64848027995405722}
+  - component: {fileID: -5997849748275857953}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_Peak_Cap_Beams_03
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4619390660666942
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432570825145818}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33843126958242734
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432570825145818}
+  m_Mesh: {fileID: 4300000, guid: 73aee2d4e68d87b4793e14fdc8c9f694, type: 3}
 --- !u!23 &23462977855207800
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432570825145818}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33843126958242734
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1432570825145818}
-  m_Mesh: {fileID: 4300000, guid: 73aee2d4e68d87b4793e14fdc8c9f694, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64848027995405722
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432570825145818}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43464496253811780, guid: be38ca1d8e76b8347809a28b3032600e, type: 2}
+--- !u!114 &-5997849748275857953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432570825145818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description\n- A small pair of thin wooden peak-cap beams
+    that form an inverted-V / \"A\" shape when viewed end-on. Low-profile piece (very
+    thin in Z), intended to sit on a roof ridge.\n\nBounding box & size (units =
+    same units as the prefab)\n- Min: (-1.06, -2.67, -0.18)  Max: (1.10, 1.17, 0.18)\n-
+    Full size: (2.16, 3.84, 0.36)\n- Half extents: (1.08, 1.92, 0.18)\n\nPivot /
+    origin\n- Object is positioned at (0,0,0) but the bounding-box center is offset:
+    center = (0.02, -0.75, 0). In other words the prefab origin is ~0.75 units toward
+    one end along local Y. Plan for this offset when aligning or tiling along a ridge.\n\nOrientation
+    notes\n- Long axis = local Y (3.84). Shortest axis (height) = local Z (0.36)
+    \u2014 very low profile, will sit flush on a roof.\n- Front/back views show the
+    beams cross at the ridge (center along X); use the local X for beam spread across
+    the ridge.\n\nPlacement tips\n- Align the prefab\u2019s local Y axis along the
+    roof ridge when tiling multiples.\n- Compensate for the -0.75 Y offset if you
+    want the geometric center or a particular end to sit at a world position (translate
+    by +0.75 along the prefab\u2019s local Y to center it).\n- Use the full extents
+    above for collision/packing to avoid intersections; Z clearance only \xB10.18.\n-
+    Thin geometry \u2014 normal snapping to the roof surface is likely sufficient;
+    consider small vertical offset if you need the beams to appear seated into thatch.\n\n(Background
+    color in the provided renders is solid fuchsia.)"

@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1692870790324500}
-  m_IsPrefabParent: 1
 --- !u!1 &1692870790324500
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4845504425648476}
   - component: {fileID: 33705189827724374}
   - component: {fileID: 23269655025015004}
   - component: {fileID: 64950883231080874}
+  - component: {fileID: 974238822564488743}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Tile_Angled_Half_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4845504425648476
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692870790324500}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33705189827724374
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692870790324500}
+  m_Mesh: {fileID: 4300000, guid: f346b21314fb0a241beca3d9fbbe7084, type: 3}
 --- !u!23 &23269655025015004
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692870790324500}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,58 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33705189827724374
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1692870790324500}
-  m_Mesh: {fileID: 4300000, guid: f346b21314fb0a241beca3d9fbbe7084, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64950883231080874
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692870790324500}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43856857701301316, guid: f8c041a689dc1c84dac010800325df56, type: 2}
+--- !u!114 &974238822564488743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692870790324500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description\n- Small, narrow angled roof half-piece \u2014
+    a sloped tile section with visible roof-tile texture on the sloped face and a
+    darker framed/beam underside.\n- Overall shape: thin rectangular prism that is
+    slanted/angled (a half-tile meant to sit on a roof slope or at an edge).\n\nKey
+    spatial data (local space)\n- Bounds: min (-1.31, -3.87, -1.25), max (0.10, 0.06,
+    0.00)\n- Size (extent) = (1.41, 3.93, 1.25)\n- Center = (-0.605, -1.905, -0.625)
+    (local offset from origin)\n- Half-extents = (0.705, 1.965, 0.625)\n- Top-most
+    surface is at Z = 0 (origin sits at/above the top face); most of the mesh extends
+    into negative X, Y, Z.\n\nPlacement notes for composing with other prefabs\n-
+    Origin/pivot is at the top edge/corner of the piece (Z = 0). When placing on
+    a roof, use the prefab origin as the top/outer edge reference \u2014 stacking
+    downward will place the sloped face correctly.\n- Long dimension is ~3.93 units
+    (Y axis). For tiling rows along that axis, step by ~3.93 units (or snap by 1.965
+    if centering). For side-by-side placement along the short axis, step by ~1.41
+    units.\n- Because the model is mostly in negative local space, you will usually
+    translate +0.605, +1.905, +0.625 to move its center to the scene origin if you
+    need a centered pivot.\n- This is a half/edge piece \u2014 expect to mirror (flip)
+    or use a counterpart prefab for a complementary half to form a symmetric tile
+    or ridge.\n- Watch orientation: the visible sloped/tile face and underside orientation
+    must be matched when repeating; rotating 180\xB0 will flip slope direction."

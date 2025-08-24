@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33649934850496804}
   - component: {fileID: 23661454031255968}
   - component: {fileID: 64901022658890840}
+  - component: {fileID: -4533800267995705890}
   m_Layer: 0
   m_Name: SM_Bld_House_Fireplace_01
   m_TagString: Untagged
@@ -106,3 +107,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43988981057176122, guid: 2a5e894a5333f664a9366f4763e0a1e6, type: 2}
+--- !u!114 &-4533800267995705890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991491456887154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Short description:\n- A stone fireplace with a mantel shelf, arched
+    firebox opening and flanking pilasters. Front is detailed (arch and recess),
+    back is a flat brick wall panel.\n\nBounds & size (local space):\n- X: -1.22
+    to 1.22  \u2192 width = 2.44 units\n- Y: 0.00 to 2.12   \u2192 height = 2.12
+    units (base sits on Y=0)\n- Z: 0.01 to 0.83   \u2192 depth = 0.82 units\n\nPivot/origin:\n-
+    Origin is at the horizontal center and at the base (Y=0), with the front face
+    near Z = 0.01. The back face is at Z = 0.83.\n\nPlacement notes:\n- To sit flush
+    on the floor, leave Y = 0 (no vertical offset needed).\n- To place flush against
+    a wall at world Z = W, set object Z position so its back (local Z = 0.83) matches
+    the wall: object_Z = W - 0.83.\n- Centering along X is straightforward (origin
+    is centered).\n- Allow a small epsilon when aligning to geometry (0.001\u20130.01)
+    to avoid z-fighting.\n- The front is visually detailed; place it facing the room.
+    Background magenta indicates transparent matte used in renders."

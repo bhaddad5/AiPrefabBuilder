@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1417926604728676}
-  m_IsPrefabParent: 1
 --- !u!1 &1417926604728676
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4028059853083004}
   - component: {fileID: 33632291004742270}
   - component: {fileID: 23774655991865958}
   - component: {fileID: 64837227268799474}
+  - component: {fileID: -4182196811727212703}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Tile_Angled_01
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4028059853083004
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417926604728676}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33632291004742270
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417926604728676}
+  m_Mesh: {fileID: 4300000, guid: 9c49f1345789c1646a694799dc6eded0, type: 3}
 --- !u!23 &23774655991865958
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417926604728676}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,61 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33632291004742270
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417926604728676}
-  m_Mesh: {fileID: 4300000, guid: 9c49f1345789c1646a694799dc6eded0, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64837227268799474
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417926604728676}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43021191105603816, guid: 6fd0d07459950664f8b1a06ed4c99234, type: 2}
+--- !u!114 &-4182196811727212703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417926604728676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "SM_Bld_House_Roof_Tile_Angled_01 \u2014 brief description and placement
+    notes\n\nAppearance\n- A thin, angled roof tile/slab with a shingled brown top
+    and a darker wooden-plank underside. \n- Rectangular shape in plan, sloped/thin
+    in profile. Small mounting/alignment pegs protrude from the long edges.\n\nBounds
+    & size (local space)\n- Min = (-1.31, -2.66, -2.50), Max = (0.14, 0.06, 0.00)\n-
+    Overall size (max \u2212 min) \u2248 (1.45, 2.72, 2.50)\n- Center = ( (min+max)/2
+    ) \u2248 (-0.585, -1.30, -1.25 )\n- Half-extents \u2248 (0.725, 1.36, 1.25)\n\nPivot/origin\n-
+    Object positioned at (0,0,0). The origin sits at the model\u2019s top/front/right-ish
+    corner (near Max Y and Max Z), not at the geometric center.\n- In other words:
+    origin lies at the top edge/face of the tile (useful when lining up roof ridges).\n\nOrientation
+    notes & placement tips\n- Top (shingles) faces toward the positive Y near the
+    origin; underside faces toward negative Y.\n- Because the pivot is at the top-front-right,
+    to tile/stack pieces in a grid you will typically translate by the tile\u2019s
+    extents or use (min) as the offset. Example: to place the tile so its top-front
+    corner sits at world origin, position = (0,0,0) is already correct; to align
+    its geometric center at world origin translate by -Center.\n- Small edge pegs
+    are good snap points \u2014 align corresponding edges of adjacent roof prefabs
+    to hide seams.\n- Expect to rotate copies (90\xB0/180\xB0) depending on ridge
+    direction; check texture seam orientation after rotation.\n- Depth/thickness
+    is small (Z extent ~2.50, Y extent ~2.72) \u2014 watch for z-fighting when placing
+    directly against other flat roof geometry; add a tiny offset if needed.\n\nKeep
+    these pivot and bounds values when programmatically snapping or exporting to
+    ensure consistent alignment with other prefabs."

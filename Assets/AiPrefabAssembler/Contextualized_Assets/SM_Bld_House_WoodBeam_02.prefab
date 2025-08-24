@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1586453553113116}
-  m_IsPrefabParent: 1
 --- !u!1 &1586453553113116
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4913712791943546}
   - component: {fileID: 33110212703569552}
   - component: {fileID: 23739590895452106}
   - component: {fileID: 64431905749614656}
+  - component: {fileID: 6242938610686833520}
   m_Layer: 0
   m_Name: SM_Bld_House_WoodBeam_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4913712791943546
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586453553113116}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33110212703569552
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586453553113116}
+  m_Mesh: {fileID: 4300000, guid: 7f6ccd3e616004e4dad9ab30124922b0, type: 3}
 --- !u!23 &23739590895452106
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586453553113116}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33110212703569552
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1586453553113116}
-  m_Mesh: {fileID: 4300000, guid: 7f6ccd3e616004e4dad9ab30124922b0, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64431905749614656
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586453553113116}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43334677215231484, guid: cd44940220944754f80926cd9e2d68ae, type: 2}
+--- !u!114 &6242938610686833520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586453553113116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual + placement notes for SM_Bld_House_WoodBeam_02\n\n- What
+    it is: a slender vertical wooden column / support beam with small top and bottom
+    caps. Background in renders is magenta (used as mask).\n- Orientation: long axis
+    = Y (beam stands upright in the Front/Back/Left/Right renders).\n- Bounding box
+    (local): min (-0.22, -0.01, -0.22), max (0.22, 2.51, 0.22).\n  - Height = 2.51
+    - (-0.01) = 2.52 units.\n  - Cross-section = 0.44 x 0.44 units (X x Z).\n- Pivot
+    / origin: object positioned at (0,0,0) in local space. The pivot sits at Y =
+    0, which is 0.01 units above the very bottom of the beam (bottom face at Y =
+    -0.01). The top face is at Y = +2.51.\n- Useful placement facts:\n  - To place
+    flush on ground, raise the prefab by +0.01 units (or treat pivot as 0.01 above
+    floor).\n  - For vertical stacking/tiling, center-to-center vertical offset =
+    2.52 units (top of one meets bottom of next).\n  - Horizontal/planar clearance:
+    center-to-center spacing to touch side-by-side = 0.44 units; allow extra clearance
+    if caps or trim should not intersect.\n  - Rotation: effectively rotationally
+    symmetric about Y \u2014 yaw can be changed freely without apparent mismatch.\n 
+    - Snap points: use local Y = 2.51 (top) and Y = -0.01 (bottom) as connector locations.\n-
+    Collision/placement tip: use the bounding box above for collision and snap calculations;
+    account for the small -0.01 Y offset if your engine assumes pivot at geometric
+    center."

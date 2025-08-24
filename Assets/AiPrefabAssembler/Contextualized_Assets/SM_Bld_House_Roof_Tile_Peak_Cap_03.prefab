@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1520915619223618}
-  m_IsPrefabParent: 1
 --- !u!1 &1520915619223618
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4706737097002698}
   - component: {fileID: 33008280630533188}
   - component: {fileID: 23945057038251754}
   - component: {fileID: 64323554216050532}
+  - component: {fileID: 3880072703292815104}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Tile_Peak_Cap_03
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4706737097002698
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520915619223618}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33008280630533188
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520915619223618}
+  m_Mesh: {fileID: 4300000, guid: 617a405dcc8a43544ba7cd65a61778dd, type: 3}
 --- !u!23 &23945057038251754
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520915619223618}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,60 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33008280630533188
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1520915619223618}
-  m_Mesh: {fileID: 4300000, guid: 617a405dcc8a43544ba7cd65a61778dd, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64323554216050532
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520915619223618}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43764657236099550, guid: 634763d0d37475a4a974a126d0c4b333, type: 2}
+--- !u!114 &3880072703292815104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520915619223618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description:\n- Narrow V-shaped ridge/tile peak cap (brown,
+    repeating scalloped/hex-like segments along its length). Front/back show a small
+    triangular apex; left/right show the scalloped tile faces. Looks like a short
+    roof ridge cap segment.\n\nBounding box & origin (local space):\n- Size: X =
+    0.36 (0.17 - (-0.19)), Y = 0.49 (0.38 - (-0.11)), Z = 2.50 (0.00 - (-2.50)).\n-
+    Bounds relative to origin: min = (-0.19, -0.11, -2.50), max = (0.17, 0.38, 0.00).\n 
+    - That means the piece extends 2.50 units along negative local Z from the origin,
+    \xB1~0.18 in X, +0.38 above origin and -0.11 below origin.\n\nPlacement notes
+    (useful when assembling multiples):\n- The origin sits at the forward-most face
+    (Z = 0). To butt pieces end-to-end, place the next piece so its origin aligns
+    at Z = current origin + (-2.50) (i.e., offset by -2.50 along this prefab\u2019s
+    local Z).\n- Horizontal clearance: allow ~0.36 units width per piece (can overlap
+    slightly if intended seam). Vertical clearance: ~0.49 units total; origin sits
+    ~0.11 units above the lowest geometry.\n- For a continuous ridge, align and rotate
+    pieces so their local Z axes line up end-to-end. Mirror/rotate as needed for
+    alternating seams; piece is approximately symmetrical across X but origin is
+    slightly off-center in X by 0.02.\n- Texture/normal orientation: the apex faces
+    forward/back (small triangular profile) \u2014 ensure normals/textures align
+    when tiling along the ridge.\n\nShort summary: slim V-shaped roof ridge cap,
+    2.5 units long (along local -Z from origin), ~0.36 wide, ~0.49 tall, origin located
+    at the forward edge and slightly above the bottom \u2014 snap origins end-to-end
+    along local Z for tiling."

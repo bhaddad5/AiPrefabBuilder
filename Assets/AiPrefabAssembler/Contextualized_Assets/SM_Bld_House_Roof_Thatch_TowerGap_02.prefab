@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1002475021172954}
-  m_IsPrefabParent: 1
 --- !u!1 &1002475021172954
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4607209125754524}
   - component: {fileID: 33944318081636768}
   - component: {fileID: 23947481201487270}
   - component: {fileID: 64369244677754074}
+  - component: {fileID: 728702920488943000}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_TowerGap_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4607209125754524
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002475021172954}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33944318081636768
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002475021172954}
+  m_Mesh: {fileID: 4300000, guid: 56b2357b54906ac499af16788eae888e, type: 3}
 --- !u!23 &23947481201487270
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002475021172954}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33944318081636768
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002475021172954}
-  m_Mesh: {fileID: 4300000, guid: 56b2357b54906ac499af16788eae888e, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64369244677754074
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002475021172954}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43453994711395682, guid: a2bafed73009c6e45acb0073bb87b2ac, type: 2}
+--- !u!114 &728702920488943000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002475021172954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it is: a small concave thatch roof segment with a semicircular/trough
+    \u201Ctower gap\u201D cut through the middle. Raised dark trim/overhangs run
+    along the two long edges; the center is a recessed, curved thatch surface. Looks
+    like a half-roof piece meant to sit against/around a tower opening.\n\n- Bounding
+    box & size: min (-1.41, -1.42, -2.58), max (0.15, 0.15, 0.04).\n  - Dimensions:
+    X \u2248 1.56, Y \u2248 1.57, Z \u2248 2.62 (units).\n  - Centroid \u2248 (-0.63,
+    -0.635, -1.27) relative to object origin.\n\n- Origin / orientation notes:\n 
+    - The origin is at/near the top corner of the piece (max Z \u2248 0.04). The
+    mesh extends mostly in the negative Z direction (downwards from origin).\n  -
+    The concave trough (tower gap) runs across the X\u2013Y face and is bounded by
+    raised lips on the two sides \u2014 align that trough to your tower geometry.\n 
+    - There are thin sloped ridge/overhang faces along the top edges designed to
+    butt/join with adjacent roof prefabs.\n\n- Placement tips:\n  - Snap the piece
+    so max Z (0.04) equals your roof plane height so the top trim aligns flush.\n 
+    - Position the piece so the semicircular trough lines up with the tower shaft;
+    use the raised lips as snap points to neighbors.\n  - Because the pivot is offset
+    toward one corner, account for the centroid offset (\u2248 -0.63, -0.635, -1.27)
+    if you need centered placement or grid snapping.\n\n- Visual: tan thatch center
+    with dark brown/black trim; overhangs visible from side views."

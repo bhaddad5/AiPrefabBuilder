@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 64078109971731036}
   - component: {fileID: 64495115293958754}
   - component: {fileID: 64510095569355186}
+  - component: {fileID: 1628206022244667287}
   m_Layer: 0
   m_Name: SM_Bld_House_Floor_Wood_06
   m_TagString: Untagged
@@ -198,3 +199,33 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43930001833341830, guid: 8a4beb363f85fad4eacc50488dd06281, type: 2}
+--- !u!114 &1628206022244667287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761668019985356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief description\n- A square wooden floor panel with a square cutout/opening
+    in the middle and a raised rim/frame around it. Top and bottom views show plank
+    detail; side views show it is a very thin slab.\n- Visual footprint: 2.5 x 2.5
+    units (square); thickness 0.18 units.\n\nImportant placement info\n- Bounds:
+    min (-2.50, -0.09, 0.00) \u2014 max (0.00, 0.09, 2.50).\n  - Footprint spans
+    X = 2.5 units (from -2.50 to 0.00) and Z = 2.5 units (from 0.00 to 2.50).\n 
+    - Vertical thickness = 0.18 units (top Y = +0.09, bottom Y = -0.09).\n- Pivot/origin:
+    located on one corner/edge of the footprint (at X = 0 and Z = 0). In other words
+    the origin sits at one corner of the square tile rather than its center.\n- Snapping
+    / tiling: place multiples using 2.5-unit steps along X and Z to form a grid.
+    If the prefab\u2019s origin is used as the snap point, neighbors will need offsets
+    of \xB12.5 in X/Z depending on orientation.\n- Vertical alignment: the mesh is
+    centered on Y = 0. If you want the bottom of the panel flush with world Y = 0,
+    translate the prefab up by +0.09.\n- Rotation: rotating 90\xB0 will move the
+    corner-origin relative to the grid \u2014 verify offsets after rotation (still
+    tileable by 2.5 units but origin corner rotates with the mesh).\n- Use the given
+    bounds for collision or occlusion culling; actual visible geometry is very thin
+    so collision can be simplified to a flat box of thickness 0.18."

@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1304566019770836}
-  m_IsPrefabParent: 1
 --- !u!1 &1304566019770836
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4186163211849008}
   - component: {fileID: 33460540393799766}
   - component: {fileID: 23658867417888534}
   - component: {fileID: 64861995277145540}
+  - component: {fileID: -4088793027340540001}
   m_Layer: 0
   m_Name: SM_Bld_House_Stairs_Stone_Block_01
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4186163211849008
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304566019770836}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33460540393799766
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304566019770836}
+  m_Mesh: {fileID: 4300000, guid: 02c5ea00bc7e02c46bff2cc81692b5c1, type: 3}
 --- !u!23 &23658867417888534
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304566019770836}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,55 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33460540393799766
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1304566019770836}
-  m_Mesh: {fileID: 4300000, guid: 02c5ea00bc7e02c46bff2cc81692b5c1, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64861995277145540
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304566019770836}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43048917205580720, guid: fa552295da1636340be69e263dc9c8c2, type: 2}
+--- !u!114 &-4088793027340540001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304566019770836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- Summary: A compact stone block / two-slab stair piece \u2014 basically
+    a rectangular masonry block with a slight top bevel and seam between two stacked
+    slabs. Dark grey stone material.\n\n- Bounds & size (local space): X width =
+    1.90 (min -0.01, max 1.89), Y height = 1.27 (min 0.00, max 1.27), Z depth = 1.90
+    (min -0.95, max 0.95).\n\n- Origin / placement anchor: object positioned at (0,0,0)
+    with base on Y = 0. The origin is at the near-left face (X \u2248 0 / very slightly
+    inside at -0.01) and centered on Z (Z = 0). In other words the left side of the
+    block is at the local X origin; block extends ~1.90 units positive X.\n\n- Tiling
+    / snapping notes:\n  - Place copies side-by-side along +X by offsetting their
+    origins by ~1.90 in X (e.g., next origin at +1.90,0,0).\n  - Place copies along
+    Z by \xB11.90 in Z (because Z is centered).\n  - Stack vertically by +1.27 in
+    Y (top sits at Y = 1.27).\n  - If you need symmetric placement around an origin,
+    recenter the prefab to its geometric center (approx X = 0.94, Y = 0.635, Z =
+    0.0).\n\n- Orientation: front/back/top are visually distinct (top has bevel/crack)
+    \u2014 rotate as needed to align the visible seam/bevel direction with neighboring
+    pieces.\n\n- Misc: small ~0.01 unit negative X bleed \u2014 watch precision snapping
+    when aligning tightly. Background in the renders is fuchsia (magenta)."

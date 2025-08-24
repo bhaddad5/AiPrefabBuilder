@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33511798898256990}
   - component: {fileID: 23894633547763674}
   - component: {fileID: 64464766471050600}
+  - component: {fileID: -497105530347636961}
   m_Layer: 0
   m_Name: SM_Bld_House_Glass_01
   m_TagString: Untagged
@@ -26,12 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447969911035710}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33511798898256990
 MeshFilter:
@@ -52,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -90,9 +93,42 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447969911035710}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43656754995393432, guid: 25a446a7d2a33ee4c9b2a2d05406b8f0, type: 2}
+--- !u!114 &-497105530347636961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447969911035710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief description:\n- A thin rectangular glass window/pane (purple-tinted)
+    with a slightly darker edge. Appearance is a translucent/masked glass material,
+    centered on the prefab origin.\n\nImportant placement info:\n- Bounds: width
+    = 0.90 (X: -0.45 \u2192 0.45), height = 1.08 (Y: -0.54 \u2192 0.54), thickness
+    Z = 0.0 (Z: 0 \u2192 0) \u2014 it's a flat plane at Z = 0.\n- Pivot/origin: centered
+    at (0,0,0).\n- Normals / visibility: single flat surface \u2014 expect backface
+    culling; verify which side faces outward (front/back images show the visible
+    textured faces). May need a double-sided material if it must be visible from
+    both sides.\n- Placement tips: offset slightly when snapping to walls to avoid
+    Z-fighting (give it a small thickness or translate by ~0.01 units along normal).
+    Align center to desired mounting point or translate by \xB10.5*width/height for
+    edge-aligned placement. Scale uniformly to preserve aspect ratio.\n- Collision:
+    likely none or minimal; add collision proxy if needed for physics/occlusion."

@@ -1,27 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1994565526208044}
-  m_IsPrefabParent: 1
 --- !u!1 &1994565526208044
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4243977779853206}
   - component: {fileID: 33167101743412320}
   - component: {fileID: 23079449866866828}
   - component: {fileID: 64887007486515082}
+  - component: {fileID: -8670693980177158392}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Tile_Angled_Edge_02
   m_TagString: Untagged
@@ -31,29 +22,46 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4243977779853206
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994565526208044}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33167101743412320
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994565526208044}
+  m_Mesh: {fileID: 4300000, guid: 5672dfe9b6ed9ab428d51b8247c2a747, type: 3}
 --- !u!23 &23079449866866828
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994565526208044}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 71e41e43b459a244abaf5acca76b89ee, type: 2}
   m_StaticBatchInfo:
@@ -63,9 +71,11 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -74,24 +84,58 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33167101743412320
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994565526208044}
-  m_Mesh: {fileID: 4300000, guid: 5672dfe9b6ed9ab428d51b8247c2a747, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64887007486515082
 MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994565526208044}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 5
   m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
+  m_CookingOptions: 30
   m_Mesh: {fileID: 43910733299281968, guid: d00f30370f1923745963bb2ad39c3068, type: 2}
+--- !u!114 &-8670693980177158392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994565526208044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "Brief visual description\n- Long, narrow angled roof-edge strip made
+    of repeating square/rounded tile segments. It\u2019s thin in thickness, slightly
+    sloped along its long axis, with small attachment pegs/protrusions along one
+    long side (used for snapping/overlap).\n- Top/bottom views show a narrow profile;
+    side views show a stacked row of tiles; front/back show the whole piece is tilted/angled.\n\nBounds
+    & sizes (local-space)\n- Min = (-1.40, -3.78, -0.06), Max = (0.09, 0.15, 0.50)\n-
+    Size (extents) = X: 1.49, Y: 3.93, Z: 0.56\n- Bounding-box center (relative to
+    origin) = (-0.655, -1.815, 0.22)\n\nPlacement notes (useful for tiling/assembly)\n-
+    The origin (0,0,0) sits near the piece\u2019s positive X/Y corner; the geometry
+    extends primarily into negative X and negative Y. So when you place it expecting
+    the origin to be at the piece center, you must offset by ~(-0.655, -1.815, 0.22)
+    to center it, or by (1.40, 3.78, 0.06) to move the min-corner to the origin.\n-
+    Long axis is along local Y (3.93 units). Align this axis with the roof edge direction
+    when tiling.\n- Small pegs/protrusions on one long side indicate the mating side
+    \u2014 orient so these face the surface or neighbor prefab that accepts them.\n-
+    Low height (0.56) means minimal vertical clearance; rotate/flip carefully if
+    you need the slope reversed (piece is tilted along its length).\n- Snap hints:
+    use the positive-X/positive-Y corner as the reference anchor if assembling from
+    the prefab\u2019s origin; otherwise apply the bounding-center offset above for
+    symmetric placement."

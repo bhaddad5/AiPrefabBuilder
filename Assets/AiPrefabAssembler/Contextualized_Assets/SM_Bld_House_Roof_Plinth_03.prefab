@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33911693990550750}
   - component: {fileID: 23066055159474284}
   - component: {fileID: 64925772065571596}
+  - component: {fileID: 2063551409425490937}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Plinth_03
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204017302462980}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33911693990550750
 MeshFilter:
@@ -92,9 +93,41 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204017302462980}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43734743241749504, guid: 8c6a0dec129cb6f418337d2556ef4f58, type: 2}
+--- !u!114 &2063551409425490937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204017302462980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiMetadata: "- What it is: a tall, narrow roof plinth/post piece \u2014 basically
+    a vertical rectangular/tapered column.\n- Bounds & footprint: extents from (-0.46,
+    0.00, -0.44) to (0.46, 2.88, 0.44). Footprint \u2248 0.92 m \xD7 0.88 m, height
+    2.88 m.\n- Origin & vertical alignment: object origin is at (0,0,0) and its bottom
+    sits at Y = 0 (ground-aligned). Use the origin to snap to ground or other prefabs.\n-
+    Shape details: appears slightly tapered/triangular on the front/back (asymmetric
+    along the forward/back axis) with largely flat left/right faces. Top face is
+    small and slightly offset.\n- Placement notes: because the piece is asymmetric
+    front-to-back, you may need to rotate by 180\xB0 or mirror when repeating or
+    lining up with adjacent modules. Snap by center or adjust to edge offsets (\xB10.46,
+    0, \xB10.44) if you want edge-to-edge placement.\n- Rendering note: images have
+    fuchsia background (1,0,1) for masking."
