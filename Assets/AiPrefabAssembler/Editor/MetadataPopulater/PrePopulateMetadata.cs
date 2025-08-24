@@ -9,20 +9,41 @@ using UnityEngine.Profiling.Memory.Experimental;
 public static class PrePopulateMetadata
 {
 	[MenuItem("AI Prefab Assembly/Add Metadata To Selected Objects", false, 300)]
-	public static async void AddMetadataToSelections()
+	public static void AddMetadataToSelections()
 	{
 		SetMetadataOnSelections(false);
 	}
 
 	[MenuItem("AI Prefab Assembly/Override Metadata on Selected Objects", false, 300)]
-	public static async void OverrideMetadataOnSelections()
+	public static void OverrideMetadataOnSelections()
 	{
 		SetMetadataOnSelections(true);
 	}
 
+	[MenuItem("AI Prefab Assembly/Clear All Metadata", false, 303)]
+	public static void ClearAllMetadata()
+	{
+		var prefabs = Helpers.GetAllSelectedPrefabs();
+		if (prefabs.Count == 0)
+		{
+			Debug.LogError("No prefabs selected!");
+			return;
+		}
+
+		foreach(var p in prefabs)
+		{
+			var comp = p.GetComponent<AiMetadataFlag>();
+			if (comp)
+			{
+				AiMetadataFlag.DestroyImmediate(comp, true);
+				EditorUtility.SetDirty(p);
+			}
+		}
+	}
+
 	private static async void SetMetadataOnSelections(bool overrideValues)
 	{
-		var prefabs = GetAllSelectedPrefabs();
+		var prefabs = Helpers.GetAllSelectedPrefabs();
 		if (prefabs.Count == 0)
 		{
 			Debug.LogError("No prefabs selected!");
@@ -48,35 +69,11 @@ public static class PrePopulateMetadata
 
 			flag.AiMetadata = metadata;
 
+			EditorUtility.SetDirty(prefabs[i]);
+
 			Debug.Log($"Completed Metadata on {prefabs[i].name}!");
 		}
 
 		Debug.Log("Done!");
-	}
-
-	private static List<GameObject> GetAllSelectedPrefabs()
-	{
-		var results = new List<GameObject>();
-		var seenPaths = new HashSet<string>();
-
-
-		// 1) Project selection prefab assets
-		foreach (var obj in Selection.GetFiltered<GameObject>(SelectionMode.Assets))
-		{
-			var path = AssetDatabase.GetAssetPath(obj);
-			if (string.IsNullOrEmpty(path)) continue;
-			if (!path.EndsWith(".prefab", System.StringComparison.OrdinalIgnoreCase)) continue;
-
-			var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-			if (!go) continue;
-
-			var type = PrefabUtility.GetPrefabAssetType(go);
-			if (type == PrefabAssetType.NotAPrefab) continue; // safety
-
-			if (seenPaths.Add(path))
-				results.Add(go);
-		}
-
-		return results;
 	}
 }

@@ -20,7 +20,7 @@ public static class TextureRenderer
 	/// <param name="isolateTarget">Temporarily render only the target by isolating it to a layer.</param>
 	/// <param name="isolateLayer">Layer index to use for isolation (defaults to 31).</param>
 	private static Dictionary<string, Texture2D> RenderSixViews(
-		GameObject target, Camera cam, int size = 128, float paddingPercent = 0.05f,
+		GameObject target, Camera cam, int size = 256, float paddingPercent = 0.05f,
 		bool transparentBackground = true, bool isolateTarget = true, int isolateLayer = 31)
 	{
 		if (!target) throw new System.ArgumentNullException(nameof(target));

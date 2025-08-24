@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 public static class MetadataRequester
@@ -16,13 +18,15 @@ public static class MetadataRequester
 
 		var ob = GameObject.Instantiate(prefab);
 
-		Dictionary<string, Texture2D> six = TextureRenderer.RenderAllSides(prefab);
+		Dictionary<string, Texture2D> six = TextureRenderer.RenderAllSides(ob);
+
+		//TestRenderToFiles(six, ob.name);
 
 		Dictionary<string, BinaryData> converted = new Dictionary<string, BinaryData>();
 
 		foreach(var t in six)
 		{
-			converted[t.Key] = Texture2DToPngBinaryData(t.Value);
+			converted[t.Key] = Texture2DToJPGBinaryData(t.Value);
 		}
 
 		var bounds = GetBoundsRecursive(ob);
@@ -33,23 +37,37 @@ public static class MetadataRequester
 			$"Keep your answer brief, as it will be fed raw into AI. " +
 			$"The prefab is named {prefab.name}. " +
 			$"The min bounds is {bounds.min}, the max bounds is {bounds.max}.  The object is positioned at (0,0,0). " +
-			$"Following this are images rendering it.";
-
-		//Debug.Log(prompt);
+			$"Following this are images rendering it. The background color is fucia(1,0,1).";
 
 		var res = await AiRequestBackend.OpenAIChatSdk.AskImagesAsync(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), prompt, converted);
 
 		return res;
 	}
 
+	private static void TestRenderToFiles(Dictionary<string, Texture2D> six, string name)
+	{
+		string folder = Path.Combine(Application.streamingAssetsPath, "Test Renders");
+		if (!Directory.Exists(folder))
+			Directory.CreateDirectory(folder);
+
+		foreach (var r in six)
+		{
+			string filePath = Path.Combine(folder, $"{name}-{r.Key}.jpg");
+
+			Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+			File.WriteAllBytes(filePath, Texture2DToJPGBinaryData(r.Value).ToArray());
+		}
+	}
+
 	/// <summary>
-	/// Turn a Texture2D into BinaryData with PNG bytes. MIME is "image/png".
+	/// Turn a Texture2D into BinaryData with JPG bytes. MIME is "image/jpeg".
 	/// </summary>
-	private static BinaryData Texture2DToPngBinaryData(Texture2D tex, bool makeReadableIfNeeded = true)
+	private static BinaryData Texture2DToJPGBinaryData(Texture2D tex, bool makeReadableIfNeeded = true)
 	{
 		if (tex == null) throw new System.ArgumentNullException(nameof(tex));
 
-		Texture2D src = tex;
+		var flat = Flatten(tex);
+		Texture2D src = flat;
 
 		if (!tex.isReadable)
 		{
@@ -57,12 +75,12 @@ public static class MetadataRequester
 				throw new System.InvalidOperationException("Texture is not readable. Enable Read/Write or set makeReadableIfNeeded=true.");
 
 			// Make a readable copy
-			var rt = RenderTexture.GetTemporary(tex.width, tex.height, 0, RenderTextureFormat.ARGB32);
+			var rt = RenderTexture.GetTemporary(tex.width, tex.height, 0, RenderTextureFormat.RG32);
 			var prev = RenderTexture.active;
 			Graphics.Blit(tex, rt);
 			RenderTexture.active = rt;
 
-			src = new Texture2D(tex.width, tex.height, TextureFormat.RGBA32, false);
+			src = new Texture2D(tex.width, tex.height, TextureFormat.RG32, false);
 			src.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
 			src.Apply();
 
@@ -70,10 +88,31 @@ public static class MetadataRequester
 			RenderTexture.ReleaseTemporary(rt);
 		}
 
-		byte[] pngBytes = src.EncodeToPNG();
+		byte[] jpgBytes = src.EncodeToJPG(90);
 		if (src != tex) Texture2D.DestroyImmediate(src); // dispose temp copy
+		Texture2D.DestroyImmediate(flat); // dispose temp copy
 
-		return BinaryData.FromBytes(pngBytes); // MIME is "image/png"
+		return BinaryData.FromBytes(jpgBytes); // MIME is "image/jpg"
+	}
+
+	private static Texture2D Flatten(Texture2D src)
+	{
+		Color bg = new Color(1f, 0f, 1f);
+
+		var w = src.width; var h = src.height;
+		var dst = new Texture2D(w, h, TextureFormat.RGB24, false, false);
+		var p = src.GetPixels32();
+		for (int i = 0; i < p.Length; i++)
+		{
+			// Unpremultiplied alpha blend: out = a*fg + (1-a)*bg
+			float a = p[i].a / 255f;
+			byte r = (byte)(a * p[i].r + (1f - a) * bg.r * 255f);
+			byte g = (byte)(a * p[i].g + (1f - a) * bg.g * 255f);
+			byte b = (byte)(a * p[i].b + (1f - a) * bg.b * 255f);
+			p[i] = new Color32(r, g, b, 255);
+		}
+		dst.SetPixels32(p); dst.Apply();
+		return dst;
 	}
 
 	private static Bounds GetBoundsRecursive(GameObject root)

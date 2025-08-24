@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33614351013977504}
   - component: {fileID: 23032352374969620}
   - component: {fileID: 64390174521710812}
-  - component: {fileID: -3099912686775044130}
   m_Layer: 0
   m_Name: SM_Bld_House_Floor_Wood_01
   m_TagString: Untagged
@@ -107,16 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43850282638961380, guid: 3ef8865f574b81d4c9636e5174868630, type: 2}
---- !u!114 &-3099912686775044130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930935673161632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AiMetadata: 

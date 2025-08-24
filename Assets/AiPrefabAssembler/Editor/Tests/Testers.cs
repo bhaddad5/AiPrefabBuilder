@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static Codice.Client.BaseCommands.BranchExplorer.Layout.BrExLayout;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.Rendering;
 
 public static class Testers
 {
@@ -22,12 +19,15 @@ public static class Testers
 		string testStr = "[name:SM_Bld_House_Base_Corner_01, pos:(-2.52;0.00;-2.52), euler:(0;0;0)]\r\n[name:SM_Bld_House_Base_Corner_01, pos:(2.52;0.00;-2.52), euler:(0;90;0)]\r\n[name:SM_Bld_House_Base_Corner_01, pos:(2.52;0.00;2.52), euler:(0;180;0)]\r\n[name:SM_Bld_House_Base_Corner_01, pos:(-2.52;0.00;2.52), euler:(0;270;0)]\r\n[name:SM_Bld_House_Wall_01, pos:(-1.26;0.00;-2.52), euler:(0;0;0)]\r\n[name:SM_Bld_House_Wall_Door_01, pos:(1.26;0.00;-2.52), euler:(0;0;0)]\r\n[name:SM_Bld_House_Wall_01, pos:(-1.26;0.00;2.52), euler:(0;180;0)]\r\n[name:SM_Bld_House_Wall_01, pos:(1.26;0.00;2.52), euler:(0;180;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(-2.52;0.00;-1.26), euler:(0;90;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(-2.52;0.00;1.26), euler:(0;90;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(2.52;0.00;-1.26), euler:(0;270;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(2.52;0.00;1.26), euler:(0;270;0)]\r\n[name:SM_Bld_House_Floor_Wood_01, pos:(0.00;0.00;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Roof_Thatch_Angled_01, pos:(0.00;2.60;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Roof_Thatch_Angled_01, pos:(0.00;2.60;0.00), euler:(0;180;0)]\r\n[name:SM_Bld_House_Roof_Thatch_Peak_Cap_01, pos:(0.00;2.90;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Chimney_Base_01, pos:(0.80;2.50;0.60), euler:(0;0;0)]\r\n[name:SM_Bld_House_Chimney_01, pos:(0.80;3.20;0.60), euler:(0;0;0)]\r\n[name:SM_Bld_House_Fireplace_01, pos:(-1.40;0.00;1.00), euler:(0;90;0)]\r\n[name:SM_Bld_House_WoodBeam_01, pos:(0.00;0.00;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Supports_01, pos:(2.20;-0.02;2.20), euler:(0;90;0)]";
 
 		FinalResultPrefabBuilder.BuildPrefabFromInstructions(testStr);
+
+		Debug.Log("Done!");
 	}
+
 	[MenuItem("AI Prefab Assembly/Test Generate Object Metadata", false, 1000)]
 	public static async void TestGenerateObjectMetadata()
 	{
-		var obj = Selection.activeObject as GameObject;
-		if (obj == null || PrefabUtility.GetPrefabAssetType(obj) == PrefabAssetType.NotAPrefab)
+		var obj = Helpers.GetSelectedPrefab();
+		if(obj == null)
 		{
 			Debug.LogError("No prefab selected!");
 			return;
@@ -42,8 +42,8 @@ public static class Testers
 	[MenuItem("AI Prefab Assembly/Test Texture Rendering", false, 1000)]
 	public static void TextTextureRendering()
 	{
-		var obj = Selection.activeObject as GameObject;
-		if (obj == null || PrefabUtility.GetPrefabAssetType(obj) == PrefabAssetType.NotAPrefab)
+		var obj = Helpers.GetSelectedPrefab();
+		if (obj == null)
 		{
 			Debug.LogError("No prefab selected!");
 			return;
@@ -114,5 +114,6 @@ public static class Testers
 
 		GameObject.DestroyImmediate(inst);
 
+		Debug.Log("Done!");
 	}
 }

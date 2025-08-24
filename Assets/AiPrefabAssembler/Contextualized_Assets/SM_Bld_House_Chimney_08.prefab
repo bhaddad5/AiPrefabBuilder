@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33096405926862204}
   - component: {fileID: 23498646986749540}
   - component: {fileID: 64085129549333688}
-  - component: {fileID: 124779686886836862}
   m_Layer: 0
   m_Name: SM_Bld_House_Chimney_08
   m_TagString: Untagged
@@ -107,30 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43899273519260168, guid: 03395e6161157d148bdf958987e0e73e, type: 2}
---- !u!114 &124779686886836862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591940227894830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A narrow, vertical chimney column ~2.63 units
-    tall with a rectangular footprint ~0.72 (X) \xD7 0.67 (Z) units. Bottom sits
-    at Y = 0 (so it will sit directly on a roof/floor without Y offset).\n\nImportant
-    placement data (useful for snapping/tiling):\n- Local AABB: min (-0.57, 0.00,
-    -0.31), max (0.15, 2.63, 0.36).\n- Size (extent): X = 0.72, Y = 2.63, Z = 0.67.\n-
-    Bounding box center (local) = (-0.21, 1.315, 0.025) \u2014 the pivot/origin is
-    not centered horizontally.\n- Origin is at base level (Y=0) but offset toward
-    the +X face (0.15 units from the right face) and slightly toward the -Z face
-    (0.31 units from the front).\n- World placement formula: worldMin = worldPos
-    + minBounds, worldMax = worldPos + maxBounds.\n\nPractical tips:\n- No vertical
-    adjustment needed to place on a surface (Y already at base).\n- Because the origin
-    is offset, when you place/rotate multiple chimneys you will likely need to either
-    translate by the center offset or parent them to a centered empty GameObject
-    for even spacing/rotation.\n- Use the AABB extents above to avoid overlaps when
-    arranging multiple copies."

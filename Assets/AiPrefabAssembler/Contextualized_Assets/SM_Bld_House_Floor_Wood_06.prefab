@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 64078109971731036}
   - component: {fileID: 64495115293958754}
   - component: {fileID: 64510095569355186}
-  - component: {fileID: 3726241617667861209}
   m_Layer: 0
   m_Name: SM_Bld_House_Floor_Wood_06
   m_TagString: Untagged
@@ -199,32 +198,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43930001833341830, guid: 8a4beb363f85fad4eacc50488dd06281, type: 2}
---- !u!114 &3726241617667861209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761668019985356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AiMetadata: "Short visual/mesh summary\n- Name: SM_Bld_House_Floor_Wood_06 \u2014
-    likely a wooden floor tile (images blank/unreadable).\n- Axis-aligned bounds:
-    X [-2.50, 0.00], Y [-0.09, 0.09], Z [0.00, 2.50].\n- Footprint: 2.5 \xD7 2.5
-    (X by Z). Thickness: 0.18 (Y extent).\n- Pivot/origin: at the corner where X
-    = 0 and Z = 0 (and Y = 0 is mid-height). In other words the tile extends negative
-    X and positive Z from the origin.\n\nPlacement notes (useful when composing multiple
-    prefabs)\n- Tile grid spacing: place tiles in a grid using 2.5-unit increments
-    along X and Z. Adjacent tile offsets are \xB12.5 on X or Z depending on direction.\n-
-    Center offset: the tile center is at (-1.25, 0, 1.25) relative to the origin.
-    To move the tile so its center is at the scene origin, translate by (+1.25, 0,
-    -1.25).\n- Floor bottom flush: bottom is at Y = -0.09. To make the bottom sit
-    at world Y = 0, translate Y by +0.09 (combine with center shift if needed).\n-
-    Rotation: rotating 90\xB0 will swap the negative-X / positive-Z orientation;
-    account for pivot-at-corner when snapping.\n- Collision/snapping: pivot at a
-    corner is convenient for corner-based snapping but remember the origin is not
-    the tile center.\n\nIf you need a diagram or exact transform examples for placing
-    N\xD7M tiles, tell me the grid size and desired origin (corner vs center)."

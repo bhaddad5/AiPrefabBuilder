@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33178368875951090}
   - component: {fileID: 23089663675390084}
   - component: {fileID: 64098544533175666}
-  - component: {fileID: -628179272612079563}
   m_Layer: 0
   m_Name: SM_Bld_House_Base_Corner_01
   m_TagString: Untagged
@@ -107,25 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43709001009239194, guid: 9512303a8689f594f8d5fbf52177f3e2, type: 2}
---- !u!114 &-628179272612079563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274789955873204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AiMetadata: "- Prefab: SM_Bld_House_Base_Corner_01 \u2014 a house/base corner piece.\n-
-    Bounds: min (-0.45, 0.00, -0.45), max (0.45, 1.27, 0.45).\n- Footprint/size:
-    0.90 x 0.90 units on X/Z, height 1.27 units.\n- Origin/pivot: at (0,0,0). Pivot
-    is centered horizontally (X/Z = 0) and sits on the floor (min Y = 0).\n- Placement
-    tips:\n  - Snap centers on a 0.9-unit grid (move by \xB10.9 on X or Z) to tile
-    without gaps.\n  - Rotate in 90\xB0 increments to orient the corner for different
-    quadrants.\n  - Because pivot is at the base, vertical placement is simple (Y
-    = 0 aligns to ground); non-uniform scaling will shift the top but base remains
-    at Y = 0.\n  - Add a tiny offset (0.001\u20130.01) if needed to avoid z-fighting
-    with adjacent meshes."

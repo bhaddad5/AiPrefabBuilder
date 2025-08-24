@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33230412087108122}
   - component: {fileID: 23792688104004686}
   - component: {fileID: 64917276916236036}
-  - component: {fileID: -7434173000005515475}
   m_Layer: 0
   m_Name: SM_Bld_House_Railing_Half_01
   m_TagString: Untagged
@@ -107,32 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43918738234547456, guid: 7abb11ea83e2e56419d01b91ab21a333, type: 2}
---- !u!114 &-7434173000005515475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257098891770210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual/transform summary:\n- Name: SM_Bld_House_Railing_Half_01
-    \u2014 a narrow half-length railing section (likely vertical posts + horizontal
-    rails).\n- Bounds size: X = 0.14 (\u22120.07 \u2192 0.07), Y = 1.03 (0 \u2192
-    1.03), Z = 1.16 (\u22121.16 \u2192 0).\n- Origin/pivot: at (0,0,0) = bottom center
-    of the front face. The mesh extends backward along negative Z from the origin.\n\nPlacement
-    notes (useful for tiling with other prefabs):\n- Align Y = 0 to place flush on
-    the floor/ground.\n- Center X = 0 lines up rails horizontally; the piece is 0.14m
-    wide.\n- Tile along the Z axis with a stride of 1.16 units (place next piece
-    at +/\u22121.16 in Z). Because this piece extends to negative Z, place the next
-    unrotated piece at Z \u22121.16 to continue that direction; to continue in +Z,
-    rotate 180\xB0 about Y and place at Z +1.16.\n- Origin at the front edge makes
-    this ideal as an end/half segment \u2014 expect to need a matching half or full
-    segment to close a run or form corners.\n- If you need corners or continuous
-    straight runs, use a corner prefab or a full-length railing; avoid simply rotating
-    90\xB0 without checking connections (pivot is at an end, not center).\n- Small
-    width means collision is thin; watch for intersections with thicker neighboring
-    geometry or required railing posts at joints."

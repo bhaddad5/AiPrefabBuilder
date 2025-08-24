@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33817863972678872}
   - component: {fileID: 23122951253906792}
   - component: {fileID: 64006285945842410}
-  - component: {fileID: -5993194475244195848}
   m_Layer: 0
   m_Name: SM_Bld_House_Roof_Thatch_01
   m_TagString: Untagged
@@ -107,29 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43408921412955600, guid: 71cce8d52c7e22a4eaa3175d583e2e71, type: 2}
---- !u!114 &-5993194475244195848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892720095914000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a single sloped thatch roof section (SM_Bld_House_Roof_Thatch_01).
-    Pivot/origin is at the piece\u2019s highest/top outer corner (Z = 0).\n\n- Bounds
-    & size (local space): min (-2.55, -2.68, -2.50), max (0.18, 0.06, 0.00). Size
-    = approx (2.73, 2.74, 2.50) in X, Y, Z.\n\n- Orientation/placement notes:\n 
-    - The mesh lies entirely in negative space from the origin in all axes except
-    slight positive margins (X up to +0.18, Y up to +0.06). The top ridge/eave is
-    at Z = 0 (origin).\n  - When tiling or joining pieces, align neighbor piece edges
-    to the min/max bounds (e.g., match this piece\u2019s max X/Y/Z to another piece\u2019s
-    min X/Y/Z or vice versa).\n  - Because the origin sits at the top edge, translate
-    by roughly (+2.55, +2.68, +2.50) to move the piece so its far corner sits at
-    world origin or to place its bottom/lower corner at a given point.\n  - Useful
-    for snapping: use the bounding-box corners as snap points (particularly Z = 0
-    as top reference) and watch the ~0.18 and ~0.06 positive offsets when mirroring/rotating
-    pieces."
