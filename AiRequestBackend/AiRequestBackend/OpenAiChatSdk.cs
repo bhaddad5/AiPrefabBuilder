@@ -85,13 +85,18 @@ namespace AiRequestBackend
 
 			ChatTool buildSubPrefab = ChatTool.CreateFunctionTool(
 				functionName: nameof(Tools.BuildPrefabSubAssembly),
-				functionDescription: "Build a prefab sub-assembly given instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part",
+				functionDescription: "Build a prefab sub-assembly with instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part. If it looks good, add it's info to your list of parts.  If the screenshots returned look wrong, don't use it and make another one.",
+				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"instructions\": {\"type\": \"string\",\"description\": \"The prefab creation instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part.\"}},\"required\": [ \"instructions\" ]}"));
+
+			ChatTool attemptBuild = ChatTool.CreateFunctionTool(
+				functionName: nameof(Tools.AttemptFinalBuild),
+				functionDescription: "Try building the final prefab with instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part. If it looks good, return these instructions as your final response.  If something about it looks wrong, try fixing it and call this function again.",
 				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"instructions\": {\"type\": \"string\",\"description\": \"The prefab creation instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part.\"}},\"required\": [ \"instructions\" ]}"));
 
 
 			var options = new ChatCompletionOptions
 			{
-				Tools = { getPartsMetadata  }
+				Tools = { getPartsMetadata, buildSubPrefab, attemptBuild }
 			};
 
 			bool loop;
@@ -134,11 +139,35 @@ namespace AiRequestBackend
 								{
 									var args = JsonDocument.Parse(call.FunctionArguments);
 
-									progressCallback($"BuildPrefabSubAssembly Resq: {args.RootElement.GetProperty("instructions").ToString()}");
+									progressCallback($"Prefab Build Resq: {args.RootElement.GetProperty("instructions").ToString()}");
 
 									var responseToAi = Tools.BuildPrefabSubAssembly(impl, args.RootElement.GetProperty("instructions").ToString());
 
-									progressCallback($"GetPartsMetadata Resp: {responseToAi.Info}");
+									progressCallback($"Prefab Build Resp: {responseToAi.Info}");
+
+									List<ChatMessageContentPart> msgs = new List<ChatMessageContentPart>();
+									msgs.Add(ChatMessageContentPart.CreateTextPart(responseToAi.Info));
+									foreach (var id in responseToAi.Renders)
+									{
+										msgs.Add(ChatMessageContentPart.CreateTextPart(id.Key));
+										msgs.Add(ChatMessageContentPart.CreateImagePart(
+											id.Value, // Base64-encoded bytes
+											"image/jpg" // MIME type
+										));
+									}
+
+									messages.Add(new ToolChatMessage(call.Id, msgs));
+									break;
+								}
+							case nameof(Tools.AttemptFinalBuild):
+								{
+									var args = JsonDocument.Parse(call.FunctionArguments);
+
+									progressCallback($"AttemptFinalBuild Resq: {args.RootElement.GetProperty("instructions").ToString()}");
+
+									var responseToAi = Tools.AttemptFinalBuild(impl, args.RootElement.GetProperty("instructions").ToString());
+
+									progressCallback($"AttemptFinalBuild Resp: {responseToAi.Info}");
 
 									List<ChatMessageContentPart> msgs = new List<ChatMessageContentPart>();
 									msgs.Add(ChatMessageContentPart.CreateTextPart(responseToAi.Info));

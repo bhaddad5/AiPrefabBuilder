@@ -22,5 +22,9 @@ namespace AiRequestBackend
             return impl.BuildSubPrefab(res);
         }
 
+        public static (string Info, Dictionary<string, BinaryData> Renders) AttemptFinalBuild(IToolsImplementation impl, string res)
+		{
+			return impl.AttemptFinalBuild(res);
+		}
 	}
 }

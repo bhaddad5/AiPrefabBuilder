@@ -20,14 +20,15 @@ public static class BuildPrefabRequester
 			assetsStr = assetsStr.Substring(0, assetsStr.Length - 2);
 
 		string fullPrompt = $"You will be assembling a a Unity Prefab matching the prompt: {prompt}. " +
-			"Use the provided tools to request data on the exact size of the sub-parts you would like to know more about. " +
+			"Use the provided tools to request data on the exact size of the sub-parts you would like to know more about (each metadata is ~3 sentances to request a lot). " +
 			"Use the provided tools to construct sub-assembly prefabs if you have difficulty lining things up. " +
+			"Before returning a final value, use the provided tools to attempt a final build, and anylize the image results to see if it looks right. " +
 			"Format your final return string as \"[assetName,pos:(x;y;z),euler:(x;y;z)]\" for each part instance. " +
 			"Be mindful of the sizes of the parts, and ensure they all line-up properly in the final prefab. " + 
 			"Here is a list of available assets: " +
 			assetsStr;
 
-		AiRequestBackend.OpenAIChatSdk.AskContinuous(EditorPrefs.GetString("OPENAI_API_KEY"), fullPrompt, new ToolsImplementation(), AiRequestBackend.OpenAIChatSdk.ModelLevel.standard, 
+		AiRequestBackend.OpenAIChatSdk.AskContinuous(EditorPrefs.GetString("OPENAI_API_KEY"), fullPrompt, new ToolsImplementation(), AiRequestBackend.OpenAIChatSdk.ModelLevel.mini, 
 			(s) => 
 			{
 				Debug.Log($"[{DateTime.Now}] {s}");
