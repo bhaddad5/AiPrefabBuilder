@@ -20,9 +20,9 @@ public static class BuildPrefabRequester
 			assetsStr = assetsStr.Substring(0, assetsStr.Length - 2);
 
 		string fullPrompt = $"You will be assembling a a Unity Prefab matching the prompt: {prompt}. " +
+			"As you go, use the provided tools to inform the user in plaintext of your current reasoning. " +
 			"Use the provided tools to request data on the exact size of the sub-parts you would like to know more about (each metadata is ~3 sentances to request a lot). " +
-			"Use the provided tools to construct sub-assembly prefabs if you have difficulty lining things up. " +
-			"Before returning a final value, use the provided tools to attempt a final build, and anylize the image results to see if it looks right. " +
+			"Before returning a final value, use the provided tools to try building what you think would look good.  Then anylize the resulting images to see if you need to fix anything.  Do this up to 4 times (or until you are satisfied) to get the best possible result. " +
 			"Format your final return string as \"[assetName,pos:(x;y;z),euler:(x;y;z)]\" for each part instance. " +
 			"Be mindful of the sizes of the parts, and ensure they all line-up properly in the final prefab. " + 
 			"Here is a list of available assets: " +

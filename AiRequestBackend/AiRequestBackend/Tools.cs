@@ -17,14 +17,19 @@ namespace AiRequestBackend
 			return res;
         }
 
-        public static (string Info, Dictionary<string, BinaryData> Renders) BuildPrefabSubAssembly(IToolsImplementation impl, string res)
+		public static (string Info, Dictionary<string, BinaryData> Renders) AnalyzeInstructions(IToolsImplementation impl, string res)
+		{
+			return impl.AnalyzeInstructions(res);
+		}
+
+		public static string BuildPrefabSubAssembly(IToolsImplementation impl, string res)
         {
             return impl.BuildSubPrefab(res);
         }
 
-        public static (string Info, Dictionary<string, BinaryData> Renders) AttemptFinalBuild(IToolsImplementation impl, string res)
+		public static string InformUserOfCurrentReasoning(IToolsImplementation impl, string res)
 		{
-			return impl.AttemptFinalBuild(res);
+			return impl.InformUserOfCurrentReasoning(res);
 		}
 	}
 }

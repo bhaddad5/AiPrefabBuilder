@@ -7,7 +7,8 @@ namespace AiRequestBackend
     public interface IToolsImplementation
     {
         string GetPartMetadata(string part);
-		(string Info, Dictionary<string, BinaryData> Renders) BuildSubPrefab(string instructions);
-		(string Info, Dictionary<string, BinaryData> Renders) AttemptFinalBuild(string instructions);
+		(string Info, Dictionary<string, BinaryData> Renders) AnalyzeInstructions(string instructions);
+		string BuildSubPrefab(string instructions);
+		string InformUserOfCurrentReasoning(string thinking);
 	}
 }
