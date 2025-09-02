@@ -119,23 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual/placement notes for SM_Bld_House_Roof_Tile_Peak_Cap_Half_01\n\n-
-    What it is: a narrow peaked ridge-cap tile half with a V/triangular ridge cross\u2011section
-    and a stepped/scalloped tile profile along its long edge \u2014 intended to form
-    a roof ridge when combined with other caps/mirrors.\n- Size (axis-aligned bounds):
-    width X = 0.50 (from -0.23 to 0.27), height Y = 0.51 (from -0.13 to 0.38), length
-    Z = 1.25 (from 0.00 back to -1.25). Units match the scene units (likely meters).\n-
-    Pivot/origin: object positioned at (0,0,0) with the frontmost face at Z = 0 (whole
-    piece extends in negative Z). The vertical origin is slightly below the mesh
-    center (min Y = -0.13), so the base sits a bit under the origin.\n- Orientation
-    hints: long axis runs along negative Z (length), peak apex forms the ridge along
-    the piece; scalloped/stepped edges run along the length for tile overlap.\n-
-    Placement tips:\n  - Snap the piece by aligning Z = 0 to the mating piece\u2019s
-    front/back face for accurate end-to-end placement.\n  - To create a full ridge
-    cap, mirror or pair two halves across the ridge centerline (or place mirrored
-    versions side-by-side) and/or place pieces end-to-end along Z to extend the ridge.\n 
-    - Account for the slight vertical offset of the origin when aligning to roof
-    geometry (you may want to translate pivot to the base if consistent placement
-    is required).\n- Visual/material note: brown tiled material; background color
-    in renders is fuchsia (unused).\n\nThat's it \u2014 use the Z = 0 front face
-    and negative-Z extent as the primary snapping/alignment reference."
+  AiMetadata: 'A small brown half ridge cap for tiled roofs: a V-shaped, repeating
+    scalloped tile segment forming a peaked cap. It sits upright with the peak pointing
+    up along the Z axis and the tile row running along the local X axis.'

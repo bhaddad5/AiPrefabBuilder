@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Prefab: SM_Bld_House_Roof_Thatch_Cover_Edge_02 \u2014 a narrow,
-    low-profile thatch roof edge / cover strip.\n\n- Bounds (local): X length = 2.62
-    (min -2.60 \u2192 max 0.02), Y height = 0.57 (min -0.32 \u2192 max 0.25), Z width
-    = 0.76 (min -0.38 \u2192 max 0.38).\n\n- Pivot/origin: at (0,0,0) located at
-    the right/inner end of the piece (near max X). The model extends mostly in negative
-    X from the pivot.\n\n- Geometry notes: thin, slightly curved/stepped top surface
-    with three raised thatch segments; ends are not identical (asymmetric bevels)
-    so pieces tile end-to-end along X but may need alternating orientation for mirrored
-    seams.\n\n- Placement tips:\n  - Tile along the X axis: snap this piece\u2019s
-    min X (-2.60) to the next piece\u2019s max X (0.02) to form continuous edges,
-    or place this piece\u2019s max X at the roof ridge if used inward.\n  - To sit
-    flush on a roof surface at world Y = 0, raise the prefab by +0.32 units (because
-    bottom sits at local Y = -0.32).\n  - Use the bounding box for a simple collider
-    (2.62 \xD7 0.57 \xD7 0.76) or a thin mesh collider for tighter fit.\n  - Because
-    it\u2019s asymmetric, rotate 180\xB0 around Y to mirror; check seam alignment/UV
-    continuity when placing multiple copies."
+  AiMetadata: "A narrow thatch/wood roof edge trim with three slight raised segments
+    forming a tapered, triangular (V-shaped) corner piece, colored brown. It sits
+    horizontally along the X-axis (length running left\u2013right) with the peaked/triangular
+    end centered and the bar extending across the X direction."

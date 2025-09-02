@@ -119,21 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A 90\xB0 roof corner tile (triangular/quadrant
-    piece) with tiled texture on the sloped/top face and a dark wooden underside.
-    The piece is triangular in plan (half of a square) with a diagonal ridge from
-    the origin corner toward the center and narrow trim/edge caps on the three outer
-    edges.\n\nBounds, pivot and size:\n- Bounds: min (-2.62, -2.66, -2.62), max (0.12,
-    0.08, 0.12).\n- Overall size (extents): 2.74 x 2.74 x 2.74 units.\n- Pivot/origin:
-    at (0,0,0), which sits at the outer corner of the tile (near the max bound).
-    The visible geometry lies mostly in the negative-X, negative-Y and negative-Z
-    directions from the origin.\n\nPlacement notes (useful for snapping/tiling):\n-
-    Grid snap step = 2.74 units (use multiples of 2.74 to tile without gaps).\n-
-    To place an identical tile directly adjacent along +X, +Y or +Z, translate by
-    +2.74 on that axis; to place along the negative direction translate by -2.74.\n-
-    Rotations about vertical axis by 90\xB0 will produce the other corner orientations
-    for forming roof corners; ensure pivot alignment before rotating.\n- Take into
-    account a small positive margin (max bound = +0.12) \u2014 origin is slightly
-    outside the visible geometry, so align using bounds, not the mesh center.\n-
-    Top face = tiled texture (upwards). Bottom face = wooden underside (downwards).
-    Background in renders is fuchsia (RGB 1,0,1)."
+  AiMetadata: 'A right-angle, quarter-roof prefab: a triangular roof corner with
+    brown overlapping tiles on the top, a dark wooden underside, a diagonal ridge,
+    and small rounded finials at the three corner points. It is oriented upright
+    with the tiled face facing up and the right-angle corner positioned to fit into
+    an interior roof corner (hypotenuse forming the outer eave).'

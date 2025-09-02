@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a flat rectangular house wall panel with a thin thickness;
-    front and back each have a roughly square patch (different material/color) offset
-    toward opposite horizontal halves.  \n- Bounds & size: X = 2.50 units (from -2.50
-    to 0.00), Y = 2.49 units (0.01 to 2.50), Z = 0.08 units (-0.04 to 0.04).  \n-
-    Pivot / origin: positioned at the panel's right face (X = 0), centered on Z (Z
-    = 0); vertical center ~ Y = 1.25. Bottom sits 0.01 units above world origin. 
-    \n- Placement notes:\n  - To tile panels side-by-side, align this prefab's X
-    = 0 face to the neighbor's X = -2.50 (or snap neighbor's max X to this min X)
-    \u2014 placing them flush with no gap.  \n  - For stacks, subtract the 0.01 bottom
-    offset if you need the bottom flush to Y = 0.  \n  - Thickness to consider for
-    intersections/booleans: 0.08 units.  \n  - If you need the square patch on the
-    opposite side, rotate 180\xB0 around Y (or mirror) to flip front/back.  \n- Helpful
-    checks: confirm normals/occlusion on the thin Z axis if using physics/collision
-    or light baking because the panel is very thin."
+  AiMetadata: "SM_Bld_House_Wall_09 is a thin, upright rectangular wall panel \u2014
+    a flat plank roughly 2.5 units tall and 2.5 units wide with a small square patch
+    on the face (front appears darker than the back). It sits at the origin with
+    Y as up and extends along the negative X axis, very thin (~0.08 units) in Z."

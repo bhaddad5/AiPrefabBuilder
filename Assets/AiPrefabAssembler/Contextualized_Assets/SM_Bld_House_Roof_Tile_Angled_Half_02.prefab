@@ -119,23 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small, narrow angled roof half-piece \u2014
-    a sloped tile section with visible roof-tile texture on the sloped face and a
-    darker framed/beam underside.\n- Overall shape: thin rectangular prism that is
-    slanted/angled (a half-tile meant to sit on a roof slope or at an edge).\n\nKey
-    spatial data (local space)\n- Bounds: min (-1.31, -3.87, -1.25), max (0.10, 0.06,
-    0.00)\n- Size (extent) = (1.41, 3.93, 1.25)\n- Center = (-0.605, -1.905, -0.625)
-    (local offset from origin)\n- Half-extents = (0.705, 1.965, 0.625)\n- Top-most
-    surface is at Z = 0 (origin sits at/above the top face); most of the mesh extends
-    into negative X, Y, Z.\n\nPlacement notes for composing with other prefabs\n-
-    Origin/pivot is at the top edge/corner of the piece (Z = 0). When placing on
-    a roof, use the prefab origin as the top/outer edge reference \u2014 stacking
-    downward will place the sloped face correctly.\n- Long dimension is ~3.93 units
-    (Y axis). For tiling rows along that axis, step by ~3.93 units (or snap by 1.965
-    if centering). For side-by-side placement along the short axis, step by ~1.41
-    units.\n- Because the model is mostly in negative local space, you will usually
-    translate +0.605, +1.905, +0.625 to move its center to the scene origin if you
-    need a centered pivot.\n- This is a half/edge piece \u2014 expect to mirror (flip)
-    or use a counterpart prefab for a complementary half to form a symmetric tile
-    or ridge.\n- Watch orientation: the visible sloped/tile face and underside orientation
-    must be matched when repeating; rotating 180\xB0 will flip slope direction."
+  AiMetadata: 'A narrow half-roof tile prefab: a thin rectangular sloped panel with
+    overlapping brown tiles and a darker trim along one edge. It is oriented as a
+    tall, slender piece rotated diagonally in plan and pitched along its length,
+    forming an angled roof segment.'

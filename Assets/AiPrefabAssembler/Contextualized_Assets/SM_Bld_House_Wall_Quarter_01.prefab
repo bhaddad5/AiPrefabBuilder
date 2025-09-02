@@ -119,16 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual: a narrow quarter-wall segment (thin vertical slab) with
-    a pair of rectangular windows on its broad face and small decorative column/caps
-    on the narrow ends. It is very shallow in depth and taller than it is wide.\n\nKey
-    placement info:\n- Local bounds: X [-1.25, 0.00], Y [0.01, 1.26], Z [-0.12, 0.12].\n-
-    Size (extents): X = 1.25, Y = 1.25, Z = 0.24.\n- Pivot/origin: at X = 0 (on the
-    right vertical face), centered in Z, and at Y = 0 (which is 0.01 units below
-    the model\u2019s bottom). The model therefore extends negative X from the pivot.\n-
-    Floor alignment: bottom sits 0.01 units above the prefab origin \u2014 move prefab
-    down by 0.01 to sit flush on Y=0.\n- Tiling rules: horizontal step = 1.25 along
-    X (place next piece at -1.25 relative to this pivot to butt faces together).
-    Vertical stack step = 1.25 in Y. Z is centered (no lateral offset needed).\n-
-    Orientation: the broad face with the windows is the \"front\" face \u2014 keep
-    rotations consistent so window faces align when assembling."
+  AiMetadata: "A quarter house wall segment: a thin rectangular slab with a centered
+    double-pane window and small vertical end columns. It\u2019s placed at the origin
+    with its right face at x=0 and the wall extending along the negative X axis."

@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A short stone tower/column segment with
-    a curved (semi\u2011cylindrical) front face and a flat back. Stone brick texture,
-    small overhanging cap/ledge at top and a base ledge at bottom. Darker face on
-    the curved/front side, lighter flat rear face for abutting other geometry.\n\nPlacement
-    / technical notes\n- Local bounds: X = -0.85..0.85 (width = 1.70), Y = -0.01..2.49
-    (height \u2248 2.50), Z = 0.00..0.86 (depth = 0.86).\n- Local origin = center
-    in X, bottom in Y (nearly Y=0), and back face in Z (Z = 0). In other words: pivot
-    is back-center-bottom.\n- Footprint on ground: 1.70 (X) \xD7 0.86 (Z). Height
-    \u2248 2.5 (Y).\n- Because the back is flat and aligned with Z=0, place this
-    prefab by aligning its Z=0 plane to the surface you want it to abut (walls, interiors).
-    To tile in X, center-to-center spacing = 1.70; to stack vertically, stack bottoms
-    at Y=0 (watch small -0.01 offset).\n- Note the front is curved and has caps that
-    slightly overhang top/bottom \u2014 allow a small clearance or use snapping rules
-    to avoid visible intersection when joining with adjacent pieces.\n- Use the curved/front
-    face outward (exterior) and the flat/back face toward adjoining prefabs or internal
-    geometry."
+  AiMetadata: 'A small stone tower/house segment: a narrow, vertically oriented rectangular
+    column with stacked stone-brick faces and slightly projecting top and bottom
+    plates. It is upright (tall axis along Y), suitable as a short tower section
+    or wall pillar.'

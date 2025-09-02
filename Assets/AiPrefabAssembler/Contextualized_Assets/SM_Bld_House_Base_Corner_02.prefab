@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a narrow vertical corner pillar / base corner module
-    with stacked stone/brick blocks on the outside faces. Dark gray stones with beveled
-    edges; top has a small central seam; bottom is flat/darker.\n- Bounds & size:
-    X = -0.46 \u2192 0.47 (width \u2248 0.94), Y = -2.51 \u2192 0.00 (height \u2248
-    2.51), Z = -0.47 \u2192 0.48 (depth \u2248 0.95).\n- Pivot/origin: object origin
-    is at the top center (max Y = 0). The geometric center is \u2248 (0.0, -1.255,
-    0.0) relative to origin.\n- Placement notes:\n  - When placing on a ground plane
-    (y = 0) you must raise the prefab by +2.51 units so its bottom sits on the ground
-    (or translate by +1.255 to center it if your system expects centered placement).\n 
-    - X/Z tile spacing for grid placement: use ~0.94 (X) and ~0.95 (Z) as the step
-    to avoid gaps/overlap.\n  - It\u2019s a corner piece: orient by 90\xB0 increments
-    so the brick-pattern face aligns with adjacent wall prefabs; one outside face
-    shows distinct block seams while the adjacent face is more uniform \u2014 rotate
-    accordingly to make seams match surrounding geometry.\n- Technical: preview images
-    use a fuchsia (1,0,1) background (likely alpha/mask)."
+  AiMetadata: 'A small modular house base corner: a short square column of stacked
+    stone/brick blocks with visible horizontal seams and a slightly chamfered top.
+    It is oriented upright (height along the Y axis) with its flat faces aligned
+    to the X and Z axes.'

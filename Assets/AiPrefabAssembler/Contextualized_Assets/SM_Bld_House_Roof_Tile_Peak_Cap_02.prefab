@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Narrow, segmented ridge-cap roof tile
-    piece: brown, repeating scalloped/hex-like segments along its length, forming
-    a small peaked (V) profile when viewed front/back.\n- Long axis runs along local
-    Z; peak/ridge is along +Y.\n\nKey placement info (numeric)\n- Local bounds size:
-    X = 0.38 (width), Y = 0.50 (height), Z = 2.50 (length).\n  - min = (-0.20, -0.12,
-    -2.50), max = (0.18, 0.38, 0.00).\n- Pivot/origin is at the forward/top end:
-    Z = 0 is one end of the piece; the mesh extends -2.50 units along local Z.\n-
-    To place the lowest point flush on a roof plane at world Y = 0, translate the
-    prefab up by +0.12 (because minY = -0.12).\n- Tiling/chaining: pieces butt end-to-end
-    along local Z. Use a snap/step of 2.50 units along local Z (translate next piece
-    by -2.50) for seamless seams.\n- Center on roof ridge: keep X = 0 aligned to
-    roof centerline; the piece is ~0.38 wide so allow that width per tile across
-    center.\n- Orientation: the V/apex faces +Y; rotate so local Z follows the roof
-    ridge. Front and back ends are symmetric so either end can connect.\n\nOther
-    notes\n- Small vertical thickness (~0.5) \u2014 allow clearance under eaves.
-    Texture is brown; background color in renders is fuchsia (ignore)."
+  AiMetadata: A narrow brown roof ridge/peak cap made of repeating scalloped/hex
+    tile segments, low-profile and slightly faceted with a V-shaped ridge visible
+    at the ends. It is oriented along the Z axis, extending lengthwise in the negative
+    Z direction from the origin.

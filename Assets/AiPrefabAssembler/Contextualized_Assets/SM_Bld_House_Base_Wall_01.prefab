@@ -119,16 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a low rectangular brick wall segment (SM_Bld_House_Base_Wall_01).
-    Brick-textured faces on the long sides; short end caps are plain/dark. Side profile
-    shows a slight taper/chamfer (not a perfect box).\n\n- Size & pivot:\n  - World
-    bounds: X [-2.50, 0.00], Y [0.00, 1.25], Z [-0.35, 0.35]\n  - Full dimensions:
-    length 2.50, height 1.25, thickness 0.70 (units match scene).\n  - Origin/pivot
-    at (0,0,0) = bottom-center of the right end face (rightmost face, ground level,
-    Z-centered).\n\n- Placement notes:\n  - Tile along X by translating multiples
-    of -2.50 to abut segments (e.g., place next piece at (-2.50,0,0)). Rotating 180\xB0
-    around Y and offsetting \xB12.50 lets you flip orientation.\n  - Y = 0 is ground
-    level \u2014 keep Y aligned with other prefabs.\n  - Use the bounds for collision/culling
-    and to reserve 0.7 thickness clearance in Z.\n  - Textured faces are the long
-    sides; end caps are plain, so plan seams/UV continuity accordingly.\n  - Renders
-    provided on a magenta (fuchsia) background for masking."
+  AiMetadata: "A low, rectangular house base wall segment with dark grey brick/stone
+    tiling on its faces \u2014 short in height and thin in depth. It sits at the
+    origin and is oriented along the negative X axis, extending left from the origin."

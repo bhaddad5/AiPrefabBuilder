@@ -119,24 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A thin, sloped roof corner cover with
-    tiled texture and a diagonal ridge/brace running from one corner to the opposite.
-    From top it appears roughly square but the geometry sits mainly in the negative
-    X and Z directions relative to its pivot. Side views show a low-profile slope
-    and a small downward peg/anchor on the underside.\n\nBounds & size\n- Bounds:
-    min (-4.23, -0.73, -4.23), max (0.17, 0.20, 0.16).\n- Extents: ~4.40 units along
-    X, ~0.93 units tall (Y), ~4.39 units along Z.\n- Geometry is mostly in the negative
-    X and Z quadrant from the object pivot at (0,0,0).\n\nPlacement notes (useful
-    for composing with other prefabs)\n- Pivot alignment: the piece occupies negative
-    X/Z from the pivot, so place the prefab\u2019s pivot at the roof corner where
-    you want the cover to sit. Rotate in 90\xB0 increments to use it on other corners.\n-
-    Vertical alignment: lowest point is at Y = -0.73, highest at Y = +0.20. \n  -
-    To make the bottom touch a target surface, translate the prefab +0.73 in Y.\n 
-    - To align the topmost surface to a target Y, translate by -0.20 in Y.\n- Footprint:
-    when arranging multiple pieces, allow ~4.4 units clearance along each axis from
-    the pivot toward negative X/Z; expect overlap if you place pivots at the same
-    corner without offset.\n- Small underside peg: there\u2019s a small downward
-    projection \u2014 watch for collision/penetration into underlying geometry or
-    use as a snap locator.\n- Visual seam: diagonal ridge/brace gives a clear seam
-    direction \u2014 match/flip orientation with adjacent roof tiles for consistent
-    tiling."
+  AiMetadata: "A small corner roof-tile cover: a low, tapered square wedge of brown
+    overlapped tiles with a diagonal wooden/metal cap running across the top and
+    a short mounting peg underneath. It\u2019s oriented with the tiled face upward
+    and the diagonal ridge across the top, positioned so the inner corner sits at
+    the origin and the piece extends into the negative X and negative Z directions."

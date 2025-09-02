@@ -295,20 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short visual description\n- Small angled/tower corner wall section
-    with a single framed window (timbered/boarded lower panel). Trapezoidal footprint
-    (seen in top/bottom) and a flat vertical face with window (seen in front/back).
-    Thin thickness on the ends (seen in left/right).\n\nBounding/pivot info (important
-    for snapping/tiling)\n- Bounds: min (-2.50, 0.00, -0.07), max (0.00, 2.50, 1.11).\n-
-    Size: X = 2.50 units, Y = 2.50 units (height), Z = 1.18 units.\n- Origin/pivot
-    is on the bottom (y = 0) and on the max-X face (x = 0) and slightly toward the
-    back in Z (z = 0 is \u22480.07 units forward of the rear-most surface). In other
-    words: bottom-right(-backish) corner is the pivot.\n- Background is fuchsia (transparency
-    mask).\n\nPlacement tips\n- Place on ground with no vertical offset (origin at
-    bottom).\n- To abut another piece on the X side, align the neighbor so its min
-    X = 0 (this prefab occupies x \u2208 [-2.50,0]).\n- If you need the opposite-facing
-    corner, rotate 180\xB0 or mirror around Y; rotating 90\xB0 will reorient the
-    angled face \u2014 verify extents after rotation because pivot remains at the
-    same local origin.\n- Allow ~1.18 units depth for forward clearance (Z span -0.07
-    \u2192 1.11).\n- Use a 2.5-unit grid on X and Y for easy tiling of repeating
-    modules."
+  AiMetadata: A tall, narrow angled tower wall segment with a single square window,
+    timber framing and lower wooden paneling, meant as a corner/angle window piece
+    for a house. Oriented with its flat inner faces aligned at the origin and the
+    chamfered outer corner projecting toward the negative X direction (vertical axis
+    is up).

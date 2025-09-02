@@ -119,17 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- A straight, square stone chimney base: a ~1\xD71
-    vertical column of stacked stone blocks with a small top cap and a flat base
-    plate. Color is dark/gray stone with visible brick seams.\n\nKey placement info\n-
-    Local bounds: min (-0.49, 0.00, -0.49) to max (0.49, 2.50, 0.49).\n  - Footprint:
-    ~0.98 \xD7 0.98 units (X \xD7 Z).\n  - Height: 2.50 units (Y).\n- Pivot/origin:
-    object positioned at (0,0,0) and Y-min = 0 \u2192 base sits on ground/plane.
-    X/Z origin is centered on the square footprint.\n- Orientation: column is vertical;
-    rotate around Y to change which brick face is \u201Cfront\u201D. Slight top cap
-    overhang included in bounds.\n- Collision/placement tips:\n  - Align using center
-    (X,Z) or snap to grid; column will occupy \xB10.49 units from its origin.\n 
-    - When placing next to other prefabs, allow ~1.0 unit spacing or snap so edges
-    butt at \xB10.49 to avoid overlap.\n  - Ensure 2.5 units of vertical clearance
-    above placement surface.\n- Visual notes: magenta background indicates transparency
-    in renders."
+  AiMetadata: 'A narrow rectangular stone chimney base: a tall vertical column of
+    stacked stone blocks with a square plinth and flat cap, textured in dark gray.
+    It is upright along the Y axis, centered at (0,0,0) with its front facing +Z.'

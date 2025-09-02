@@ -119,26 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A single sloped thatch roof panel: thatched/irregular
-    textured top, wooden/planked underside with small support pegs. Long rectangular
-    piece with an angled slope (one face is the thatch, opposite face is the underside).\n-
-    Looks like one side of a pitched roof \u2014 intended to be mirrored/paired to
-    form a ridge.\n\nBounds, size and pivot info (local space)\n- Min: (-1.39, -2.66,
-    -2.50)  Max: (0.14, 0.02, 0.00)\n- Size (max-min): (1.53, 2.68, 2.50)\n- Geometric
-    center = (min+max)/2 = (-0.625, -1.32, -1.25) \u2014 this is the center relative
-    to the prefab origin (0,0,0). The prefab origin/pivot is located at the panel\u2019s
-    top/front/right corner (close to the max bounds corner).\n\nPlacement tips for
-    composing with other prefabs\n- Origin is at a corner, not the mesh center \u2014
-    account for the center offset when snapping multiple pieces. To center the mesh
-    at the origin, translate the mesh by +0.625, +1.32, +1.25.\n- Panel length runs
-    along the Y axis (~2.68), width along X (~1.53), height/thickness along Z (~2.50).
-    Use this to align ridges and eaves.\n- To make a roof ridge, place a mirrored
-    copy across the ridge (mirror across X or rotate 180\xB0 and translate) so the
-    thatch faces meet. Because of the off-center pivot, mirror/rotate then apply
-    the same center offset or snap edges together manually.\n- Underside shows support
-    pegs \u2014 these can be used as visual snapping reference points when aligning
-    to walls/eaves.\n- Keep the panel\u2019s local negative Z / negative Y extents
-    in mind \u2014 when snapping to a building origin at (0,0,0) the geometry will
-    extend into negative axes unless you offset it.\n\nMinimal numeric quick-reference\n-
-    Size: (1.53, 2.68, 2.50)\n- Center offset from pivot: (-0.625, -1.32, -1.25)
-    (use +0.625,+1.32,+1.25 to recenter)"
+  AiMetadata: 'A small angled thatch roof segment: straw-textured sloped exterior
+    with a dark wooden boarded underside and short support beams. It is rotated so
+    the slope sits angled around the origin, with the roof ridge running roughly
+    along the X axis rather than flat.'

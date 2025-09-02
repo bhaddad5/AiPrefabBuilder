@@ -16,15 +16,30 @@ public static class MetadataRequester
 			return "";
 		}
 
+		var info = BuildMetadataInfo(prefab);
+
+		string prompt = $"Describe what this prefab is & looks like in 2 sentences. " + 
+			$"Keep your answer brief, as it will be fed raw into AI. " +
+			$"Note it's orientation. " +
+			$"The prefab is named {prefab.name}. " +
+			$"The bounds are being provided for context, but do not include them in your answer as they will be sent alongside it regardless." +
+			$"The min bounds is {info.Bounds.min}, the max bounds is {info.Bounds.max}.  The object is positioned at (0,0,0). " +
+			$"Following this are images rendering it. The background color is fucia(1,0,1).";
+
+		var res = await AiRequestBackend.OpenAIChatSdk.AskImagesAsync(EditorPrefs.GetString("OPENAI_API_KEY"), prompt, info.Renders);
+
+		return res;
+	}
+
+	public static (Bounds Bounds, Dictionary<string, BinaryData> Renders) BuildMetadataInfo(GameObject prefab)
+	{
 		var ob = GameObject.Instantiate(prefab);
 
 		Dictionary<string, Texture2D> six = TextureRenderer.RenderAllSides(ob);
 
-		//TestRenderToFiles(six, ob.name);
-
 		Dictionary<string, BinaryData> converted = new Dictionary<string, BinaryData>();
 
-		foreach(var t in six)
+		foreach (var t in six)
 		{
 			converted[t.Key] = Texture2DToJPGBinaryData(t.Value);
 		}
@@ -33,15 +48,7 @@ public static class MetadataRequester
 
 		GameObject.DestroyImmediate(ob);
 
-		string prompt = $"Describe what this prefab looks like, and note any information that would be useful when placing it in a larger object with other prefabs. " + 
-			$"Keep your answer brief, as it will be fed raw into AI. " +
-			$"The prefab is named {prefab.name}. " +
-			$"The min bounds is {bounds.min}, the max bounds is {bounds.max}.  The object is positioned at (0,0,0). " +
-			$"Following this are images rendering it. The background color is fucia(1,0,1).";
-
-		var res = await AiRequestBackend.OpenAIChatSdk.AskImagesAsync(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), prompt, converted);
-
-		return res;
+		return (bounds, converted);
 	}
 
 	private static void TestRenderToFiles(Dictionary<string, Texture2D> six, string name)
@@ -115,7 +122,7 @@ public static class MetadataRequester
 		return dst;
 	}
 
-	private static Bounds GetBoundsRecursive(GameObject root)
+	public static Bounds GetBoundsRecursive(GameObject root)
 	{
 		var renderers = root.GetComponentsInChildren<Renderer>();
 

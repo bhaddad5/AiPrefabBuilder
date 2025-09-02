@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a narrow triangular/prismatic thatch ridge-cap piece
-    (small peak cap) \u2014 long along its local Z, triangular cross-section pointing
-    up along +Y. Symmetrical about X.\n- Bounds & extents: min (-0.27, -0.16, -2.54),
-    max (0.27, 0.32, 0.03) \u2192 size = (0.54, 0.48, 2.57).\n- Pivot/center: mesh
-    center = (0, 0.08, -1.255) relative to the prefab origin. The origin/pivot lies
-    at the forward end of the piece (near Z = +0.03), not centered along its length.\n-
-    Placement tips:\n  - Local up = +Y (apex points up). Local forward is +Z toward
-    the short end (origin); the piece primarily extends in -Z.\n  - To tile end\u2011to\u2011end
-    along the ridge, translate the next piece by (0, 0, -2.57) in this prefab\u2019s
-    local space (or mirror sign if you use the opposite orientation).\n  - To rest
-    the cap on a roof surface at world Y = 0, lift the prefab by +0.16 units (because
-    bottom is at Y = -0.16 relative to origin).\n  - X is centered (\xB10.27) so
-    no lateral offset is required when stacking symmetrical caps.\n- Small notes:
-    origin being at the end means you may want to re-center or use the above offsets
-    when batching/painting multiple pieces. Background/preview color is fuchsia (irrelevant
-    to placement)."
+  AiMetadata: 'A narrow, elongated thatch roof peak cap: a thin, tapered bar with
+    a triangular cross-section and tan/brown thatch/wood texture. It sits upright
+    with its long axis along the Z direction (extending predominantly toward negative
+    Z) and a small triangular tip at the forward end.'

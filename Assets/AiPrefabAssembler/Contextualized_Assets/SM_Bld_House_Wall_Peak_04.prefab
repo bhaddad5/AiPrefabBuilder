@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin triangular gable/peak wall segment (isosceles
-    triangle when viewed front/back).\n- Bounds & physical size: width X = 2.50 units
-    (min X -1.25 \u2192 max X 1.25), height Y = 1.33 units (min Y 0.00 \u2192 max
-    Y 1.33), thickness Z = 0.08 units (min Z -0.04 \u2192 max Z 0.04).\n- Pivot/origin:
-    origin at (0,0,0) is centered on X and Z and sits on the bottom edge (base) at
-    Y = 0 \u2014 i.e., base centered on origin, apex at Y = 1.33.\n- Visual/normal
-    hint: front and back faces have different shading (front appears darker) \u2014
-    may indicate normal/tex orientation; thin edges visible top/bottom and a slim
-    vertical center line on side views.\n- Placement notes:\n  - Snap the base to
-    the ground (Y = 0) and align X center to match adjoining pieces.\n  - Join adjacent
-    walls at X = \xB11.25 (vertical edge positions). Rotate around Y to flip facing
-    as needed.\n  - Watch for the very small thickness (0.08) \u2014 consider small
-    offsets or collider thickness to avoid z-fighting/penetration when abutting other
-    thin pieces.\n  - Good as a gable end/peak section for roofs; treat as single-sided
-    if normals matter and flip if face is inward."
+  AiMetadata: A thin triangular peaked house wall (gable) panel with a flat horizontal
+    base and a centered apex, appearing as a narrow bar in top/bottom views and a
+    thin vertical line from the sides. It is oriented with the base along the X axis,
+    the apex pointing up along the Y axis, and minimal thickness along the Z axis.

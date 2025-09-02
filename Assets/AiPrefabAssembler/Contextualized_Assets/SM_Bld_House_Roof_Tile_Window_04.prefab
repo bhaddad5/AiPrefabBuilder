@@ -203,23 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: small pitched-roof dormer with a triangular gable and
-    an arched window. Roof tiles and eaves overhang on the two pitched faces; decorative
-    dark trim around the window.\n\n- World size (bounding box): size = max - min
-    \u2248 (2.78, 2.99, 2.90) units (X, Y, Z).\n  - Min bounds: (-2.74, -2.65, -2.70)\n 
-    - Max bounds: ( 0.04,  0.34,  0.20)\n\n- Pivot/origin: positioned at (0,0,0)
-    which is near the top/front/right corner of the mesh (the positive max corner).
-    Most of the geometry extends into negative X, Y and Z from the origin (i.e.,
-    the mesh sits \"below\" and \"behind\" the origin).\n\n- Orientation: the window/gable
-    faces the +Y direction (front view). +Z is upward (roof apex extends slightly
-    above origin), and the roof slopes run along X/Y plane.\n\n- Placement notes
-    for combining with other prefabs:\n  - Because the mesh lies mostly in negative
-    space relative to its pivot, snap the prefab's max bounds (origin) to the adjacent
-    prefab's min bounds to tile edges cleanly.\n  - Expect overhangs on the roof
-    edges \u2014 allow slight overlap when placing next to flat roof tiles or use
-    a small negative gap to avoid visible seams.\n  - If assembling symmetrical roofs,
-    mirror/rotate 180\xB0 as needed; verify pivot alignment after mirroring because
-    origin stays at the same corner.\n  - Use the bounding size when LOD/packing
-    or physics is required; collision extents should match the bounds if you want
-    tight fitting.\n  - Background in the preview images is magenta (fuchsia), so
-    alpha keyed previews may exist."
+  AiMetadata: A small gabled roof dormer with brown tiled shingles, wooden siding
+    and a central pointed-arch window framed in dark trim. The windowed gable faces
+    the negative X direction (the model extends mainly into the negative X/negative
+    Y quadrant from the origin).

@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a square wooden floor tile (2.5 x 2.5 units footprint)
-    with a thin dark border/rim and vertical plank stripes. Thickness is very small
-    (0.14 units total) \u2014 essentially a flat slab.\n\n- Bounds & pivot: min (-2.50,
-    -0.07, 0.00) \u2192 max (0.00, 0.07, 2.50). That means the prefab pivot/origin
-    is at one corner/edge (X = max, Z = min) and vertically centered at Y = 0. The
-    tile occupies X from -2.5 \u2192 0 and Z from 0 \u2192 +2.5 relative to the pivot.\n\n-
-    Placement tips:\n  - Tile size: 2.5 units in X and Z \u2014 snap/translate by
-    \xB12.5 when tiling.\n  - Direction: planks run along the tile\u2019s Z axis
-    (depth).\n  - Because of the visible dark rim, seams will be noticeable if simply
-    tiled edge-to-edge; consider offsetting, removing the rim, or using a matching
-    seam mesh/material when creating large floors.\n  - Vertical alignment: current
-    bottom = Y = -0.07, top = Y = +0.07. To rest the tile on a ground plane at world
-    Y=0, raise it by +0.07. To have the top flush at world Y=0, lower it by -0.07.\n 
-    - Rotation: pivot at corner makes placing a grid easiest if you translate in
-    increments of +2.5 on Z and -2.5 on X (or rotate 180\xB0 and mirror those directions).\n\n-
-    Other: very low profile \u2014 collisions/physics should use a thin collider
-    or box of height ~0.14. Background color in renders was fuchsia (not part of
-    asset)."
+  AiMetadata: "A small square wooden floor panel with narrow vertical planks and
+    a darker framed border in alternating brown tones. It is a thin, flat tile lying
+    flat (large faces aligned with the X\u2013Z plane), so side views show it as
+    a narrow horizontal strip."

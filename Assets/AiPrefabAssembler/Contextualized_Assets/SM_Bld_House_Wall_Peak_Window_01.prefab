@@ -120,22 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a thin peaked/gable wall section with an arched window in
-    the triangle. The mesh is basically a triangular fa\xE7ade (gable) with a framed
-    arched window in the center; both front and back display the same window/triangle
-    motif (mirrored).\n- Local bounds and sizes: width = 2.50 units (X range -2.50
-    \u2192 0.00), height = 1.25 units (Y 0.00 \u2192 1.25), depth = 0.18 units (Z
-    -0.09 \u2192 0.09).\n- Pivot/origin: positioned at local X=0 (rightmost edge),
-    Y=0 (bottom/base), Z=0 (center of thickness). In other words the origin sits
-    at the bottom-right middle of the wall.\n- Placement tips:\n  - Snap the prefab
-    by aligning its Y=0 to ground/floor and X edges to neighboring wall pieces (place
-    neighbor so its X=0 lines up with this prefab\u2019s X=-2.50, or vice versa).\n 
-    - To mirror the gable/window to the opposite side, rotate 180\xB0 about the Y
-    axis.\n  - Depth is very thin (0.18), so treat it as a fa\xE7ade panel; add thickness
-    or collider if needed for interior geometry.\n  - Window center is roughly midway
-    along the X extent (~1.25 units from the pivot), top of peak at Y=1.25 \u2014
-    useful for aligning roof pieces or window openings.\n- Notes: magenta background
-    indicates transparency mask in the renders."
+  AiMetadata: A narrow triangular gable wall section with a centered arched window
+    set into the peak, textured in dark and light triangular panels. The piece is
+    thin along its base (aligned with the X axis) and the peaked window face points
+    toward the Front camera.
 --- !u!1 &1761277212064580
 GameObject:
   m_ObjectHideFlags: 0

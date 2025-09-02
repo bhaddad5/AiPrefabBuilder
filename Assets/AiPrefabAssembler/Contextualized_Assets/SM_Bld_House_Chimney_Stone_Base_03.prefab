@@ -119,17 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Short, square stone chimney base: vertical stone-brick
-    column with a thin cap/ledge at top and a small base flange at bottom. Top appears
-    slightly recessed (possible hollow).\n\nBounds & pivot\n- AABB: width/depth =
-    2.48 (X: -1.24 \u2192 1.24), height = 2.50 (Y: 0.00 \u2192 2.50). Pivot/positioned
-    at (0,0,0) with bottom sitting on the ground plane.\n\nOrientation & appearance\n-
-    Square footprint (top/bottom views). Front/back faces have slightly different
-    brick lighting/texture \u2014 rotation will change visible face. Caps/ledges
-    extend slightly beyond the brick faces.\n\nPlacement tips\n- Snap by center on
-    X/Z and align Y=0 to place on ground. Allow 2.50 units vertical clearance when
-    stacking or placing over openings. Because footprint is square (2.48\xD72.48),
-    adjacent prefabs can be placed edge-to-edge with no gap if aligned to those extents;
-    account for the cap/ledge if you need a flush join (may require slight overlap
-    or trimming).\n- Use rotation to match the visible face to surrounding geometry/textures.
-    Treat the AABB as the collision/occlusion box unless overridden."
+  AiMetadata: A square stone chimney base segment with stacked rectangular bricks
+    and slightly overhanging top and bottom caps, textured in dark gray. It is centered
+    at the origin and oriented with its front facing +Z and its top facing +Y.

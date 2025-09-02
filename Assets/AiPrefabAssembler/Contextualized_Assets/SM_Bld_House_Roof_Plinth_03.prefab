@@ -119,15 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a tall, narrow roof plinth/post piece \u2014 basically
-    a vertical rectangular/tapered column.\n- Bounds & footprint: extents from (-0.46,
-    0.00, -0.44) to (0.46, 2.88, 0.44). Footprint \u2248 0.92 m \xD7 0.88 m, height
-    2.88 m.\n- Origin & vertical alignment: object origin is at (0,0,0) and its bottom
-    sits at Y = 0 (ground-aligned). Use the origin to snap to ground or other prefabs.\n-
-    Shape details: appears slightly tapered/triangular on the front/back (asymmetric
-    along the forward/back axis) with largely flat left/right faces. Top face is
-    small and slightly offset.\n- Placement notes: because the piece is asymmetric
-    front-to-back, you may need to rotate by 180\xB0 or mirror when repeating or
-    lining up with adjacent modules. Snap by center or adjust to edge offsets (\xB10.46,
-    0, \xB10.44) if you want edge-to-edge placement.\n- Rendering note: images have
-    fuchsia background (1,0,1) for masking."
+  AiMetadata: 'A slender vertical roof plinth/trim: a dark gray, tall rectangular
+    column with one face tapered to a thin wedge and a slightly slanted top. It is
+    oriented upright (height along the Y axis) and centered at the origin.'

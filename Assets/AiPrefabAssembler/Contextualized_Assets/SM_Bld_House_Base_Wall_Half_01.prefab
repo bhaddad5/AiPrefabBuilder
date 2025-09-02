@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- A short, half-width brick wall segment with slightly
-    beveled/tapered sides (trapezoidal side profile). Brick faces on the front and
-    back; top has a small capped surface.\n\nBounds & size\n- Min: (0.00, 0.00, -0.35) 
-    Max: (1.25, 1.25, 0.35)\n- Footprint: 1.25 \xD7 1.25 units (X \xD7 Y). Height:
-    0.70 units (Z).\n\nPivot/origin info (important for placement)\n- The prefab
-    origin sits at the XY corner of the footprint (min X/Y = 0) and at mid-height
-    (Z = 0 is center vertically).\n- To place it sitting on ground (ground Z = 0)
-    move the prefab up by +0.35 units.\n- To center it on a tile/center-based grid,
-    offset by +0.625 in X and Y (half the footprint).\n- Adjacent tiling: snap X/Y
-    to 1.25 unit increments. Vertical stacking uses 0.70 unit increments.\n\nOrientation
-    notes\n- Front and back faces have distinct brick textures \u2014 rotate 0/90/180/270\xB0
-    to get the correct face outward.\n- Side profile is tapered; seams may not be
-    flush if mirrored/rotated incorrectly relative to neighboring pieces.\n\nUse
-    these offsets and snap increments when composing with other prefabs."
+  AiMetadata: A short, half-height rectangular base wall segment with a stylized
+    stone brick texture, thin depth and a slightly beveled top. It is upright at
+    the origin (0,0,0), with the main textured face pointing toward +Z and its narrow
+    thickness running along the Z axis.

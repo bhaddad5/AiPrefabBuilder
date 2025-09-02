@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: small L/triangular support bracket. A short flat horizontal
-    top plate with a diagonal brace running down from near the inner end to the outer
-    tip; a small vertical/mount nub at the inner/top end.\n- Size & pivot: bbox =
-    X 0.00\u21921.49, Y -1.26\u21920.01, Z -0.09\u21920.09. Pivot/origin sits at
-    the inner/top corner (X=0, Y\u22480). Width/depth (Z) is very thin (~0.18 units
-    total).\n- Placement notes:\n  - Align the prefab origin to the attachment point
-    (top/inner corner) when snapping to larger structures.\n  - It projects +X (outwards)
-    and -Y (downwards) from its origin, so rotate appropriately if you need it mirrored
-    (flip 180\xB0 around Y or Z depending on axis).\n  - Very shallow Z thickness
-    \u2014 can be layered close to other geometry without much overlap, but use the
-    bbox for precise collision.\n  - Useful for placing under ledges/floors: top
-    plate rests against the surface at the origin, diagonal brace points away/down.\n-
-    Visual cue: think \u201Cshelf bracket\u201D \u2014 horizontal shelf + diagonal
-    support forming a right/acute triangle. Background color in renders is fuchsia
-    (irrelevant to model)."
+  AiMetadata: SM_Bld_House_Supports_01 is a small house support/bracket made of a
+    short rectangular top plate, a slender vertical/post-like member and an angled
+    diagonal brace forming a triangular support. It is oriented with the top plate
+    running along the X axis and the thin support/brace projecting toward the negative
+    Y direction.

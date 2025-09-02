@@ -119,23 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Name/visual: SM_Bld_House_Chimney_Stone_01 \u2014 a vertical stone
-    chimney with a square footprint, tapered shaft, brick texture, a small plinth
-    at the base and a hollow square flue visible at the top.\n\nBounds & placement
-    basics:\n- World bounds: min (-0.41, -0.04, -0.41), max (0.41, 2.22, 0.41).\n-
-    Footprint: 0.82 x 0.82 units (X \xD7 Z).\n- Total height: 2.26 units (Y).\n-
-    Model origin: at (0,0,0); the base sits 0.04 units below the origin (so if you
-    place the prefab at world Y=0 it will sink 0.04 units). Raise by +0.04 to make
-    the base sit flush on ground.\n\nOrientation and snapping:\n- Square footprint
-    \u2014 rotation by 90\xB0 produces identical footprint; can rotate freely but
-    90\xB0 increments keep brick-face alignment.\n- Origin is centered horizontally,
-    so centering on a grid/roof cutout is straightforward.\n\nTopology/visual notes
-    relevant for composition:\n- Top has a visible hollow flue (square opening) \u2014
-    if placing into roof geometry, account for the internal hole or seal it if not
-    intended to be open.\n- Small base plinth slightly widens the bottom; allow a
-    tiny clearance if placing next to walls/fascia.\n- Brick pattern creates mild
-    face-specific seams; if tiling many chimneys for variety, flip/rotate to avoid
-    repeating identical faces.\n\nCollision/spacing recommendation:\n- Use a collision
-    box at least equal to the bounds (0.82\xD70.82\xD72.26). Leave ~0.05\u20130.1
-    units clearance from adjacent geometry to avoid z-fighting with roofs or adjoining
-    chimneys."
+  AiMetadata: SM_Bld_House_Chimney_Stone_01 is a tall, narrow square stone chimney
+    with stacked block textures, a simple base and capped top, showing slight weathering
+    and cracks. It sits upright at the origin, aligned along the Y-axis (vertical),
+    with the square flue visible from the top.

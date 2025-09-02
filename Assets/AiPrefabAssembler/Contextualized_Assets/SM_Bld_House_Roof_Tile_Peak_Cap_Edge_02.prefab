@@ -119,25 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small brown roof ridge/corner cap: two
-    sloped tile faces meet at a sharp V/apex (ridge). Dark central plate and small
-    dark rectangular tabs at the sides (likely attachment/overlap surfaces).\n- Designed
-    as an external peak/edge cap (fits over a corner where two roof planes meet).\n\nBounds
-    & pivot\n- Local bounds min = (-0.28, -0.13, -0.09), max = (0.30, 0.48, 0.53).\n-
-    Size (XYZ) = (0.58, 0.61, 0.62). Half-extents = (0.29, 0.305, 0.31).\n- Pivot
-    is at the object origin (0,0,0). Lowest vertex is at Y = -0.13 relative to pivot;
-    highest at Y = +0.48.\n\nPlacement notes (useful for tiling with other prefabs)\n-
-    To make the prefab sit flush on a roof surface at world Y = 0, place the prefab
-    at world Y = +0.13 (so its lowest point sits at 0).\n- The piece is symmetric
-    across its center plane; rotate around Y in 90\xB0 increments to orient it to
-    different corner directions (180\xB0 also valid). Mirroring likely unnecessary.\n-
-    Allow small overlap clearance on X/Z when snapping: geometry extends ~0.29 (X)
-    and ~0.31 (Z) from pivot \u2014 factor this when arranging adjacent caps/tiles
-    to avoid gaps or intersections.\n- Dark side tabs extend slightly beyond main
-    faces (\u22480.02\u20130.05 units) \u2014 account for these when matching adjoining
-    tiles so they can overlap or tuck under.\n- Collision/physics: use bounds above
-    as the collision box or simplify to a slightly shrunk box (reduce each half-extent
-    by ~0.01\u20130.02) to avoid visible z-fighting with adjacent pieces.\n\nQuick
-    summary\n- Small V-shaped ridge/edge cap, centered at origin, ~0.6 units across,
-    lowest point at -0.13. Rotate in 90\xB0 steps, raise +0.13 in world Y to sit
-    on a flat roof plane."
+  AiMetadata: A small V-shaped roof peak cap prefab with two sloped brown tile faces
+    meeting at an apex and a dark gray central ridge/connector beneath. It is oriented
+    with the V/apex pointing toward the front of the model and the dark connector
+    centered on the back/bottom for mounting.

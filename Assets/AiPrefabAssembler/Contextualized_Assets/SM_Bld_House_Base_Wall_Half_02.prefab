@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- A narrow rectangular half-wall with a
-    brick texture. Height 2.50 units, width 1.25 units, thickness 0.70 units. Front
-    and back have different brick appearance (front darker, back lighter).\n\nBounds,
-    pivot and center:\n- Min = (0.00, 0.00, -0.35), Max = (1.25, 2.50, 0.35)\n- Size
-    = (1.25, 2.50, 0.70)\n- Local origin/pivot is at the bottom-left edge, centered
-    through thickness (i.e. origin = left-bottom-mid). The geometric center = (0.625,
-    1.25, 0.0).\n\nPlacement notes for composing with other prefabs:\n- To tile walls
-    horizontally (along X), offset each instance by +/\u22121.25 in X (width).\n-
-    To stack vertically, offset by +/\u22122.50 in Y (height).\n- Thickness (Z) is
-    0.70; faces are centered on Z=0, so to place another wall directly behind/forward,
-    offset by \xB10.70 or align edges using \xB10.35 as needed.\n- If you want the
-    prefab centered on a given point, translate by center = (0.625, 1.25, 0.0) from
-    the origin.\n- Note face orientation: rotate 180\xB0 if you need the lighter/darker
-    brick face to point a specific direction.\n- Use the bounds for collision/occlusion
-    checks; background color in renders is irrelevant."
+  AiMetadata: SM_Bld_House_Base_Wall_Half_02 is a narrow, upright rectangular half-wall
+    panel with a brick texture and a shallow thickness. It is oriented with its height
+    along +Y, the front brick face pointing toward +Z, and centered at the scene
+    origin.

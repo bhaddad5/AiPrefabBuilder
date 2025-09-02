@@ -203,19 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- Prefab: short stone wall segment with an arched
-    window cutout.\n- Bounding box (size = max - min): width X = 2.50 units (from
-    -2.50 to 0.00), height Y = 2.50 units (0.00 to 2.50), depth Z = 0.26 units (-0.13
-    to 0.13).\n- Pivot/origin is at the right face (X = 0.0) and at ground level
-    (Y = 0.0). The thickness is centered on Z = 0.\n\nPlacement notes (useful for
-    composing with other prefabs):\n- Because the origin is at the right face, tiling
-    another identical piece to its right will require offsetting the neighbor by
-    +2.50 in X (or place this piece at previous piece\u2019s min X). To extend a
-    wall to the left, place the next piece at X = current X - 2.50.\n- Bottom is
-    on the ground (no vertical offset needed). Depth is very thin (0.26), so collision
-    with adjacent thin pieces must account for that centered Z.\n- Window is inset
-    on the face (visible in the Front/Back renders) \u2014 orient the piece so the
-    desired exterior face points outward (Front vs Back appear differently lit/colored).\n-
-    For mirrored/matching seams, rotate 180\xB0 around Y if you need the window/face
-    orientation flipped.\n- Small thickness means you may want a slightly larger
-    overlap or seam geometry if adjoining with thick walls or placing glass panes."
+  AiMetadata: "A vertical stone wall segment with an arched, mullioned window cut-out,
+    a small sill and a beveled top\u2011right corner; the front and back have slightly
+    different stone textures. It is thin in depth and oriented with its flat face
+    perpendicular to the X\u2011axis (height along Y, thin dimension along Z) and
+    faces toward +X."

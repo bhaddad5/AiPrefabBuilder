@@ -119,15 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Railing_01\n- Shape: narrow rectangular railing
-    segment with horizontal rails and vertical posts (thin in X, tall in Y, long
-    in Z).\n- Bounds / size: min (-0.07, 0.00, -2.50), max (0.07, 1.03, 0.00) \u2192
-    size = (0.14, 1.03, 2.50).\n- Local center: (0.00, 0.515, -1.25).\n- Origin/pivot:
-    at Z = 0 face (the near/end of the segment); base sits on Y = 0 (bottom flush
-    with floor).\n- Orientation: mesh extends in negative Z from the origin. Top
-    at Y = 1.03, base at Y = 0.\n- Placement tips:\n  - Snap Y to 0 to sit on floors/ledges.\n 
-    - Tile segments end-to-end along the segment axis by translating each by -2.50
-    in Z (or multiples) so ends meet.\n  - To run the railing along X instead, rotate
-    90\xB0 about Y and tile by \xB12.50 on X.\n  - Thin X thickness (0.14) \u2014
-    colliders can be thin; allow small clearance for visual posts.\n  - Allow ~1.03
-    units vertical clearance above the placement surface for the top rail."
+  AiMetadata: SM_Bld_House_Railing_01 is a narrow house/balcony railing section about
+    1 m tall and roughly 2.5 m long, with evenly spaced vertical posts and three
+    horizontal rails. It is thin along X, tall along Y, and its long axis extends
+    toward the negative Z direction from the origin.

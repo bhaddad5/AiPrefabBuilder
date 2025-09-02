@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a very thin, rectangular wooden post/arch segment (wood
-    plank texture, small beveled/tiled face details).\n- Shape & visual: long narrow
-    bar seen in side/front views; tiny footprint in top view.\n- Bounds (local):
-    X width = 0.33 (min -0.33 \u2192 max 0), Y length = 2.49 (min -2.49 \u2192 max
-    0), Z thickness = 0.12 (min -0.12 \u2192 max 0).\n- Pivot/origin: located at
-    one end (max bounds = 0). The geometry extends in the negative Y direction from
-    the origin (center = approx (-0.165, -1.245, -0.06)).\n- Placement notes:\n 
-    - Origin sits at the top/back end of the piece \u2014 snap/attach that point
-    when tiling or connecting to other prefabs.\n  - The long axis is along negative
-    Y. If your world uses Z-up and you need the post vertical, rotate/transpose accordingly
-    (or rotate 90\xB0 so the long axis aligns with world up).\n  - Allow spacing
-    at least 0.33 units in X and 0.12 units in Z for clearance; stacked/adjacent
-    pieces should account for the 2.49 unit length.\n  - Collider/physics: use a
-    thin box collider sized to these bounds to avoid gaps.\n- Note: background color
-    in renders is fuchsia (visibility only)."
+  AiMetadata: "SM_Bld_House_WoodArch_02 is a very narrow rectangular wooden arch/post
+    \u2014 a slim vertical column with segmented plank/beam detailing along its face.
+    It sits upright aligned along the negative Y axis (extending downward from the
+    origin) and is slightly offset toward the negative X direction."

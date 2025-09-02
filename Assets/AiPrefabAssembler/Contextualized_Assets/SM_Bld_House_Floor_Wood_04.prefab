@@ -119,19 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small square wooden floor tile: raised
-    border with three plank grooves; dark wood material.\n- Thickness ~0.14 units
-    (Y extent).\n\nBounds / pivot\n- Bounds: X [-1.26, 0.00], Y [-0.07, 0.07], Z
-    [0.00, 1.26].\n- Origin/pivot is at X = max edge (0.00), Z = min edge (0.00),
-    and vertically centered (Y = 0.00). In other words, the origin is at one horizontal
-    corner of the tile and at mid-height.\n\nPlacement notes for tiling / assembly\n-
-    Footprint = 1.26 x 1.26 units (X by Z). Use increments of 1.26 when snapping
-    in X or Z.\n  - Neighbor to +X: origin at (+1.26, 0, 0). Neighbor to -X: origin
-    at (-1.26, 0, 0).\n  - Neighbor to +Z: origin at (0, 0, +1.26). Neighbor to -Z:
-    origin at (0, 0, -1.26).\n  - Diagonal neighbors combine offsets (\xB11.26, 0,
-    \xB11.26).\n- Top surface is at local Y = +0.07 and bottom at Y = -0.07. If you
-    need the top flush at world Y = 0, translate the prefab up by +0.07.\n- Because
-    the pivot is at a corner, rotations will change which corner aligns \u2014 align
-    using bounds or recenter pivot if you want rotation-aware tiling.\n- Plank direction
-    (texture) runs along the Z axis in the prefab's current orientation.\n\nOther\n-
-    Background fuchsia in the renders is irrelevant to the model."
+  AiMetadata: A small square wooden floor tile with a dark outer frame and three
+    recessed central planks in brown tones. The wood surface faces upward (+Y) while
+    a darker underside faces downward (-Y); the prefab is centered at the origin.

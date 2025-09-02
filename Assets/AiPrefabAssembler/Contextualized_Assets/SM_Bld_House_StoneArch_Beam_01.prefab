@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a short, rectangular stone lintel/beam (stone
-    arch beam) with slight beveling and a small central groove. Long and thin \u2014
-    essentially a horizontal bar.\n\n- Exact bounds & size (local space): min (-2.49,
-    2.15, -0.16), max (-1.25, 2.50, 0.16)\n  - Size (max - min): (1.24, 0.35, 0.32)\n 
-    - Local center: (-1.87, 2.325, 0)\n  - Bottom Y = 2.15, Top Y = 2.50\n\n- Orientation:
-    long axis runs along X; shallow thickness along Z; beam sits above the origin
-    and offset to negative X (pivot is not centered on the mesh).\n\n- Placement
-    tips:\n  - Pivot offset: the prefab\u2019s geometric center is at (-1.87, 2.325,
-    0). Translate by (+1.87, -2.325, 0) to recenter geometry on the scene origin,
-    or by (0, -2.15, 0) to put the bottom of the beam at Y = 0.\n  - When tiling
-    with other beams, align X extents (min X = -2.49 to max X = -1.25) or use the
-    center offset above so beams butt up cleanly.\n  - Rotate so its long X axis
-    matches the wall/arch direction; depth is only 0.32 units so it will appear thin
-    from front/back.\n  - Be aware the mesh sits above origin \u2014 snap/anchor
-    accordingly to floors, window sills or arch tops.\n  - Background magenta is
-    a render matte (no geometry info)."
+  AiMetadata: "A short, narrow rectangular stone beam/lintel \u2014 dark gray with
+    a shallow central seam and slightly beveled edges. It is oriented horizontally
+    (length along the X axis), very low in height and shallow in depth, positioned
+    at the origin."

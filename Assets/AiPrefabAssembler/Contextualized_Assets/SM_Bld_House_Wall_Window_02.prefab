@@ -122,18 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin vertical house wall segment with a centered window
-    and bottom trim. Two-sided texturing (different look on each face).\n- Size &
-    pivot: spans 2.50 units wide (X), 2.50 units tall (Y), ~0.29 units thick (Z).
-    Local bounds: X = [-2.50, 0.00], Y = [0.00, 2.50], Z = [-0.12, 0.17].\n- Pivot/origin:
-    at the rightmost face and at floor level (right-bottom). Z origin is roughly
-    centered through thickness.\n- Placement notes:\n  - To tile horizontally, place
-    the next piece to the right by +2.50 units (or to the left by -2.50) depending
-    on which prefab\u2019s pivot you align with.\n  - Vertical placement: origin
-    sits on the floor; stack by adding multiples of 2.50 in Y.\n  - Orientation matters:
-    front and back faces have different textures, so rotate 180\xB0 if you need the
-    alternate face outward.\n- Rendering: images use fuchsia background as transparency
-    key."
+  AiMetadata: SM_Bld_House_Wall_Window_02 is a thin rectangular wall panel with a
+    centered purple-glass window, a framed sill, and darker trim on one face versus
+    a lighter, wood-like surround on the opposite face. It is oriented as a flat
+    slab along the X axis, with the window on the broad face and minimal thickness.
 --- !u!1 &1773040645793052
 GameObject:
   m_ObjectHideFlags: 0

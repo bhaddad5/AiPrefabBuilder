@@ -119,22 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small roof edge/cap piece: a V-shaped
-    (ridge) tile pair sitting on a thin flat flange with a short rectangular peg
-    that projects downward. Colors: brown tiles, dark connector/peg.\n- Long axis
-    runs left\u2194right in the images (X axis); the ridge peak is centered on that
-    axis.\n\nBounds & size\n- Bounds (object space): min (-1.49, -0.21, -0.50), max
-    (0.08, 0.23, 0.95).\n- Size (X \xD7 Y \xD7 Z) = (1.57, 0.44, 1.45).\n\nPivot
-    / origin\n- World origin is at (0,0,0) and lies near the +X face of the bbox
-    (max X = 0.08). The model is not centered.\n- BBox center = (-0.705, 0.01, 0.225)
-    relative to origin (useful if you need a centered pivot).\n- Origin relative
-    to bbox min = (1.49, 0.21, 0.50).\n\nPlacement / snapping notes\n- When tiling
-    end-to-end along the long/ridge axis (X), place the next identical prefab at
-    an X offset of +1.57 units (origins separated by 1.57) so bounding boxes butt
-    up.\n- When placing adjacent along Z, use a Z origin offset of \xB11.45.\n- Vertical
-    peg extends ~0.21 units below origin (min Y = -0.21) \u2014 allow that clearance
-    or snap peg into mounting hole.\n- Because the origin sits at one end, you may
-    want to use the bbox center or the min/max extents when arranging mirrored/copied
-    pieces so seams align predictably.\n\nQuick summary: V-shaped roof edge with
-    downward peg, long axis = X, size 1.57\xD70.44\xD71.45, origin near the +X end
-    \u2014 tile by shifting origins \xB11.57 (X) or \xB11.45 (Z)."
+  AiMetadata: SM_Bld_House_Roof_Tile_Cover_Edge_03 is a small brown angled roof tile
+    edge/ridge cap made of two sloped tile segments forming a shallow V with a short
+    rectangular mounting peg underneath. It is oriented with its long axis extending
+    toward negative X (i.e., left of the origin) and the mounting peg projecting
+    roughly toward negative Z.

@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin rectangular wall panel (stone-textured face)
-    with a small central mounting post/stud on its face/base.\n- Bounds & size: width
-    along X = 2.50 units (min X = -2.50 to max X = 0.00), height along Y = 2.50 (0.00
-    to 2.50), thickness along Z = 0.24 (-0.12 to 0.12).\n- Pivot/origin: positioned
-    at (0,0,0) which lies on the panel's right vertical edge and at the panel base
-    (bottom). Z is centered.\n- Visuals: front/back show a roughly square stone tile
-    on the panel; the two faces differ in tone/texture. Side views show a thin vertical
-    post/dowel with a small square foot near the bottom center.\n- Placement notes:\n 
-    - Because the origin is on the right edge, tile horizontally by placing successive
-    instances at X offsets of -2.50 (e.g., 0, -2.50, -5.00 ...) to get a flush continuous
-    wall.\n  - Stack vertically by Y offsets of +2.50 (base is at Y=0).\n  - Thickness
-    is only 0.24 units; Z alignment should be centered to avoid gaps.\n  - Be aware
-    of face orientation (front vs back texture) and the small mounting post when
-    snapping adjacent prefabs."
+  AiMetadata: "SM_Bld_House_Wall_08 is a thin, vertical stone wall panel \u2014 a
+    narrow rectangular slab with stone-textured front and back and a subtle darker
+    trim along one edge. It stands upright on the Y axis and extends toward the negative
+    X direction from the origin, with very little thickness along Z."

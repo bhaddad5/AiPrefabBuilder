@@ -226,18 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Small corner/tower wedge prefab with an angled
-    trapezoidal footprint. Exterior has an arched door recessed into the angled face;
-    opposite side shows an interior/stair area. The two perpendicular vertical faces
-    have narrow tall panels/windows.\n\nBounds & pivot\n- AABB min (-2.50, 0.00,
-    -0.07), max (0.00, 2.50, 1.11).\n- Dimensions: X = 2.50, Y (height) = 2.50, Z
-    = 1.18.\n- Origin is at (0,0,0) \u2014 on the ground plane at one vertical edge/face
-    (the piece extends 2.50 units in the negative X direction and slightly behind/forward
-    in Z by ~0.07 units).\n\nUseful placement notes\n- Designed as a corner/angle
-    module: align its flat vertical edges to abut adjoining wall prefabs; the angled
-    face (arched door) should face outward.\n- Use the AABB values for collisions
-    and snapping (remember a small base offset of -0.07 in Z).\n- Ensure 2.5 units
-    of vertical clearance above this module.\n- Interior contains stairs/recess \u2014
-    allow connectivity to interior floor levels when placing adjacent interior modules.\n-
-    If rotating, keep door-facing orientation consistent for exterior access; narrow
-    window panels are on the side faces and expect neighboring wall pieces."
+  AiMetadata: A small angled tower wall segment with a recessed arched door and narrow
+    flanking panels, textured dark wood/stone and trapezoidal when viewed from above.
+    The piece is oriented so the doorway faces the positive X direction (the module
+    extends toward negative X from the origin).

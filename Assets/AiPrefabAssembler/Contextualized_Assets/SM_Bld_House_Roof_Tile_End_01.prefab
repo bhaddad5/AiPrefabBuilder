@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Small roof end cap / tile segment: brown, scalloped
-    curved tile profile with three roof-bumps along its length and several small
-    rectangular underside pegs/tabs (for alignment/attachment). Wedge/angled top
-    slope visible in front/back views.\n\nBounds & pivot\n- Local AABB: X [-0.72,
-    0.18], Y [-0.35, 0.09], Z [-2.50, 0.00].\n- Size (extent): X = 0.90, Y = 0.44,
-    Z = 2.50.\n- Bounding-box center = (-0.27, -0.13, -1.25) relative to prefab origin.\n-
-    Prefab origin sits at the outermost face in +Z (max.z = 0) and slightly below
-    the top (origin Y = 0 is 0.09 units below the top surface).\n\nPlacement notes
-    (useful when tiling or snapping)\n- Tiles run along local -Z (the piece extends
-    from origin back \u22122.50). To place consecutive pieces end-to-end, translate
-    by ~2.50 units along the tile\u2019s local Z axis (or match one piece\u2019s
-    max.z to the next piece\u2019s min.z).\n- Lateral spacing across the roof (X)
-    footprint is ~0.90 units.\n- Vertical clearance required ~0.44 units (Y). Top
-    surface is ~0.09 units above the origin \u2014 account for this when aligning
-    to roof ridge or eaves.\n- Underside pegs protrude ~0.35 units below origin;
-    consider collisions and use these for snapping/mating points.\n- Texture background
-    in renders is magenta (fuchsia) \u2014 transparent region.\n\nQuick summary:
-    origin at outer edge, length 2.5 along negative Z, width 0.9 along X, small height
-    0.44. Align end-to-end by 2.5 in local Z and snap using underside tabs."
+  AiMetadata: "A small roof tile end cap: a short row of curved brown tile segments
+    with overlapping ridges and rectangular mounting tabs on the underside. It\u2019s
+    oriented with the tile ridge running along the local -Z axis and the mounting
+    tabs pointing down (negative Y)."

@@ -119,16 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: small brown tiled roof edge section with a beveled/angled
-    profile and two small downward pegs/feet on the underside for alignment/snapping
-    (top surface shows the tile texture).\n- Bounds (local space): size = (X 1.44,
-    Y 1.46, Z 0.57). Min = (-1.42, -1.25, -0.08), Max = (0.02, 0.21, 0.49).\n- Pivot
-    / origin: located near the positive-X end (max.x \u2248 0). The geometry extends
-    mainly in the negative local X direction.\n- Center offset from pivot: approx
-    (-0.70, -0.52, 0.205).\n- Placement tips:\n  - To tile end-to-end along the piece\u2019s
-    long axis, translate by the full X extent (~1.44 units) in local space (direction
-    depends on which end you want forward \u2014 the model extends \u2212X from the
-    pivot).\n  - The pegs are on the model\u2019s bottom face (use those to snap
-    to a roof surface); the textured tile face is the top.\n  - Allow ~1.46 units
-    vertical clearance when stacking/placing nearby prefabs.\n  - Background is fuchsia
-    (1,0,1) \u2014 likely used as alpha/mask in renders."
+  AiMetadata: SM_Bld_House_Roof_Tile_Edge_02 is a small modular brown roof edge section
+    made of three staggered, overlapping rectangular tile blocks with a thin mounting
+    lip on the underside and clay/wood-style shading. It is rotated diagonally and
+    extends away from the origin toward the negative X and negative Y directions,
+    with a low profile in Z.

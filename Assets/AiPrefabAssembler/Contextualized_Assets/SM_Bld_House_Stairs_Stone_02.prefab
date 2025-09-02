@@ -119,24 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Stone staircase prefab: short block with a stepped
-    profile on one long side and a smooth vertical face on the opposite side. Dark
-    gray stone look. About 5 visible steps.\n\nRaw bounds & size\n- Local bounds:
-    min (-0.75, 0.00, -0.94), max (1.87, 1.27, 0.94).\n- Size (extents): X = 2.62
-    m, Y = 1.27 m, Z = 1.88 m.\n- Center of bounds = (0.56, 0.635, 0.00) relative
-    to origin.\n\nPivot / placement notes\n- Object origin is at (0,0,0) and Y min
-    = 0.00 \u2192 the base sits on the floor by default (no vertical offset needed).\n-
-    Origin is offset from the bounding-box center: +0.56 m toward the max X side.
-    When snapping to other prefabs, account for this X offset (the geometric center
-    is at X = 0.56).\n- Z is symmetric about the origin (centered), so it will align
-    centrally left/right by default.\n- Stepped profile runs along X (steps rise
-    across the X extent). One long side = stepped; opposite long side = smooth/solid
-    face. Rotate 180\xB0 if you need the steps on the other side.\n\nUseful placement
-    tips\n- Place the smooth face against a wall or foundation; the stepped face
-    should face open space.\n- Allow clearance equal to the bounding extents when
-    tiling: keep neighbors outside X [-0.75, 1.87] and Z [-0.94, 0.94] relative to
-    this prefab\u2019s origin unless you intentionally overlap.\n- Approx step dimensions
-    (for matching riser/tread): height \u2248 1.27/5 \u2248 0.25 m per step; tread
-    depth \u2248 1.88/5 \u2248 0.38 m (useful for aligning landings).\n- Rotate as
-    needed so the steps face the approach direction; keep Y at 0 to avoid floating
-    or buried geometry."
+  AiMetadata: 'SM_Bld_House_Stairs_Stone_02 is a small rectangular stone stair prefab:
+    a solid block with a flat top and a series of five stepped treads along one side.
+    It is oriented with the stepped side facing front-left (the steps ascend toward
+    the back-right) and a smooth face opposite.'

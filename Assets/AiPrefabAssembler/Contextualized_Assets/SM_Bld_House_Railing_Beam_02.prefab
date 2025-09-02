@@ -142,18 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- Vertical railing/post with a short diagonal
-    brace/arm near the upper section. Thin square/round post profile; arm projects
-    backward (negative Z) and slightly to one side in local space.\n\nKey placement
-    info (numbers):\n- Local bounds: X = 0.22 (\u22120.11 \u2192 0.11), Y = 2.32
-    (0.00 \u2192 2.32), Z = 1.60 (\u22121.49 \u2192 0.11).\n- Footprint footprint
-    (XZ): ~0.22 \xD7 1.60 units. Height = 2.32 units.\n- Local origin = at base (Y
-    = 0) but offset toward the back/front: bounding center Z = \u22120.69 (origin
-    is near the \u201Crear\u201D face at Z \u2248 0.0). So most geometry extends
-    in negative Z from the origin.\n\nPractical notes:\n- It sits on the ground when
-    placed (no vertical offset needed).\n- Because the arm projects toward negative
-    Z, rotate 180\xB0 if you need the brace to face the opposite direction.\n- Allow
-    ~1.6 units spacing in Z to avoid overlaps when lining up posts along the brace
-    direction; X clearance is minimal (~0.11 either side).\n- Origin offset means
-    snapping to a grid or stitching to other prefabs may require translating by ~\u22120.69
-    in Z (or repositioning the pivot) so centers/edges line up predictably."
+  AiMetadata: A slender vertical railing post with a small square cap and a single
+    short diagonal support arm branching off near the top. Oriented upright at (0,0,0),
+    the main post runs along the Y axis and the angled arm projects toward the negative
+    Z direction with a slight X offset.

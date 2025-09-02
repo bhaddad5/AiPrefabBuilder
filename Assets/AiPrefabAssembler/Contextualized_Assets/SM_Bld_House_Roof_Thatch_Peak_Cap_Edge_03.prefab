@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Low\u2011poly brown thatch peak/end cap with
-    two sloping faces forming a V/ridge shape (an asymmetric triangular cap intended
-    to sit on a roof peak or edge). Surfaces are faceted; overall shape looks like
-    an end/peak cap rather than a flat tile.\n\nImportant placement info\n- Local
-    bounds: min (-0.44, -0.14, -0.48), max (0.40, 0.70, 0.48).\n  - Footprint (X
-    \xD7 Z): ~0.84 \xD7 0.96 units.\n  - Height (Y): ~0.84 units (top at +0.70, bottom
-    at -0.14).\n- Pivot/origin: object placed at (0,0,0). The geometric center is
-    above the origin (center Y \u2248 +0.28), and the lowest point is 0.14 units
-    below the origin. So snapping the prefab origin to a roof surface will leave
-    ~0.14 units of mesh below that surface unless you translate down.\n- Horizontal
-    center is nearly centered (center X \u2248 -0.02, Z = 0).\n- Orientation: piece
-    is asymmetric \u2014 rotate so the V/ridge aligns with the roof seam. Check both
-    +X/-X directions when placing (not rotationally symmetric).\n- Collision/overlap:
-    allow slight overlap with adjacent roof pieces along the V seam (small chamfer/penetration
-    expected). Use origin as the reference snap point; if you want it to sit exactly
-    flush on top of a roof plane, translate it down by 0.14 units or reposition the
-    origin in your editor.\n- Good for: end caps at ridge intersections or peak terminations
-    where two roof slopes meet."
+  AiMetadata: 'Low-poly brown/tan thatch roof peak cap: a small faceted, three-lobed
+    triangular cap with beveled edges designed to sit on a roof ridge. It is oriented
+    with the apex pointing upward and the V-shaped base facing forward/down (positioned
+    at the origin).'

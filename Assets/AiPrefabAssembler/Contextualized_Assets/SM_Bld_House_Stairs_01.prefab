@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: small wooden L-shaped exterior stair + landing (raised
-    platform with railings and vertical posts). One leg has a short flight of angled
-    steps; the other leg is a flat landing with posts. Dark wood material.\n\n- Bounds
-    & size (local space): min (-1.27, 0.00, -2.57), max (1.40, 2.61, 0.15). Overall
-    size \u2248 X 2.67, Y 2.61, Z 2.72 units.\n\n- Pivot/center: object positioned
-    at (0,0,0). Bounding-box center \u2248 (0.065, 1.305, -1.21) relative to pivot
-    \u2014 i.e., the pivot is not centered inside the mesh (offset toward the forward/front
-    edge).\n\n- Placement notes:\n  - Allow full vertical clearance of 2.61 units.\n 
-    - Footprint ~2.67 \xD7 2.72 on the X\u2013Z plane; use those extents when avoiding
-    overlaps.\n  - Because the pivot is offset, align by bounding-box min/max when
-    tiling or snapping (don\u2019t assume the pivot is the geometric center).\n 
-    - Prefab is modular at the two straight outer edges (forms a 90\xB0 corner) \u2014
-    rotate in 90\xB0 increments to make corners or continue stairs.\n  - Stairs/step
-    direction runs along the deeper (negative Z) side of the bounds \u2014 check
-    orientation in-scene before final snapping.\n\n- Quick checklist for integration:
-    match rail/post heights to adjacent platforms, snap using bounding-box edges
-    (not pivot), rotate by 90\xB0 for other corner orientations, reserve 2.61 units
-    height and ~2.7 \xD7 2.7 floor space."
+  AiMetadata: 'A small L-shaped wooden stair/landing prefab: a raised platform with
+    vertical posts and slatted railings and a short diagonal flight of steps attached
+    at one corner. The steps extend diagonally outward from the corner of the landing,
+    descending away from the platform.'

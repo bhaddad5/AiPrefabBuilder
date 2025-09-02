@@ -143,17 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual: a narrow vertical corbel/arch bracket \u2014 a straight
-    post with a curved/arched projection at the top (decorative support piece). Textured
-    (stone/wood style) and very thin in depth.\n\nImportant placement info:\n- Bounds:
-    X [-1.25, 0.00], Y [0.00, 2.50], Z [-0.12, 0.12]\n- World size: width (X) = 1.25,
-    height (Y) = 2.50, depth (Z) = 0.24\n- Pivot/attachment: the geometry reaches
-    to X = 0, so the flat/attachment face is at X = 0. The mesh extends to negative
-    X from that face. Place the X=0 face against walls or other prefabs.\n- Grounding:
-    min Y = 0 so the piece sits on Y = 0 (no vertical offset required to rest on
-    the floor).\n- Depth centering: Z is symmetric around 0, so it is centered on
-    the Z axis and will be flush when Z = 0.\n- Orientation note: default faces toward
-    negative X (arch projects into -X). Rotate 180\xB0 about Y to flip to +X.\n-
-    Tiling/snapping: to line up multiple in a row use 1.25 unit steps along X (or
-    mirror/rotate if alternating sides). Because it\u2019s very thin (0.24), it will
-    sit flush against thin walls; check normals/textures if matching adjacent faces."
+  AiMetadata: 'SM_Bld_House_WoodArch_01 is a narrow vertical corbel/arch piece: a
+    tall thin pillar with a curved quarter-arch overhang and a dark wood/stone plank
+    texture. It sits upright at the origin, with the curved overhang projecting forward
+    from the top (front-facing) and the long thin edge running vertically.'

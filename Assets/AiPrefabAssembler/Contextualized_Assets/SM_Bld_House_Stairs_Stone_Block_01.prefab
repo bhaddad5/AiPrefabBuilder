@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Summary: A compact stone block / two-slab stair piece \u2014 basically
-    a rectangular masonry block with a slight top bevel and seam between two stacked
-    slabs. Dark grey stone material.\n\n- Bounds & size (local space): X width =
-    1.90 (min -0.01, max 1.89), Y height = 1.27 (min 0.00, max 1.27), Z depth = 1.90
-    (min -0.95, max 0.95).\n\n- Origin / placement anchor: object positioned at (0,0,0)
-    with base on Y = 0. The origin is at the near-left face (X \u2248 0 / very slightly
-    inside at -0.01) and centered on Z (Z = 0). In other words the left side of the
-    block is at the local X origin; block extends ~1.90 units positive X.\n\n- Tiling
-    / snapping notes:\n  - Place copies side-by-side along +X by offsetting their
-    origins by ~1.90 in X (e.g., next origin at +1.90,0,0).\n  - Place copies along
-    Z by \xB11.90 in Z (because Z is centered).\n  - Stack vertically by +1.27 in
-    Y (top sits at Y = 1.27).\n  - If you need symmetric placement around an origin,
-    recenter the prefab to its geometric center (approx X = 0.94, Y = 0.635, Z =
-    0.0).\n\n- Orientation: front/back/top are visually distinct (top has bevel/crack)
-    \u2014 rotate as needed to align the visible seam/bevel direction with neighboring
-    pieces.\n\n- Misc: small ~0.01 unit negative X bleed \u2014 watch precision snapping
-    when aligning tightly. Background in the renders is fuchsia (magenta)."
+  AiMetadata: "A small stone two-step block: a dark gray rectangular slab with a
+    horizontal seam between the stacked top and bottom tiers and slightly beveled
+    edges. It sits at the origin with its long axis running left\u2013right (X direction)
+    and the steps rising upward along the Y axis."

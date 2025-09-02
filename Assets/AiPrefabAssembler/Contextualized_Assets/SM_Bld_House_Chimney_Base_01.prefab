@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Name: SM_Bld_House_Chimney_Base_01\n\nVisual summary:\n- Vertical
-    chimney base / short column: square shaft with a shallow base and a slightly
-    overhanging cap. Textured stone/metal look, dark grey with light mottling. Top
-    appears recessed/darker in the center (possible hollow).\n\nBounds & pivot:\n-
-    Bounds: min (-0.54, 0.00, -0.54), max (0.54, 2.50, 0.54).\n- Size: 1.08 x 2.50
-    x 1.08 (X x Y x Z).\n- Pivot/origin is at the center of the footprint on the
-    ground (XZ center, Y = bottom). Base rests at Y = 0; top at Y = 2.5.\n\nPlacement
-    notes:\n- Footprint: square 1.08 x 1.08 units, centered on the prefab origin.\n-
-    Minimum vertical clearance required above ground: 2.50 units.\n- When placing
-    multiple instances, use center-to-center spacing >= 1.08 to avoid overlap.\n-
-    Align other prefabs\u2019 bottoms to Y = 0 (or to this prefab\u2019s bottom)
-    so bases match.\n- Model is symmetric in X/Z footprint but has slight front/back
-    shading differences \u2014 rotations of 90\xB0/180\xB0 are fine but watch visual
-    orientation if shading matters.\n- Top surface appears to have a small rim; if
-    stacking another element on top, check for a slight lip and ensure the added
-    piece fits inside or sits on the rim.\n\nColor note:\n- Provided renders use
-    a fuchsia background (1,0,1) \u2014 ignore background when sampling colors."
+  AiMetadata: 'A narrow, square stone chimney base: a tall vertical rectangular pillar
+    with a subtle mottled stone texture and darker capped top and bottom ledges.
+    It is oriented upright along the Y-axis (standing vertically), centered at the
+    origin, with a roughly uniform square cross-section.'

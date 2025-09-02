@@ -203,17 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- A thin half-wall segment with a single small
-    window and top/bottom trim.\n- Bounding box: width (X) = 1.25 m (from -1.25 to
-    0), height (Y) = 2.49 m (0 to 2.49), depth (Z) = 0.24 m (-0.12 to 0.12).\n- Window
-    is centered along the wall length (center X = -0.625) and roughly centered vertically
-    (around Y \u2248 1.24).\n- Front and back have different textures/lighting (darker
-    on one side, lighter on the other).\n\nImportant placement info\n- Local origin
-    = right vertical face, floor level, and center in depth (X = 0 at right edge,
-    Y = 0 at bottom, Z = 0 mid-thickness). Use this when snapping to other pieces.\n-
-    To tile along X: translate by \xB11.25 m (this piece occupies -1.25 \u2192 0).
-    For a mirrored wall facing the other direction, rotate 180\xB0 about Y and snap
-    accordingly.\n- To align to ground: set Y = 0 (bottom sits on floor).\n- Depth
-    is very thin (0.24 m); avoid unintended Z overlaps if combining with thicker
-    wall geometry.\n- Keep texture-facing orientation in mind (front vs back) when
-    assembling fa\xE7ades."
+  AiMetadata: A narrow vertical half-wall segment textured as painted masonry with
+    dark top and bottom trim and a small centered framed four-pane window. It sits
+    upright (tall axis vertical) with the window on the front face and a thin rectangular
+    profile from the sides and top.

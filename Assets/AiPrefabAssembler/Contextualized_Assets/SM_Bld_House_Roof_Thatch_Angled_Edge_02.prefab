@@ -119,20 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Small, narrow angled roof edge/thatch cap: an
-    elongated, slightly irregular rectangular bar with notch-like segments and a
-    beveled/angled tip \u2014 meant to sit along a roof edge or ridge.\n- Visual
-    silhouette: long in one direction, thin in thickness, rounded/chiseled surface
-    detail.\n\nBounds & sizes (local space)\n- Min: (-1.64, -3.95, -0.38)\n- Max:
-    ( 0.15,  0.12,  0.38)\n- Size (extents): X = 1.79, Y = 4.07, Z = 0.76 (units)\n-
-    Bounding-box center = (-0.745, -1.915, 0.0) relative to object origin\n\nPlacement
-    / integration notes\n- The pivot/origin is offset toward one end of the piece
-    (center is at -0.745,-1.915,0), so placing at (0,0,0) will put the piece extending
-    mostly in the negative X and negative Y directions. Apply that offset if you
-    need it centered.\n- Long axis is along local Y (negative direction contains
-    most geometry) \u2014 align this axis with the roof edge/ridge when tiling.\n-
-    Thin Z size (0.76) = low vertical thickness; watch for Z-overlap with adjacent
-    roof tiles.\n- Oriented/angled tip implies this is an edge cap \u2014 match rotation
-    so the beveled tip follows roof slope; mirror/rotate copies for opposite edges.\n-
-    Use bounding box size for collision padding and snap increments (approx 1.8 x
-    4.1 x 0.8). Background was magenta (transparent)."
+  AiMetadata: "SM_Bld_House_Roof_Thatch_Angled_Edge_02 is a narrow, elongated angled
+    thatch roof edge segment \u2014 a slightly curved, segmented strip with beveled
+    ends and layered thatch detail. It sits at the origin with its long axis aligned
+    along the world Y direction and the piece tilted/angled along the Z axis to form
+    a sloped edge."

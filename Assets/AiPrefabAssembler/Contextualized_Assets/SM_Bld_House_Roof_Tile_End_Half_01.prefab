@@ -119,16 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: small brown sloped \"half end\" roof tile with a stepped/zigzag
-    profile (three ridge segments) and a rectangular mounting tab/peg protruding
-    below the tile.\n- Bounding box (local): min = (-0.72, -0.35, -1.25), max = (0.18,
-    0.09, 0.00). Size (X \xD7 Y \xD7 Z) = 0.90 \xD7 0.44 \xD7 1.25 units.\n- Mesh
-    center (local) = (-0.27, -0.13, -0.625) relative to the prefab pivot (0,0,0).
-    Pivot sits at the Z = 0 edge of the mesh; most geometry extends into negative
-    Z and negative X.\n- Practical placement notes:\n  - The piece is low-profile
-    (0.44 high) and meant to cap an edge; align its Z = 0 face to the roof edge/seam
-    when abutting other tiles.\n  - The mounting tab protrudes below (down to Y =
-    -0.35) \u2014 allow that clearance or snap it into a matching slot.\n  - To center
-    the mesh on the pivot, translate the object by approximately (+0.27, +0.13, +0.625).\n 
-    - Mirror/flip across X (or rotate 180\xB0 as appropriate) to create opposite-side
-    end caps; tile length along Z is 1.25 so use that spacing when tiling."
+  AiMetadata: "A small brown half-end roof tile with three staggered tile segments,
+    dark underside, and a short rectangular mounting peg. It\u2019s oriented flat
+    as a roof cap with the tiled face up (slightly angled) and the peg protruding
+    downward for mounting."

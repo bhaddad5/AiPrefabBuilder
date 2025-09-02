@@ -119,16 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Geometry: thin triangular gable wall (triangular prism) \u2014 a
-    right/isosceles triangle face extruded by thickness.\n- Bounds and size: X =
-    -1.25 .. 0.00 (width 1.25), Y = 0.00 .. 1.25 (height 1.25), Z = -0.04 .. 0.04
-    (thickness 0.08).\n- Pivot / origin: object origin is at X = 0 (one vertical
-    edge of the triangle), Y = 0 (base), Z = 0 (center of thickness). So the piece
-    extends left from the origin.\n- Orientation: peak at top (Y = 1.25), base along
-    Y = 0 across X = -1.25..0. Two flat triangle faces on front/back; thin edges
-    on left/right/top/bottom.\n- Placement notes:\n  - Snap the X = 0 vertical edge
-    to adjacent wall/roof seam (no internal X offset needed if you want the edge
-    to align).\n  - If you need the triangle mirrored, rotate 180\xB0 around Y (or
-    flip along X).\n  - Account for thickness 0.08 in Z when mating to other pieces
-    (offset by \xB10.04 if you want faces flush).\n  - Base sits at Y = 0 \u2014
-    align to floor/ground as-is."
+  AiMetadata: SM_Bld_House_Wall_Peak_01 is a thin, vertical right-angled triangular
+    wall segment (a peaked/gable filler) with two orthogonal edges and a sloping
+    hypotenuse. Viewed from the front the right angle sits at the lower-left and
+    the hypotenuse slopes up to the right; the piece is very thin along the depth
+    axis.

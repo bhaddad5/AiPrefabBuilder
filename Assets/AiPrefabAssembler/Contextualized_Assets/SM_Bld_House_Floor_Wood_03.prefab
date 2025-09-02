@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a rectangular wooden floor panel with a dark border/frame
-    and several planks running along its long axis. It is thin (a floor/board piece),
-    darker wood tones.\n\n- Local bounds & origin:\n  - Min = (-2.50, -0.07, 0.00),
-    Max = (0.00, 0.07, 1.25)\n  - Size = X 2.50, Y 0.14, Z 1.25 (units)\n  - Origin/pivot
-    sits on the long +X edge (X = 0) and on the bottom face (Z = 0); thickness is
-    centered in Y.\n\n- Placement notes (use these exact offsets):\n  - Tile along
-    X: offset successive pieces by \xB12.50 in X (place another prefab at +2.50 to
-    continue to +X side).\n  - Tile along Z (depth): offset by +1.25 in Z to continue
-    forward.\n  - Vertical stacking: thickness is 0.14 (Y), so stack offset = 0.14
-    if you need stacked layers.\n  - Align world ground to prefab Z = 0 to sit flush
-    on floor.\n  - Texture grain runs along the prefab X axis \u2014 keep rotation
-    consistent for seam continuity.\n  - Because the pivot is on the long edge, rotations/transforms
-    will pivot about that edge (may need to translate to center if you want center-based
-    transforms).\n  - Thin thickness may produce z-fighting with adjacent geometry;
-    allow a small gap or snap exactly to neighbor bounds."
+  AiMetadata: A narrow rectangular wooden floor panel with dark-stained planks, visible
+    seam lines, and a thin raised rim, very shallow in height. It is oriented flat
+    with its top face up (+Y) and its long axis extending in the negative X direction
+    from the origin.

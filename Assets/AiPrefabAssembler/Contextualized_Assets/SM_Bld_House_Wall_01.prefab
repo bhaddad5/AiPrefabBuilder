@@ -119,16 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A thin square wall panel ~2.5 units wide \xD7
-    2.5 units tall with a small thickness (~0.24 units). Front and back have different
-    textures (front appears darker). There is a small vertical nub/peg at the top
-    center.\n\nTransform / placement info (important when combining prefabs):\n-
-    Local bounds: X = [-2.50, 0.00], Y = [0.00, 2.50], Z = [-0.12, 0.12].\n- Pivot/origin:
-    at the right edge, bottom, centered in depth (bottom-right-center: x = max, y
-    = min, z = center). Y is up.\n- Size: width = 2.5, height = 2.5, thickness =
-    0.24.\n- Tiling: place adjacent panels along X in increments of 2.5 units (e.g.,
-    another instance at +2.5 to sit immediately to the right, at -2.5 to sit immediately
-    to the left). Stack vertically in Y in increments of 2.5.\n- Orientation: faces
-    are asymmetric \u2014 rotate 180\xB0 if you need the opposite face outward.\n-
-    Watch collisions: the small top peg may overlap when stacking pieces directly
-    above; depth is thin so allow small Z clearance if needed."
+  AiMetadata: A thin rectangular house wall panel with a stone/plaster face and dark
+    wooden framing, appearing as a square decorative section on the front and very
+    shallow in thickness. It is positioned at the origin and oriented to extend to
+    the left (negative X direction) from the origin.

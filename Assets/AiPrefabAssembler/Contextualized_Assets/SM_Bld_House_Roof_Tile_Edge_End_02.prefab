@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Roof_Tile_Edge_End_02 \u2014 a short end-cap
-    section of a tiled roof edge with stepped tile geometry and an angled/sloped
-    profile.\n- Bounds (local): min (-1.90, -1.44, -0.08), max (0.02, 0.21, 0.49).
-    Size \u2248 (1.92, 1.65, 0.57) (X \xD7 Y \xD7 Z).\n- Local center (bounds center)
-    \u2248 (-0.94, -0.615, 0.205) \u2014 the prefab pivot is at (0,0,0) which is
-    located at one end of the piece (near the max X face).\n- Visual notes:\n  -
-    Long axis runs from the pivot out toward negative X (piece extends ~1.92 units
-    away from the pivot).\n  - Top surface is sloped/stepped with visible tile segments;
-    bottom has small protrusions/notches (alignment/attachment features).\n  - One
-    end (near the pivot / positive-X side) is the squared/flat connection end; the
-    opposite end is the outer edge profile.\n- Placement advice:\n  - Treat the origin/pivot
-    as the connection point to adjoining roof prefabs \u2014 snap the next roof segment
-    to the positive-X face of this piece.\n  - Rotate so slopes and tile steps align
-    continuously across neighbors.\n  - Account for the center offset (the mesh is
-    not centered on the pivot) when batching or aligning multiple pieces \u2014 translate
-    by the bounds center if you need a center-origin layout.\n  - Depth is shallow
-    (~0.57), so collision/clearance adjustments will be small in that axis.\n- Image
-    background was magenta (fuchsia) \u2014 likely used as transparency key."
+  AiMetadata: 'A small prefab roof edge end: a narrow, segmented brown/terracotta
+    tile end cap with a stepped, slightly angled profile. It is positioned at the
+    origin with its long axis extending toward negative X (points left from center),
+    the stepped face forming the outer edge.'

@@ -211,17 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- Small angled corner/tower window prefab \u2014
-    a trapezoidal/quarter-tower corner piece with vertical window mullions (bay/corner
-    window style).\nImportant placement info:\n- World bounds: min (-2.50, 0.00,
-    -0.07), max (0.00, 2.50, 1.11).\n  - Footprint: 2.5 \xD7 2.5 units in X/Y.\n 
-    - Height: 1.11 - (-0.07) = 1.18 units.\n  - Lowest geometry is 0.07 units below
-    the object origin (min Z = -0.07).\n- Pivot/origin sits at one corner of the
-    footprint (X = 0, Y = 0). The piece extends negative X and positive Y from the
-    origin.\n- Tiling/snapping: snap to a 2.5 unit grid in X and Y; place copies
-    at integer multiples of (\xB12.5, \xB12.5) and use 90\xB0 rotations to form continuous
-    corners/walls.\n- Vertical stacking: stack height per module \u2248 1.18 units;
-    if you want the base flush with Z = 0, translate the prefab up by +0.07.\n- Visual
-    notes: glazed/front face with vertical mullions; narrow side faces are tall windows;
-    top is a thin trapezoidal frame \u2014 expect transparency/see-through on window
-    faces when composing with solid wall pieces."
+  AiMetadata: SM_Bld_House_Tower_Angle_01 is a narrow vertical tower wall segment
+    with a framed multi-pane window on the face and a trapezoidal top profile. It
+    sits upright with its base at the origin (Y=0), rising along +Y and projecting
+    toward negative X with shallow depth along Z.

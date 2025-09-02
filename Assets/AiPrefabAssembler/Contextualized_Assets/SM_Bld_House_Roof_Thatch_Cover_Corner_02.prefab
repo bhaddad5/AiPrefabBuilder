@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Prefab: a thatch roof corner cover (SM_Bld_House_Roof_Thatch_Cover_Corner_02).
-    Top surface is layered thatch; underside is a dark wooden support/beam with a
-    diagonal brace. The piece is thin/tapered in height and intended as a corner
-    segment.\n\nBounds & geometry\n- Local AABB: min (-4.27, -0.80, -0.03), max (0.03,
-    0.17, 4.27).\n- Size (extents): X \u2248 4.30, Y \u2248 0.97, Z \u2248 4.30.\n-
-    Bounding box center \u2248 (-2.12, -0.315, 2.12).\n- The model occupies negative
-    X to near 0 and positive Z from ~0 to +4.27 \u2014 i.e., the local origin (0,0,0)
-    sits at the inner corner / junction of the piece.\n\nPlacement notes (useful
-    for tiling with other prefabs)\n- Snap the prefab origin to the roof corner or
-    junction where two roof directions meet; the piece extends outward toward negative
-    X and positive Z from that origin.\n- To mirror/fit into other corners rotate
-    in 90\xB0 increments (replace axes as needed); pay attention to which quadrant
-    you need (this one covers the -X / +Z quadrant).\n- Vertical offset: Y spans
-    -0.80..0.17, so the origin is slightly above the geometric center \u2014 align
-    Y carefully to make tops/undersides flush with adjacent roof pieces (you may
-    need to shift by ~0.3 units).\n- Works as an outer/edge corner: align other roof
-    tiles so their adjacent edges meet near X \u2248 0.03 and Z \u2248 -0.03 of this
-    piece.\n- Texture/normal continuity: top is thatch; underside is wooden \u2014
-    ensure neighboring pieces use the same material orientations to avoid seams."
+  AiMetadata: "A low, wedge-shaped thatch roof corner cover with a textured straw
+    top and dark wooden-framed underside, meant to cap the outer corner of a thatched
+    house roof. It\u2019s oriented as a corner piece projecting toward positive Z
+    while its broader/thicker end sits toward negative X from the origin."

@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- Quarter-corner roof tile cover: a small,
-    fan-stepped tile cap that wraps a 90\xB0 corner. Top shows tiles fanning out
-    from the corner; bottom shows diagonal/ribbed supporting beams.\n- Low-profile:
-    thin slab of roof tiles with a slight bevel and wood/trim underside.\n\nPlacement
-    & pivot/bounds notes (useful when snapping into a larger roof):\n- Pivot/origin:
-    (0,0,0).\n- Mesh extents from origin: X: -1.53 \u2192 0.14 (span 1.67), Y: -0.29
-    \u2192 0.16 (span 0.45), Z: -1.58 \u2192 0.11 (span 1.69). In other words, the
-    piece projects mostly into the negative X and negative Z directions from the
-    origin.\n- Intended to sit with its origin at the corner/intersection point of
-    two roof planes; align the origin to that corner so the tiles radiate outward
-    into the negative X and Z quadrants.\n- Height is shallow (~0.45 units) \u2014
-    check clearance under eaves.\n- Orientation: designed for one 90\xB0 corner;
-    rotate in 90\xB0 steps to use on other corners. Mirror/flip only if you need
-    the tile fan to face the other side.\n- Snapping tips: match roof tile edge seams
-    and normals at the origin to avoid gaps; check UV/texture continuity at the seam
-    if tiles continue across adjacent prefabs."
+  AiMetadata: "A small wooden roof tile corner cover: a 90\xB0 corner section of
+    overlapping brown shingles with a diagonal reinforcing strap or ridge across
+    the top. It lies flat (horizontal) and is oriented to cap an outward roof corner,
+    with the thicker fan-shaped corner end projecting to one side and a thin tapered
+    edge opposite."

@@ -203,19 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a thin half-wall segment with a centered arched
-    window (stone/trim, sill and lintel). Dark gray/stone materials; front/back have
-    slightly different shading.\n\n- Bounds & size (local space): min (-1.25, 0.00,
-    -0.13) \u2192 max (0.00, 2.50, 0.13).\n  - Width (X) = 1.25 units (extends negative
-    X from origin).\n  - Height (Y) = 2.50 units (base at Y = 0).\n  - Depth/Thickness
-    (Z) = 0.26 units.\n\n- Origin/pivot: located at the right vertical face and ground
-    level (X = 0 is the right edge, Y = 0 is the base). Bounding-box center \u2248
-    (-0.625, 1.25, 0).\n\n- Orientation: window faces the +Y direction in the provided
-    renders (front image = +Y). Back faces -Y.\n\n- Placement notes:\n  - To tile
-    horizontally, translate by -1.25 units in X to place another piece directly to
-    the left (or place this piece at X = 0 to abut something at the origin).\n  -
-    Base sits on floor (Y = 0) \u2014 no vertical offset needed to ground it.\n 
-    - Very thin in Z (0.26) \u2014 watch for z-overlap if placing two walls back-to-back;
-    add slight offset or use a mirrored duplicate if you need interior/exterior faces.\n 
-    - Rotate 180\xB0 around Y to reverse window facing direction.\n  - Use the bounding
-    box when snapping to adjacent prefabs (right edge = X 0, left edge = X -1.25)."
+  AiMetadata: "A half-height building wall segment with a centered arched window,
+    decorative sill and trim \u2014 gray textures, dark frame and divided panes.
+    The windowed face is the front (faces +Y) and the wall\u2019s thin depth runs
+    along the negative X axis."

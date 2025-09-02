@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Small tall exterior stair/ladder with an L-shaped
-    footprint: a diagonal stair/ladder run up to a short raised landing with vertical
-    posts/railings. Narrow, vertical silhouette.\n\nImportant placement info\n- Bounding
-    box size: X=2.67, Y=3.13, Z=2.72 (units = same as provided).\n- Min/Max extents
-    (local): min = (-1.27, 0.00, -2.57), max = (1.40, 3.13, 0.15).\n- Pivot/origin
-    = (0,0,0). Base sits on ground (min Y = 0).\n- Bounding-box center = (0.065,
-    1.565, -1.21) \u2014 origin is offset ~1.21 units toward negative Z from the
-    BB center.\n- Front/rear extents: frontmost Z = 0.15, rearmost Z = -2.57. Left/right
-    extents: left X = -1.27, right X = 1.40.\n- Max height to clear = 3.13.\n\nPlacement
-    tips\n- Place on ground; align min Y = 0 with terrain/floor.\n- When snapping
-    to other prefabs, use the Z extents (0.15 or -2.57) to align the front or back
-    edge; account for the ~-1.21 Z offset if your tool expects centered pivots.\n-
-    Leave vertical clearance of >= 3.13 above the base; landing/connection point
-    is near the top of the bounding box (y \u2248 3.0).\n- Useful to rotate in 90\xB0
-    increments or mirror along X/Z to create continuous runs or opposite-facing stairs.\n-
-    Background in images is fuchsia (pure magenta) \u2014 not part of the asset."
+  AiMetadata: 'A wooden, L-shaped exterior stair prefab: a small elevated boxed platform
+    with vertical posts and ladder-style slatted sides, plus a short angled stair/support
+    descending from one side. Oriented so the ladder-backed platform faces right
+    in the front view, with the angled stair descending from the platform''s left
+    side.'

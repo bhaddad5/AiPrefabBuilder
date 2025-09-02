@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A narrow vertical wall cap piece: thin
-    rectangular spine with several small, evenly spaced rectangular fins/teeth protruding
-    from one face (looks like a comb or height-cap bracket). Dark material.\n\nBounds
-    & size (local space)\n- Width (X): 0.44 - (-0.19) = 0.63 units\n- Height (Y):
-    0.56 - 0.00 = 0.56 units\n- Depth (Z): 0.00 - (-2.50) = 2.50 units\n\nOrigin
-    / placement cues\n- Object origin is at (0,0,0) which corresponds to the front
-    face (Z = max = 0) and the bottom (Y = min = 0). So placing the prefab with its
-    origin on a surface will put its front face flush and its base on the floor.\n-
-    The geometry extends backward into negative Z (fins/protrusions face the -Z side).\n-
-    X origin is not centered: bounding box center X = +0.125, so origin is offset
-    0.125 units from the bbox center. Expect a slight lateral offset when tiling
-    or mirroring; you may need to shift \xB10.125 to center or align symmetrically.\n\nPractical
-    notes for combining with other prefabs\n- Snap Y=0 to the floor/ground; snap
-    Z=0 to the outer wall face if you want the spine flush to the outside.\n- Because
-    the piece projects into -Z, place its origin at the face where you want the fins
-    to start (they will extend inward).\n- Account for the X offset when laying multiple
-    caps in a row or mirroring \u2014 translate by 0.125 to center them if consistent
-    centering is required."
+  AiMetadata: "SM_Bld_House_Wall_HeightCap_01 is a narrow upright wall-cap with a
+    flat rectangular body and four small, evenly spaced tab-like protrusions along
+    one long edge. It is positioned at the origin and oriented upright (height along
+    Y) with its long axis extending in the \u2212Z direction."

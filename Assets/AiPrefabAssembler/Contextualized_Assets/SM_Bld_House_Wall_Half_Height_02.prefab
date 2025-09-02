@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A half\u2011height rectangular wall panel (long
-    on X, short thickness on Z, half wall height on Y) with an X-brace detail on
-    the front/back faces. Thin top/bottom ledges; visually a narrow slab.\n\nBounds
-    & geometry:\n- Local bounds: min (-2.50, 0.00, -0.12), max (0.01, 1.25, 0.12).\n-
-    Size (extents): X = 2.51, Y = 1.25, Z = 0.24.\n- Bounding-box center = (-1.245,
-    0.625, 0.0) (i.e. geometry is offset left and up from the prefab origin).\n-
-    Origin location: near the right face and bottom center (local x \u2248 0.01,
-    y = 0, z = 0).\n\nPlacement notes for composing with other prefabs:\n- Snap/tiling
-    step along X = 2.51 units (place next piece by translating \xB12.51 on X to butted
-    edges).\n- Vertical stacking unit = 1.25 units (bottom is at y=0).\n- Z thickness
-    = 0.24 \u2014 use this for clearance or layering.\n- Origin is at the right-bottom-center
-    of the piece \u2014 align that origin with the adjacent prefab face or move by
-    the bounding-box center if you need the geometric center at origin.\n- Front/back
-    are the detailed faces (X\u2011brace); either face can be outward-facing depending
-    on orientation.\n- Collider/occlusion should match the bounds if using an AABB.\n\nBackground
-    color in renders is magenta (fuchsia) \u2014 purely rendering background, not
-    part of the mesh."
+  AiMetadata: "A low, half-height rectangular wall segment \u2014 a thin, elongated
+    plank with dark trim and an X-brace pattern on the broad faces. It is oriented
+    horizontally along the X axis, extending primarily to the negative-X side of
+    the origin, with small thickness in Z and modest height."

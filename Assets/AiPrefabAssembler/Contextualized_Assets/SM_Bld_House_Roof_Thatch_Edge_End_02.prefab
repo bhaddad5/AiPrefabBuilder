@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small thatch roof edge/end cap \u2014 tapered, segmented/thatch
-    detail, slightly bent along its length (two or more segments) with a pointed
-    outer tip.\n- Bounding box (local): min (-2.11, -1.75, -0.38) to max (0.11, 0.23,
-    0.38). Size = ~2.22 x 1.98 x 0.76 units (X x Y x Z).\n- Pivot/origin: at (0,0,0)
-    and roughly at mid-height (Z center = 0). The geometry is offset toward negative
-    X and negative Y (centroid \u2248 (-1.00, -0.76, 0)), so the short/attachment
-    end is on the positive X/Y side near the origin.\n- Placement tips:\n  - Align
-    the positive X/Y short end to the adjacent roof piece (snap the neighbor\u2019s
-    matching face to this piece\u2019s max X/Y region).\n  - Vertical alignment:
-    origin is mid-height, so match roof plane by aligning Z = 0 to your roof midplane
-    or translate by \xB10.38 to sit flush on top/bottom.\n  - Mirroring/rotation:
-    the piece is asymmetric and slightly curved \u2014 mirror or rotate to create
-    left/right variants and to follow roof ridges.\n  - Use the bounding box extents
-    for collision/occlusion and snap spacing (allow ~2.22 units along the long direction
-    per piece)."
+  AiMetadata: 'A short thatch roof edge end piece: an elongated, low-profile segmented
+    thatch/beam with a tapered, pointed end and a slight bend. It sits roughly horizontal
+    and extends primarily along the negative X axis from the origin, with a gentle
+    diagonal curve and a ridged top.'

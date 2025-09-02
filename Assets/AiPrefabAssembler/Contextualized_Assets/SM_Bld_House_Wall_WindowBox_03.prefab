@@ -203,20 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short visual description\n- Small wall-mounted square window/box with
-    a thick beveled frame, three vertical panes/mullions, a narrow sill/planter ledge
-    and two small support brackets/feet under the sill. Glass appears dark/purple;
-    frame is dark gray. Front faces +Z.\n\nBounding box & origin\n- Min: (-2.50,
-    0.00, -0.12)  Max: (0.00, 2.50, 0.61)\n- Size: X = 2.50 units (width), Y = 2.50
-    units (height), Z = 0.73 units (depth)\n- Origin is at the rightmost / bottom
-    edge of the box (X = 0.0, Y = 0.0). The front surface projects to +0.61 in Z;
-    the back sits slightly at -0.12.\n\nPlacement notes (important for composing
-    with other prefabs)\n- The pivot is not centered: align using the box extents
-    (translate by -2.50 in X to place it from a centered origin, or use X=0 as the
-    right edge).\n- Bottom sits at Y = 0, so placing at Y=0 will rest the prefab
-    on the intended baseline (floor/wall base).\n- Front projects +0.61 in Z; back
-    is at -0.12. When mounting flush to a wall, set the wall plane near Z = -0.12
-    (or offset the prefab by +0.12 if your wall plane is Z = 0).\n- Use X spacing
-    = 2.50 and Y spacing = 2.50 when tiling multiple instances to avoid overlap.\n-
-    Allow ~0.1\u20130.2 extra clearance in Z for brackets/overhangs if physics or
-    collisions are used."
+  AiMetadata: A wall-mounted rectangular window box with a thick outer frame, three
+    vertical panes and a thin protruding sill supported by two small brackets. The
+    prefab is oriented with the glazed, paneled side as the "front" (shown in Front)
+    and a recessed frame on the opposite back side.

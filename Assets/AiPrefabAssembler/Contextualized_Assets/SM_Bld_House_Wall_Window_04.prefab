@@ -204,23 +204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a rectangular house wall segment with a window. Front
-    shows a recessed/darker window opening with a sill/beam; back shows a lighter
-    plaster/wood-framed exterior with diagonal lower braces. Side views show a very
-    thin thickness and a small vertical/top detail.\n\n- Bounds & size:\n  - Min:
-    (-2.50, 0.00, -0.12)  Max: (0.00, 2.50, 0.14)\n  - Width (X): 2.50 units, Height
-    (Y): 2.50 units, Depth (Z): 0.26 units (0.14 forward, 0.12 back)\n  - Local center:
-    (-1.25, 1.25, 0.01)\n\n- Pivot/origin: origin is at the right face and at the
-    bottom (x = right edge, y = bottom). Depth is nearly centered. So placing this
-    prefab at (0,0,0) puts its right-bottom edge at world origin.\n\n- Placement
-    tips:\n  - Tile horizontally along X by stepping 2.5 units per piece (next piece
-    to the left should have its origin at x = -2.5 relative to this one).\n  - Stack
-    vertically by 2.5 units (origin at bottom makes floor alignment simple).\n  -
-    Mind the shallow depth (0.26) when aligning with thicker wall prefabs\u2014may
-    need slight offsets or overlap to hide seams.\n  - Front and back are different
-    (use darker recessed side as interior or interior-facing window); rotate 180\xB0
-    if you need the other face outward.\n  - Small top detail may require clearance
-    when snapping to taller trims/roof pieces."
+  AiMetadata: "A narrow vertical house wall segment with a small centered wooden
+    shutter/window, plaster surround and timber framing at the base. It\u2019s thin
+    and offset to the negative X side of its pivot, with the window/front face oriented
+    toward positive X (toward the origin)."
 --- !u!1 &1663473329267662
 GameObject:
   m_ObjectHideFlags: 0

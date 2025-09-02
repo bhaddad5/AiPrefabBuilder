@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: tall, narrow chimney column with a wider square/hex-like
-    base plinth and a small capped top with an octagonal/flue opening. Slender, slightly
-    tapered shaft; symmetrical around the vertical axis.\n- AABB sizes: width X =
-    0.72, height Y = 2.49, depth Z = 0.72 (min = (-0.34, 0.14, -0.28), max = (0.38,
-    2.63, 0.44)).\n- Bounding-box center (local) = (0.02, 1.385, 0.08). Half-extents
-    = (0.36, 1.245, 0.36).\n- Pivot/placement notes:\n  - The model\u2019s lowest
-    point is at y = +0.14 relative to the pivot. To sit the base flush on a surface
-    at world Y = Ysurf, set object Y = Ysurf - 0.14.\n  - The visual footprint center
-    is offset from the pivot by +0.02 in X and +0.08 in Z. To place the chimney so
-    its footprint center is at world XZ = (X0,Z0), set object position X = X0 - 0.02,
-    Z = Z0 - 0.08.\n  - Required clearances: use at least 0.72 units center-to-center
-    (or 0.36 units radius) to avoid bounding-box overlap.\n- Orientation: symmetric
-    around vertical axis \u2014 yaw rotation is not critical. Top has a small flue
-    opening (not suitable for placing large objects on top).\n- Note: renders use
-    magenta background."
+  AiMetadata: A narrow, slightly tapered vertical chimney column with a small squared
+    base and a capped top that shows an octagonal opening, with subtle surface facets
+    suggesting stone or metal. It is upright and centered at the origin, aligned
+    along the Y-axis (height) with the base downward and the cap upward.

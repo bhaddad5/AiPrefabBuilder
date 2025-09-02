@@ -119,14 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a tall, narrow, slightly twisted chimney column
-    with a small pyramidal/top cap. The silhouette is non\u2011symmetric (kinks along
-    its height) so rotation changes the visible profile.\n- Bounds & origin: min
-    (-0.34, 0.00, -0.24), max (0.33, 3.01, 0.42). Height = 3.01 units; footprint
-    \u2248 0.67 \xD7 0.66 units. Base sits at Y = 0 (origin at base level, centered
-    roughly on X/Z).\n- Orientation: Y is up. The chimney\u2019s cap points toward
-    +Y.\n- Placement notes: align base to ground (Y=0). Use ~0.35\u20130.4 unit horizontal
-    clearance from other geometry to avoid intersection (\u22480.7 units center\u2011to\u2011center).
-    Because the shape is asymmetric, rotate around Y to vary silhouette or to line
-    up with roof openings. The magenta background in the renders is a transparency
-    color."
+  AiMetadata: A narrow, twisted vertical chimney-like post with a segmented, irregular
+    shaft and a small pyramidal cap. It is oriented upright along the Y-axis, with
+    the cap at the positive/top side.

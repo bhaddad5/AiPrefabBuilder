@@ -119,16 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a tall, narrow square masonry chimney column
-    with slightly chamfered corners and a recessed square top. Color/texture is gray
-    stone; overall shape is a straight vertical pillar.\n\n- Bounds & size (local
-    space): min (-0.48, -0.05, -0.47), max (0.47, 2.75, 0.48). Size = (0.95, 2.80,
-    0.95) (X, Y, Z).\n\n- Pivot/centering: geometry center \u2248 (-0.005, 1.35,
-    0.005) relative to the prefab origin. The bottom sits at Y = -0.05 (i.e., 0.05
-    units below the origin).\n\n- Placement notes:\n  - Footprint ~0.95 x 0.95 \u2014
-    treat as a 0.95m square collision/placement cell.\n  - Vertical clearance required
-    \u2248 2.80m above the placement surface.\n  - To place flush on a roof/ground
-    at world Y=0, raise the prefab by +0.05 so the bottom Y becomes 0 (or move the
-    pivot to bottom-center).\n  - Symmetrical in X/Z (negligible center offset),
-    so 90\xB0 rotations are visually interchangeable.\n  - Account for the recessed
-    top if you plan to attach a cap or inner stack (top opening inset ~0.5 of footprint)."
+  AiMetadata: "A narrow, tall rectangular chimney base \u2014 a vertical stone pillar
+    with slightly beveled corners and a worn, mottled surface. It is oriented upright
+    along the Y axis, centered at the origin, showing a lighter top face and darker
+    sides."

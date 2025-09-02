@@ -142,18 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a small pair of vertical support posts with a short horizontal
-    plate and a diagonal brace (an L\u2011shaped house support/bracket). From front/back
-    you see a tall post with a diagonal strut and a short shelf; side/top views show
-    two thin vertical posts placed side-by-side along X.\n- Bounds & size (local):
-    min (0.00, -1.13, -2.01), max (1.25, 1.17, -0.49). Dimensions = (X:1.25, Y:2.30,
-    Z:1.52).\n- Pivot/placement notes:\n  - The prefab pivot is at local X = min
-    (0.00) \u2014 i.e., the leftmost face is at the origin X. Good for abutting other
-    prefabs on the left without extra offset.\n  - The front-most geometry is at
-    local Z = max = -0.49 (the model extends behind the pivot along negative Z).
-    To flush the front face to a world plane at Z=0, translate the prefab +0.49 on
-    Z.\n  - The bottom sits at local Y = -1.13. To sit the support on world ground
-    Y=0, translate +1.13 on Y.\n  - To invert which side faces forward, rotate 180\xB0
-    around Y and reapply Z offset as needed.\n- Use cases: narrow footprint (thin
-    posts) \u2014 can be tiled along X up to 1.25 units per element; allow ~0.5\u20131.6
-    units depth clearance because of its ~1.52 Z extent."
+  AiMetadata: SM_Bld_House_Supports_03 is a small building support made of a thin
+    vertical post with a short horizontal shelf and a diagonal brace, forming an
+    L-shaped corner bracket. It is oriented upright (post along the vertical axis)
+    with the shelf and diagonal brace projecting outward to one side.

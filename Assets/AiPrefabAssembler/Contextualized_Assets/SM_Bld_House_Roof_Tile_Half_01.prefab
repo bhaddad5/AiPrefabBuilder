@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a half roof tile / shingle piece \u2014 rectangular,
-    wooden shingled top (brown), dark underside with two short rectangular mounting
-    tabs/battens along one long edge. Thin profile, roughly plank-like.\n- Size (local
-    bounds): min = (-1.31, -1.43, -2.50), max = (0.18, 0.06, 0.00) \u2192 dimensions
-    = (1.49, 1.49, 2.50).\n- Pivot/center: local center = (-0.565, -0.685, -1.25).
-    The origin is offset from the geometric center toward the positive X/Y/top edge;
-    top surface corresponds to z = 0 (max Z).\n- Features to use when tiling/placing:\n 
-    - Top surface sits at z = 0 \u2014 align this when placing on roof plane so no
-    extra vertical offset is needed.\n  - Mounting tabs run along one long edge (visible
-    on top/bottom/side renders) \u2014 use that edge as the overlap/connection side
-    when repeating or snapping tiles.\n  - Footprint on the horizontal plane is ~1.49
-    x 1.49; the piece extends 2.50 units \"down\" from the top (negative Z) so stacking/overlap
-    along the long axis must account for that depth.\n  - Because the prefab origin
-    is not centered, place objects using the bounding box or center offset (-0.565,
-    -0.685, -1.25) if you want symmetric placement around an origin.\n- Visual notes:
-    brown shingle texture on top, dark structural underside; small tabs/battens are
-    outboard on one long side for alignment."
+  AiMetadata: "A half-size rectangular roof segment textured with overlapping brown
+    tiles on the top and dark wooden planks with small support brackets on the underside.
+    It is oriented flat (tiled face up) with its long edge running left\u2013right
+    in the top view and the support brackets projecting downward."

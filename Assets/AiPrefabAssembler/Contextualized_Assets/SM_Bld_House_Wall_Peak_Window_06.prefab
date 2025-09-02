@@ -203,22 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Triangular gable/peak wall with a small rectangular
-    window in the face. Narrow/thin wall (flat panel) \u2014 looks like a dormer/peak
-    section you\u2019d plug into a house wall run.\n- Front/back are mirrored; window
-    centered on the triangular face.\n\nImportant placement info (useful when assembling
-    with other prefabs)\n- Local bounding box: width (X) = 2.50 units (min X = -2.50,
-    max X = 0.00), height (Y) = 3.75 units (0.00 \u2192 3.75), depth (Z) = 0.24 units
-    (min Z = -0.12, max Z = 0.12).\n- Origin (0,0,0) is at the right-bottom edge
-    of the prefab\u2019s bounding box (so the model extends left in negative X from
-    the origin and up in +Y).\n- Align bottom Y = 0 to sit on the ground/floor. To
-    butt this piece to a neighboring wall, align the neighbor\u2019s left edge to
-    X = 0 (or translate this prefab by +2.50 if you want its left edge at origin).\n-
-    Thin depth (0.24) \u2014 expect z-fighting if adjacent panels are exactly coplanar;
-    add a small overlap (~0.01\u20130.05) or bias depth to avoid rendering/physics
-    issues.\n- Window placement: roughly centered across the width (around X \u2248
-    -1.25) and located in the lower-to-mid portion of the face (approx Y \u2248 1.2\u20131.8)
-    \u2014 treat these as approximate if you need exact window snap points.\n- Front/back
-    orientation is distinct (mirrored), so check which face you consider \u201Cexternal\u201D
-    before assembling.\n\n(background color in reference images is bright fuchsia
-    and can be ignored)"
+  AiMetadata: A thin, vertical gable wall panel with a pointed triangular peak and
+    a centered small square window with trim, painted in muted grays. It is oriented
+    with the triangular face pointing toward +X, its height along +Y, and minimal
+    thickness along Z.

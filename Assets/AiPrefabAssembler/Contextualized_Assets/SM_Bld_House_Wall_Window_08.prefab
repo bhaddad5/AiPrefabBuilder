@@ -371,19 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Wall_Window_08\n- Bounds (local): min (-2.52,
-    0.00, -0.36), max (0.00, 2.51, 0.36) \u2192 size WxHxD = 2.52 x 2.51 x 0.72 units.\n-
-    Pivot/placement origin: at (0,0,0) \u2014 this is the right vertical edge, bottom,
-    centered through thickness (right-bottom-center).\n- Orientation: the wall extends
-    toward negative X from the pivot. The window/face is on the side away from the
-    pivot (the -X side); the opposite face appears lighter (interior) and the darker
-    face with window is the exterior.\n- Visual: a thin boarded wall segment with
-    a centered window opening/board detail; thin depth (0.72).\n- Placement tips:\n 
-    - When tiling horizontally, align pivots/edges and translate by \xB12.52 in X
-    (or mirror+translate by 2.52) so edges meet cleanly.\n  - Y origin is at floor
-    level (0.0) \u2014 stack by multiples of 2.51 for vertical alignment.\n  - Z
-    is centered; use \xB10.36 to avoid overlap with adjacent thin geometry.\n  -
-    For flipping the window to the other side, rotate 180\xB0 around Y and offset
-    by 2.52 in X so the outer faces line up.\n  - Use the bounds as the collision/culling
-    box; thickness is small so watch z-fighting with adjacent walls/windows.\n- Misc:
-    background color in renders is fuchsia (not part of prefab)."
+  AiMetadata: SM_Bld_House_Wall_Window_08 is a narrow rectangular house wall segment
+    with a central dark window, timber framing and diagonal support braces; the back
+    shows lighter wooden planks while the front is the glazed/dark exterior. The
+    prefab is placed at the origin and extends along the negative X direction (its
+    main length runs left from the origin).

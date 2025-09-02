@@ -119,19 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin triangular/peaked gable wall panel (gable-end
-    segment). Front/back images show a right triangle shape; left/right/top/bottom
-    views show a very thin rectangular silhouette.\n- Local bounds and size: X =
-    -1.25 \u2192 0.00 (depth along X = 1.25 units toward negative X), Y = 0.00 \u2192
-    2.50 (height = 2.5 units), Z = -0.04 \u2192 0.04 (thickness = 0.08 units).\n-
-    Pivot/origin: located at the vertical straight edge at X = 0 (the right vertical
-    side of the triangle). Base sits on Y = 0.\n- Orientation notes: the triangular
-    face projects toward negative X. Z is centered on 0 (symmetrical thickness).\n-
-    Placement tips:\n  - Snap the prefab so its X = 0 vertical edge aligns with adjoining
-    wall or frame edge (it was modeled with the edge at the origin).\n  - Y = 0 is
-    the floor/base \u2014 no vertical offset needed to sit on ground.\n  - Because
-    thickness is 0.08, expect a small overlap/gap with adjacent thin walls; account
-    for that when welding seams or enabling collision.\n  - To mirror a matching
-    gable on the opposite side, rotate 180\xB0 about Y (or mirror along X).\n  -
-    Keep Z aligned (no lateral offset required) unless you intentionally want the
-    thin face inset or flush with other panels."
+  AiMetadata: SM_Bld_House_Wall_Peak_02 is a tall, narrow triangular gable/peak wall
+    segment (a thin wedge) with a sloped face. It stands upright along the Y-axis,
+    extends from the origin toward negative X, and is very thin along the Z-axis.

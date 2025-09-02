@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- A narrow half-rail segment: a single
-    vertical post with a top cap and three short horizontal rails (a T-like rail
-    profile). Thin in X, tall in Y, and extends backward in Z.\n\nKey bounds & placement
-    info (object at (0,0,0)):\n- Bounds: min (-0.07, 0.00, -1.16), max (0.07, 1.03,
-    0.00)\n- Size: X \u2248 0.14 m, Y \u2248 1.03 m, Z \u2248 1.16 m\n- Sits on ground:
-    min Y = 0 (origin at floor level)\n- Front connection at origin: max Z = 0 \u2014
-    the piece extends along negative Z (open/connection face is at Z = 0)\n- Narrow
-    footprint: centered on X around origin (\xB10.07)\n\nPlacement tips:\n- Use the
-    origin/front face (Z = 0) as the attachment point to walls or next segment.\n-
-    To tile along the rail direction, translate successive pieces by (0, 0, -1.16).\n-
-    To reverse facing, rotate 180\xB0 about Y (origin/front face remains the connection).\n-
-    Collider/occlusion: a thin box approx (0.14 \xD7 1.03 \xD7 1.16) is sufficient
-    for placement snapping.\n- Be mindful of the small X extent when placing adjacent
-    prefabs so rails align horizontally."
+  AiMetadata: 'A narrow dark-metal half-rail: a vertical post with a small square
+    cap and three parallel horizontal slats attached on one side. The post is upright
+    along the Y axis, with the horizontal rails projecting toward the negative Z
+    direction (extending back from the origin).'

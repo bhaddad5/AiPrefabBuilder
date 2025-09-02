@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Quick visual: a thin vertical triangular wedge / right-angled corner
-    wall segment (a triangular prism) \u2014 essentially a cut-out corner piece with
-    a slanted face showing stone brick tiles.\n- Bounds & size: min (-2.51, 0.00,
-    -0.12) \u2192 max (0.00, 2.50, 0.12). Height = 2.50 units, width along X = 2.51
-    units (extends negative X), thickness along Z = 0.24 units (centered on Z = 0).\n-
-    Origin/pivot: positioned at (0,0,0) located on the straight vertical face at
-    the positive-X edge of the piece (the piece extends left from the pivot). Floor
-    sits at Y = 0.\n- Orientation notes: the two straight edges meet at the origin
-    side; the diagonal/hypotenuse is the outer slanted face. Front/back textures
-    differ (one side darker, one lighter) \u2014 choose orientation so the correct
-    texture faces exterior.\n- Placement tips: snap the x=0 vertical face to adjoining
-    wall prefabs (or rotate by 90\xB0 increments to fit other corners). Align Y=0
-    to floor and match Z-centers for consistent thickness with neighboring walls.
-    Account for the origin offset (piece extends \u2212X) when batching or tiling."
+  AiMetadata: SM_Bld_House_Wall_Cut_02 is a thin, upright triangular wall segment
+    with a stone/brick texture on the triangular faces and narrow dark side edges.
+    It is positioned at the origin and oriented with its long, thin body extending
+    in the negative X direction so the triangular faces face front and back.

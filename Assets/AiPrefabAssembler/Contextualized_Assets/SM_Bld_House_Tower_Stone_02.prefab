@@ -119,22 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Short stone tower column / wall segment:
-    rectangular column with a thin top lip and bottom plinth, stone brick texture.
-    Front/back faces show brick detail; left/right show narrow thickness. Top is
-    a small recessed/trapezoidal cap.\n\nBounding box & transforms\n- Local bounds
-    min = (-1.28, -0.01, 0.00), max = (1.28, 2.49, 1.13).\n- Size (max - min) = (X:
-    2.56, Y: 2.50, Z: 1.13).\n- Local center = ((-1.28+1.28)/2, (-0.01+2.49)/2, (0+1.13)/2)
-    = (0.00, 1.24, 0.565).\n- Object origin sits ~0.01 units above the bottom face
-    (good for snapping to ground).\n\nPlacement tips for composing with other prefabs\n-
-    Align bottoms to world Y = 0 (origin is essentially at the base) so columns sit
-    flush on the ground.\n- Use the bounding box (2.56 \xD7 2.50 \xD7 1.13) for collision
-    / grid placement. Snap centers in X/Z or align min/max X/Z to avoid gaps.\n-
-    There is a top lip and bottom plinth that will overlap slightly with adjacent
-    pieces \u2014 allow a small overlap (0.01\u20130.05 units) or match edges exactly
-    to hide seams.\n- Orientation matters: faces have different lighting/texture;
-    rotate consistently so the visible \u201Cfront\u201D faces the desired direction.\n-
-    Thin depth (Z = 1.13) means this is suitable as a narrow tower/column or wall
-    segment rather than a wide block.\n\nOther notes\n- Background in renders is
-    magenta; actual material is dark stone bricks with slightly different tones on
-    front vs back (keep consistent lighting/rotation)."
+  AiMetadata: "SM_Bld_House_Tower_Stone_02 is a short, rectangular stone tower segment
+    \u2014 a vertical pillar with a slightly overhanging cap and base, covered in
+    irregular dark-gray brick tiles. It is oriented upright at the origin (0,0,0)
+    with its height along the Y axis; front and back show full brick faces while
+    the sides are narrow."

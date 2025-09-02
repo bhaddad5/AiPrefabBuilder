@@ -120,22 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual:\n- Thin wall panel with a centered arched wooden door
-    (timber frame and metal handle). Looks like a single wall segment/door module,
-    weathered brown, inset door detail.\n\nKey transform / bounds info:\n- Bounds:
-    min (-2.50, 0.00, -0.16), max (0.00, 2.50, 0.16).\n- Size (extents): X = 2.50,
-    Y = 2.50, Z = 0.32.\n- Origin/pivot: sits at the panel's right face (max X =
-    0) and at floor level (min Y = 0). Depth is centered on origin (Z symmetric).\n\nPlacement
-    tips when composing with other prefabs:\n- To tile horizontally so edges touch,
-    offset each adjacent module by -2.50 units in X (each copy\u2019s origin = previous
-    origin + (-2.50, 0, 0)).\n- Y should be 0 to keep the bottom flush with the floor.
-    No Z offset needed for depth alignment (Z is centered).\n- Rotating a copy 180\xB0
-    around Y will flip the visible door face; because the pivot is at the right edge,
-    you will likely need to translate after rotation to realign edges (apply the
-    same 2.50 step).\n- Approximate collision/occlusion box: 2.50 \xD7 2.50 \xD7
-    0.32 (X\xD7Y\xD7Z).\n- Front/back visuals differ (one side appears darker/recessed);
-    pick orientation so the desired door face is visible in your build.\n\nBackground
-    note:\n- Provided renders use solid fuchsia background for masking."
+  AiMetadata: A narrow timber wall segment with an arched wooden door, visible hinges
+    and knob, set in vertical posts and diagonal braces. It extends to the negative
+    X side of the origin with the door face oriented toward +X.
 --- !u!1 &1249627764902876
 GameObject:
   m_ObjectHideFlags: 0

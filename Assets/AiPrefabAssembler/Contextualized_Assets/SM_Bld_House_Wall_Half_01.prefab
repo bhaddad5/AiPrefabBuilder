@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Wall_Half_01\n- Bounds (local): X [-1.25, 0.00]
-    (width 1.25), Y [0.00, 2.50] (height 2.50), Z [-0.12, 0.12] (thickness 0.24).\n-
-    Pivot/origin: at the bottom-right-center of the piece (X = right face, Y = floor,
-    Z = center).\n- Appearance: narrow half-wall panel, ~2.5 units tall, with thin
-    top/bottom dark trim and a painted/damaged surface. Small connection/bracket
-    pads are visible near the vertical center/ends on the narrow edges.\n- Placement
-    notes:\n  - The piece sits flush on the floor (Y = 0).\n  - The origin being
-    at X = 0 (right edge) means the model extends left from its origin. To tile pieces
-    leftward, place additional instances with their origins offset by -1.25 increments.
-    To extend rightward, either mirror/flip the prefab (scale X = -1) or use a counterpart
-    whose origin is on the opposite edge.\n  - Thickness is 0.24 centered on Z =
-    0, so front/back face orientation matters (front/back textures differ); ensure
-    correct facing when assembling.\n  - Small thickness \u2014 check for gap/overlap
-    when snapping to other geometry or when using colliders."
+  AiMetadata: 'A thin vertical half-wall panel: a 2.5-unit-tall, narrow rectangular
+    slab with slight thickness, concrete/metal texture and darker trim bands at top
+    and bottom. It is oriented extending from the origin toward the negative X direction
+    (the panel spans from the origin back along -X).'

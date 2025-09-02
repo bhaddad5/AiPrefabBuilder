@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A tall, slender chimney column with a
-    wider square/roundish base flange, a narrowing/tapered shaft, a small collar
-    near the top and an octagonal/top opening. Uniform dark material; symmetrical
-    about Y.\n\nBounds & size (local space)\n- Min: (-0.34, 0.14, -0.25)  Max: (0.38,
-    2.02, 0.44)\n- Size (W\xD7H\xD7D) = (0.72, 1.88, 0.69)\n- Center = ((min+max)/2)
-    \u2248 (0.02, 1.08, 0.095)\n- Half-extents \u2248 (0.36, 0.94, 0.345)\n\nPlacement
-    notes (useful when composing with other prefabs)\n- The lowest point is at y
-    = 0.14, so the prefab\u2019s origin is 0.14 units below the visible base. To
-    sit flush on a roof/ground, translate the prefab downward by -0.14 or snap using
-    its min.y.\n- Footprint rectangle \u2248 0.76 \xD7 0.88 (x \xD7 z). Safe circular
-    clearance radius \u2248 0.44.\n- Visually Y-symmetric (vertical axis) \u2014
-    rotation around Y is not visually sensitive; octagonal top makes small-angle
-    rotations acceptable.\n- Consider moving pivot to the base center (y = min.y)
-    for easier snapping, or use the provided bounds to compute precise offsets.\n-
-    Collision box can use the full bounds (0.72\xD71.88\xD70.69) or trimmed to the
-    base footprint if only ground intersection matters.\n\nOther\n- Images rendered
-    on fuchsia background; top view shows octagonal opening."
+  AiMetadata: 'A dark-gray house chimney prefab: a slender, slightly tapered column
+    with a wider square base and a capped octagonal top/opening. It is oriented upright
+    at the origin, extending along the Y-axis with the base down and the capped opening
+    facing up.'

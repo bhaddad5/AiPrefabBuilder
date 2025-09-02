@@ -119,24 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A right-angle corner roof piece: triangular/prismatic
-    chunk of a pitched tile roof. Top: brown overlapping roof tiles and a wooden
-    ridge/beam along the hypotenuse. Underside/back: dark wooden boarding and small
-    support feet/pegs at the two orthogonal edges.\n- Appears designed to form an
-    outside corner where two roof planes meet at 90\xB0.\n\nTransform / bounds summary
-    (important for placement)\n- Local bounds: min (-2.70, -2.68, -2.73), max (0.18,
-    0.21, 0.23).\n- Size extents: X = 2.88, Y = 2.89, Z = 2.96 (approx).\n- Pivot/origin
-    is at the outer/top corner (near the positive-max corner of the bbox). The geometry
-    extends ~2.9 units into negative X, Y and Z from the origin.\n- Bottom of the
-    mesh is at Y \u2248 -2.68 relative to pivot.\n\nPractical placement notes\n-
-    The two straight/fixed edges run along the X and Z axes (legs of the corner).
-    Use these to snap to adjacent roof pieces.\n- To tile corners around a roof use
-    Y-rotations of 0\xB0, 90\xB0, 180\xB0, 270\xB0 (or mirror as needed).\n- For
-    edge-to-edge snapping, align max-to-min along the axis and use offsets equal
-    to the full extents (\u22482.88 units on X or \u22482.96 units on Z) or align
-    the piece origins so the positive bbox face of one matches the negative bbox
-    face of the other.\n- If you need the bottom flush with floor/roof plane, translate
-    the piece up by \u22482.68 units (so bottom Y = 0).\n- Note: pivot is not centered
-    \u2014 position/anchor adjustments will be required if your placement system
-    assumes centered pivots.\n\n(Background color in renders is fuchsia; model detail:
-    tiled top, dark wooden interior.)"
+  AiMetadata: 'SM_Bld_House_Roof_Tile_Corner_02 is a triangular roof corner prefab:
+    a wedge-shaped piece with brown tiled shingles on the sloped hypotenuse, a small
+    ridge beam and corner caps, and dark wooden planking on the inner vertical faces.
+    It sits at the origin and is oriented with the ridgeline running diagonally corner-to-corner,
+    forming an upward-facing tiled outer corner and flat wooden inner corner.'

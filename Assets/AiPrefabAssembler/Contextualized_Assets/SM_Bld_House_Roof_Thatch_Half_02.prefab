@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a sloped half-thatch roof module \u2014 thatch on the top
-    surface with three visible thatch ridges, a wooden/beam underside with a small
-    connector peg/stub at one short edge. Long, narrow, slightly beveled profile
-    (intended to form one half of a roof slope).\n- Bounding box (local): min (-2.55,
-    -2.68, -1.25), max (0.18, 0.06, 0.00). Extents = (2.73, 2.74, 1.25).\n- Local
-    center = (-1.185, -1.31, -0.625). The origin/pivot is at the corner near the
-    max bounds (near the top/outer short edge).\n- Placement notes for tiling:\n 
-    - Pivot is at the outer/top short edge \u2014 geometry extends mostly into negative
-    X,Y,Z from the pivot. When placing, translate by negative offsets or use the
-    center for symmetric placement.\n  - Footprint to reserve per piece \u2248 2.73
-    \xD7 2.74 units (X \xD7 Y). Vertical height 1.25 units (down from pivot).\n 
-    - The small peg/stub at the short edge can be used as a seam/connector \u2014
-    align pegs when snapping two halves together. Mirroring or rotating 180\xB0 around
-    Z will form the opposite half of a roof.\n  - Ensure Z offsets keep adjacent
-    roof modules\u2019 top thatch surfaces flush (pivot is at top edge, so stack/raise
-    other pieces by up to 1.25 units as needed)."
+  AiMetadata: "A half-length thatch roof section: a sloped, layered straw surface
+    on top with exposed dark wooden rafters underneath and a small alignment peg
+    on one short edge. It is oriented with the slope along the X axis, extending
+    primarily toward negative X from the origin, with the thatch up (+Y) and the
+    rafters down (\u2212Y)."

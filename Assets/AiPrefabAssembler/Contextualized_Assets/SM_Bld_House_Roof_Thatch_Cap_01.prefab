@@ -119,18 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small thatch roof cap / apex piece \u2014 conical/steeple-shaped,
-    with a rounded triangular base/opening on one side (intended to sit on a roof
-    peak).\n\n- Size & bounds (local space): X: -2.75 \u2192 0.26 (width \u2248 3.01);
-    Y: 2.20 \u2192 5.21 (depth \u2248 3.01); Z: 0.00 \u2192 1.62 (height = 1.62).
-    Bottom rests at Z = 0 (sits on surface).\n\n- Pivot/centering: bounding-box center
-    \u2248 (-1.245, 3.705, 0.81) \u2014 the prefab is not centered on the origin
-    (center is offset into +Y and -X). The base plane is at Z = 0.\n\n- Orientation
-    cues: conical apex points away from the open/triangular base. Use rotation around
-    Z to aim the apex where needed.\n\n- Placement notes:\n  - Because the origin
-    is offset, translate by the bounding-box center (or recenter the pivot) to place
-    the cap symmetrically on a roof peak.\n  - Height is shallow (1.62 units) \u2014
-    good for small-scale roofs or stacked with other roof prefabs.\n  - When grouping
-    multiple caps, align their bases flush and rotate copies around the peak; mirror/rotate
-    to fill corners or circular ridges.\n  - Snap to Z = 0 to avoid floating; check
-    seam overlap due to non-centered origin before finalizing."
+  AiMetadata: A small conical thatch roof cap with layered, irregular straw textures
+    and a flared triangular base in brown/olive tones. It sits upright at (0,0,0)
+    with its pointed apex facing +Y (up) and the open base pointing down.

@@ -119,25 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- A low\u2011poly thatch roof ridge \"half cap\"
-    piece (SM_Bld_House_Roof_Thatch_Peak_Cap_Half_01). Triangular/V ridge profile
-    on the long edge, flat/straight underside for mating to the roof. Brown thatch
-    material, magenta background (alpha).\n\nBounds & geometry\n- Bounding box min
-    = (-0.38, -0.16, -1.25), max = (0.38, 0.33, 0.03).\n- Size (extents) = (0.76,
-    0.49, 1.28) (X width, Y height, Z length).\n- Bounding box center = (0, 0.085,
-    -0.61) relative to the prefab origin (origin is centered in X, slightly above
-    mid Y, and offset toward the short end in Z).\n\nPlacement notes for composing
-    with other prefabs\n- This is a half ridge cap \u2014 mirror across X to create
-    the matching half or place a mirrored copy to form a full ridge cap.\n- Primary
-    tiling axis = Z (length 1.28). For an even seamless run, space repeated pieces
-    by ~1.28 units along Z (or snap by their Z extents).\n- Use the underside (min
-    Y = -0.16) as the contact plane: align that min Y to the roof surface to sit
-    flush. If your roof surface is world Y = H, set prefab world Y so that prefab_minY
-    = H.\n- Origin offset: the prefab origin is not at the geometric center (center
-    Z = -0.61). When snapping to other parts, account for this Z offset or snap using
-    bounding-box edges rather than origin.\n- Visual: V/peak runs along the long
-    edge; ensure the V faces the ridge direction and the flat underside contacts
-    roof tiles.\n- Texture/alpha: magenta background indicates masked/transparent
-    areas \u2014 expect cutout alpha.\n\nQuick checklist when placing\n- Mirror across
-    X for opposite half.\n- Tile along Z by ~1.28.\n- Align prefab min Y to roof
-    surface height.\n- Account for prefab center offset in Z when snapping to neighbors."
+  AiMetadata: SM_Bld_House_Roof_Thatch_Peak_Cap_Half_01 is a low-poly, wedge-shaped
+    half-peak roof cap with a brown/thatched look forming a small V-shaped ridge
+    for capping a gable. It sits upright at the origin with the peak running across
+    the short width and the main body extending primarily along the negative Z direction.

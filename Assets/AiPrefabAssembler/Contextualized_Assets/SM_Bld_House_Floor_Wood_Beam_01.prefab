@@ -119,57 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: 'Brief description
-
-    - A thin, rectangular wooden support beam (dark
-    brown) oriented vertically (long axis = Z). Background in renders is fuchsia.
-
-    -
-    Local bounding box: size = (X: 0.16, Y: 0.12, Z: 2.50) computed from min(-0.16,-0.06,0.00)
-    to max(0.00,0.06,2.50).
-
-
-    Origin / pivot
-
-    - Origin is at local X = max
-    (0.00), Y = center (0.00), Z = min (0.00). In other words: origin sits at the
-    bottom along the long side face (one lateral face), centered in Y, at the beam
-    base in Z.
-
-
-    Practical placement notes
-
-    - Beam runs up positive Z from
-    Z = 0 to Z = 2.50 (base already at floor if placed at Z = 0).
-
-    - To center
-    the beam on a world X coordinate Xc, set prefab position X = Xc + 0.08 (center
-    is at local X = -0.08).
-
-    - To center on world Y use Y = same (local Y center
-    = 0).
-
-    - To center on world origin (0,0,0) set prefab position = (0.08, 0,
-    0).
-
-    - To tile/abut beams along X, step origins by 0.16 units (adjacent origins
-    at +0.16 / -0.16 give flush faces).
-
-    - To stack vertically, place the next
-    beam origin at Z = current_top = current_origin.z + 2.50.
-
-    - Rotating the
-    prefab will change which edge the origin sits on (origin stays at that local
-    face), so account for the -0.16..0.00 relative X offset after rotation.
-
-
-    Quick
-    reference numbers
-
-    - Width (X) = 0.16; Depth (Y) = 0.12; Height (Z) = 2.50
-
-    -
-    Local center = (-0.08, 0.00, 1.25)
-
-    - Local origin = (0.00, 0.00, 0.00) (bottom
-    / positive-side face)'
+  AiMetadata: A slender rectangular wooden floor beam (dark wood material) with a
+    very small cross-section and a long, thin profile. It is oriented upright along
+    the Z axis (standing vertically from the origin), with its long axis in Z and
+    minimal extent in X and Y.

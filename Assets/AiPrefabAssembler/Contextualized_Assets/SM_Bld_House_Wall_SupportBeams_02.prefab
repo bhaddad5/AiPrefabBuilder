@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: A thin vertical support beam / hollow square column
-    with small top and bottom flanges (tube-like profile).\n- Bounds & origin: size
-    = 2.5 (X) \xD7 2.5 (Y) \xD7 0.24 (Z). Min = (-2.50, 0.00, -0.12), Max = (0.00,
-    2.50, 0.12). The origin is at the X = 0 face and at the base (Y = 0).\n- Orientation/local
-    attachment: the beam projects along negative X from the origin and rises in +Y
-    from ground level. Z extent is very thin (0.24), so it's essentially a flat/tubular
-    element in depth.\n- Visual cues from renders: front/back show a square hollow
-    frame, side views show a narrow vertical shaft with widened top/bottom, top/bottom
-    views show a short horizontal bar offset toward one side \u2014 consistent with
-    the beam being anchored at the X = 0 end.\n- Placement tips: snap or align other
-    prefabs to the X = 0 face for flush connection; use Y = 0 as the floor/base;
-    allow only ~0.12 units clearance per side in Z when placing adjacent geometry;
-    rotate 180\xB0 to mirror if you need the beam to project in +X instead.\n- Note:
-    background was rendered magenta (fuchsia) \u2014 likely used as a transparency
-    mask."
+  AiMetadata: "SM_Bld_House_Wall_SupportBeams_02 is a thin vertical wall support\u2014a
+    slender column with a small square base and cap and an offset hollow square mounting/frame.
+    It stands upright along the Y axis and is positioned so the beam and frame extend
+    toward the negative X direction from the origin."

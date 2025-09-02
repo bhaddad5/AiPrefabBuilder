@@ -119,20 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- Low-profile thatch roof corner piece
-    (brown/tan) shaped like an L/corner cap. Thin sloped geometry with a thicker
-    knuckle at one corner; looks like a covering that wraps over a roof corner rather
-    than a full ridge tile.\n\nImportant placement info (concise):\n- Bounds (relative
-    to prefab origin at 0,0,0): min (-1.59, -0.20, -0.01), max (0.00, 0.12, 1.69).\n-
-    Size: X=1.59, Y=0.32, Z=1.70 units.\n- Origin/pivot location: at the max X face
-    (X = 0) and near the lower Z side (Z \u2248 0 relative to min Z = -0.01). Vertically
-    the origin is 0.20 units above the bottom bound (bottom at Y = -0.20).\n- Base
-    sits low: bottom at Y = -0.20, top at Y = +0.12 \u2014 use a +0.20 Y offset if
-    you want the base to sit on a 0.0 surface.\n- Extents from origin: extends -1.59
-    in X and +1.69 in Z \u2014 snap its origin to the building corner where two roof
-    planes meet (this origin is the outer/edge-facing corner of the piece).\n- Orientation:
-    rotate around Y in 90\xB0 increments to place in other corner orientations.\n-
-    Notes: very thin profile (small Y height) \u2014 avoid stacking other thin roof
-    pieces directly on top unless intentionally overlapping. Small Z min = -0.01
-    may cause a tiny overlap/bleed; allow a small epsilon when snapping adjacent
-    pieces."
+  AiMetadata: 'SM_Bld_House_Roof_Thatch_Cover_Corner_06 is an L-shaped thatch roof
+    corner cap: a low-profile, sloped, polygonal thatch tile with an overhanging
+    eave and a raised peaked section at the corner. It is oriented at the origin
+    extending toward negative X and positive Z, with the corner tip pointing roughly
+    toward +Z and a thin vertical profile.'

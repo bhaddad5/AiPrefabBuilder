@@ -119,15 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Type/shape: triangular/wedge wall segment \u2014 a right-triangle
-    vertical wall with a diagonal cut (thin slab).\n- Dimensions (from bounds): width
-    X = 2.51 units (extends from x = 0 to x = -2.51), height Y = 2.50 units, thickness
-    Z = 0.24 units (z = -0.12..0.12).\n- Pivot/origin: placed at the bottom-right
-    center of the piece (x = 0 is the right face, y = 0 is the bottom, z = 0 is the
-    mid-plane). So the piece extends leftward and upward from the origin.\n- Visual
-    notes: very thin depth; two faces have opposite diagonal orientations (front/back
-    mirrored). Top/bottom views show a narrow rectangular profile offset to one side.\n-
-    Placement tips: snap the origin to the corner/edge you want as the piece\u2019s
-    bottom-right anchor; rotate 180\xB0 around Y to mirror orientation; allow for
-    the 0.24 unit thickness when aligning adjacent walls; textures/facing differ
-    between the two triangle orientations."
+  AiMetadata: "SM_Bld_House_Wall_Cut_03 is a thin, upright right-triangular wall
+    segment\u2014a 90\xB0 triangular wedge with a flat hypotenuse face. It is tall
+    in Y, very thin in Z, and oriented with its right-angled corner at the origin
+    while the triangular face extends toward negative X."

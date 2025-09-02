@@ -119,16 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A thin rectangular glass window/pane (purple-tinted)
-    with a slightly darker edge. Appearance is a translucent/masked glass material,
-    centered on the prefab origin.\n\nImportant placement info:\n- Bounds: width
-    = 0.90 (X: -0.45 \u2192 0.45), height = 1.08 (Y: -0.54 \u2192 0.54), thickness
-    Z = 0.0 (Z: 0 \u2192 0) \u2014 it's a flat plane at Z = 0.\n- Pivot/origin: centered
-    at (0,0,0).\n- Normals / visibility: single flat surface \u2014 expect backface
-    culling; verify which side faces outward (front/back images show the visible
-    textured faces). May need a double-sided material if it must be visible from
-    both sides.\n- Placement tips: offset slightly when snapping to walls to avoid
-    Z-fighting (give it a small thickness or translate by ~0.01 units along normal).
-    Align center to desired mounting point or translate by \xB10.5*width/height for
-    edge-aligned placement. Scale uniformly to preserve aspect ratio.\n- Collision:
-    likely none or minimal; add collision proxy if needed for physics/occlusion."
+  AiMetadata: "SM_Bld_House_Glass_01 is a thin, vertically oriented rectangular glass
+    pane/window with a purple-tinted translucent surface. It is centered at the origin
+    and faces along the \xB1Z axis (its flat plane lies in the XY plane)."

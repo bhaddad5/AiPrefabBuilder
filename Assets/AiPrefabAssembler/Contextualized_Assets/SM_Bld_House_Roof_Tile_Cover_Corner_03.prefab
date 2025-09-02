@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- A small 90\xB0 roof corner tile: a square-ish
-    corner cap with a raised diagonal ridge/brace and overlapping tile rows on the
-    exterior face. Underside shows a small support/peg for mounting. Texture looks
-    wooden/terracotta.\n\nBounds & size\n- Min: (-2.47, -0.48, -2.47)  Max: (0.17,
-    0.20, 0.16)\n- Overall size (W\xD7H\xD7D): ~2.64 \xD7 0.68 \xD7 2.63 units.\n\nPivot/offset\n-
-    Geometry center = (min+max)/2 \u2248 (-1.15, -0.14, -1.16).\n- To recenter the
-    model at the origin translate by +1.15, +0.14, +1.16 (i.e., subtract the center).\n\nPlacement
-    notes (useful when composing with other prefabs)\n- This is a corner piece \u2014
-    rotate in 90\xB0 increments to form each roof corner.\n- Account for the negative-center
-    offset if snapping to a grid or other pieces (translate as above or use the bounds
-    for snap offsets).\n- Vertical clearance: lowest point is -0.48 below origin,
-    highest is +0.20 above \u2014 allow ~0.68 units of height.\n- Small underside
-    peg(s) indicate expected downward mounting; align with roof plane so peg faces
-    down.\n- Slight positive-side overhang (~0.17) \u2014 watch alignment if matching
-    eaves or adjacent tiles."
+  AiMetadata: "A small L-shaped corner roof tile cover: a square corner segment of
+    a tiled roof with overlapping brown/red tiles and visible wooden support beams,
+    including a prominent diagonal brace. It sits flat at the origin, oriented as
+    a 90\xB0 corner piece with the tiled top facing upward and the diagonal beam
+    running across the top surface."

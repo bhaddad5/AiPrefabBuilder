@@ -120,24 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Summary:\n- Prefab: SM_Bld_House_Wall_Door_01\n- Bounding box: min
-    (-2.50, 0.00, -0.16) \u2014 max (0.00, 2.50, 0.16)\n- World origin: at (0,0,0)
-    \u2014 this is the right face of the mesh at ground level.\n\nDimensions & geometry:\n-
-    Width (X) = 2.50 units, Height (Y) = 2.50 units, Depth (Z) \u2248 0.32 units.\n-
-    Mesh center = (-1.25, 1.25, 0.00). Door visual center/hinge area is around that
-    point.\n- Very thin wall piece (0.32 depth) \u2014 mostly a flat wall with a
-    centered door.\n\nVisual/orientation notes:\n- One face shows a darker door texture
-    and the opposite shows a lighter/inside texture \u2014 use these to decide which
-    side faces interior vs exterior.\n- Front/Back are opposite faces; flipping the
-    prefab 180\xB0 swaps interior/exterior.\n\nPlacement tips for composing with
-    other prefabs:\n- To tile/abut walls, align X = 0 of one instance to X = -2.5
-    of the neighboring instance (edges meet flush).\n- Place Y = 0 on the scene ground
-    (base sits at Y=0).\n- Use the mesh center (-1.25,1.25,0) or the X-edge (0 or
-    -2.5) as snap points. Consider adding snap points at both X edges and at (X center,
-    Y=1.25, Z=0) for door alignment.\n- Rotate 180\xB0 to flip which side faces outward;
-    negligible Z depth means little collision overlap when abutting.\n- If you need
-    a hinge/handle location: approximate at X \u2248 -0.6 to -0.8 (relative to prefab
-    origin), Y \u2248 1.0 (use visual inspection in editor)."
+  AiMetadata: A narrow house wall segment containing an arched wooden plank door
+    set in a stone-and-timber frame, with metal bands, handle and visible hinges;
+    one face appears darker than the other. The prefab is oriented with the door
+    facing +X (front at the origin) and the wall depth extending toward negative
+    X.
 --- !u!1 &1603634003072948
 GameObject:
   m_ObjectHideFlags: 0

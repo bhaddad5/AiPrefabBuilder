@@ -295,19 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A tall, narrow tower-style house window with
-    an arched top trim. Front face has a recessed glass pane and frame details; one
-    vertical side shows extra trim/edge detail (piece is asymmetric).\n\nBounds &
-    pivot (local space):\n- Min = (-2.50, 0.00, -0.07), Max = (0.00, 2.50, 1.29)\n-
-    Size = (X=2.50, Y=2.50, Z=1.36)\n- Pivot/origin at (0,0,0) = right edge and ground
-    level (bottom-right corner of the bbox).\n- Front face points toward +Z (max
-    Z = 1.29), back toward -Z.\n\nPlacement notes (useful when assembling many prefabs):\n-
-    Base sits on Y=0 (floors align directly). Align Y=0 to floor surfaces.\n- The
-    model is offset to the left of its pivot (extends -X from pivot). When placing
-    flush against a wall, align the model\u2019s X=0 (pivot/right edge) to the wall
-    if you want the right edge flush; mirror/flip on X to get a left-flush variant.\n-
-    Depth ~1.36 units; walls should account for that forward/back extent (small back
-    offset to -0.07).\n- Asymmetric side trim means you may need mirrored copies
-    to make symmetric window arrangements or predictable seams when tiling along
-    a fa\xE7ade.\n- Image/background used magenta alpha \u2014 ensure materials/transparency
-    are handled correctly in the renderer."
+  AiMetadata: A narrow tower-style window module with a dark frame, rectangular lower
+    section and an arched top containing a small central glazed pane and mullions.
+    It sits at (0,0,0) and is oriented with the window face pointing along +Y while
+    the bulk of the piece extends toward negative X.

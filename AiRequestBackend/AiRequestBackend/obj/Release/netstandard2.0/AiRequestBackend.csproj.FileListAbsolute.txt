@@ -1,0 +1,21 @@
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\bin\Release\netstandard2.0\AiRequestBackend.deps.json
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\bin\Release\netstandard2.0\AiRequestBackend.dll
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\bin\Release\netstandard2.0\AiRequestBackend.pdb
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.csproj.AssemblyReference.cache
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.AssemblyInfoInputs.cache
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.AssemblyInfo.cs
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.csproj.CoreCompileInputs.cache
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.dll
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.pdb
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.csproj.AssemblyReference.cache
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.GeneratedMSBuildEditorConfig.editorconfig
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.AssemblyInfoInputs.cache
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.AssemblyInfo.cs
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.csproj.CoreCompileInputs.cache
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.sourcelink.json
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.dll
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\obj\Release\netstandard2.0\AiRequestBackend.pdb
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\bin\Release\netstandard2.0\AiRequestBackend.deps.json
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\bin\Release\netstandard2.0\AiRequestBackend.dll
+F:\Personal Projects\Prefab Assembler\AiRequestBackend\AiRequestBackend\bin\Release\netstandard2.0\AiRequestBackend.pdb

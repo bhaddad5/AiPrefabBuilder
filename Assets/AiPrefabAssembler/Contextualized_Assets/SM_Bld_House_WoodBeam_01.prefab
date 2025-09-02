@@ -119,15 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a tall, slender wooden support beam / post (dark brown),
-    slightly irregular surface (not perfectly cylindrical).\n- Orientation & pivot:
-    height runs on Y. Position at (0,0,0) with min.y = 0 \u2192 base sits on origin
-    (pivot at bottom center).\n- Exact bounds / size: X = -0.16..0.16, Z = -0.16..0.16
-    \u2192 footprint ~0.32 \xD7 0.32 units (square). Y = 0..2.50 \u2192 height 2.50
-    units.\n- Placement tips: align base to floor at Y=0; center aligns with prefab
-    origin so snap to grid using the 0.32m footprint or round to convenient grid
-    (e.g., 0.3 or 0.5) as needed. Rotate around Y for orientation; bounding box is
-    symmetric horizontally.\n- Other notes: small footprint so watch collision/occlusion
-    when placing many close together; consider slight random rotation/offset or material
-    variation to avoid repetition. Background color in renders is magenta (not part
-    of asset)."
+  AiMetadata: SM_Bld_House_WoodBeam_01 is a tall, slender rectangular wooden support
+    beam with a slightly irregular, dark brown/gray surface. It is upright (aligned
+    with the world Y axis) and centered at the origin.

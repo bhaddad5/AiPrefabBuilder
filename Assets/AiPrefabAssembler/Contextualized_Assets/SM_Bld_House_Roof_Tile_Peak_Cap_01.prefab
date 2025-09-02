@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- A narrow V-shaped roof ridge/peak cap (roof tiles
-    forming an apex). Apex points up (+Y); tile row runs along the negative Z direction
-    from the apex.\n- Textured tile segments repeat along the long axis (depth).\n\nBounds
-    & physical size (local space)\n- X (width): from -0.28 to +0.27 \u2192 ~0.55
-    units wide.\n- Y (height): from -0.13 to +0.38 \u2192 ~0.51 units tall.\n- Z
-    (length/depth): from -2.50 to 0.00 \u2192 2.50 units long, with the frontmost
-    face at Z = 0.\n\nPlacement / snapping notes\n- The prefab\u2019s frontmost edge
-    (Z = 0) is the ridge tip \u2014 use this as the mating face.\n- Tile pieces tile
-    end-to-end along local \u2212Z. To extend the ridge, translate by (0, 0, -2.50)
-    in local space per piece.\n- Origin sits centered in X and slightly above the
-    bottom in Y (bottom at Y = -0.13), so when placing on a roof surface, account
-    for the ~0.13 unit downward offset from origin to the base.\n- Maintain consistent
-    local rotation so tile textures and seams align; flipping may be required for
-    mirrored runs (rotate 180\xB0 around Y to reverse direction).\n- Watch for texture/normal
-    seams at joins; small overlap (~0.01\u20130.05) can hide gaps if needed."
+  AiMetadata: SM_Bld_House_Roof_Tile_Peak_Cap_01 is a narrow brown ridge cap made
+    of repeating scalloped/hexagonal tile segments forming a V-shaped peak. Its long
+    axis runs toward negative Z from the origin, with the peak apex pointing upward
+    (positive Y).

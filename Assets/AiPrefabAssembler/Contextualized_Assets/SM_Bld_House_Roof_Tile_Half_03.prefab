@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A half roof tile: brown textured top (visible
-    in Top/Right), dark recessed underside (Bottom/Left). A small rectangular alignment
-    tab/peg protrudes from one edge (used to lock/slot into adjacent pieces).\n\nUseful
-    placement info:\n- Bounding box min = (-1.31, -1.43, -1.25), max = (0.18, 0.06,
-    0.00).\n- Size (extents) = (1.49, 1.49, 1.25).\n- The model\u2019s top surface
-    is at Z = 0 (max Z = 0) so placing it at world Z = 0 will make the top flush
-    with that plane.\n- The origin/pivot is near the top/edge of the tile (near the
-    edge where the tab is): center = (min+max)/2 = (-0.565, -0.685, -0.625) relative
-    to the prefab origin. That means most geometry extends into negative X, Y, Z
-    from the origin.\n- The tab projects from the positive X/positive-Y edge (visible
-    in Top/Right); rotate/mirror pieces so tabs face the intended neighbors or fit
-    into receiver slots.\n- Tiling spacing: use ~1.49 units in X or Y between origin-aligned
-    copies (or compute spacing from the box edges) and account for the tab when snapping
-    edges.\n\nQuick tips:\n- If you prefer center-based placement, offset by the
-    center above to convert origin->centroid.\n- When lining up multiple prefabs,
-    align their max Z (0) and match the tab edge on one tile to the slot edge on
-    the adjacent tile; mirror/rotate 90\xB0/180\xB0 as needed."
+  AiMetadata: 'A small half roof tile: a rectangular, slightly sloped roof segment
+    with a brown tiled top, dark underside, and a short rectangular mounting tab
+    on one short edge. It sits with the tiled face up and the tab pointing to the
+    object''s right (positive X), the piece sloping along its long axis.'

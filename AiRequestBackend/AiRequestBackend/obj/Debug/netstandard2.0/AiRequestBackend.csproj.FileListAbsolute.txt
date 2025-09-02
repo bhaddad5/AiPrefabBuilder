@@ -1,0 +1,10 @@
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.csproj.AssemblyReference.cache
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.AssemblyInfoInputs.cache
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.AssemblyInfo.cs
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.csproj.CoreCompileInputs.cache
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\bin\Debug\netstandard2.0\AiRequestBackend.deps.json
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\bin\Debug\netstandard2.0\AiRequestBackend.dll
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\bin\Debug\netstandard2.0\AiRequestBackend.pdb
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.dll
+C:\Users\Cavrnus\source\repos\AiRequestBackend\AiRequestBackend\obj\Debug\netstandard2.0\AiRequestBackend.pdb

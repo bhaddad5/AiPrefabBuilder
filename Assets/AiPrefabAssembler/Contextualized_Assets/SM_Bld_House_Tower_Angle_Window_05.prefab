@@ -212,19 +212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a 90\xB0 corner/tower window prefab (angled corner segment)
-    \u2014 dark gray masonry with a central multi-pane window and narrow vertical
-    windows on the flanks. Top/bottom views show a trapezoidal roof/footprint.\n\n-
-    Bounds & pivot:\n  - World bounds: X: -2.50 \u2192 0.00, Y: 0.00 \u2192 2.50,
-    Z: -0.07 \u2192 1.11\n  - Size (extents): 2.50 \xD7 2.50 \xD7 1.18 units (X \xD7
-    Y \xD7 Z)\n  - Pivot/origin is at the X=0, Y=0 corner (one footprint corner at
-    ground level). The mesh bottom extends 0.07 units below the origin.\n\n- Placement
-    notes:\n  - Treat it as a 2.5\xD72.5 tile corner piece; snap grid/translate in
-    2.5 unit increments to tile around a tower.\n  - Rotate in 90\xB0 steps around
-    Z to place in other corners.\n  - Because min Z = -0.07, either raise by +0.07
-    to sit flush on a floor/ground or account for the small sink in colliders/physics.\n 
-    - Align the origin corner to adjacent prefab edges so seams match; check normals/UVs
-    for texture continuity if adjoining walls."
+  AiMetadata: "A narrow vertical tower/corner wall piece with dark gray paneling
+    and purple-glass windows \u2014 a central square window flanked by two slim vertical
+    windows and a trimmed top forming a trapezoidal footprint. Oriented upright along
+    the Y axis, the main/front window face points toward +Z and the piece extends
+    from the origin toward negative X."
 --- !u!1 &1598612696393160
 GameObject:
   m_ObjectHideFlags: 0

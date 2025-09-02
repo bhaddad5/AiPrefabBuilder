@@ -120,24 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a small square stone window insert with vertical bars and
-    an exterior sill/window box with a single angled support underneath. Textured/dark
-    frame with a lighter stone surround. Top/bottom are thin sill profiles; side
-    views show the box and support bracket in profile.\n\n- Bounds and size (local
-    space):\n  - X: -2.50 to 0.00 (width = 2.50)\n  - Y: 0.00 to 2.50 (height = 2.50)
-    \u2014 bottom sits at Y = 0\n  - Z: -0.12 to 0.61 (depth \u2248 0.73)\n\n- Pivot/origin:
-    at (0,0,0). Origin is at the base and at the X = 0 face (one vertical edge/face).
-    The mesh extends 2.5 units in the negative X direction from the origin and rises
-    2.5 units above the origin.\n\n- Placement notes for use in larger assemblies:\n 
-    - Align the origin (X = 0) to the wall plane you want this piece to abut so the
-    window sits flush with that face.\n  - Align Y = 0 to your building baseline
-    (floor or wall base) \u2014 the prefab is bottom-aligned.\n  - Allow ~0.73 units
-    of depth clearance (Z) for the sill and any overhang; the sill protrudes more
-    toward positive Z.\n  - Leave ~2.5 units of horizontal space per instance along
-    X (or tile by stacking along negative X) to avoid overlap.\n  - Small support/bracket
-    under the sill may need vertical or lateral clearance if adjacent prefabs have
-    trim or gutters.\n  - Recommend a small margin (0.05\u20130.1) when snapping
-    to other pieces to avoid z-fighting with adjacent geometry."
+  AiMetadata: A small square masonry-framed wall window with vertical bars and a
+    recessed opening, topped by a narrow projecting window box/sill. The framed face
+    is the front (mounting flush to the wall) and a short bracketed box protrudes
+    outward perpendicular to that face.
 --- !u!1 &1464432866174790
 GameObject:
   m_ObjectHideFlags: 0

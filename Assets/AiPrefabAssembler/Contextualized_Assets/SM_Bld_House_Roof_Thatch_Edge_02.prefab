@@ -119,25 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a low-poly thatch roof edge piece \u2014 an elongated,
-    slightly tapered bundle of thatch/beam with irregular facets. Top faces are lighter
-    brown; underside/darker shading on one side. Images rendered on magenta background.\n\n-
-    Bounds & size (local space):\n  - Min = (-1.48, -1.36, -0.38), Max = (0.11, 0.23,
-    0.38)\n  - Size = (1.59, 1.59, 0.76)\n  - Center = (-0.685, -0.565, 0.00)\n 
-    - Half-extents = (0.795, 0.795, 0.38)\n\n- Pivot/origin:\n  - Origin is at the
-    positive X/top edge of the piece (near one end and near the top surface). The
-    mesh extends mostly in the negative X and negative Y directions from the origin
-    (i.e., it hangs downward and away from the origin).\n\n- Placement notes (useful
-    when composing with other prefabs):\n  - Treat local +Y as the top/attachment
-    face (origin near the join), so place the origin against the roof plane to seat
-    the piece.\n  - The piece runs along local X for tiling. For a continuous edge,
-    translate by ~1.59 units along local X (negative direction from the origin) to
-    place the next piece, or snap min/max X to align ends.\n  - Thickness in local
-    Z is ~0.76 \u2014 symmetric about Z, so no Z offset needed for centering.\n 
-    - To mirror for the opposite side/corner, rotate 180\xB0 around local Y (or flip
-    X) and/or use the origin offset to align mirrored ends.\n  - Keep origin-based
-    placement in mind: because center is offset (-0.685, -0.565, 0), any physics/collider
-    centered on the mesh will need that offset accounted for if you want true mesh-centered
-    behavior.\n\n- Quick summary: long, low roof-edge element ~1.6 units long, pivot
-    at a top/end corner, hangs ~1.36 units down \u2014 snap along local X by its
-    length and attach origin to the roof surface for predictable tiling."
+  AiMetadata: 'A low-poly brown thatch roof edge piece: an elongated, tapered, slightly
+    curved segment with faceted shading suggesting layered thatch or bundled reeds.
+    It is oriented with its long axis running roughly along the X (left-right) direction
+    and slightly pitched/tilted downward toward negative Y.'

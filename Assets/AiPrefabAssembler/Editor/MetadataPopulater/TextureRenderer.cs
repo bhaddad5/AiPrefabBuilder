@@ -122,12 +122,12 @@ public static class TextureRenderer
 
 		try
 		{
-			CaptureAt(Vector3.up, Vector3.forward, "Top");
-			CaptureAt(Vector3.down, Vector3.forward, "Bottom");
-			CaptureAt(Vector3.left, Vector3.up, "Left");
-			CaptureAt(Vector3.right, Vector3.up, "Right");
-			CaptureAt(Vector3.forward, Vector3.up, "Front");
-			CaptureAt(Vector3.back, Vector3.up, "Back");
+			CaptureAt(Vector3.up, Vector3.forward, "(y)");
+			CaptureAt(Vector3.down, Vector3.forward, "(-y)");
+			CaptureAt(Vector3.left, Vector3.up, "(-x)");
+			CaptureAt(Vector3.right, Vector3.up, "(x)");
+			CaptureAt(Vector3.forward, Vector3.up, "(z)");
+			CaptureAt(Vector3.back, Vector3.up, "(-z)");
 		}
 		finally
 		{

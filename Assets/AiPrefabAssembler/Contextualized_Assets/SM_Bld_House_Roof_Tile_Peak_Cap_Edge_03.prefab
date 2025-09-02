@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: small V-shaped roof ridge/cap corner tile. Two sloped
-    brown faces meet at an apex forming a narrow peaked corner; dark rectangular
-    tabs/straps on the sides/underside look like attachment details.\n\n- Visual
-    size & bounds (object at origin): bounds min (-0.25, -0.13, -0.09), max (0.27,
-    0.48, 0.53). Dimensions \u2248 X: 0.52, Y: 0.61, Z: 0.62 units. Top of tile reaches
-    +0.48 in Y.\n\n- Pivot/center: object pivot is at (0,0,0) \u2014 bounding-box
-    center is about (0.01, 0.175, 0.22), so the geometry is offset upward and forward
-    from the origin. Aligning by origin will place the piece low and toward the back
-    of the mesh.\n\n- Placement notes:\n  - Intended to sit on a roof ridgeline/corner;
-    apex should align with the roof seam. \n  - Piece is symmetric across the apex;
-    use 180\xB0 Y-rotation or mirror to place opposite sides. \n  - Snap/translate
-    by the bounding-box center (or adjust pivot) when tiling multiple pieces to avoid
-    cumulative offset.\n  - Leave ~0.02\u20130.03 units clearance around the full
-    bounds to prevent z-fighting with adjacent tiles if snapping exactly.\n  - Ensure
-    consistent uniform scale/rotation to keep seam alignment correct.\n\n- Colors/materials:
-    brown tile faces with darker gray/black connector details (useful if swapping
-    materials)."
+  AiMetadata: 'A small brown roof tile peak/cap edge piece: a V-shaped, peaked corner/ridge
+    tile with chamfered faces and a dark rectangular cap running along the top. Oriented
+    upright at the origin with the V-apex pointing upward and flat mounting flanges
+    extending to either side to form a corner/ridge cap.'

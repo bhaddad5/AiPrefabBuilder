@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: three small, low\u2011poly bundles of wooden sticks
-    (Y/fan shaped pieces) intended as thatch/roof detailing. Single tan/brown material,
-    no visible transparency.\n- Size & pivot: local bounds min (\u20110.66, \u20110.28,
-    \u20110.31) max (0.66, 0.28, 0.31) \u2192 size = (1.32, 0.56, 0.62). Object is
-    centered at (0,0,0) (pivot at geometric center).\n- Layout/orientation: three
-    separate clusters laid out along the local X axis (long dimension). The vertical
-    extent is small (Y ~0.56 total) so it is low\u2011profile; depth is Z ~0.62.\n-
-    Placement tips:\n  - Treat as decorative trim/ornamentation; align X axis with
-    the roof ridge or along eaves when tiling.\n  - Because the prefab contains three
-    clusters, spacing between visible clusters is already included (~0.6 units);
-    if you need single sticks, separate or offset instances to avoid overlap.\n 
-    - Rotate around local X/Z to match roof slope; small Y size means it will sit
-    flush without large vertical offset.\n  - Check/author a simple collision mesh
-    or adjust bounds if you need precise collisions (current bounds are tight to
-    the sticks).\n- Use cases: accent pieces at eaves, ridge caps, or scattered thatch
-    detail."
+  AiMetadata: "SM_Bld_House_Roof_Thatch_Stick_03 is a small prefab of three short,
+    flat wooden/thatch stick clusters, each made of 2\u20133 elongated tan/brown
+    slats forming V/Y shapes. The clusters are centered at the origin and laid mostly
+    flat in the horizontal plane, spaced in a row and slightly angled outward."

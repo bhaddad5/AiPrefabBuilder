@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: thin rectangular house wall panel with a square two\u2011pane
-    window (front darker glass, back lighter/stony). A narrow vertical seam/protrusion
-    runs through the thickness (visible in side views).\n- Dimensions (world units):
-    width = 2.50 (X extent from -2.50 to 0.00), height = 2.50 (Y 0.00 to 2.50), thickness
-    = 0.24 (Z -0.12 to 0.12).\n- Origin/pivot: at the right face on the ground (X
-    = 0.0, Y = 0.0). Thickness is centered at Z = 0.\n- Placement notes:\n  - To
-    tile horizontally, translate by \xB12.50 along X so edges abut cleanly (origin
-    lies on the right edge of the panel).\n  - Y = 0 aligns to floor; stack vertically
-    by multiples of 2.50 in Y.\n  - No Z offset required for face alignment because
-    thickness is centered; if you need to butt faces flush, use \xB10.24 if swapping
-    orientations (or align face-to-face using the X edges).\n  - Front/back have
-    different materials \u2014 ensure correct rotation so the desired facade faces
-    outward.\n  - Collider/bounds match the given box (use min/max when snapping
-    or for physics)."
+  AiMetadata: SM_Bld_House_Wall_05 is a thin rectangular wall segment with a framed
+    two-pane window, visible mullions and a dark sill, textured like stone/glass
+    with slight weathering. It stands upright and is oriented to extend along the
+    negative X axis from the origin (tall in Y and very thin in Z).

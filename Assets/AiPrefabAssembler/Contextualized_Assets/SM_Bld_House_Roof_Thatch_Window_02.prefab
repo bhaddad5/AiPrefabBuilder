@@ -120,21 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual: A small thatch-roof dormer/window module \u2014 thatched
-    triangular/sloped roof with a framed wooden window on a vertical face and small
-    mounting pegs along the base. Textures: brown/beige thatch and dark wooden frame.\n\nBounds
-    & pivot:\n- Min = (-2.55, -2.68, -2.50), Max = (0.18, 0.18, 0.00)\n- Size (extents)
-    = X: 2.73, Y: 2.86, Z: 2.50\n- Pivot/origin is at the top/outer corner near the
-    Max bounds (geometry extends primarily into negative X, Y and Z).\n\nPlacement
-    notes (useful for snapping/tiling):\n- To move the prefab so its min corner sits
-    at world origin, translate by -Min = (2.55, 2.68, 2.50).\n- To move the prefab
-    so its max corner sits at world origin, translate by -Max = (-0.18, -0.18, 0.00).\n-
-    To tile adjacent pieces: offset by the extents (2.73 along X to place another
-    module flush in X, 2.86 along Y for Y, 2.50 in Z for vertical stacking).\n- Window/dormer
-    is on one vertical face \u2014 ensure that face is oriented outward when assembling
-    roof runs.\n- Use the bounds for collision/snap boxes; pivot is not centered
-    (corner-based), so account for that when aligning multiple prefabs.\n\n(Background
-    in reference images is magenta; images show top/bottom/side views.)"
+  AiMetadata: A small thatched-roof house segment with a centered wooden dormer/window
+    and dark timber framing, showing a square dark underside. It is oriented with
+    the thatch peak pointing up, the windowed wall facing forward/right, and the
+    sloped eaves extending to the sides.
 --- !u!1 &1954163351622292
 GameObject:
   m_ObjectHideFlags: 0

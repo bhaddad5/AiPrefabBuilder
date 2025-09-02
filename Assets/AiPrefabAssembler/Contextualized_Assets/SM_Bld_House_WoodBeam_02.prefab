@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual + placement notes for SM_Bld_House_WoodBeam_02\n\n- What
-    it is: a slender vertical wooden column / support beam with small top and bottom
-    caps. Background in renders is magenta (used as mask).\n- Orientation: long axis
-    = Y (beam stands upright in the Front/Back/Left/Right renders).\n- Bounding box
-    (local): min (-0.22, -0.01, -0.22), max (0.22, 2.51, 0.22).\n  - Height = 2.51
-    - (-0.01) = 2.52 units.\n  - Cross-section = 0.44 x 0.44 units (X x Z).\n- Pivot
-    / origin: object positioned at (0,0,0) in local space. The pivot sits at Y =
-    0, which is 0.01 units above the very bottom of the beam (bottom face at Y =
-    -0.01). The top face is at Y = +2.51.\n- Useful placement facts:\n  - To place
-    flush on ground, raise the prefab by +0.01 units (or treat pivot as 0.01 above
-    floor).\n  - For vertical stacking/tiling, center-to-center vertical offset =
-    2.52 units (top of one meets bottom of next).\n  - Horizontal/planar clearance:
-    center-to-center spacing to touch side-by-side = 0.44 units; allow extra clearance
-    if caps or trim should not intersect.\n  - Rotation: effectively rotationally
-    symmetric about Y \u2014 yaw can be changed freely without apparent mismatch.\n 
-    - Snap points: use local Y = 2.51 (top) and Y = -0.01 (bottom) as connector locations.\n-
-    Collision/placement tip: use the bounding box above for collision and snap calculations;
-    account for the small -0.01 Y offset if your engine assumes pivot at geometric
-    center."
+  AiMetadata: SM_Bld_House_WoodBeam_02 is a narrow, tall wooden support column with
+    a square cross-section and slightly flared square caps at top and bottom, finished
+    in dark brown with subtle surface detail. It is oriented upright along the Y-axis
+    and centered at the origin (0,0,0).

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class FinalResultPrefabBuilder
 {
-	public static void BuildPrefabFromInstructions(string buildInstructions)
+	public static GameObject BuildPrefabFromInstructions(string buildInstructions)
 	{
 		Debug.Log($"Building Prefab with Instructions: {buildInstructions}");
 
@@ -29,6 +29,8 @@ public static class FinalResultPrefabBuilder
 				writing = false;
 			}
 		}
+
+		return root;
 	}
 
 	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";

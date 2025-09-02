@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a short thatch roof edge / corner cover piece (SM_Bld_House_Roof_Thatch_Cover_Edge_03).
-    Visually it\u2019s a tapered, low-profile thatch strip with a small V/corner
-    profile in the middle and asymmetric ends (one end thicker/raised).\n\n- Size
-    & bounds (local space):\n  - X length = 1.86 units (minX = -1.84, maxX = 0.02)\n 
-    - Y height = 0.51 units (minY = -0.26, maxY = 0.25)\n  - Z width = 0.76 units
-    (minZ = -0.38, maxZ = 0.38)\n\n- Pivot/origin:\n  - Origin is at the positive
-    X face (near one end), centered in Y and Z (origin at ~maxX, Y=0, Z=0). So the
-    model is not centered \u2014 it extends mostly in the negative X direction from
-    the pivot.\n\n- Placement notes (useful for tiling into larger roofs):\n  - Chain/stack
-    along the negative X axis: place the next piece so its positive X face meets
-    this piece\u2019s origin/positive X face (or use the origin as the snap point).\n 
-    - To sit flush on a roof plane where the bottom should rest at Y=0, translate
-    the prefab up by +0.26 (because minY = -0.26).\n  - Rotate or mirror as needed
-    for opposite edges/corners; the piece is asymmetric so orientation matters (one
-    end is thicker).\n  - Footprint to consider for collision/overlap: 1.86 \xD7
-    0.76 on the X\u2013Z plane, height 0.51.\n  - Because the pivot is at one end,
-    be careful when centering or rotating \u2014 rotations occur around that end
-    unless re-centered.\n\n- Misc: background in the renders is fuchsia (not part
-    of the asset)."
+  AiMetadata: A low-poly brown thatch roof edge/corner cover with an angled, slightly
+    chamfered L-shaped profile used to cap eaves or corners of a thatched roof. Oriented
+    at the origin, it is low in height and shallow in depth, extending primarily
+    along the negative X axis.

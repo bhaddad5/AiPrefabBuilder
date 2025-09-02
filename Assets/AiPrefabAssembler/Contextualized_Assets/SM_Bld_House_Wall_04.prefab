@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a narrow rectangular house wall segment with a thin
-    thickness. Front face has a darker panel with a top trim band and lower diagonal/brace
-    pattern; back face is slightly lighter but similar. Side views show a thin vertical
-    support/post at the edge.\n\n- Bounds & pivot:\n  - Local bounds: X = [-2.50,
-    0.00] (width = 2.50), Y = [0.00, 2.50] (height = 2.50), Z = [-0.12, 0.12] (depth/thickness
-    = 0.24).\n  - Pivot/origin = (0,0,0) \u2192 located at the bottom-right face
-    center (ground-level, rightmost X, center of thickness).\n\n- Placement notes
-    for composing with other prefabs:\n  - Panels extend left from their origin.
-    To tile panels flush horizontally, translate instances by \xB12.50 units in X
-    (each panel occupies a 2.5m width).\n  - Ground is at Y = 0; no vertical offset
-    needed to sit on floor.\n  - Thickness is 0.24m and centered at Z=0; align Z
-    to match neighboring pieces.\n  - There is a visible vertical support/edge at
-    the origin side \u2014 orientation matters. If you need the decorative front
-    to face outward on the opposite side, rotate 180\xB0 around Y before placing.\n 
-    - Because front and back differ, ensure consistent facing when building fa\xE7ades
-    or mirror as needed."
+  AiMetadata: "SM_Bld_House_Wall_04 is a thin, rectangular house wall panel with
+    an aged painted front face showing a top trim and triangular brace motif at the
+    bottom and a simpler back face. It\u2019s oriented upright with its right/back
+    edge at the origin and extends along the negative X axis (height = Y, thickness
+    = Z)."

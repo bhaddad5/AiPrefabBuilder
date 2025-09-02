@@ -119,18 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A low\u2011profile rectangular thatch roof cover:
-    tan thatch top with segmented ridges and a darker wooden underside with small
-    support pegs. Flat slab-like piece, thin in Y.\n\nBounds & pivot:\n- Local bounds:
-    X [-4.28, 0.03], Y [-0.71, 0.17], Z [-2.50, 0.01].\n- Size (extents): X = 4.31,
-    Y = 0.88, Z = 2.51.\n- The mesh origin/pivot is near the top-front-right corner
-    (positive X/Z/Y side). The mesh extends mostly into negative X and negative Z
-    from the origin.\n\nPlacement tips for combining prefabs:\n- When tiling, step
-    by the full extents: ~4.31 units along X and ~2.51 units along Z (or use slightly
-    less/more to overlap/gap seams).\n- The top surface is at local Y = +0.17 and
-    the bottom at Y = -0.71 relative to the origin\u2014align Y accordingly when
-    placing on walls/rafters.\n- If you want the prefab centered around its origin,
-    offset it by +2.125 X, +0.27 Y, +1.245 Z (half the bounds span in each axis).\n-
-    Take into account the small underside pegs/supports (may need clearance or snap
-    points).\n- Textures: thatch = tan; underside = dark brown. (Render background
-    is fuchsia.)"
+  AiMetadata: A low, rectangular thatch roof cover with layered straw ridges on top
+    and a wooden support frame underneath. It is elongated along the X axis and positioned
+    to extend toward negative X and negative Z from the origin.

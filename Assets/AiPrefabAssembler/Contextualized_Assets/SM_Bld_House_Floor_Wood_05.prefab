@@ -211,16 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Thin wooden square floor/frame tile (a
-    square ring with a hollow center). Thin along Y, decorative planks around an
-    empty central square.\n\nBounds / size (local space)\n- Min: (-2.50, -0.09, 0.00) 
-    Max: (0.00, 0.09, 2.50)\n- Full extents: X = 2.5 units, Y = 0.18 units, Z = 2.5
-    units.\n- Local center = (-1.25, 0, 1.25) (origin is not at the geometry center).\n\nPlacement
-    / snapping notes\n- Origin (0,0,0) is at one outer corner of the bounding box
-    (X = max face, Z = min face) and at mid-height (Y = 0).\n- Use grid steps of
-    2.5 units in X and Z to tile without gaps (translate by \xB12.5 to place adjacent
-    tiles).\n- Vertical thickness = 0.18; stack/clear vertically by \u22650.18 (centers
-    move by 0.18) to avoid overlap.\n- Because the tile is a ring with a central
-    hole, tiling will produce continuous frames with gaps \u2014 plan neighboring
-    pieces accordingly.\n- Rotation about Y keeps footprint the same, but remember
-    the origin remains at that corner when snapping/aligning."
+  AiMetadata: A thin wooden floor tile shaped like a square frame with a hollow square
+    center and visible plank texture. It lies flat (very thin on the Y axis) and
+    is offset so it extends toward negative X and positive Z from the origin.

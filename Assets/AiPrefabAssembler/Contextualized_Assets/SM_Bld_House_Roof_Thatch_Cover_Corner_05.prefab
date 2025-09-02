@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small quarter-corner thatch roof cover \u2014 a wedge/quarter-circle
-    shaped roof piece with a curved outer eave and a squared inner corner that shows
-    darker interior beams. Top is sloped (thatch), underside has structure/detail.\n-
-    Size & pivot: bounds min (-1.63, -0.29, -1.64) max (0.11, 0.11, 0.11). Overall
-    footprint \u2248 1.74 \xD7 1.75 units and height \u2248 0.40 units. The geometry
-    is located mostly in the negative X and Z directions from the object origin (origin
-    sits near the internal corner).\n- Placement tips:\n  - Treat it as a 90\xB0
-    corner tile \u2014 rotate in 90\xB0 increments to plug into building corners.\n 
-    - Align the prefab origin to the building corner/roof grid so the inner square
-    corner matches interior edges (because most geometry is offset negative X/Z).\n 
-    - Expect an outer overhang of ~1.63 units from the origin; account for that when
-    snapping adjacent roof pieces.\n  - Low profile: may need a small Y offset to
-    avoid z-fighting or to match the thickness of neighboring roof tiles.\n  - Underside
-    beams mean the piece visually connects to interior framing; ensure adjacent pieces
-    share the same orientation and vertical position for seamless seams."
+  AiMetadata: A small, low-profile quarter-turn thatch roof corner cover with a rounded
+    outer edge, light brown thatch texture on top and a darker underside/eave detail.
+    It is oriented flat on the XZ plane with the thatch facing up (+Y) so it sits
+    as a corner cap on a roof.

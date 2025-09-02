@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Roof_Thatch_Angled_Edge_01\n- Bounding box (world
-    local): min (-1.53, -2.51, -0.38), max (0.14, 0.16, 0.38)\n- Size (extent): ~1.67
-    (X) \xD7 2.67 (Y) \xD7 0.76 (Z) units\n- Pivot/origin: at the short/positive
-    X\u2013Y corner \u2014 the geometry extends mostly into negative X and negative
-    Y from the origin (center of bbox is ~(-0.695, -1.175, 0) while prefab origin
-    is (0,0,0)).\n- Shape & look: narrow, elongated angled thatch edge piece with
-    a sloped top and stepped segments along its length; thin profile in Z. Images
-    show a beveled/rounded outer edge suitable for roof perimeter.\n- Placement tips:\n 
-    - Align the prefab origin to the roof corner/edge you want the outer short end
-    to sit on (the piece extends back toward negative X/Y).\n  - Rotate around the
-    origin to orient the long axis along the roof slope; 90\xB0/180\xB0 rotations
-    will mirror the edge.\n  - Slight overlap with adjacent roof prefabs recommended
-    to hide seams because pivot is at one end, not centered.\n  - Check collision/occlusion
-    near the origin (pivot at corner) and ensure normals/UV seams match neighboring
-    roof pieces."
+  AiMetadata: "A narrow, elongated thatch roof edge prefab with a tapered, stepped
+    profile and brown/olive thatch texture, designed as an angled seam piece for
+    house roofs. It\u2019s oriented with its long axis running mainly along the Y
+    axis (extended toward negative Y) and slightly tilted toward +Z, forming the
+    angled edge."

@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small concave thatch roof segment with a semicircular/trough
-    \u201Ctower gap\u201D cut through the middle. Raised dark trim/overhangs run
-    along the two long edges; the center is a recessed, curved thatch surface. Looks
-    like a half-roof piece meant to sit against/around a tower opening.\n\n- Bounding
-    box & size: min (-1.41, -1.42, -2.58), max (0.15, 0.15, 0.04).\n  - Dimensions:
-    X \u2248 1.56, Y \u2248 1.57, Z \u2248 2.62 (units).\n  - Centroid \u2248 (-0.63,
-    -0.635, -1.27) relative to object origin.\n\n- Origin / orientation notes:\n 
-    - The origin is at/near the top corner of the piece (max Z \u2248 0.04). The
-    mesh extends mostly in the negative Z direction (downwards from origin).\n  -
-    The concave trough (tower gap) runs across the X\u2013Y face and is bounded by
-    raised lips on the two sides \u2014 align that trough to your tower geometry.\n 
-    - There are thin sloped ridge/overhang faces along the top edges designed to
-    butt/join with adjacent roof prefabs.\n\n- Placement tips:\n  - Snap the piece
-    so max Z (0.04) equals your roof plane height so the top trim aligns flush.\n 
-    - Position the piece so the semicircular trough lines up with the tower shaft;
-    use the raised lips as snap points to neighbors.\n  - Because the pivot is offset
-    toward one corner, account for the centroid offset (\u2248 -0.63, -0.635, -1.27)
-    if you need centered placement or grid snapping.\n\n- Visual: tan thatch center
-    with dark brown/black trim; overhangs visible from side views."
+  AiMetadata: A small thatch roof segment shaped like a U-shaped trough with short
+    vertical side walls, designed to bridge a gap in a tower roof. It is oriented
+    with the concave (hollow) side facing downward (negative Z) and the thin ridged
+    roof edge up.

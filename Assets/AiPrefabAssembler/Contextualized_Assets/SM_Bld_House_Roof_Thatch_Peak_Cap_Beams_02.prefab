@@ -119,26 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Two long, tapered wooden beams that cross
-    near the top to form an A/V-shaped peak-cap (ridge-beam) \u2014 looks like a
-    thatch-roof peak support.\n- Very thin vertically, long and slightly splayed
-    legs when viewed front/back.\n\nBounds and basic metrics (local space)\n- Min
-    = (-1.28, -2.22, -0.17), Max = (1.26, 1.24, 0.23)\n- Size \u2248 (X=2.54, Y=3.46,
-    Z=0.40)\n- Origin at (0,0,0) roughly centered in the piece.\n\nOrientation notes\n-
-    Longest dimension is Y (3.46) \u2014 that is the fore/aft direction of the crossed
-    beams.\n- Symmetric about the center plane; the crossing is centered near the
-    origin.\n- Very shallow height (Z), so it\u2019s essentially a thin cap that
-    sits on the ridge.\n\nPlacement tips for composing with other prefabs\n- To place
-    the top/cross at a specific world height H_ridge: set prefab world Z = H_ridge
-    - 0.23 (aligns prefab\u2019s highest point to H_ridge).\n- To place the lowest
-    points flush to a surface at H_surface: set prefab world Z = H_surface + 0.17.\n-
-    Align the prefab\u2019s Y axis with the roof ridge direction; rotate 90\xB0 if
-    needed so beams run along the ridge.\n- Center the prefab on the ridge midpoint
-    (origin \u2248 center of crossing) to keep symmetry.\n- Allow a small overlap
-    (0.02\u20130.1 units) into adjacent roof geometry to avoid visible gaps; because
-    the piece is thin, slight embedding is fine.\n- It\u2019s mirrorable and can
-    be tiled end-to-end along the ridge; watch for leg collisions with neighboring
-    thatch geometry because legs extend ~1.2\u20131.7 units from center.\n\nQuick
-    checklist\n- Rotate so Y = ridge direction.\n- Set world Z = H_ridge - 0.23 (or
-    H_surface + 0.17 depending on desired contact).\n- Center on ridge midpoint and
-    allow slight overlap to hide seams."
+  AiMetadata: A narrow pair of long wooden beams joined at the top to form a peaked
+    "A"-shaped ridge cap for a thatched roof. Oriented upright at the origin, the
+    beams run primarily along the front-back (z) axis with low height on the y-axis
+    and a slim profile across x.

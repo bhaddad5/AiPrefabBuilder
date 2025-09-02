@@ -119,20 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- L-shaped tall metal stair/guard railing with
-    a single tall vertical post at the inside corner and two horizontal rail runs
-    extending out from that post (one along +X, one along -Z). Thin vertical balusters
-    and two rails \u2014 overall a slender corner railing piece.\n\nPlacement / technical
-    notes\n- Bounds (local): min (-0.15, 0.01, -1.40), max (1.40, 4.03, 0.15).\n 
-    - Footprint footprint extents \u2248 1.55 m \xD7 1.55 m (X length 1.55, Z length
-    1.55).\n  - Height \u2248 4.02 m (Y).\n- Pivot/origin: object placed at (0,0,0).
-    The vertical post / inner corner is at/near the origin; the bottom of the mesh
-    sits 0.01 units above the pivot (so it will be slightly above the ground if pivot
-    is on the floor).\n  - If you need it flush to floor, lower the prefab by ~0.01
-    units (or translate pivot).\n- Orientation: rail runs extend toward +X and -Z
-    from the corner post. Rotate in 90\xB0 increments to connect with other linear
-    railing prefabs.\n- Snapping tips: align the origin to the corner of platforms/stairs
-    where two runs meet; match heights when chaining; this prefab is strictly vertical
-    (not sloped) \u2014 not suitable for inclined stair runs without a sloped variant.\n-
-    Collision/clearance: allow ~\xB10.15 margin around X/Z for thin geometry and
-    ~4.03 m vertical clearance above."
+  AiMetadata: "L-shaped metal stair railing section with a tall vertical corner post
+    and two horizontal rail runs with vertical balusters. The corner/post is positioned
+    at the prefab origin, with the railing arms extending toward +X and toward \u2212Z."

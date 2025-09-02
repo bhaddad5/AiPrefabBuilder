@@ -204,27 +204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Wall_WindowBox_06 \u2014 brief description and placement
-    notes\n\nWhat it is\n- Small building wall section with a recessed window box,
-    a short overhanging roof/awning and a supporting bracket/stairs under the box.
-    Appears to be a single-side fa\xE7ade piece (decorated front face and a simpler
-    back).\n\nBounds & pivot\n- Min: (-2.50, 0.00, -0.50), Max: (0.00, 3.28, 1.09)\n-
-    Size (extents): X = 2.50 m, Y = 3.28 m, Z = 1.59 m\n- Center of AABB: (-1.25,
-    1.64, 0.295)\n- The prefab pivot/origin is at the rightmost +X face (x = 0) and
-    at the base (y = 0).\n\nOrientation\n- Front (decorated window face) faces toward
-    positive Z (Z max = 1.09). Back faces toward negative Z.\n- The piece extends
-    leftwards from its origin (negative X direction).\n\nPlacement recommendations\n-
-    Place Y = 0 on floor/ground so base aligns exactly (no vertical offset required).\n-
-    Use the prefab origin (x=0) as the attachment edge: to tile pieces left-to-right,
-    position the next piece so its origin aligns to this piece\u2019s left edge (i.e.,
-    offset by -2.50 in X to butt them together).\n- Front should face outward along
-    +Z when used as a fa\xE7ade. Ensure adjacent prefabs share the same forward (+Z)
-    orientation.\n- Allow ~0.3 m forward/back clearance (Z extents) for walkways
-    or walls depending on neighboring geometry.\n- Watch for the roof/overhang and
-    lower bracket/stairs protrusions when stacking vertically or placing above walkable
-    areas \u2014 they extend within the given bounds and may intersect other pieces
-    if not accounted for.\n\nNotes\n- Origin offset (rightmost pivot) is the most
-    important detail when snapping/tiling this into a larger assembly."
+  AiMetadata: SM_Bld_House_Wall_WindowBox_06 is a narrow vertical wall segment with
+    a central mullioned window set in a small projecting window box, a dark base/skirt,
+    and a short pitched roof. Oriented as shown, the windowed face is the "Front,"
+    the window box projects outward (visible in Top/Bottom), and the roof ridge slopes
+    toward the "Right" side view.
 --- !u!1 &1661269655402170
 GameObject:
   m_ObjectHideFlags: 0

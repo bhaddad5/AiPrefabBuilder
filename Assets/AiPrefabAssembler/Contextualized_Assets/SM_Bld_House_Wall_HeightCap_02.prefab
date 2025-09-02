@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Thin vertical wall cap piece ~0.56 units
-    tall with a narrow rectangular main body and four rectangular ledges/tabs stepping
-    out on one side. Looks like an end/height-cap that attaches to the end of a taller
-    wall, with the ledges projecting laterally.\n\nBounds and pivot\n- Min = (-0.19,
-    0.00, -2.50), Max = (0.51, 0.56, 0.00)\n- Size (W\xD7H\xD7D) = (0.70, 0.56, 2.50)\n-
-    Origin is at the front face (Z = 0) and the bottom (Y = 0). Object center = (0.16,
-    0.28, -1.25) relative to origin (i.e. the pivot is offset +0.16 on X from the
-    geometric center).\n\nOrientation and asymmetry\n- Ledges/protrusions are on
-    the positive X side (right side relative to the origin).\n- The piece is asymmetric
-    in X (pivot is not centered), so mirroring or rotating will change how the ledges
-    align.\n\nPlacement notes (for combining with other prefabs)\n- Align the prefab\u2019s
-    front face to Z = 0 to mate flush with adjoining wall faces; bottom Y = 0 to
-    sit on floor/ground.\n- Account for the 2.50-unit negative Z extent (it reaches
-    back from the front face). Neighbors placed behind/inside this range will intersect.\n-
-    If you want the piece centered horizontally, offset X by -0.16 (or use its center
-    at origin instead of the pivot).\n- When tiling or mirroring, pay attention to
-    the X-offset and ledge side so ledges line up correctly with adjacent parts."
+  AiMetadata: 'SM_Bld_House_Wall_HeightCap_02 is a slim, dark-gray vertical wall
+    cap: a flat rectangular plate with several short rectangular tabs protruding
+    from one face like rungs. It sits at the origin, upright with its long edge running
+    toward negative Z and the tabs extending along the local +X direction.'

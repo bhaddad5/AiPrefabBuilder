@@ -211,22 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Tower_Angle_02 \u2014 brief description + placement notes\n\nAppearance\n-
-    A 90\xB0 corner/tower angle module with a large square window on the main face,
-    narrow vertical side face(s) and a slightly trapezoidal top cap (visible in top/bottom
-    renders). Textured dark trim and lower paneling.  \n- Background in provided
-    renders is fuchsia (used as alpha).\n\nBounds & origin\n- Axis-aligned bounding
-    box: X [-2.50, 0.00] (width = 2.50), Y [0.00, 2.50] (height = 2.50), Z [-0.07,
-    1.11] (depth \u2248 1.18).  \n- Base sits at Y = 0 (ready to sit on the ground/floor). 
-    \n- Origin lies on the X = 0 plane (the module\u2019s right/outer X face) and
-    at Z = 0 (slightly forward of the rear-most geometry because min Z is -0.07).\n\nPlacement
-    notes\n- Treat this as a 90\xB0 corner/tower segment \u2014 align its X = 0 face
-    to meet another module\u2019s opposite X face or place it as the exterior corner. 
-    \n- Because origin is on the right face (X = 0), snapping/tiling is easiest by
-    aligning that face to other prefabs\u2019 corresponding faces or by translating
-    by \xB12.50 in X to tile.  \n- Height is exactly 2.5 units; no vertical offset
-    required (Y = 0 is base).  \n- Small rear overhang: geometry extends slightly
-    behind origin (min Z = -0.07), so check for z-overlap when abutting modules at
-    Z = 0.  \n- Depth occupancy \u2248 1.18 units forward from min Z; account for
-    that when spacing interiors/rooms.\n\nUse these bounds and origin details to
-    snap, mirror or tile this corner piece into larger assemblies."
+  AiMetadata: 'A narrow vertical angled tower/house wall piece with a large framed
+    window and a dark wooden base, looking like a corner facade segment. Orientation:
+    the glazed face is forward and the module sits offset to the left of the origin,
+    rising upward with visible top trim.'

@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: A narrow rectangular windowed wall segment (single window
-    grid with vertical/ horizontal mullions). Front face is darker/tinted (exterior);
-    back face is lighter (interior).\n\n- Bounds & size (local space): X = -2.50
-    .. 0.00 (width = 2.50), Y = 0.00 .. 2.50 (height = 2.50), Z = -0.12 .. 0.12 (thickness
-    = 0.24). Object pivot/origin = (0,0,0) at the right vertical edge and floor level;
-    thickness centered on Z=0.\n\n- Placement notes for assembling with other prefabs:\n 
-    - This piece spans from its origin X=0 to X=-2.5. To tile horizontally, translate
-    copies by \xB12.50 units along local X (move +2.50 to place a copy to the right,
-    -2.50 to place to the left) so edges flush.\n  - Base is at Y=0 so it sits directly
-    on the floor; stackable height = 2.50 if you need to stack vertically.\n  - Thin
-    thickness (0.24) \u2014 allow only small clearance for adjacent geometry or framing
-    pieces.\n  - Front (darker) should face exterior; back (lighter) interior \u2014
-    flip/rotate accordingly when building fa\xE7ades vs rooms.\n  - Collision/render
-    bounds are tight to the geometry (use the given min/max if making snap or culling
-    boxes)."
+  AiMetadata: "A narrow vertical building wall panel with a framed grid window\u2014front
+    shows a darker tinted pane with mullions and a bottom sill while the back is
+    a lighter wall surface. It is positioned at the origin with the windowed face
+    at the origin and the panel's thin thickness extending toward the negative X
+    direction."

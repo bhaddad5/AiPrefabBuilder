@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Roof_Thatch_End_Half_01\n- Visual: a small asymmetrical
-    thatch roof end cap \u2014 a shallow sloped/wedged tile thicker at one end with
-    a short rectangular peg/connector protruding from one long side. Designed to
-    cap the roof edge (half/end piece).\n- Bounding box (local space): min (-0.76,
-    -0.35, -1.25), max (0.18, 0.17, 0.01)\n  - Size (X,Y,Z) = (0.94, 0.52, 1.26)\n 
-    - Bounding-box center = (-0.29, -0.09, -0.62) \u2014 the mesh is offset negative
-    on all axes relative to the object origin (0,0,0).\n- Placement notes:\n  - Asymmetrical:
-    orientation matters. Use mirroring/rotation to place a matching opposite end.\n 
-    - Use the size extents to tile/space pieces: spacing along the long axis = ~1.26
-    units; orthogonal spacing = ~0.94 (other axis) and vertical clearance = ~0.52.\n 
-    - Connector peg: there is a visible peg on one long side \u2014 align this with
-    receiving geometry or the mating prefab when snapping pieces together.\n  - Pivot
-    offset: because the mesh center is at (-0.29, -0.09, -0.62), position/rotate
-    the prefab around its origin carefully (or re-center pivot) to get predictable
-    seams.\n- Extra: background fuchsia in the renders is just the transparent/bg
-    color and can be ignored."
+  AiMetadata: "Low\u2011poly half\u2011end thatch roof cap: a small sloped brown
+    thatch piece with a short rectangular mounting tab, intended to finish the end
+    of a thatch roof. It is oriented with the main thatch mass extending toward negative
+    X (and slightly toward negative Z), with the mounting tab near the positive X/origin
+    side."

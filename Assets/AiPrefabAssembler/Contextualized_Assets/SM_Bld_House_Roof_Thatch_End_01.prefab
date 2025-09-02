@@ -119,23 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a low, wedge-shaped thatch roof end cap (brown thatch
-    with black straps). Top is a sloped wedge; underside has small rectangular mounting
-    tabs along the length for seating/locking into adjacent pieces.\n\n- Size and
-    origin:\n  - Local bounds min (-0.76, -0.35, -2.50), max (0.18, 0.17, 0.01).\n 
-    - Extents (size) \u2248 (0.94 X, 0.52 Y, 2.51 Z) (X=width, Y=height/thickness,
-    Z=length).\n  - Local center \u2248 (-0.29, -0.09, -1.245) relative to the object
-    origin (0,0,0) \u2014 origin sits toward one end/edge, slightly above the bottom
-    (-0.35) and close to the near Z face (0.01).\n\n- Orientation notes:\n  - Long
-    axis runs along local Z (piece projects toward negative Z from the origin).\n 
-    - Wedge/top slope faces up; underside tabs face negative/positive Y (downwards).\n 
-    - To use as a left/right end, mirror/rotate around Y (180\xB0) as needed.\n\n-
-    Placement tips:\n  - Because the origin is offset, align by using the bounds
-    or center rather than assuming the origin is centered. If you want the bottom
-    to sit on Y=0, set object Y = 0.35 (abs of min Y).\n  - To butt this to an adjacent
-    roof segment, place the origin flush at the junction and extend the other piece
-    along +Z so their ends meet (or mirror and join oppositely).\n  - Snap to or
-    slot into the small underside tabs \u2014 leave a small tolerance for mesh clearance.\n 
-    - Keep in mind the piece projects mostly in negative Z from its pivot; adjust
-    translations by ~2.51 in Z if you want to offset by a full length.\n\nBackground
-    color in images is fuchsia (used for transparency)."
+  AiMetadata: "A low-poly thatched roof end cap: a narrow, elongated, slightly curved
+    brown/olive thatch slab with a darker underside and small rectangular support
+    brackets along its base. It is oriented with its long axis extending toward the
+    negative Z direction (the roof edge points \u2212Z) and centered at the origin."

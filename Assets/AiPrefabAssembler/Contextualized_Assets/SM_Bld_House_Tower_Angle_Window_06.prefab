@@ -212,20 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: medieval/tudor tower wall panel with a dark framed arched
-    window centered on the main face; narrow vertical pane details on the side faces.
-    Top view shows a trapezoidal footprint (an angled corner piece).\n- Bounding
-    box (local space): min (-2.50, 0.00, -0.07), max (0.00, 2.50, 1.11). Dimensions
-    = 2.50 (X) \xD7 2.50 (Y) \xD7 1.18 (Z).\n- Origin/pivot: at X = max face (rightmost
-    edge), Y = ground (bottom), Z = 0 (slightly forward of the back; front extends
-    to +1.11). Center of the window \u2248 (-1.25, 1.25, 0.52) in local coords.\n-
-    Placement tips:\n  - Snap the bottom (Y) to ground \u2014 min Y = 0.\n  - When
-    tiling along X, offset origins by 2.5 units (or align faces at X = 0 / X = -2.5)
-    to avoid gaps.\n  - Front (arched window) faces +Z; rotate yaw in 90\xB0 increments
-    as needed to orient the window.\n  - Small back overhang: min Z = -0.07 \u2014
-    watch for z-fighting with adjacent pieces; match Z bounds when abutting.\n  -
-    Use the local center point above for aligning window features across multiple
-    prefabs."
+  AiMetadata: 'A small modular medieval-style tower corner window: a square stone/timber
+    frame with a central arched, mullioned window and dark glass panes. Oriented
+    upright as a right-angle corner piece, with the arched face pointing forward
+    so it sits on a building corner.'
 --- !u!1 &1797635134713052
 GameObject:
   m_ObjectHideFlags: 0

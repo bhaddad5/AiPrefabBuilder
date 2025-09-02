@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: small rectangular wooden roof tile cover segment \u2014
-    a flat, slightly beveled tile plate with staggered overlapping tiles on one long
-    edge and three small support brackets on the underside.\n\n- Visual orientation:
-    tiled/top pattern faces +Y (top). The staggered/overhanging edge is on the negative
-    X side (visible in top view). Underside support brackets project downward (negative
-    Y).\n\n- Bounds & size (units = prefab units): min (-2.47, -0.48, -2.50), max
-    (0.03, 0.08, 0.00) \u2192 size = (2.50, 0.56, 2.50) (X, Y, Z).\n\n- Pivot/origin:
-    located at the max bound corner (0.03, 0.08, 0.00) \u2014 i.e., top/front/right
-    corner of the mesh. When placed at (0,0,0) the mesh extends into negative X/Z
-    and slightly negative Y.\n\n- Placement tips:\n  - Tile footprint is 2.5 x 2.5
-    \u2014 use that grid snap or translate by (-2.5, -0.56, -2.5) if you want origin-centered
-    or to align the opposite corner to world origin.\n  - Orient the staggered overhang
-    edge outward on roof edges (negative X side). Rotate in 90\xB0 increments to
-    tile a roof.\n  - Allow ~0.56 units vertical clearance for supports/overlap when
-    stacking or placing under eaves.\n  - Background in the renders is fuchsia (RGB
-    1,0,1) if you need to chroma-key the preview."
+  AiMetadata: A small rectangular roof tile cover with staggered brown tiles on top
+    and a dark wooden-framed underside, resembling a short eave section. It lies
+    flat with its top facing +Y and its length extending toward the negative X and
+    negative Z directions from the origin.

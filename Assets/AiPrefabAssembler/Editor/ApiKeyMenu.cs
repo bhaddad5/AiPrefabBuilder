@@ -12,7 +12,7 @@ public class ApiKeyMenu : EditorWindow
 	{
 		
 		window = (ApiKeyMenu)EditorWindow.GetWindow(typeof(ApiKeyMenu));
-		window.apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+		window.apiKey = EditorPrefs.GetString("OPENAI_API_KEY");
 		window.Show();
 	}
 
@@ -32,7 +32,7 @@ public class ApiKeyMenu : EditorWindow
 
 	private void SetKey()
 	{
-		Environment.SetEnvironmentVariable("OPENAI_API_KEY", apiKey);
+		EditorPrefs.SetString("OPENAI_API_KEY", apiKey);
 	}
 
 }

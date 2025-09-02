@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Two long, dark wooden beams joined at a small
-    central cap, forming a peaked \"V/X\" shape when viewed from the front/back.
-    Low-profile, thin geometry (not a bulky roof piece).\n- Looks like a ridge/peak
-    cap meant to sit along a roof ridge.\n\nBounds & pivot\n- Bounding box: min (-1.55,
-    -1.39, -0.17), max (1.56, 1.24, 0.23).\n- Overall size \u2248 3.11 (X) \xD7 2.63
-    (Y) \xD7 0.40 (Z) units.\n- Object positioned at (0,0,0) with origin nearly centered
-    inside the box (center \u2248 (0.005, -0.075, 0.03)).\n\nPlacement notes\n- Highest
-    point = Z 0.23, lowest = Z -0.17. To rest flush on a roof surface, raise the
-    prefab by +0.17 so its lowest point sits on the roof plane.\n- Long axis \u2248
-    3.11 units (X). Use that as the center-to-center spacing when tiling along a
-    ridge; overlap slightly if you want seam coverage.\n- Centered pivot makes snapping/rotation
-    straightforward; rotate 180\xB0 or mirror to reverse beam direction.\n- Very
-    thin in Z \u2014 ensure collision/physics margins are adequate if your roof geometry
-    has thickness.\n- Visual: dark, low-poly beams \u2014 may need normal/texture
-    blending at joins with adjacent thatch pieces."
+  AiMetadata: A small thatch-roof peak cap consisting of two long, slightly curved
+    wooden beams that cross and meet at the apex, forming an A/X-shaped ridge from
+    the front. It is centered at the origin and oriented with the ridge running along
+    the X axis, the peak raised along Y and very thin depth along Z.

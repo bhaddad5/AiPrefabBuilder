@@ -119,23 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Roof_Thatch_Stick_02 \u2014 quick notes\n\nWhat it looks
-    like\n- Three narrow, tapered rectangular wooden sticks/beams joined at a common
-    origin and fanned outward (~120\xB0 spacing). They are angled slightly upward
-    from the join point.\n- Material/color: brown/tan wood.\n- Images supplied on
-    a magenta (fuchsia) background (transparent mask color).\n\nSpatial / placement
-    info\n- Pivot/position: centered at (0,0,0).\n- Axis-aligned bounding box: min
-    (-0.37, -0.26, -0.25), max (0.37, 0.26, 0.25). Overall footprint \u2248 0.74
-    \xD7 0.52 \xD7 0.50 units.\n- Collision/occlusion: small, thin geometry \u2014
-    use a thin mesh collider or box collider approximating the above extents.\n-
-    The three sticks are part of one prefab (not separate pieces) \u2014 you must
-    rotate/translate the whole prefab to change their spread.\n\nPractical placement
-    tips\n- Align the prefab pivot to the roof ridge/eave or the attachment point
-    where the three sticks should originate.\n- Rotate around the pivot to orient
-    the fan to the roof slope; the sticks radiate from the center in the horizontal
-    plane and tilt up slightly.\n- Because the pieces are thin, offset slightly from
-    other nearby geometry (small normal/height offset) to avoid z-fighting or clipping.\n-
-    If you need individual sticks, duplicate and rotate the prefab and then hide/delete
-    unwanted sticks or prepare a split version in the editor.\n\nIf you want, I can
-    give exact placement/rotation examples for a specific roof pitch or show how
-    to create a collider that matches the three sticks."
+  AiMetadata: "A small prefab of three elongated, tapered wooden roof/thatch sticks
+    or planks with rectangular cross-sections and brownish textures. They radiate
+    outward from near the origin and are oriented diagonally\u2014angled up and out\u2014centered
+    at (0,0,0)."

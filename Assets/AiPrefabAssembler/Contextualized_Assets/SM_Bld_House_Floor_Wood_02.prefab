@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short visual description\n- Square wooden floor tile (plank boards
-    + darker border), thin panel ~2.5 m per side.\n- Thickness is very small (about
-    0.14 m) with visible plank seams on the top face.\n\nBounds / local space\n-
-    Min = (-2.50, -0.07, 0.00), Max = (0.00, 0.07, 2.50).\n- Size = (2.50, 0.14,
-    2.50).\n- Pivot/origin is at the vertical center (Y = 0) and on one horizontal
-    corner/edge: X = 0 face and Z = 0 face lie at the origin. The mesh therefore
-    occupies X from -2.5 \u2192 0 and Z from 0 \u2192 +2.5.\n\nUseful placement notes\n-
-    Grid tiling: use 2.5 units steps along X and Z to tile without gaps (edge-to-edge
-    alignment).\n- To center this prefab on the world origin, translate by (+1.25,
-    0.0, -1.25).\n- To sit the bottom face on world Y = 0, translate by (+0.0, +0.07,
-    0.0). To place the top face at Y = 0, translate by (0.0, -0.07, 0.0).\n- Pivot
-    is at a corner: when composing multiple prefabs, be aware that rotations and
-    mirror placements will move which corner is at the anchor. Rotating 90\xB0 around
-    Y swaps the plank orientation.\n- Plank direction: plank seams run along the
-    tile (parallel to the long seams visible in the top view) \u2014 rotate as needed
-    to match neighboring pieces.\n\nKeep these offsets in mind when snapping/aligning
-    this tile into larger floors or modular assemblies."
+  AiMetadata: SM_Bld_House_Floor_Wood_02 is a square wooden floor panel with a dark
+    outer trim and vertical plank divisions in mid-to-dark brown tones. It lies flat
+    at the origin with its broad face pointing upward (+Y) and thin edges running
+    along the X and Z axes.

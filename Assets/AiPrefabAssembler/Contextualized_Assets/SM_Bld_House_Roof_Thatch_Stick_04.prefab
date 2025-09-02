@@ -119,22 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Small tripod-like roof cap made of three long
-    rectangular sticks joined at a thick central node; looks like the top piece for
-    a thatched roof where three roof planes meet.\n\nBounds & size\n- Min: (-0.18,
-    -0.17, -0.20), Max: (0.18, 0.17, 0.27)\n- Local size (max-min): (0.36, 0.34,
-    0.47) (same units as your project)\n\nOrigin / pivot\n- Object positioned at
-    (0,0,0) \u2014 origin sits roughly at the center of the central node. Lowest
-    point is at z = -0.20, highest at z = +0.27.\n\nPlacement notes (useful when
-    composing with other prefabs)\n- Intended use: roof apex/trim where three sections
-    meet. Treat it as a 3-way cap.\n- Symmetry: ~120\xB0 rotational layout of the
-    three sticks \u2014 rotate by 120\xB0 increments to reuse/mirror orientation.\n-
-    Snapping: align the prefab origin to the roof peak; if you need the lowest point
-    to sit flush on a surface, translate it up by +0.20 (so z lowest = 0).\n- Collision/occlusion:
-    use the bounding box (above extents) for rough collision; each stick extends
-    ~0.18 from center in x/y directions.\n- Avoid overlap: rotate so each stick follows
-    the direction of adjacent roof planes and ensure neighboring roof geometry sits
-    slightly below the central node to prevent Z-fighting.\n- Scaling/rotation: scale
-    uniformly; keep rotations about the origin for predictable placement.\n\nFilename:
-    SM_Bld_House_Roof_Thatch_Stick_04 (use as reference when matching other roof
-    modules)."
+  AiMetadata: "SM_Bld_House_Roof_Thatch_Stick_04 is a low\u2011poly wooden roof piece
+    made of three elongated rectangular rafters joined at a small central top node,
+    forming a tripod/ridge cap for a thatched roof. It is oriented upright at the
+    origin with the junction pointing upward and the three beams splaying downward
+    and outward, textured in tan/brown wood tones."

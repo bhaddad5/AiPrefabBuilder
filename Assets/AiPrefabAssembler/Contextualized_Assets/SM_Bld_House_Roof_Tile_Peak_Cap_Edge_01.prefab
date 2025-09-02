@@ -119,21 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual/functional description\n- Low\u2011poly brown roof ridge
-    cap: two sloping tile faces meet at a peaked V; stylized brown tiles with small
-    dark rectangular tabs on the short ends (connection/overlap features).\n- Looks
-    like a corner/edge cap that sits over a roof ridge; symmetrical across the peak.\n\nBounds,
-    size and pivot info (useful for snapping)\n- Bounds: min (-0.35, -0.13, -0.09),
-    max (0.37, 0.48, 0.53).\n- Overall extents (W \xD7 H \xD7 D) \u2248 0.72 \xD7
-    0.61 \xD7 0.62 units.\n- Bounding-box center = (0.01, 0.175, 0.22) relative to
-    the object origin \u2014 the origin is not centered inside the mesh (offset upward
-    and forward from the origin).\n- Lowest point is at Y = -0.13, highest at Y =
-    0.48 \u2014 align the roof plane to Y = -0.13 if you want the piece flush on
-    that plane.\n\nPlacement tips\n- Snap the peak along your roof ridge line; rotate
-    to align the V apex with the ridge direction.\n- Use the extents along the repetition
-    axis to space adjacent caps (~0.72 units between centers along that axis unless
-    you intentionally overlap).\n- Tabs on the short ends imply slight overlap/interlock
-    with neighboring pieces \u2014 allow small overlaps when tiling for seamless
-    seams.\n- Consider re-centering the prefab pivot (to bottom center or ridge center)
-    if you will place many pieces procedurally for easier snapping and consistent
-    offsets."
+  AiMetadata: "A small V-shaped roof ridge/tile cap: two sloped brown tile faces
+    meet at a sharp apex, forming an inverted-V peak with a small central underside
+    tab and dark rectangular end pads. Orientation: the apex runs along the front\u2013back
+    axis (visible in the Front/Back views), with the underside mounting tab and dark
+    pads facing downward/sideways for attachment."

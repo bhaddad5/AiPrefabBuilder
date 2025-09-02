@@ -119,12 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a slender vertical wooden post/column with a slightly
-    larger square cap and base (decorative top and bottom).\n- Size & bounds: bounding
-    box = 0.44 m \xD7 2.99 m \xD7 0.44 m (X \xD7 Y \xD7 Z), min (-0.22, -0.01, -0.22),
-    max (0.22, 2.98, 0.22).\n- Origin/orientation: Y-up, origin located essentially
-    at the bottom center (base sits at ~Y=0).\n- Placement notes: footprint is ~0.44\xD70.44
-    \u2014 leave at least that spacing in plan; top of post reaches ~2.98 units above
-    origin for attaching beams/roof; centered pivot makes it easy to tile or snap
-    to grid.  \n- Visual: dark wood tone, consistent square cross-section along shaft. 
-    \n- Misc: background fuchsia in renders \u2014 ignore."
+  AiMetadata: SM_Bld_House_WoodBeam_04 is a narrow, dark wooden support beam with
+    a slender, slightly tapered shaft, a small square baseplate and a larger square
+    cap on top. It is oriented upright along the Y-axis (vertical) and centered at
+    the origin (0,0,0).

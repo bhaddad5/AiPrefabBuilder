@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- Small rectangular stone stair block with
-    a stepped profile on one long side (approx. 5\u20136 risers). Top is relatively
-    flat; other sides are plain stone faces.\n- Overall shape: solid wedge of stairs
-    \u2014 usable as a short flight or step riser.\n\nBounds & placement notes (object
-    origin at (0,0,0)):\n- Bounds: min (0.00, 0.00, -0.94), max (1.87, 1.27, 0.94).\n 
-    - Size = X 1.87, Y 1.27, Z 1.88 units.\n  - Vertical center is at origin (Z centered):
-    bottom at Z = -0.94, top at Z = +0.94.\n  - Origin lies at the lower-left corner
-    in plan (min X, min Y).\n- Practical placement offsets:\n  - To rest the stair
-    on a ground plane at world Z = 0, translate +0.94 units in Z.\n  - To make the
-    prefab pivot-centered, translate by (-0.935, -0.635, 0).\n- Tiling/adjacency:\n 
-    - The model extends only in +X and +Y from its origin; align neighbors by matching
-    min/max X or Y (e.g., place another prefab with its min X = this max X to continue
-    stairs along X).\n  - Be mindful of step direction when matching to other pieces
-    (steps run along the longer X dimension).\n- Orientation tip: rotate as needed
-    so the stepped face points toward the approach direction."
+  AiMetadata: "A compact rectangular stone stair block with about five stepped treads
+    leading to a flat top landing and simple carved stone detailing. It is oriented
+    so the steps face the front and ascend from left (low) to right (high) relative
+    to the prefab\u2019s forward direction, positioned at the origin."

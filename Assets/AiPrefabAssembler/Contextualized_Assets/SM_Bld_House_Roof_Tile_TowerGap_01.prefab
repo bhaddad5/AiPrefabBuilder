@@ -188,20 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a small stylized wooden arch/gap piece for a tiled roof
-    \u2014 two vertical side supports with a curved underside arch and a thin sloped
-    cap/plate on top. Looks like a connector/trim that forms a gap/arch between roof/tower
-    elements.\n- World bounds & size: min (-1.40, -1.40, -2.58), max (0.16, 0.17,
-    0.04) \u2192 extents X = 1.56, Y = 1.57, Z = 2.62 units.\n- Pivot/origin: object
-    origin is near the top/right/outer corner \u2014 the model extends mostly into
-    negative X, negative Y and negative Z (top surface ~ Z = 0.04, bottom ~ Z = -2.58).\n-
-    Orientation notes: arch opening faces roughly toward the positive X direction
-    relative to the origin side with the thicker support on the negative-X side.
-    Top cap is a thin sloped plate (visible in top/front/back views).\n- Placement
-    tips:\n  - Align the top surface (Z \u2248 0.04) to the roof plane when placing
-    on other roof prefabs.\n  - Because the origin is offset, snap/translate by about
-    (center offset \u2248 -0.62, -0.62, -1.27) if you need the mesh centered on a
-    location.\n  - Mirror/rotate copies (180\xB0 around vertical) to create matching
-    gaps on the opposite side; tile spacing along X/Y should account for the 1.56\xD71.57
-    footprint.\n  - Check neighbor clearance on the negative-X/negative-Y sides (heavier
-    geometry) when packing multiple prefabs."
+  AiMetadata: 'A small roof/tower gap prefab: an arched timber span with vertical
+    corner posts and a curved central opening, textured like dark weathered wood.
+    It is oriented with the arch opening facing forward (positive Y) and a thin roof
+    cap running along the top edge.'

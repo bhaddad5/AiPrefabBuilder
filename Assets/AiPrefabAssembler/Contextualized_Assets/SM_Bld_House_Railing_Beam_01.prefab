@@ -119,14 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a thin, vertical railing post / baluster with a slight taper
-    (narrower near middle/top), dark gray/black material against a magenta background.\n-
-    Size & footprint: height = 2.32 units (Y: 0.00 \u2192 2.32). Width/depth \u2248
-    0.22 \xD7 0.22 units (X: -0.11 \u2192 0.11, Z: -0.11 \u2192 0.11).\n- Placement/origin:
-    object is centered on X/Z and sits on the floor (min Y = 0) \u2014 use as a bottom-centered
-    pivot for snapping to floors or rails.\n- Orientation: upright along world Y
-    axis (no rotation needed to stand).\n- Usage tips: use ~0.22 units center-to-center
-    for tightly packed rows (match footprint), or larger spacing for typical baluster
-    gaps; allow a small epsilon if using snap/grid to avoid z-fighting. Consider
-    that the geometry is very thin, so enable proper collision/culling settings if
-    used many times."
+  AiMetadata: A slim, dark vertical railing post/beam with a slightly tapered rectangular
+    profile, appearing as a narrow column used for house railings. It is oriented
+    upright along the Y axis (standing vertically) and centered at the origin.

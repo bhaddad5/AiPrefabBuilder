@@ -212,21 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a small tower/corner wall segment with a framed square 4\u2011pane
-    window on one face, decorative trim/base molding and diagonal timber detail on
-    the inside face. Top/bottom renders show a trapezoidal footprint (angled corner)
-    \u2014 meant as an angled corner/window piece.\n- Size & pivot: bounds = X 2.50
-    (from -2.50 to 0.00), Y 2.50 (0.00 to 2.50), Z 1.18 (\u22120.07 to 1.11). The
-    origin sits at the ground level on the piece\u2019s inner vertical face/edge
-    (x = 0, y = 0).\n- Placement notes:\n  - Snap grid: tile vertically by 2.5 units;
-    lateral/planar placement uses 2.5 units along the X direction and ~1.18 units
-    along Z as needed.\n  - Origin alignment: place pieces so their x = 0 face meets
-    adjacent pieces\u2019 x = \u22122.5 face (or rotate 90\xB0 around Y and repeat)
-    to form continuous tower corners.\n  - Small back overhang: piece extends slightly
-    behind origin (z = \u22120.07), so allow a ~0.07 unit negative Z clearance when
-    butting to neighboring geometry.\n  - Rotation: intended to be rotated in 90\xB0
-    increments around Y to form corners/round towers.\n  - Height matches typical
-    2.5\u2011unit story \u2014 stackable without vertical offsets."
+  AiMetadata: "A small angled tower/corner wall piece with dark trim and a recessed
+    square window offset in the panel, showing diagonal interior bracing on one face.
+    It\u2019s oriented with its corner at the origin, extending into the negative
+    X and upward along +Y, with a shallow depth forward along +Z."
 --- !u!1 &1749103337928158
 GameObject:
   m_ObjectHideFlags: 0

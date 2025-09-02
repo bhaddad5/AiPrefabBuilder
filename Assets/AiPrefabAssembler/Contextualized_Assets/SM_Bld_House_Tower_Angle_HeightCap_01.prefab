@@ -188,19 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- Small angled tower cap piece (arch/V-shaped
-    top) with a low rectangular body and several small rectangular crenellation tabs
-    along the outer/top edge. Looks like a corner/angle cap for a tower roof or parapet.\n\nBounds
-    & size (local space):\n- Min = (-2.64, 0.00, 0.00), Max = (0.13, 0.56, 1.39)\n-
-    Size = X 2.77, Y 0.56, Z 1.39\n- Pivot placed at (0,0,0). Y-min = 0 and Z-min
-    = 0 \u2192 bottom/front sit on origin plane. X extends mostly negative from the
-    pivot.\n\nPlacement notes:\n- Origin is at the front/right edge of the piece
-    (positive X side near 0.13); the piece extends leftward (negative X) 2.64 units.
-    Align that origin when snapping to other prefabs so the cap projects in the intended
-    direction.\n- Vertical stacking: piece height = 0.56; stack/align Y by multiples
-    of 0.56.\n- Depth: front face is at Z = 0, back at Z = 1.39 \u2014 use that for
-    flush front/back alignment.\n- Watch the small top tabs/crenellations \u2014
-    they protrude above the main profile and may collide if adjacent caps are placed
-    too close; allow the full X/Z extents when checking collisions.\n- Symmetry:
-    top-down shape is roughly V/arched and appears symmetric across the centerline,
-    so it can be mirrored along its length if needed."
+  AiMetadata: "A small angled tower cap / roof segment shaped like an inverted U
+    with evenly spaced rectangular crenellations along the outer curve and a narrow
+    rectangular body. It\u2019s oriented with the arched/open side facing downward
+    and a small rectangular connector tab projecting from the right side."

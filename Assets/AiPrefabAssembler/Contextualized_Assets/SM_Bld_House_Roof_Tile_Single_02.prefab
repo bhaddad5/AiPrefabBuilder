@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Roof_Tile_Single_02 \u2014 brief visual + placement notes\n\n-
-    Visual: a narrow, elongated roof tile/wedge with a centered peaked ridge along
-    its long axis. Top surfaces slope down from the central ridge; ends are slightly
-    chamfered/angled. Material: brown top, darker underside. Mesh appears closed
-    and symmetrical about the origin.\n- Bounds & size (local): min (-0.21, -0.14,
-    -0.29), max (0.21, 0.14, 0.29) \u2192 size = (0.42, 0.28, 0.58). Pivot/position
-    is at (0,0,0) (mesh centered).\n- Orientation: long dimension = 0.58 units (local
-    Z), width = 0.42 (local X), height = 0.28 (local Y). Ridge runs along the long
-    axis.\n- Placement tips for tiling/assembly:\n  - To place tiles end-to-end along
-    their length, translate by \xB10.58 units (2 * 0.29).  \n  - To place side-by-side
-    (across width), translate by \xB10.42 units (2 * 0.21).  \n  - For vertical stacking,
-    translate by \xB10.28 units (2 * 0.14).\n  - Because the mesh is centered, use
-    half-extents (0.21 / 0.14 / 0.29) when snapping edges to avoid overlap.\n  -
-    Ends are angled/chamfered \u2014 you may need to rotate (180\xB0) or mirror adjacent
-    tiles for a flush seam depending on roof pattern.\n- Extra: renders use a fuchsia
-    background (likely alpha mask)."
+  AiMetadata: "SM_Bld_House_Roof_Tile_Single_02 is a narrow, low\u2011poly roof tile
+    shaped like a pentagonal prism with a shallow central ridge, beveled ends, and
+    brown top shading with a darker underside. It sits at the origin and is oriented
+    with its long axis running left\u2013right (X axis), the ridge running along
+    that length."

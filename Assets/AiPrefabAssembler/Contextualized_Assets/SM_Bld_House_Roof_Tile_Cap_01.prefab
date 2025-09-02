@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- Decorative roof ridge/tile cap: half-conical
-    / semicircular cap with a small finial at the peak and a scalloped/flared base
-    edge. Texture looks like brown roof tiles/wood.\n\nBounding box & size (local
-    space):\n- Min = (-3.04, 2.31, 0.00)\n- Max = ( 0.44, 5.62, 1.84)\n- Extents
-    (size) = (3.48, 3.31, 1.84)  (X, Y, Z)\n- Center = ((-1.30), 3.965, 0.92)\n\nOrigin
-    / pivot location:\n- Pivot is at world/local (0,0,0). The base of the mesh sits
-    on Z = 0 (min Z = 0).\n- Pivot is offset toward the +X/+Y side of the box: it
-    sits 0.44 units inside the max X face (i.e. close to the right face) and 2.31
-    units behind the nearest Y face (min Y). In other words, the piece is forward/right
-    of the origin in its bounding box.\n\nPlacement tips when composing with other
-    prefabs:\n- Use Z = 0 as the base plane; no vertical offset is needed to set
-    it on the roof surface.\n- Tiling/spacing: step by the extents when snapping
-    pieces\n  - X spacing = 3.48\n  - Y spacing = 3.31\n- If you want the prefab
-    centered on a placement pivot, translate by the center vector (-1.30, 3.965,
-    0.92).\n- To align a specific edge to a world origin or neighbor, translate by
-    the min bounds (-3.04, 2.31, 0) so bounding-box min matches your target position.\n-
-    The pivot location being near one corner means you may need to apply the above
-    offsets or mirror/rotate pieces when lining them up along a ridge to avoid gaps."
+  AiMetadata: "SM_Bld_House_Roof_Tile_Cap_01 is a semicircular decorative roof cap
+    \u2014 a half-cone with a tiered, pointed finial and a flared, scalloped brim
+    designed to sit on a roof ridge. It is oriented with the tip pointing up (+Z)
+    and the flat rear face aligned to mount along the ridge (opening toward the front/+Y)."

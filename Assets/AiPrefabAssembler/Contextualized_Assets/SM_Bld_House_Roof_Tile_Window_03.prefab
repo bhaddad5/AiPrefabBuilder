@@ -203,18 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Roof_Tile_Window_03\n- Visual: small tiled roof
-    piece with a dormer/window set in a triangular gable and exposed wooden support
-    beams. Two faces are sloped roof tiles meeting at a ridge; the front face contains
-    the arched/mullioned window.\n- Bounds (local space): min (-2.70, -2.65, -2.58),
-    max (0.04, 0.06, 0.08)\n- Size (max - min): (x: 2.74, y: 2.71, z: 2.66)\n- Pivot/placement
-    notes:\n  - Geometry is mostly in the negative local quadrant relative to the
-    prefab origin (center \u2248 -1.33, -1.295, -1.25). The origin sits near the
-    positive corner of the piece (close to max bounds).\n  - When snapping/tiling,
-    treat the prefab origin as the outer/top corner and offset subsequent pieces
-    by the size values above (or align using min/max edges). If you want a centered
-    pivot, translate by the center (-1.33, -1.295, -1.25).\n  - The visible front
-    (window) is shown in the provided \"Front\" render \u2014 use that as the forward-facing
-    direction when aligning to fa\xE7ades.\n- Other: background is fuchsia (transparent
-    alpha), apparent world-scale is ~2.7 units per side \u2014 verify against your
-    scene units before placement."
+  AiMetadata: A small triangular roof dormer section with brown tiled shingles, dark
+    timber framing and an arched mullioned window set into the gable. It is oriented
+    so the dormer/window faces the "Front" view while the roof slopes extend toward
+    the back and sides, with the underside and back showing plain roof tiles.

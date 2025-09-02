@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a tall, narrow chimney/chimney-top model (square-ish
-    base, tapers slightly up to a smaller capped pipe).\n- Orientation & pivot: upright
-    along Y; local origin at (0,0,0) is the base center (min Y = 0 \u2192 sits flush
-    on the surface).\n- Exact bounds (local space): X: -0.43 \u2192 0.43 (width =
-    0.86), Y: 0.00 \u2192 3.80 (height = 3.80), Z: -0.44 \u2192 0.44 (depth = 0.88).
-    Local centroid = (0, 1.90, 0).\n- Visual notes: gray body with darker capped/top
-    pipe; top has a small recessed opening/pipe.\n- Placement tips:\n  - Snap base
-    to surface (Y = 0) to place flush; centroid at Y \u2248 1.90 if you need to align
-    centers.\n  - Footprint is ~0.86 \xD7 0.88 \u2014 leave that area clear; use
-    a small clearance (0.02\u20130.05 units) to avoid z-fighting with adjacent geometry.\n 
-    - If placing on a sloped roof, rotate to match the roof normal and ensure the
-    pipe opening remains unobstructed above roof plane.\n  - Multiple units can be
-    tiled closely due to the small square footprint, but watch for top opening overlap
-    if clustering."
+  AiMetadata: SM_Bld_House_Chimney_04 is a narrow, tapered vertical chimney with
+    a square base and a small dark flue/cap, featuring faceted gray surfaces. It
+    is modeled upright along the Y axis with the base at the origin so it stands
+    vertically.

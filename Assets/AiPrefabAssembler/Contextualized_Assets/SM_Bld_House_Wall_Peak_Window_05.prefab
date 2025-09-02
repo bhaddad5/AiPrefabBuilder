@@ -203,19 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- A thin gable/peak wall section: triangular
-    roofline with a centered square 4\u2011pane window and a small sill/base. Colors
-    are muted grays/darkers. Overall silhouette is an isosceles triangle sitting
-    on a short horizontal base; very shallow thickness.\n\nBounds, pivot and sizes
-    (useful for placement):\n- Local bounds: X = -2.50 \u2026 0.00, Y = 0.00 \u2026
-    2.50, Z = -0.12 \u2026 0.12.\n- Size: width = 2.50, height = 2.50, thickness
-    = 0.24.\n- Pivot/origin = (0,0,0) \u2192 located at the lower\u2011right, center
-    depth (right edge, ground level, center in Z).\n- Window roughly centered in
-    the triangle at about (-1.25, ~1.25, 0) in local coordinates.\n\nPlacement tips:\n-
-    The wall plane lies in X\u2013Y; thin depth along Z is centered around origin
-    (no Z offset needed when stacking).\n- To tile/abut modules along X, translate
-    the origin by \xB12.5 units (e.g., place a copy with origin at +2.5 to sit immediately
-    to the right).\n- To stack vertically, raise origin by +2.5 in Y to align bases.\n-
-    Mirroring: flip/scale X = -1 if you need a mirrored gable, but remember the origin
-    is at the right edge so mirroring will change how the module aligns\u2014reposition
-    by \xB12.5 accordingly.\n- Keep origin.y = 0 to sit the base on ground."
+  AiMetadata: A small triangular gable wall section with a centered four-pane square
+    window and narrow sill, finished in dark muted materials. The peak is upright
+    and the thin piece is offset to the negative X side (extends left from the origin)
+    with very shallow depth.

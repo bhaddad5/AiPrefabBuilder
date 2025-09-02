@@ -119,15 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: tall, square stone chimney with a dark cap/flue on top
-    and a simple square plinth at the bottom. Color: mid-to-dark greys. Vertical,
-    mostly uniform taper/shaft; top has a small decorative flue.\n- Bounds & pivot:
-    min (-0.54, 0.00, -0.54), max (0.54, 3.15, 0.54). Footprint = 1.08 x 1.08 (XZ),
-    height = 3.15 (Y). Object origin is at the base center (0,0,0).\n- Placement
-    notes:\n  - Align Y=0 to the roof/ground surface so base sits flush. XZ centering
-    is natural due to centered pivot.\n  - Allow at least 3.15 units vertical clearance
-    above placement; footprint clearance ~1.1 units. For multiple chimneys keep spacing
-    >1.1 units to avoid overlap.\n  - Rotation not required (square footprint) but
-    small front/back texture differences are visible \u2014 rotate to match neighboring
-    facade/lighting if needed.\n  - Collision and occlusion can use the given bounds
-    (simple square column). Ignore the fuchsia background in the previews."
+  AiMetadata: A tall, slightly tapered stone chimney with a square base and a dark
+    capped flue at the top. Oriented upright along the Y axis, it is mid-to-dark
+    gray with subtle surface variation and a recessed square opening visible from
+    above.

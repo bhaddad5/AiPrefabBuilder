@@ -119,15 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: small square stone floor patch made of four (2x2) dark gray
-    stone tiles with visible grout/seams and slight bevels. Top face is the detailed
-    textured surface; sides are a very thin 0.05 unit edge.\n- Bounds & size: min
-    (-2.50, 0.00, -2.50), max (0.00, 0.05, 0.00) \u2192 footprint = 2.5 \xD7 2.5
-    units, thickness = 0.05 units. Origin/pivot is at the top/right/front corner
-    (max corner) at (0,0,0); base sits on Y=0.\n- Placement tips:\n  - Tileable on
-    a grid: offset copies by multiples of 2.5 in X and/or Z to place edges flush
-    (e.g. \xB12.5 in X or Z for adjacent pieces).\n  - If you want the prefab centered
-    at a point, translate by (-1.25, 0.025, -1.25) (center of its bounds).\n  - Vertical
-    stacking: use 0.05 unit increments in Y.\n  - Rotation will change which corner
-    sits at the origin (pivot at max corner), so account for pivot when snapping/rotating.\n-
-    Misc: magenta background indicates transparent padding in the renders."
+  AiMetadata: A small square stone floor prefab made of four gray, slightly beveled
+    slabs with visible seams forming a 2x2 tile; flat and low-profile. It is anchored
+    at the origin with its top near ground level and extends into the negative X
+    and negative Z directions, very thin in height.

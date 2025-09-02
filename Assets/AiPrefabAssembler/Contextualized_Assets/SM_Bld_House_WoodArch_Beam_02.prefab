@@ -119,15 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: small dark wooden rectangular beam (plank) \u2014 long in
-    X, thin in Y and Z. Background is fuchsia (transparent mask).\n- Local bounds:
-    Min (-2.49, 2.17, -0.12), Max (-1.25, 2.50, 0.12)\n- Size (Max\u2212Min): (X=1.24,
-    Y=0.33, Z=0.24) units\n- Geometry center (relative to prefab origin): (-1.87,
-    2.335, 0)\n- Notes for placement:\n  - The prefab origin (0,0,0) is NOT at the
-    beam center \u2014 the beam is offset left (\u2212X) and up (+Y).\n  - To place
-    the beam centered at the prefab origin, translate the mesh by (+1.87, \u22122.335,
-    0).\n  - To place the beam with its bottom sitting on world Y=0, move the prefab
-    down by Y = \u22122.17 (because bottom = +2.17 relative to prefab origin).\n 
-    - Use the given bounds as the AABB for collision/snap (1.24\xD70.33\xD70.24).\n 
-    - Long axis = local X; thickness (depth) = along local Z. Keep this orientation
-    when snapping into larger assemblies."
+  AiMetadata: "A narrow, dark wooden beam/timber with a rectangular cross-section
+    and subtle beveling, intended as an arch support. It is mounted horizontally,
+    aligned along the X axis (running left\u2013right)."

@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a tall square wall support frame ~2.5 high with
-    a thin depth and a central thin vertical post (with foot and cap) plus small
-    diagonal braces at the top inside corners. From front/back you see a hollow square
-    frame with braces; side views show a slim pole; top/bottom show a thin horizontal
-    slab.\n\n- Bounds & size (from provided mins/maxs): X = [-2.50, 0.00] (width
-    2.50), Y = [0.00, 2.50] (height 2.50), Z = [-0.12, 0.12] (depth 0.24). Origin
-    is at (0,0,0) \u2014 this sits at the right face (X = max) and at the bottom
-    (Y = min). Z is centered.\n\n- Placement tips:\n  - The pivot/origin is at the
-    right-bottom-center of the piece. To tile pieces flush along X, translate by
-    \xB12.50 units (place a copy at +2.50 to put it immediately to the right, at
-    -2.50 to put it immediately to the left).\n  - To stack vertically, translate
-    by +2.50 in Y (base is at Y = 0).\n  - No Z offset needed for centered depth;
-    object is thin (0.24) so watch for z-fighting if placed flush against other thin
-    geometry.\n  - Frame interior is open \u2014 if snapping interiors or adding
-    panels, account for the ~0.12 thickness of the frame edges."
+  AiMetadata: 'A slender wall support-beam prefab: a vertical post with a small square
+    end frame featuring two diagonal corner braces. It is oriented tall along the
+    Y axis, very thin in depth (Z), and extends horizontally toward the negative
+    X direction from the origin.'

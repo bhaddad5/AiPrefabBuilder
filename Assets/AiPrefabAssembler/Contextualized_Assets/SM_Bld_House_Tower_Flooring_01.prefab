@@ -119,13 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin semicircular/half-disc floor segment with a wooden
-    plank texture (flat straight inner edge, rounded outer edge).\n- Bounds & size:
-    min (-2.43, 0.02, 0.02), max (-0.06, 0.13, 1.18). Extents \u2248 2.37 (X) \xD7
-    0.11 (Y) \xD7 1.16 (Z).\n- Pivot/origin: object origin is at (0,0,0) and sits
-    very near the flat/inner edge (max X \u2248 -0.06). Geometry extends mostly in
-    negative X from that inner edge.\n- Vertical placement: bottom is at Y = 0.02
-    above origin \u2014 subtract 0.02 in Y to make it sit flush on a floor plane.\n-
-    Placement notes: because the pivot is at the inner straight edge, you can rotate
-    copies around the origin/pivot to assemble radial segments. Align the inner flat
-    edges to meet adjacent prefabs; watch the ~2.37 X overlap direction when snapping."
+  AiMetadata: A thin, semi-circular wooden floor segment textured with vertical planks
+    and a rounded outer edge. It sits as a low-profile piece extending to the negative
+    X side of the origin (thin in Y, long along Z) with the curved edge facing negative
+    X.

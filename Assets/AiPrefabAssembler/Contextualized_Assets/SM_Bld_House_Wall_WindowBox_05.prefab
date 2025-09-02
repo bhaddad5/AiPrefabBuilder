@@ -120,23 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small projecting window box / bay with a slanted top/hood,
-    central mullioned window, support brackets and a small rail/ledge under the window.
-    Looks like an exterior window module that sticks out from a wall.\n\n- Bounds
-    & origin (object positioned at 0,0,0):\n  - X: min -2.50, max 0.00 \u2192 2.5
-    units projects to the negative X side; origin is at the module\u2019s rightmost
-    face/edge.\n  - Y: min 0.00, max 2.56 \u2192 sits on ground/origin Y=0; total
-    height 2.56 units.\n  - Z: min -0.50, max 0.90 \u2192 depth 1.40 units (extends
-    slightly more to +Z than -Z).\n\n- Placement notes (use when composing with other
-    prefabs):\n  - Snap the prefab so its max-X face (origin) sits flush with your
-    wall/attachment surface \u2014 the window projects left (-X).\n  - Ensure 2.5
-    units clearance to the left for the full projection.\n  - Bottom aligns at Y=0
-    (sill/base at origin); raise whole prefab if you need a different sill height.\n 
-    - Depth occupies 1.4 units in Z; check neighboring pieces forward/back for overlap.\n 
-    - Orientation: the visible front (window/railing) faces negative X; rotate accordingly
-    if you need it mirrored.\n  - Watch supports/brackets under the box \u2014 they
-    extend below the sill and may collide with other geometry if packed tightly.\n\n-
-    Misc: background color in the renders is magenta (not part of the asset)."
+  AiMetadata: A small prefab house wall section with a centered window and projecting
+    window box/ledge, metal-clad upper cap, and a short support bracket beneath.
+    It is oriented with the windowed facade facing forward (Front image) and the
+    support/steps projecting out to the side, visible in the side views.
 --- !u!1 &1336316340882368
 GameObject:
   m_ObjectHideFlags: 0

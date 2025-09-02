@@ -119,22 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A small pair of thin wooden peak-cap beams
-    that form an inverted-V / \"A\" shape when viewed end-on. Low-profile piece (very
-    thin in Z), intended to sit on a roof ridge.\n\nBounding box & size (units =
-    same units as the prefab)\n- Min: (-1.06, -2.67, -0.18)  Max: (1.10, 1.17, 0.18)\n-
-    Full size: (2.16, 3.84, 0.36)\n- Half extents: (1.08, 1.92, 0.18)\n\nPivot /
-    origin\n- Object is positioned at (0,0,0) but the bounding-box center is offset:
-    center = (0.02, -0.75, 0). In other words the prefab origin is ~0.75 units toward
-    one end along local Y. Plan for this offset when aligning or tiling along a ridge.\n\nOrientation
-    notes\n- Long axis = local Y (3.84). Shortest axis (height) = local Z (0.36)
-    \u2014 very low profile, will sit flush on a roof.\n- Front/back views show the
-    beams cross at the ridge (center along X); use the local X for beam spread across
-    the ridge.\n\nPlacement tips\n- Align the prefab\u2019s local Y axis along the
-    roof ridge when tiling multiples.\n- Compensate for the -0.75 Y offset if you
-    want the geometric center or a particular end to sit at a world position (translate
-    by +0.75 along the prefab\u2019s local Y to center it).\n- Use the full extents
-    above for collision/packing to avoid intersections; Z clearance only \xB10.18.\n-
-    Thin geometry \u2014 normal snapping to the roof surface is likely sufficient;
-    consider small vertical offset if you need the beams to appear seated into thatch.\n\n(Background
-    color in the provided renders is solid fuchsia.)"
+  AiMetadata: "A small thatch-roof peak cap made of two long, tapered wooden beams
+    crossed into an A-frame and joined at the top, intended as a decorative/structural
+    cap for a thatched house roof. It is oriented upright with its long axis along
+    the Y (vertical) axis, centered at the origin and forming a symmetrical V in
+    the front/back (\xB1Z) views."

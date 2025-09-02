@@ -119,15 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small, elongated roof-tile segment with a central
-    ridge along its length, beveled/chamfered ends and a darker underside. Diffuse
-    brown material.\n- Orientation & pivot: model is centered at origin. Top ridge
-    runs along the long axis (local Z).\n- Bounds & sizes (local space): min (-0.21,
-    -0.14, -0.29), max (0.21, 0.14, 0.29) \u2192 size = (0.42, 0.28, 0.58). Half-extents
-    = (0.21, 0.14, 0.29).\n- Placement notes:\n  - Base sits 0.14 units below origin;
-    to sit flush on a roof plane raise by +0.14.\n  - To tile end-to-end along the
-    ridge direction, offset by \xB10.58 on local Z (or use overlap if seams are intended).\n 
-    - To place side-by-side across the roof, offset by \xB10.42 on local X.\n  -
-    Because ends are beveled, small overlaps or a seam-friendly margin may be needed
-    to avoid visible gaps.\n- Rendering caveat: previews shown on magenta background
-    (ignore)."
+  AiMetadata: SM_Bld_House_Roof_Tile_Single_01 is a small, elongated brown roof tile
+    with a central longitudinal ridge and chamfered edges, resembling a truncated
+    hexagonal prism. It is oriented with its length along the X-axis, ridge facing
+    up and the flat underside down, positioned at the origin.

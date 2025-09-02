@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: L-shaped stair railing / corner piece (newel post at
-    the corner with two railing runs and vertical balusters). Top rails are sloped
-    to stair pitch.\n- Bounds & footprint: X = -0.15 \u2192 1.40 (width \u2248 1.55),
-    Y = 0.01 \u2192 3.53 (height \u2248 3.52), Z = -1.40 \u2192 0.15 (depth \u2248
-    1.55).\n- Origin / placement note: object origin is at (0,0,0). The geometry
-    extends primarily in +X and -Z from the origin (corner of the L sits at/near
-    the origin). The bottom sits at Y = 0.01 (drop ~0.01 to sit flush on floor).\n-
-    Integration tips:\n  - Use the origin as the inner corner anchor when snapping
-    to stair geometry.\n  - Expect open ends (connectors) \u2014 you will likely
-    need matching straight railing prefabs or a connector piece to continue runs.\n 
-    - Thin geometry; use tight colliders or adjust collision padding to avoid gaps
-    with steps.\n  - To mirror or reorient runs, rotate in 90\xB0 increments (origin-centered)
-    so runs extend along desired axes.\n- Visual: magenta background (transparent)
-    in renders."
+  AiMetadata: An L-shaped stair railing section with a tall corner post, two horizontal/diagonal
+    rails and slim vertical balusters forming a sloped handrail. The corner post
+    is near the origin with the two arms extending outward along +X and -Z, the handrail
+    sloping down from the taller post.

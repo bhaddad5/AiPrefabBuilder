@@ -119,20 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Roof_Thatch_Corner_01 \u2014 brief description and placement
-    notes\n\nWhat it is\n- A 90\xB0 roof corner piece (quarter of a hip roof). Top
-    face is textured thatch on the diagonal/hypotenuse; the two orthogonal legs/undersides
-    show wooden planking and small dark pegs at the three outer corners.\n\nBounds
-    & pivot\n- AABB: min (-2.62, -2.66, -2.62), max (0.12, 0.08, 0.12).\n- Size extents
-    \u2248 2.74 units in X, Y, Z.\n- The model is positioned so the origin is at
-    the near/max corner (the highest/outer corner) \u2014 center = approx (-1.25,
-    -1.29, -1.25). Top of the piece is near Y = 0.08.\n\nPlacement tips\n- Treat
-    the origin/max corner as the inner junction/roof ridge corner when snapping into
-    a roof assembly.\n- Use 90\xB0 rotations around Y to create the four corner orientations.\n-
-    Align tops at ~Y = 0.08 so adjacent roof pieces sit flush. The piece extends
-    roughly -2.62 units along X and Z from the origin, so snap adjacent tiles to
-    those edges.\n- Small positive max (0.12) means there\u2019s a tiny margin past
-    the origin \u2014 allow for ~0.12 units of overhang if matching exact edges.\n-
-    Visual: diagonal thatch faces out toward the hip; wood/plank faces attach along
-    the orthogonal roof planes.\n\n(Background color in the renders is fuchsia; not
-    part of the asset.)"
+  AiMetadata: "A right-angle triangular thatch roof corner piece with a textured
+    straw/thatch surface on top and a dark wooden-plank underside with small corner
+    posts. It\u2019s oriented with the thatched face up (+Y), the 90\xB0 vertex pointing
+    toward the -X/-Z quadrant, and the slanted hypotenuse forming the exterior eave
+    toward +X/+Z."

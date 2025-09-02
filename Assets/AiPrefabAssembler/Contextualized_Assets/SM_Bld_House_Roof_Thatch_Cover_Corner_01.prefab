@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A small thatch roof corner cover: a triangular/quarter-square
-    thatch panel with visible straw/top detail on the top face and a wooden-framed
-    underside. The piece is relatively flat and tapered (thicker at the inner corner,
-    thinner at the outer edge). There is a short support nub on the underside.\n\nKey
-    placement / integration facts (use these when snapping into a larger roof)\n-
-    Bounding box (local space): min (-4.28, -0.71, -4.28), max (0.03, 0.12, 0.03).\n 
-    - Footprint ~ 4.31 x 4.31 units (X \xD7 Z).\n  - Vertical thickness ~ 0.83 units
-    (Y).\n- Origin/pivot is at the inner (positive) corner of the piece (the model
-    extends mostly into the negative X and Z directions). Use the origin as the corner
-    anchor when placing against walls/other roof pieces.\n- Rotation: rotate around
-    Y in 90\xB0 increments to use this same piece for any roof corner orientation.\n-
-    Translation for tiling: to place an adjacent corner piece that occupies the next
-    quadrant, translate by approximately \xB14.28 units along X and/or Z (depending
-    on rotation) to align bounding boxes without gaps.\n- Vertical alignment: the
-    base sits below the origin (min Y = -0.71), so when aligning to a roof plane
-    or floor, offset by +0.71 if you want the underside to sit at world Y = 0.\n-
-    Collision/snap: use the provided bounding box for collision and snap calculations;
-    account for the small underside nub so collisions may need a tiny clearance.\n-
-    Note: background/mask is magenta (irrelevant to model)."
+  AiMetadata: A small right-angle corner cap (quarter-section) for a thatched roof,
+    with layered tan straw on the sloped top and a dark wooden, braced underside.
+    Oriented so the outer corner faces the negative X and negative Z directions from
+    the origin, with a slight downward slope and a small mounting peg on the underside.

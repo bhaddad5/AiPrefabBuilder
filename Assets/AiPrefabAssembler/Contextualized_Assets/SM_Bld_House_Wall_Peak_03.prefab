@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin, triangular/peaked gable wall segment (triangular
-    prism) \u2014 one vertical straight edge and one sloped hypotenuse.\n- Bounds
-    / size (local space): min (-1.25, 0.00, -0.04), max (0.00, 3.75, 0.04) \u2192
-    size = (1.25, 3.75, 0.08).\n- Pivot / origin: at (0,0,0). That corresponds to
-    the vertical straight edge centered on Z=0 and the base at Y=0.\n- Orientation:
-    the straight vertical edge sits at X = 0; the sloped face extends to negative
-    X (to -1.25). Depth is very thin (\xB10.04 in Z).\n- Placement tips:\n  - Snap
-    base to Y = 0 when placing on a floor/ground.\n  - Use X offsets in multiples
-    of 1.25 to tile pieces edge-to-edge (adjacent piece moved +1.25 so its min X
-    = 0).\n  - To mirror the slope direction, rotate 180\xB0 around the Y axis (keep
-    pivot at origin) and then translate so the vertical edges meet (same 1.25 steps).\n 
-    - Account for thin Z thickness (0.08) when doing booleans/occlusion; collision
-    can be very shallow.\n- Visual note: front/back images show the sloped triangular
-    face; top/bottom show the thin profile as a short line."
+  AiMetadata: 'A tall, very thin triangular gable/peak wall segment (SM_Bld_House_Wall_Peak_03):
+    a vertical wedge with a triangular face tapering to a peak and minimal thickness.
+    It sits at the origin and extends along the negative X axis, with height along
+    Y and its thin edge aligned to Z.'

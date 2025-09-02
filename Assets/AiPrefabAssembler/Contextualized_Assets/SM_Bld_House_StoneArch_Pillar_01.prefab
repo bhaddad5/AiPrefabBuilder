@@ -119,13 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a narrow, square stone pillar (stacked/stepped stone
-    blocks) intended for arches/posts. Clean vertical column with a slightly larger
-    base block and a simple cap.\n- Bounds & placement: AABB min (-0.23, 0.00, -0.23)
-    / max (0.23, 2.51, 0.23). Footprint = 0.46 x 0.46 units, height = 2.51 units.
-    Bottom sits at y = 0 (pivot at base center).\n- Orientation/rotation: Symmetrical
-    on X/Z \u2014 can be rotated in 90\xB0 steps without visual mismatch; axis is
-    vertical.\n- Use notes: Flat, square top and bottom \u2014 good for stacking
-    or supporting arch pieces. Snap to grid using its footprint; allow small gaps/overlap
-    if you need mortar seams or blending. Collision/placement should use the provided
-    AABB (0.46x0.46 footprint, 2.51 tall)."
+  AiMetadata: A narrow vertical stone pillar made of stacked blocky segments with
+    a larger square base and a cap, textured in a dark gray/green stone. It is oriented
+    upright (height along the Y-axis) with its base at the origin.

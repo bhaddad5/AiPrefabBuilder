@@ -119,25 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small corner roof-tile cover (quarter/corner piece)
-    with visible shingled top and a dark wooden underside/support. The top is rounded
-    at the outer corner and has a small peg/knob at the inner corner \u2014 designed
-    to cap a roof corner rather than be a full tile.\n\n- Overall size (bbox): about
-    X: 2.57 units, Y: 0.80 units, Z: 2.60 units (min = -2.50,-0.54,-0.08 ; max =
-    0.07,0.26,2.52).\n\n- Pivot/origin: model origin is at (0,0,0) and lies very
-    near one corner of the mesh \u2014 specifically at the positive-X / negative-Z
-    corner of the bounding box. The geometry extends ~2.50 units in the -X direction
-    and ~2.52 units in the +Z direction. The origin is offset ~0.07 units from the
-    +X face and ~0.08 units from the -Z face of the mesh.\n\n- Vertical placement:
-    bottom sits at Y = -0.54 and top at Y = 0.26 (total height ~0.80). When placing
-    on a roof plane, align the mesh bottom (Y = -0.54) to your roof surface or translate
-    so the top shingle surface meets adjacent tiles.\n\n- Usage tips:\n  - Snap the
-    origin to the building corner where two roof planes meet \u2014 the origin already
-    corresponds to the corner of the piece, so placing the prefab at the building
-    corner will align it correctly with minimal offset.\n  - Rotate in 90\xB0 increments
-    to reuse for other corner orientations; mirror if you need the opposite curvature.\n 
-    - Account for the small origin offsets (0.07 on X, 0.08 on Z) if you require
-    exact integer-grid alignment of the mesh bounds.\n  - Underside is recessed/dark
-    \u2014 ensure adjacent underside geometry doesn\u2019t intersect visible roof
-    interiors if roofs are thin.\n\nThis should let you snap and rotate the corner
-    cap to where two roof edges meet and match height with neighboring roof prefabs."
+  AiMetadata: "A small wooden quarter\u2011corner roof tile cover with overlapping
+    brown tiles and a rounded cap at the outer corner. The prefab sits with its inner
+    corner at the origin and extends primarily toward negative X and positive Z,
+    with low vertical thickness."

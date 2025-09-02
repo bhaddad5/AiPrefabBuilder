@@ -119,26 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Wooden corner roof cover tile: roughly
-    square footprint with a diagonal ridge/strap and overlapping tapered tiles. Top
-    is brown wood; underside is darker. Small peg/tenon detail at the inner corner
-    edges.\n- Piece is thin (low profile) and intended to sit on a roof surface and
-    cover a corner/ridge.\n\nBounds, pivot and size (important for placement)\n-
-    Bounds: min (-4.22, -0.73, -0.10), max (0.10, 0.30, 4.19).\n- Total size (max
-    - min): X=4.32, Y=1.03, Z=4.29.\n- Bounding-box center: (-2.06, -0.215, 2.045).\n-
-    The prefab pivot/origin is at (0,0,0) and sits near the inner corner of the bounding
-    box (close to max X and min Z). In other words the piece extends mostly into
-    negative X and positive Z from the pivot.\n\nPlacement notes / how to tile with
-    other prefabs\n- Align the pivot to the roof corner vertex where this cover should
-    sit \u2014 the mesh will then extend outward along local -X and +Z.\n- To mirror/orient
-    around a corner, rotate the prefab in 90\xB0 increments so its extents point
-    along the two roof slopes.\n- Use translation steps approximately equal to the
-    X and Z extents (\u22484.32 units along the local X direction, \u22484.29 units
-    along the local Z direction) when snapping adjacent identical pieces.\n- Vertical
-    alignment: the piece spans Y = -0.73 .. +0.30 relative to its pivot. If your
-    roof surface is at a particular world Y, place the pivot so the desired roof
-    contact height matches (e.g., to have the bottom sit on the roof plane, raise
-    pivot by +0.73).\n- Small pegs/tenons at the inner corner can be used as visual
-    alignment points when joining to adjoining roof pieces.\n\nQuick summary: pivot
-    = inner corner; extends mostly into negative X and positive Z; size ~4.32\xD71.03\xD74.29.
-    Rotate in 90\xB0 steps and translate by the extents to tile."
+  AiMetadata: 'A small wooden roof corner cover: a square section of overlapping
+    brown tiles with a raised diagonal wooden ridge and small peg details at the
+    diagonal ends. It is rotated so the diagonal ridge/corner points toward the positive
+    Z axis and extends into the negative X direction (front-left of the origin).'

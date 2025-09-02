@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: rectangular low-profile thatch roof cover. Top: irregular
-    tan thatch with a slight slope/crest. Bottom: dark wooden frame with metal straps
-    and two small wooden support pegs. Thin overall thickness; looks like a half-roof
-    panel/cover piece.\n\n- Bounds & size (local space): min (-1.65, -0.37, -2.50),
-    max (0.05, 0.12, 0.01) \u2192 size = (1.70, 0.49, 2.51) (X, Y, Z).\n\n- Pivot/origin:
-    object origin is near one corner (near max X = 0.05 and max Z = 0.01). The mesh
-    extends primarily into negative X and negative Z from the origin.\n\n- Placement
-    tips for tiling/assembly:\n  - Use full extents as snap offsets: translate by
-    \xB11.70 on X to tile side-by-side, \xB12.51 on Z to tile end-to-end, \xB10.49
-    on Y to stack vertically.\n  - Because origin is at the positive corner, placing
-    a sibling prefab at +1.70 X or +2.51 Z will butt edges (no gap).\n  - Note the
-    downward pegs: bottom sits ~0.37 units below origin; allow that clearance when
-    aligning to floors/rafters.\n  - Bottom is a wooden frame \u2014 if attaching
-    to other pieces, align wooden frame faces for consistent seams.\n\n- Misc: images
-    rendered on fuchsia background."
+  AiMetadata: "A small rectangular thatch roof cover: a shallow, slightly uneven
+    beige thatch top with a dark wooden underside held by visible straps and two
+    short support pegs. It lies flat on the X\u2013Z plane with the thatch surface
+    facing +Y (up) and the wooden/pegged underside facing -Y (down)."

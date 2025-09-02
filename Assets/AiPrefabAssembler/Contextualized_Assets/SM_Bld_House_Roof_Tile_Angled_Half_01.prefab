@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A half-width, angled roof tile: a long,
-    narrow, sloped rectangular piece with brown shingle texture on the top face and
-    a darker underside with visible rafter lines.\n- Small rectangular connector/peg
-    protrudes from one short edge (visible from top/bottom/side).\n\nBounds, pivot
-    and extents (object at (0,0,0))\n- Min = (-1.31, -2.66, -1.25), Max = (0.14,
-    0.06, 0.00)\n- Size (extents) = (1.45, 2.72, 1.25)\n- Bounding-box center = (-0.585,
-    -1.30, -0.625) relative to origin\n- Pivot/origin = at the top surface (max Z
-    = 0) and near the +X,+Y corner (not centered).\n\nPlacement notes (useful when
-    composing multiple prefabs)\n- Align top surfaces (Z) to the same height \u2014
-    origin is at the top of the mesh, so placing at same Z will line up rooftops.\n-
-    Long axis runs along Y (~2.72 units); tile will tile/stack along that axis. The
-    connector peg is on one short edge \u2014 orient pieces so pegs face the mating
-    piece.\n- Pivot is off-center (toward one corner) \u2014 translate by the center
-    offset above or use bounding-box extents when snapping to a grid.\n- Textures
-    are one-sided: brown shingles face up. Don\u2019t mirror/rotate blindly if you
-    need consistent shingle direction; mirroring will flip the visible top/underside
-    and peg side.\n- May require small overlap/offset along the length to get proper
-    shingle overlap (visual seam likely)."
+  AiMetadata: "A half-length angled roof tile prefab: a thin, sloped rectangular
+    section with brown staggered roof tiles on the top and a dark framed underside.
+    It\u2019s rotated diagonally so the ridge runs corner-to-corner, appearing as
+    a sloped half-roof segment oriented across the diagonal."

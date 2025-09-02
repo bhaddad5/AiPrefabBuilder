@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- Small thatch roof edge/end cap: a narrow, slightly
-    angled strip with stepped/thatch ribs and a tapered end \u2014 meant to terminate
-    an edge run.\n\nBounds & orientation (object at (0,0,0)):\n- Min (-3.39, -2.85,
-    -0.38), Max (0.11, 0.23, 0.38)\n- Size: X = 3.50, Y = 3.08, Z = 0.76 (units)\n-
-    Primary length runs toward negative X from the origin (origin sits near the short/inner/top
-    end).\n\nPlacement notes for tiling into a larger roof:\n- Treat +X (around 0.11)
-    as the inner/attach end and -X as the outer/extending direction. Align this prefab\u2019s
-    max X to the next prefab\u2019s min X for seam-less chaining.\n- To place on
-    the opposite side or flip orientation, rotate 180\xB0 around Z or mirror on X.\n-
-    Top surface sits near Z = 0.23 (origin is close to the top), so translate Z so
-    that top matches the roof surface; vertical thickness ~0.76.\n- Y extent ~3.08
-    \u2014 center/align Y with adjacent edge pieces so ribs line up.\n- This is an
-    end cap (one end is tapered/closed) \u2014 don\u2019t expect it to tile on that
-    tapered end without a matching connector piece.\n\n(Background color in renders
-    is fuchsia; visuals show the piece from multiple views.)"
+  AiMetadata: A small brown thatched roof edge/end cap with segmented, carved-thatch
+    tiles and a slightly curved profile. It is aligned along the negative X axis
+    (extends to the left of the origin), tilting slightly downward toward negative
+    Y and tapering at the outer end.

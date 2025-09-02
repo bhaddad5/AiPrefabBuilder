@@ -203,20 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Small square wall window module with a recessed
-    barred window and a narrow planter/bracket below. Thin profile with a small down-support/post
-    visible on the side views.\n\nBounding box & size\n- Min: (-2.50, 0.00, -0.12),
-    Max: (0.00, 2.50, 0.52)\n- Size (extents): X=2.50, Y=2.50, Z=0.64 units\n\nPivot
-    / origin location (important for placement)\n- Origin is at the mesh's right-bottom-back
-    corner: X = right face (X max = 0), Y = bottom (Y min = 0), Z \u2248 slightly
-    towards the back (-0.12..0.52).\n- The decorative/window face is on the negative
-    X side (the module extends left from the origin).\n\nPlacement tips for composing
-    with other prefabs\n- Treat each module as a 2.5 x 2.5 wall tile for tiling/grids;
-    snap Y (vertical) to 0 to place on floor/base line.\n- When mounting to a wall
-    plane, align the origin (X = 0) to the wall surface and orient so negative local
-    X faces outward from the structure.\n- Allow ~0.52 units forward clearance from
-    origin for the window/bracket; account for a small back inset of ~0.12 units.\n-
-    Watch side clearance for the downward support post (visible in side views) so
-    it doesn't clip adjacent modules.\n- Use the bounding box for collision or occlusion
-    culling; pivot at the right-bottom-back corner makes horizontal placement offsets
-    measured from that corner convenient."
+  AiMetadata: A small square stone wall segment with a recessed, barred window and
+    a narrow external window box/bracket beneath it. The wall/window face sits at
+    the object's x=0 edge (origin) and the box/bracket projects outward along the
+    negative X direction.

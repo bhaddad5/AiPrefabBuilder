@@ -119,25 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- A 90\xB0 corner roof wedge with thatch on the
-    two sloping faces and a wooden underside with small support pegs. Triangular
-    prism/wedge shape \u2014 one corner is the roof ridge/apex and the two sloped
-    planes run away from that corner.\n\nBounds & size\n- Local AABB: min (-2.60,
-    -2.68, -2.60), max (0.13, 0.08, 0.13).\n- Size (max-min): ~ (2.73, 2.76, 2.73).\n-
-    Local center: (~ -1.235, -1.300, -1.235).\n\nPivot/orientation notes (important
-    for tiling)\n- The prefab\u2019s pivot/origin is located at the small positive
-    corner (near local max = 0.13). Most of the geometry extends into negative X
-    and negative Z from the origin \u2014 i.e., the two sloped thatch faces point
-    toward negative X and negative Z.\n- Use the origin as the inner corner where
-    two roof planes meet. Rotate the piece so its sloped faces face outward along
-    the negative axes, or rotate by 90\xB0/180\xB0 as needed to fit other corner
-    pieces.\n\nPlacement offsets you can use\n- Local top (roof peak) = y = 0.08.
-    To place peak at world Y = T_top: set prefab Y = T_top - 0.08.\n- Local bottom
-    = y = -2.68. To place bottom resting at world Y = T_bottom: set prefab Y = T_bottom
-    + 2.68.\n- If you want the prefab centered, translate by its local center (-1.235,
-    -1.300, -1.235).\n- To snap the inner corner to a building corner, place the
-    prefab origin at that world corner (no X/Z offset required).\n\nVisual cues\n-
-    Thatched overhangs on the sloped outer edges; wooden planked underside visible
-    on the inner side. Expect a small overhang beyond wall edges.\n\nUse these bounds
-    and the pivot/orientation info when snapping/rotating this corner piece into
-    a larger roof assembly."
+  AiMetadata: "A quarter-corner thatched roof prefab: a triangular wedge with layered
+    straw/thatched texture on the sloping faces and dark wooden framing on the underside.
+    It\u2019s oriented with the roof peak pointing toward the positive X and positive
+    Z corner, and the underframe facing down (negative Y) relative to the origin."

@@ -188,18 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a U-shaped / concave roof-tile segment with
-    two vertical side walls and a curved trough between them. Thin sloped caps on
-    the front and back ends \u2014 essentially a short channel piece for a tower
-    gap in a tiled roof.\n\n- Bounding box and placement numbers:\n  - Bounds: min
-    (-0.16, -0.17, -2.58), max (1.40, 1.40, 0.04)\n  - Size (extent): X = 1.56, Y
-    = 1.57, Z = 2.62\n  - Pivot/origin sits near the top of the piece (max Z \u2248
-    0.04), so most geometry extends downward from the origin.\n\n- Practical placement
-    notes:\n  - Align the prefab\u2019s top (max Z) to your roof plane (the origin
-    is effectively the top edge); set world Z so prefab max Z = roof Z to make it
-    sit flush.\n  - Tiling increments: use X = 1.56 and Y = 1.57 as the spacing/step
-    when arranging multiples to avoid overlaps. \n  - The concave trough runs along
-    the X axis between the vertical walls \u2014 orient so the channel faces the
-    tower/gap direction.\n  - There are thin sloped faces at front/back (along Y)
-    \u2014 watch rotation to keep slopes consistent with adjacent roof tiles.\n 
-    - Leave a small tolerance (0.01\u20130.05) to avoid z-fighting where edges meet."
+  AiMetadata: "A dark wood/stone roof-tile segment forming a U-shaped/gutter gap
+    with two vertical end walls and internal brace details, sized to slot between
+    tower roof elements. In the renders the curved channel runs horizontally and
+    the open face points sideways \u2014 it appears as a U-shape from Left/Right/Front
+    and as a thin profile from Top/Bottom."

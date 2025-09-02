@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: short vertical stone tower/wall segment with brick texture,
-    small top and bottom ledges (flanges). Appears slightly curved/ faceted in profile
-    (rounded polygonal column feel) but primarily a straight upright panel.\n- Bounds
-    & size: width (X) = 2.56 (from -1.28 to +1.28), height (Y) = 2.50 (from -0.01
-    to 2.49), depth (Z) = 1.30 (from 0.00 to 1.30).\n- Pivot/origin: centered on
-    X, sits at ground on Y (~0), and is at the back face on Z (min Z = 0). Object
-    position = (0,0,0).\n- Placement notes:\n  - For stacking vertically, translate
-    by ~2.50 units in Y.\n  - For placing another identical piece directly in front,
-    translate by +1.30 in Z; to place behind, translate by -1.30 (or re-center first).\n 
-    - To center the mesh around the origin in Z, apply an offset of -0.65 (half the
-    depth).\n  - For tiling side-by-side, use 2.56 units increments along X.\n  -
-    Use the bounding box for quick snapping; note the mesh has top/bottom flanges
-    so visually seams may need slight overlap or exact flange alignment to avoid
-    gaps.\n- Visual asymmetry: front/back lighting/texture contrast differs slightly
-    (back appears lighter), so check texture orientation when repeating pieces."
+  AiMetadata: "A short, vertically oriented stone tower/wall segment with flat rectangular
+    front and back faces, a subtle top cornice and base molding, and a narrow depth
+    giving it a thin pillar profile. It is upright and centered at the origin, with
+    its height along the Y-axis and the main faces facing front/back (\xB1Y) while
+    the thin edges face left/right (\xB1X)."

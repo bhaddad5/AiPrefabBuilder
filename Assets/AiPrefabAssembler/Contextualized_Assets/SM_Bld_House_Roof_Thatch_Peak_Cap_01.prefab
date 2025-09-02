@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a small thatch/wood ridge cap \u2014 an elongated, slightly
-    tapered rectangular piece with a V/peak profile when viewed from front/back.
-    Colors are brown thatch/wood.\n- Bounding box (local space): min (-0.38, -0.16,
-    -2.54), max (0.38, 0.33, 0.03). Extents = (0.76, 0.49, 2.57).\n- Pivot/origin:
-    at (0,0,0) is located near one end of the piece (close to the max Z face). The
-    bounding box center = (0, 0.085, -1.255), so the object extends mostly in the
-    negative local Z direction.\n- Orientation: long axis runs along local Z. The
-    V/peak runs along X (left/right) with height along Y.\n- Placement notes:\n 
-    - To center the piece at a point, translate by +1.255 in local Z (or use the
-    bounding box center).\n  - To tile end-to-end along the ridge, place subsequent
-    pieces offset by -2.57 units along local Z (because each piece spans 2.57 in
-    Z and the pivot is at the forward end).\n  - Bottom sits slightly below the origin
-    (min Y = -0.16); raise by +0.16 if you want the piece flush on a Y=0 roof surface,
-    or by +0.085 to align by center.\n  - Piece appears roughly symmetric across
-    X but has slight surface irregularities \u2014 check normals/UVs if you plan
-    mirrored placement.\n- Visuals note: previews were rendered on fuchsia background
-    (transparency key)."
+  AiMetadata: "A small low\u2011poly thatch/wood roof ridge cap: a narrow, elongated
+    plank with a V\u2011shaped triangular cross\u2011section forming a peaked topper.
+    It is oriented with its long axis along the local Z direction and the peak pointing
+    upward along +Y."

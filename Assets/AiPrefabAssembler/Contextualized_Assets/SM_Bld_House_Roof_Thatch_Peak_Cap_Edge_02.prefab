@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Quick shape: a low\u2011poly thatch roof ridge cap piece with a
-    V/notched underside (or top) that wraps over a peak. Faceted, roughly triangular/hexagonal
-    in plan with two sloping flanks meeting at an apex.\n- Bounds & size (local space):
-    min = (-0.45, -0.20, -0.48), max = (0.41, 0.63, 0.48). Dimensions = ~0.86 (X)
-    \xD7 0.83 (Y) \xD7 0.96 (Z) units. Geometry center = (~-0.02, 0.215, 0.0).\n-
-    Pivot/placement notes:\n  - Pivot is not at geometry center vertically \u2014
-    bottom sits at Y = -0.20. To place the bottom flush on a roof surface at world
-    Y = 0, translate the prefab up by +0.20.\n  - The geometric center is ~0.215
-    above the pivot; minor X offset (~-0.02) \u2014 snap/align if you need exact
-    symmetry.\n- Orientation & snapping:\n  - The V/apex runs along the front direction
-    in the provided front/back views. Align that V axis with your roof ridge axis
-    so the piece caps the peak.\n  - Piece is slightly asymmetric; when tiling multiple
-    caps, overlap edges slightly to hide seams or flip/alternate orientation to avoid
-    obvious repetition.\n- Visual/mesh notes:\n  - Low\u2011poly, faceted brown thatch
-    material. Underside is darker/flat (may be visible if placed on thin ridges).\n 
-    - No visible built-in connector geometry \u2014 expect to manually position/rotate
-    and overlap for clean seams.\n- Collision/clearance: bounds are tight to the
-    mesh; use these extents for placement collisions and to compute required clearance
-    along the ridge."
+  AiMetadata: 'Low-poly tan/brown thatch roof peak cap edge: a small faceted wedge
+    with two sloping faces that meet in a central ridge and a V-shaped notch at the
+    front edge. It is centered at the origin and oriented with the V notch/peak facing
+    forward, the flatter top pointing upward and the broader base downward.'

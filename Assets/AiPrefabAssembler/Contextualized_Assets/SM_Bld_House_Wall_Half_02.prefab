@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Summary: vertical half-wall panel with a diagonal brace. Thin depth,
-    rectangular face (looks like a half house wall/window/brace panel).\n- Bounds
-    / size (local units): width = 1.25 (X), height = 2.50 (Y), depth = 0.24 (Z) \u2014
-    computed from min(-1.25,0, -0.12) to max(0, 2.5, 0.12).\n- Pivot/anchor: local
-    origin is at the right face (max X = 0), at the bottom (Y = 0) and centered in
-    depth (Z = 0). In other words the geometry spans [position.x - 1.25, position.x]
-    in X, [position.y, position.y + 2.5] in Y, [position.z - 0.12, position.z + 0.12]
-    in Z.\n- Visual cues: front and back are asymmetrical (diagonal brace direction
-    differs). Side/top views show thin vertical posts/caps.\n- Placement tips:\n 
-    - Snap Y = 0 to place on the floor; to set top at a target height Htop, set position.y
-    = Htop - 2.5.\n  - To tile horizontally, move X by increments of 1.25 (placing
-    another copy at position.x + 1.25 will butt it to the right). Likewise position.x
-    - 1.25 to butt left.\n  - Depth alignment: account for \xB10.12 extent when aligning
-    with thicker pieces.\n  - If you need the diagonal flipped, rotate 180\xB0 about
-    Y (or mirror) to invert the brace direction.\n- Note: thin depth and pivot at
-    the right/bottom make it convenient for edge-anchored placement and predictable
-    snapping."
+  AiMetadata: SM_Bld_House_Wall_Half_02 is a narrow, upright half-wall panel with
+    dark trim and a diagonal brace forming a "Z" across its rectangular face, plus
+    top and bottom plates. It is oriented vertically (height along Y) and offset
+    toward the negative X direction from the origin, with very thin depth along Z.

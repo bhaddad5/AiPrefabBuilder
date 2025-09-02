@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A narrow roof edge/end cap made of repeated
-    tile blocks along a single long strip. One end tapers/angles (not symmetric)
-    so it\u2019s an \u201Cend\u201D piece rather than a straight middle tile.\n-
-    Long axis runs roughly along negative X in object space; the piece is slightly
-    pitched/angled along its length (visible in front/back renders).\n\nBounds and
-    size (object-space)\n- AABB min = (-3.14, -2.68, -0.06), max = (0.02, 0.21, 0.50)\n-
-    Size extents \u2248 X: 3.16, Y: 2.89, Z: 0.56 units.\n- Origin is at/near the
-    positive X/Y corner of the bounding box (piece extends mostly into negative X
-    and negative Y).\n- Geometry sits slightly below origin by 0.06 units (Z min
-    = -0.06) and rises to 0.50 units.\n\nPlacement / integration notes\n- Treat the
-    origin as the outer/top corner of the end piece when snapping to a roof edge;
-    the rest of the piece extends back/along the roof toward negative X/Y.\n- To
-    tile or chain multiple pieces, translate by the long-axis size (~3.16 units)
-    (or by the appropriate edge offset) and match rotation so the tile scallops align;
-    mirror/rotate 180\xB0 for the opposite side if needed.\n- Watch the pitched/angled
-    profile \u2014 vertical alignment must match adjacent roof pieces (there is ~0.56
-    unit height and a small -0.06 unit underhang).\n- Background is magenta (fuchsia)
-    \u2014 use it as an alpha/key color if extracting sprite/mask."
+  AiMetadata: A narrow brown roof tile edge end cap made of repeating overlapping
+    rectangular tile segments with small mounting tabs. It is oriented diagonally,
+    extending mainly along the negative X axis from the origin and pitched slightly
+    upward, with a thin stacked end profile.

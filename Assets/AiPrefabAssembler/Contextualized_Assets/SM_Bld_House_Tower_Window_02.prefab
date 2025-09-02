@@ -295,19 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a rectangular tower/window prefab with an arched (half\u2011round)
-    top window set in a thick frame. Front face shows the arched grille; back face
-    shows interior/inner frame. Side profiles are narrow ribs/protrusions.\n- Bounding
-    box & size (local space): min(-2.50, 0.00, -0.07), max(0.00, 2.50, 1.30) \u2192
-    width (X) = 2.50, height (Y) = 2.50, depth (Z) = 1.37 units.\n- Pivot/origin:
-    located at the rightmost face (X = 0) and at the bottom (Y = 0). Center of the
-    box \u2248 (-1.25, 1.25, 0.615).\n- Default facing: the arched/window front faces
-    toward +Z (front image). Back (interior) faces toward -Z.\n- Placement notes:\n 
-    - When tiling along a wall, align other wall pieces to the prefab\u2019s right
-    edge (X = 0) or offset by 2.5 units in X to place adjacent repeats (or translate
-    by -2.5 to center).\n  - Y = 0 is the base \u2014 use this as ground/footing
-    snap. \n  - Small rear overhang (Z min = -0.07) \u2014 allow a tiny clearance
-    if flush-mounting to another surface.\n  - Texture/alpha: magenta (fuchsia) background
-    indicates keyed transparency in the renders; expect transparent areas in the
-    asset.\n- Useful for scripting: local-to-world center and extents above can be
-    used to compute placement offsets and collision boxes."
+  AiMetadata: Narrow, vertically oriented tower window with a dark stone frame, arched
+    top, grid-style mullions, and a slight projecting sill and jambs. The visible/front
+    face is oriented toward +Y (front faces the positive Y axis).

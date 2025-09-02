@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- L-shaped tall stair/edge railing corner
-    piece (metal-style rails and vertical posts) with a sloped section for stairs
-    on one arm. Thin profile, open (no solid wall).\n\nBounds & size (local space):\n-
-    Min = (-1.26, 0.01, -2.49), Max = (1.40, 4.03, 0.15)\n- Size = (2.66, 4.02, 2.64)
-    (X, Y, Z)\n- Base sits almost on floor (min.y = 0.01). Top of posts = 4.03 units.\n\nPivot/anchor
-    info (object positioned at 0,0,0):\n- Local center = (0.07, 2.02, -1.17)\n- To
-    align edges to origin: shift by:\n  - Move +1.26 to place leftmost X edge at
-    X=0\n  - Move -1.40 to place rightmost X edge at X=0\n  - Move +2.49 to place
-    backmost Z edge (most negative) at Z=0\n  - Move -0.15 to place frontmost Z edge
-    at Z=0\n- To snap to floor set Y = -0.01 (or translate down by 0.01).\n\nPlacement
-    tips:\n- Use the bounding extents for collision and snap alignment; pivot is
-    not centered, so apply one of the above offsets when tiling/connecting multiple
-    railing pieces.\n- Rotate in 90\xB0 steps to mirror/turn the L corner; check
-    slope direction when connecting to straight stair rail pieces.\n- Because it\u2019s
-    thin, allow a small gap tolerance when aligning to floors/stairs to avoid z-fighting."
+  AiMetadata: SM_Bld_House_Stairs_Tall_Railing_02 is an L-shaped corner stair railing
+    segment featuring a tall vertical support post at the inner corner and two horizontal
+    rails with evenly spaced vertical balusters extending along perpendicular directions.
+    It sits upright (base down) with the tall post at the corner and the railing
+    projecting outward along two sides.

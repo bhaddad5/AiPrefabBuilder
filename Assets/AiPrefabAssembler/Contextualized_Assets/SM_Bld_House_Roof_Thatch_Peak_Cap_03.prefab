@@ -119,20 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A narrow triangular/rounded thatch ridge cap
-    piece (long, thin bar) intended to sit on a roof peak. Long axis runs along local
-    Z. Looks like a small decorative/connector cap rather than a full roof tile.\n\nBounds,
-    size and pivot:\n- Bounds: min (-0.25, -0.16, -2.54), max (0.25, 0.22, 0.03).\n-
-    Size (extents): (0.50, 0.38, 2.57).\n- Local center offset from the origin: (0.00,
-    0.03, -1.255). The origin is located near the positive Z end of the piece (near
-    max.z = 0.03).\n\nPlacement notes (useful for tiling/assembly):\n- The piece
-    extends mostly in the negative local Z direction from its pivot. To place pieces
-    end-to-end with no gap, translate each subsequent piece by (0, 0, -2.57) in the
-    parent/local coordinate system (i.e., align the next piece\u2019s max.z to the
-    previous piece\u2019s min.z).\n- X is centered (symmetrical), no X offset required
-    when mirroring along the ridge.\n- Vertical extent is small (0.38). The piece
-    spans from y = -0.16 to y = +0.22 relative to its origin \u2014 adjust world
-    Y so the desired seam or roof surface lines up with that range.\n- If you need
-    the opposite-facing end first, rotate 180\xB0 around Y (or flip along Z) and
-    use the same 2.57 spacing.\n- Background color in renders was fuchsia (irrelevant
-    to geometry)."
+  AiMetadata: "A small roof peak cap: a narrow, tapered triangular prism with a brown
+    thatch/wood texture, designed to sit on a ridge. It\u2019s positioned at the
+    origin and oriented upright with its long axis along the Y (up) direction."

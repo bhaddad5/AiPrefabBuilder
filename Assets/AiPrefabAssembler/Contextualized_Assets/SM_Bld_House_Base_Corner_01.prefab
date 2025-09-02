@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Base_Corner_01\n- Type/appearance: a short, tapered
-    corner block with three stacked horizontal courses (stone/brick look), beveled
-    outer edges and a recessed/top inner corner. Color/readout: dark/medium grey
-    stone material.\n- Footprint and pivot: bounding box = 0.9 x 0.9 (X x Z) by 1.27
-    tall (Y). Min = (-0.45, 0.00, -0.45), Max = (0.45, 1.27, 0.45). Origin is at
-    the horizontal center and at the base (y = 0) \u2014 sits on the ground.\n- Placement
-    notes:\n  - Snap to a 0.9 unit grid for tiling \u2014 adjacent prefabs should
-    align at \xB10.45 offsets.\n  - Acts as a corner piece: orient so its outer chamfered
-    faces form the exterior corner; rotate in 90\xB0 increments for other corner
-    orientations.\n  - Top is recessed at the inner corner (useful if stacking or
-    nesting other modular pieces).\n  - Collision/occlusion can use the bounding
-    box above; use the full height (1.27) when stacking vertical pieces.\n  - Edges
-    are beveled, so expect a small visible seam if adjoining pieces don't exactly
-    match the bevel profile."
+  AiMetadata: "SM_Bld_House_Base_Corner_01 is a small stone corner base: a hollow
+    90\xB0 interior corner with three stacked, beveled stone tiers on the exterior
+    that taper toward the top. It sits upright with the open cavity facing upward
+    (forming the interior corner) and the stepped faces as the outer shell."

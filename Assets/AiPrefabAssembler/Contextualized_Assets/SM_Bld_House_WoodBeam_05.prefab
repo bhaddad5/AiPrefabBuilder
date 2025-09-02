@@ -119,17 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_WoodBeam_05 \u2014 short description and placement notes:\n\n-
-    Visual: a narrow, vertical wooden post/beam with dark wood texture; simple rectangular
-    column with slight surface detail.\n- Bounds (local): X/Z footprint = 0.32 \xD7
-    0.32 (min -0.16 to max 0.16), height = 1.26 (min Y 0.00 to max Y 1.26).\n- Pivot/origin:
-    positioned at (0,0,0) with base sitting on Y=0 (bottom-centered).\n- Orientation:
-    vertical along Y. Appears roughly symmetric in X/Z (rotating 90\xB0 is acceptable),
-    minor texture asymmetry but no handed geometry.\n- Placement tips:\n  - Use center-aligned
-    placement on grid; column occupies a 0.32m (unit) square on the floor.\n  - To
-    avoid overlap, adjacent posts need \u22650.32 spacing in X or Z; for visible
-    gaps or rails allow extra spacing.\n  - Stacking: two placed on top of each other
-    = 2.52 height (can be stacked if origin/pivot and collisions permit).\n  - Background
-    magenta indicates transparency mask in renders \u2014 actual model has no magenta.\n-
-    Use cases: porch posts, interior columns, repetitive fence/rafter supports due
-    to small footprint and uniform height."
+  AiMetadata: SM_Bld_House_WoodBeam_05 is a narrow, tall wooden support beam with
+    a roughly square cross-section and a dark wood texture. It is oriented upright
+    (aligned with the Y axis) and centered at the origin.

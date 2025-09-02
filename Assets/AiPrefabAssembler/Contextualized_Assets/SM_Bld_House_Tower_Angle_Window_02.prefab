@@ -295,22 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- A narrow tower/corner wall window module:
-    vertical rectangular wall with a central square-mullioned window and slim vertical
-    side windows, dark grey frame and purple glass, decorative base trim and a slightly
-    trapezoidal/top frame visible from above.\n- Designed as a corner/angle window
-    segment (not a full wall) \u2014 looks like it\u2019s intended to sit against/next
-    to other wall prefabs.\n\nUseful placement information (local space):\n- Bounds
-    (given): min (-2.50, 0.00, -0.07), max (0.00, 2.50, 1.11)\n- Size (extents):
-    X=2.50, Y=2.50, Z=1.18\n- Local center = (-1.25, 1.25, 0.52) relative to pivot\n-
-    Pivot location: at the rightmost X face (x = 0) and bottom on ground (y = 0).
-    Slight rear overhang: z min = -0.07.\n\nSnapping / tiling hints:\n- To place
-    identical pieces edge-to-edge along X, offset pivots by \xB12.50 units.\n  -
-    e.g., to place another module immediately to the left of this one, set its pivot
-    at world X = -2.50 (relative pivot offset -2.50).\n  - to put one immediately
-    to the right, use +2.50.\n- To tile front/back along Z, use \xB11.18 pivot offset.\n-
-    To stack vertically, use \xB12.50 in Y (bottom sits at Y=0).\n- Rotate in 90\xB0
-    increments to mirror/turn the window orientation; front vs back have different
-    trim, so rotate appropriately when matching facades.\n\nNotes:\n- Pivot at right/bottom
-    means positioning by pivot will align the right face and ground exactly; remember
-    center is offset negative in X.\n- Background is fuchsia (used as mask) in renders."
+  AiMetadata: "A small, dark tower corner prefab with paneled siding, narrow vertical
+    side windows and a recessed multi-pane purple window beneath an angled/trapezoidal
+    roof profile. It\u2019s oriented with the angled outer corner and main multi-pane
+    window facing forward and the flat mounting edge to the right."

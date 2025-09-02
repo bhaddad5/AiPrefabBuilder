@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin square wooden wall panel (boarded texture) with
-    a small vertical support/post visible in side silhouettes. Front face is the
-    darker boarded side, back is a lighter boarded side. Background/alpha uses fuchsia.\n\n-
-    Bounds/dimensions: X = 2.50 units (min -2.50 \u2192 max 0.00), Y = 2.50 units
-    (0.00 \u2192 2.50), Z = 0.24 units thickness (-0.12 \u2192 0.12).\n\n- Pivot
-    / origin: object origin is at (0,0,0) and sits at the panel's right face, bottom
-    edge, and centered in depth (i.e., right-bottom-center of the panel). The local
-    center is at (-1.25, 1.25, 0).\n\n- Placement notes:\n  - Horizontal tiling (butt
-    joints): place instances every 2.5 units along X (\xB12.5) so edges line up.\n 
-    - Vertical stacking: place every 2.5 units along Y.\n  - Depth clearance: panel
-    is only 0.24 units thick; avoid Z overlap / z-fighting with adjacent thin geometry.\n 
-    - Orientation: keep the darker \"front\" faces outward when assembling fa\xE7ades;
-    the origin being on the right edge means left/right placement offsets are asymmetric
-    unless you use the center offset (-1.25, 1.25, 0).\n- Helpful transforms: to
-    center the panel on its origin translate by (+1.25, -1.25, 0); to get world-aligned
-    centers use those offsets when snapping."
+  AiMetadata: A thin rectangular wooden house wall panel with vertical planks and
+    horizontal braces; the visible faces show a darker side and a lighter brown side.
+    Its pivot is on the right edge at the origin, so the panel extends to the left
+    along the negative X axis.

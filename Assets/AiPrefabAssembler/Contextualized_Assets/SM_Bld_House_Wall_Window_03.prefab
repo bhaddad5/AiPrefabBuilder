@@ -203,21 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- Small rectangular house wall segment with a
-    centered square multi-pane window and vertical trim/beams at the sides. One face
-    is slightly darker than the other (front/back are mirrored but not identical).
-    Renderings shown on a fuchsia background.\n\nBounds and size:\n- Local AABB:
-    min = (-2.50, 0.00, -0.12), max = (0.00, 2.50, 0.12).\n- Overall size = 2.50
-    (width) \xD7 2.50 (height) \xD7 0.24 (depth) units.\n\nPivot / origin:\n- Origin
-    is on the right face at ground level (x = max.x = 0.0, y = min.y = 0.0, z = 0.0).
-    In other words the prefab extends left from its origin.\n\nPlacement notes (useful
-    when composing with other prefabs):\n- Tiling horizontally: step by 2.50 units
-    in X to place adjacent panels (account for the pivot being on the right face).
-    If you place another identical prefab to this one's left, translate it by -2.50
-    in X; to continue rightwards you will need to mirror or change pivot logic.\n-
-    Stacking vertically: step by 2.50 units in Y (origin at bottom makes floor alignment
-    straightforward).\n- Depth clearance: 0.24 units thick; collisions/overlap along
-    Z are minimal but consider slight gap if using normal-mapped seams.\n- Orientation:
-    front/back are visually different; ensure correct facing when assembling fa\xE7ades
-    so the darker \u201Cfront\u201D faces outward.\n- Collision/placement box: use
-    the given AABB for snapping and collision."
+  AiMetadata: A thin rectangular house wall panel with a small central square window,
+    dark vertical trim and a low thickness profile. The windowed broad face is oriented
+    to face the +X direction, with the panel's thin edge running along the X axis.

@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- A low-profile corner roof tile cover:
-    roughly square base with a diagonal raised cap/ridge across the top. From the
-    top it reads as a corner piece (an L/square base) with a sloped cover angled
-    across the corner.\n\nBounds and geometry:\n- Bounding box min = (-1.64, -0.20,
-    -0.02), max = (0.02, 0.22, 1.61).\n- Size (extents) = X 1.66, Y 0.42, Z 1.63.\n-
-    Geometric center = (-0.81, 0.01, 0.795) (relative to prefab origin).\n- Pivot/origin
-    = (0,0,0). The mesh extends primarily into negative X and positive Z from the
-    origin.\n- Vertical profile is very low (0.42 units total, from -0.20 to +0.22).\n\nPlacement
-    notes (useful when composing with other prefabs):\n- Origin/pivot is not centered
-    \u2014 if you want the piece centered on a position, translate it by the center
-    vector (-0.81, 0.01, 0.795).\n- The piece occupies negative X and positive Z
-    from the origin, so snap the origin to the roof corner where those directions
-    should extend.\n- Can be placed for other corner orientations by rotating around
-    Y in 90\xB0 increments.\n- Keep at least 0.22 units clearance above the origin
-    and 0.20 units below if layering vertical geometry.\n- For tight tiling: align
-    origins or align edges using the min/max extents (min.x = -1.64, max.z = 1.61)
-    when snapping to adjacent roof pieces."
+  AiMetadata: A small square roof corner tile cover with a low, sloped profile and
+    a raised diagonal ridge, textured in brown/terracotta tones. It sits flat at
+    the origin with the angled cover projecting diagonally outward from one corner
+    (visible toward the top-left in the top view).

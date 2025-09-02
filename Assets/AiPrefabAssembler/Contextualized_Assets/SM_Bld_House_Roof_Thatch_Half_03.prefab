@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A half-thatch roof tile: a sloped, roughly rectangular
-    piece with a brown thatch top and a dark-beamed underside. A small rectangular
-    tab/protrusion sticks out from one short edge for snapping/attachment.\n\nBounds,
-    size and pivot:\n- World-space bounds given relative to the object origin: min
-    (-1.29, -1.43, -1.25), max (0.18, 0.03, 0.00).\n- Dimensions (extent): X = 1.47,
-    Y = 1.46, Z = 1.25 (units same as bounds).\n- Local center = (-0.555, -0.70,
-    -0.625) relative to origin.\n- The top surface (highest point) is at Z = 0.0
-    (origin lies at the top plane / top edge), the geometry extends downward to Z
-    = -1.25.\n\nPlacement notes (useful when composing with other prefabs):\n- Align
-    the tile so its top plane (Z = 0) matches the roof plane of the larger object.\n-
-    The small rectangular tab (on the positive-X short edge) appears intended for
-    snapping or mating to adjacent pieces \u2014 use that edge for alignment or stitch
-    points.\n- This is a half-piece (covers roughly half width); expect to pair with
-    a mirrored sibling to form a full roof run.\n- Use the extents (1.47 x 1.46 in
-    XY) for grid/spacing; remember the origin is offset toward one corner (not the
-    geometric center) when positioning multiple tiles."
+  AiMetadata: "A half-size rectangular thatch roof segment with a textured straw
+    top and exposed dark wooden rafters underneath, including a small alignment tab
+    on one narrow edge. It\u2019s oriented with the thatch facing up (+Y) and the
+    wooden underside down (-Y), sloped along its length with the tab protruding from
+    the edge."

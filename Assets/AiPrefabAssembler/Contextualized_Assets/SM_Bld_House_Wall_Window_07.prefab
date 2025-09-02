@@ -203,21 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- A small square wall segment (2.5 \xD7 2.5 units)
-    with a shallow thickness (0.24 units). Front shows a 2-pane purple window with
-    a timber frame and diagonal lower braces; back has a slightly different/darker
-    framing. Left/right/top/bottom render as a thin edge/mullion because the prefab
-    is shallow in Z.\n\nBounds, origin and extents (useful placement data)\n- Bounds:
-    min (-2.50, 0.00, -0.12), max (0.00, 2.50, 0.12).\n- Size: (X=2.50, Y=2.50, Z=0.24).\n-
-    Origin/pivot: at (0,0,0) = bottom-right-center of the piece (right face X=0,
-    bottom Y=0, center Z=0).\n- Local center = (-1.25, 1.25, 0) relative to the origin.\n-
-    Front/back faces differ visually \u2014 make sure the outward-facing side is
-    the intended one (rotate 180\xB0 Y if you need to flip).\n\nPlacement tips\n-
-    Horizontal tiling: pieces meet every 2.5 units along X. Because the pivot is
-    on the right edge, place a piece directly to the left by translating X by -2.5
-    per piece (or adjust pivot if you prefer center-based placement).\n- Vertical
-    stacking: stack by +2.5 units in Y (bottom at Y=0, top at Y=2.5).\n- Depth: front/back
-    faces at \xB10.12 in Z; the piece is thin \u2014 allow for small overlaps or
-    use a small offset when mating to thicker wall geometry.\n- If your editor/level
-    grid uses object centers, either offset by (-1.25, +1.25, 0) or re-pivot the
-    prefab to its center for symmetric placement."
+  AiMetadata: A thin rectangular house wall segment with a small square double-pane
+    window in a dark wooden frame and a decorative diagonal cross-beam below the
+    sill. The window face is perpendicular to the X axis and the prefab is very shallow
+    in depth, extending primarily along the X (width) and Y (height) directions from
+    the origin.

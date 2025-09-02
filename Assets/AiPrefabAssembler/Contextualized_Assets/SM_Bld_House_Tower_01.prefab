@@ -211,19 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like: a small tower wall segment with a convex/semicircular
-    exterior face (arched roof/profile) and a flat inner face with window framing.
-    Front/back are wider (square-ish window with vertical mullions); left/right show
-    narrow tall window profiles. Dark gray frame/metallic glass tones.\n\n- Bounds
-    & size: min (-2.50, 0.00, -0.07), max (0.00, 2.50, 1.29). Footprint = 2.50 x
-    2.50 units, height = 1.36 units.\n\n- Pivot/orientation: object origin is at
-    (0,0,0) located at the flat inner-face corner (max X, min Y). The prefab extends
-    into negative X (toward the curved exterior) and positive Y. The bottom sits
-    0.07 units below the origin (min Z = -0.07).\n\n- Placement notes:\n  - Align
-    the origin to grid/corner when tiling; origin sits on the inner-face corner so
-    place adjacent pieces by matching that corner or by translating +/\u2212 2.5
-    units on X/Y.\n  - To form circular/ring towers rotate 90\xB0 increments around
-    Z and place copies with their flat faces inward.\n  - Compensate for the small
-    Z offset (0.07) if you need the base exactly flush with other geometry.\n  -
-    Curved exterior faces negative X by default; flip/mirror if you need the curve
-    on the opposite side."
+  AiMetadata: "SM_Bld_House_Tower_01 is a narrow tower segment with a semi-arched/half\u2011cylindrical
+    roof and vertical rectangular window panels on its front and back faces. It is
+    oriented with the curved roof running along the X axis (extending to the left
+    of the origin) and the main windowed fa\xE7ades facing forward/back along the
+    Z axis."

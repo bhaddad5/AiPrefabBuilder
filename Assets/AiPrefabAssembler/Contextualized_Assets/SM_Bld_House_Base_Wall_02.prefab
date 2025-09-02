@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Base_Wall_02\n\n- Local bounds: min (-2.50, -2.50,
-    -0.35), max (0.00, 0.00, 0.35)\n  - Size (extents): X = 2.50, Y = 2.50, Z = 0.70\n\n-
-    Pivot/origin: at the positive X and Y faces (max X/Y = 0), centered in Z (vertical
-    center at 0). Equivalent local bbox center = (-1.25, -1.25, 0).\n\n- Visual:
-    low/thin wall segment with brick/stone texture on the larger faces (front/back),
-    narrow vertical side faces, and thin top/bottom caps. Side faces appear dark;
-    front/back have different brick tones.\n\n- Placement notes:\n  - When tiling
-    on a grid, translate by \xB12.50 along X or Y to align adjacent pieces (use the
-    pivot offset into account: add +1.25,+1.25 to move the prefab so its bbox center
-    aligns with world grid origin).\n  - Vertical stacking step = 0.70 (top/bottom
-    offset 0.35 from pivot).\n  - Rotations will pivot around the origin at the positive
-    X/Y boundary \u2014 adjust placement offsets after rotating.\n  - Asset uses
-    a fuchsia (1,0,1) background for masking in renders.\n\n- Useful quick values:\n 
-    - Tile spacing X/Y = 2.5\n  - Height step = 0.7\n  - Origin \u2192 bbox center
-    = (-1.25, -1.25, 0) (apply this if you need center-based placement)."
+  AiMetadata: "A thin rectangular wall segment \u2014 a low, flat cuboid with brick/stone
+    texture on its front and back faces and narrow plain edges on the sides and top/bottom.
+    It sits oriented extending into the negative X and negative Y directions from
+    the origin, with its main textured faces facing +Z and -Z."

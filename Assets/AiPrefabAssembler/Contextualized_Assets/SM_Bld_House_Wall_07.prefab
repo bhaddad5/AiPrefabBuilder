@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin square wall panel ~2.50 \xD7 2.50 \xD7 0.08 units
-    (width X = 2.50, height Y \u2248 2.49, depth Z \u2248 0.08). Front and back faces
-    are textured differently (one darker, one lighter).\n\n- Bounds & pivot: min
-    (-2.50, 0.01, -0.04), max (0.00, 2.50, 0.04). The mesh extends from X = 0 (right
-    edge) to X = -2.5 (left edge), so the origin/pivot is at the right vertical edge
-    and centered in Z. The bottom sits 0.01 units above the origin.\n\n- Placement
-    notes:\n  - Horizontal tiling step = 2.50 units along local X (stack multiple
-    panels by offsetting X by \xB12.50).\n  - Vertical stacking step \u2248 2.50
-    units along Y (account for the 0.01 bottom offset if you need exact flush with
-    floor).\n  - Thickness (Z) = 0.08 units \u2014 beware z-fighting when butting
-    other thin geometry; leave a tiny gap or merge geometry.\n  - Face orientation
-    matters (textures differ) \u2014 rotate 180\xB0 if you need the other face outward.\n 
-    - Origin at the right edge makes alignment easier when snapping panels edge-to-edge;
-    remember to shift Y by -0.01 if you need the panel bottom exactly at world Y
-    = 0."
+  AiMetadata: SM_Bld_House_Wall_07 is a tall, narrow rectangular wall panel with
+    textured front and back faces and very thin depth. It stands upright (height
+    along Y) and runs along the negative X direction from the origin as a slim vertical
+    wall segment.

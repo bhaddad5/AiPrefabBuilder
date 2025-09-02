@@ -119,18 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: A narrow sloped half-roof tile. Top face has brown tiled
-    shingles; underside is dark recessed with a thin outer rim. A small rectangular
-    peg/locator protrudes from the middle of one long edge.\n- Bounding box & size:
-    min (-2.56, -2.68, -1.25), max (0.18, 0.06, 0.00) \u2192 full extents = (2.74,
-    2.74, 1.25).\n- Pivot/origin: object origin is at (0,0,0) which corresponds to
-    the topmost corner/edge of the piece (max Z = 0). The geometric center = (-1.19,
-    -1.31, -0.625) relative to origin (useful to recentre).\n- Orientation notes:
-    top (shingles) faces +Z from the piece\u2019s geometry but actually extends downward
-    from origin (the model occupies negative Z). The peg is on the long edge near
-    the positive X/Y corner (visible in top/bottom views).\n- Placement tips: snap
-    using the bounding extents (translate by \xB12.74 in X/Y or by 1.25 in Z to tile/stack).
-    Because the origin is at the top corner, when tiling a grid you will typically
-    add the extents to move to the next placement or recenter the prefab to its geometric
-    center first. Allow clearance for the peg on the protruding edge or align pegs
-    to matching recesses when joining pieces."
+  AiMetadata: A narrow, rectangular half-roof tile prefab with brown shingled texture
+    on top, a darker underside, and a small connector tab on one short edge. It lies
+    flat with its top at Z=0 and extends from the origin into the negative X and
+    negative Y directions (tile length pointing toward -X/-Y).

@@ -119,16 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Small 2.5 x 2.5 wall corner piece with a diagonal/beveled
-    cut on one corner. Front and back faces have different stone textures (one darker,
-    one lighter). Very thin in depth (thin slab).\n\nBounds & origin\n- AABB: X [-2.50,
-    0.00], Y [0.00, 2.50], Z [-0.12, 0.12].\n- Origin is on the right/bottom edge
-    of the piece (X = 0, Y = 0) and centered through the thickness (Z = 0).\n\nUseful
-    placement notes\n- Footprint on the XY-plane occupies the rectangle x = -2.5..0,
-    y = 0..2.5; the visible geometry is an L-shaped/cut corner inside that box. Use
-    the bounding box for snap/physics placement (visual mesh is smaller than full
-    box in places).\n- Very thin (0.24 units thick) \u2014 align other wall prefabs
-    to this thickness to avoid gaps or Z-fighting.\n- Texture/orientation matters:
-    the darker textured face should face whichever side is intended as \"outside\"
-    \u2014 rotate 90\xB0 increments about Z to mirror corners.\n- Background magenta
-    indicates transparent alpha in renders \u2014 no extra padding expected."
+  AiMetadata: "SM_Bld_House_Wall_Cut_01 is a thin upright building wall segment with
+    a diagonal cut (chamfered) corner and framed stone/metal panel textures\u2014darker
+    on the front face and lighter on the back. It is oriented upright (height along
+    Y), extends along the negative X direction from the origin, and is very shallow
+    along Z."

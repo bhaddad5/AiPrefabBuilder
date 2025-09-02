@@ -119,15 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: a thin rectangular stone floor slab (gray), made of two
-    side-by-side stone tiles with a visible seam down the middle along the long axis.\n-
-    Footprint (world axis-aligned): X size = 2.50, Y (thickness) = 0.05, Z size =
-    1.25.\n- Bounds: min = (-2.50, 0.00, -1.25), max = (0.00, 0.05, 0.00). The origin/pivot
-    is at the max-corner (0,0,0) \u2014 the slab extends negative X and negative
-    Z from the origin and sits on Y = 0.\n- Local center = (-1.25, 0.025, -0.625).\n-
-    Tiling/snapping notes: seam suggests two 1.25\xD71.25 tiles along X (seam at
-    X = -1.25). Useful snap/grid increments: 1.25 (for tile seams) or 2.5 (for whole
-    slab) in X, 1.25 in Z, 0.05 in Y for stacked thickness.\n- Placement tips: align
-    origins/pivots at shared edges (origin at max corner) or translate by X = \xB12.5
-    or Z = \xB11.25 to tile without gaps; ensure Y = 0 for flush floor alignment.
-    Background color in renders is magenta (debug) and not part of the asset."
+  AiMetadata: A thin rectangular stone floor section made of two adjacent gray slabs
+    with a visible seam down the middle. It lies flat (very low height) and is oriented
+    extending from the origin toward negative X and negative Z.

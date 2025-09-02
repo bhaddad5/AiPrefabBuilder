@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: square wooden floor tile (planked wood texture), slightly
-    darker border; top is the visible wood surface, thin slab overall.\n- Bounds
-    / size: X = 2.50 units, Y = 0.06 units (thickness), Z = 2.50 units. (Min (-2.50,
-    -0.03, 0.00), Max (0.00, 0.03, 2.50).)\n- Pivot/origin: at local X = 0 and Z
-    = 0 edges and Y = 0 mid-height. Center of the box is at (-1.25, 0, 1.25) relative
-    to the prefab origin.\n- Placement notes:\n  - Tile spacing: use 2.5 units steps
-    in X and Z to tile without gaps/overlap (e.g., place copies at +/\u22122.5 increments).\n 
-    - Vertical alignment: bottom sits at Y = -0.03; to rest on world floor set prefab
-    Y = +0.03 so bottom = 0, or offset by \xB10.03 to match other meshes.\n  - Rotation
-    will pivot around the corner origin (X=0,Z=0) \u2014 rotate/scale carefully or
-    re-center pivot if you want rotation about the tile center.\n  - Texture orientation:
-    wood planks run across the top face; rotating 90\xB0 will change plank direction
-    for visual variety.\n- Misc: background in previews is fuchsia (mask) and can
-    be ignored."
+  AiMetadata: "SM_Bld_House_Floor_Wood_07 is a thin rectangular wooden floor panel
+    with a plank texture and varied wood tones. It lies flat on the X\u2013Z plane
+    (top face pointing +Y, thin along Y) and is offset toward negative X and positive
+    Z relative to the origin."

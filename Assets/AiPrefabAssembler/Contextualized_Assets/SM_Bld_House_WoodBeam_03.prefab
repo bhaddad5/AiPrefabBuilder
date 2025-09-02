@@ -119,14 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a narrow vertical wooden support/beam (SM_Bld_House_WoodBeam_03).
-    Dark, roughly square cross-section, slight taper/irregularity along its length.\n-
-    Bounds/dimensions: min (-0.16, 0.00, -0.16), max (0.16, 2.98, 0.16) \u2192 width
-    = 0.32, depth = 0.32, height = 2.98 units.\n- Origin/pivot: positioned at (0,0,0)
-    with the bottom of the beam at y = 0 \u2192 origin is bottom-center.\n- Orientation:
-    vertical along Y axis. Rotating around Y does not change footprint.\n- Placement
-    notes:\n  - Center-to-center spacing >= 0.32 units to avoid intersection (add
-    desired clearance on top).\n  - Ensure ~3.0 units vertical clearance for ceilings
-    or stacked elements.\n  - Because of slight taper/irregular detail, allow a small
-    margin if fitting tightly into sockets or frames.\n- Render note: preview images
-    rendered on fuchsia background."
+  AiMetadata: "SM_Bld_House_WoodBeam_03 is a narrow, dark wooden support beam \u2014
+    a tall, slim rectangular column centered in the scene. It is oriented upright
+    along the Y-axis with its base at the origin."

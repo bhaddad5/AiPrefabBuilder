@@ -119,23 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Roof_Tile_Cover_Edge_02 \u2014 a narrow roof-edge
-    / ridge-cap piece with three rounded tile segments along its length and two thin
-    support/rail bars underneath (visible as vertical posts in some views).\n- Shape
-    & look: elongated linear cap, low profile in height, with small downward posts
-    on the underside for mounting/clearance. Top is slightly rounded/stepped where
-    tiles sit, underside has two parallel rails.\n- Bounds (local): min (-2.37, -0.39,
-    -0.50), max (0.08, 0.23, 0.95).\n  - Size (extent): X = 2.45, Y = 0.62, Z = 1.45.\n 
-    - Geometry is biased toward negative X (most of the piece lies between -2.37
-    and 0.08), and extends more in +Z than -Z.\n- Pivot/origin: object is positioned
-    at (0,0,0) but not centered \u2014 the origin sits near the right/inner end of
-    the piece (so the model projects mostly into negative X and forward into +Z).\n-
-    Placement tips for tiling / composing:\n  - To place identical pieces end-to-end
-    along the long axis, offset by exactly 2.45 units in X (place next at +2.45 or
-    -2.45 depending on direction) so bounds butt up without gap.\n  - For adjacency
-    along the short axis, use Z offsets of 1.45 units.\n  - Vertical clearance: allow
-    ~0.39 units below origin for the underside posts; total height is 0.62 units.\n 
-    - If you need the piece to point the other direction, rotate 180\xB0 around the
-    local Y (vertical) axis to flip its long axis.\n  - Watch UV/visible seam orientation:
-    the decorative/top faces are oriented toward +Y (max Y = 0.23).\n- Collision/snapping:
-    include a small margin (0.01\u20130.05) if using physics collision to avoid z-fighting."
+  AiMetadata: SM_Bld_House_Roof_Tile_Cover_Edge_02 is a narrow brown roof edge/ridge
+    cover composed of three rounded tile segments on a slim base with two dark perpendicular
+    mounting straps. It is positioned at the origin and oriented along the negative
+    X axis (its long axis extends toward -X).

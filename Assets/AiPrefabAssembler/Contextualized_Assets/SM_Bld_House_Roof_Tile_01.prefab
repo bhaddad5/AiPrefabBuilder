@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Small square roof-tile piece: brown tiled top,
-    dark wooden underside, with small mounting pegs/overhangs on one lateral edge.
-    From front/back it reads as a thin sloped bar (a sloped tile section).\n\nBounds
-    & size\n- Min = (-2.56, -2.68, -2.50), Max = (0.18, 0.06, 0.00).\n- Size = Max
-    - Min = (2.74, 2.74, 2.50) units (X \xD7 Y \xD7 Z).\n\nPivot / origin\n- Origin
-    is at/near the top corner/edge of the piece (max Z = 0). The mesh extends negative
-    in X, Y, Z from origin.\n- Local center = (min+max)/2 = (-1.19, -1.31, -1.25).\n\nPlacement
-    tips when tiling with other prefabs\n- Align Z = 0 to place the top face flush
-    with a roof plane; the piece hangs downward (Z negative).\n- When tiling in X/Y,
-    translate by roughly 2.74 units to place without overlap if you want edge-to-edge
-    placement; account for the small pegs/overhangs on the positive-X/edge side (origin
-    side) \u2014 you may need a slight overlap or offset when snapping pieces together.\n-
-    If you want centered placement around the origin, shift by the local center (-1.19,
-    -1.31, -1.25).\n- Be mindful of orientation: the textured top is the +Z/0 face
-    (visible when Z=0). Rotate pieces so the overhang/pegs line up on the intended
-    joining edge.\n\nOther\n- Background in renders is fuchsia (1,0,1)."
+  AiMetadata: "SM_Bld_House_Roof_Tile_01 is a small square roof segment with brown
+    overlapping clay tiles on the top face and a dark wooden plank underside, including
+    short support pegs along one edge. The piece is pitched so the tiled surface
+    faces upward and the slope runs diagonally (about 45\xB0) relative to the front/back
+    views, with the eave/support pegs aligned along the right side in the top view."

@@ -119,16 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Name: SM_Bld_House_Roof_Plinth_02\n- Overall shape: a narrow vertical
-    wedge/plinth \u2014 mostly rectangular in X and Y with a tapered/triangular profile
-    along the Z axis and a small chamfer on the top edge.\n- Bounds (local): min
-    (-0.46, 0.00, -0.44), max (0.46, 1.96, 0.44)\n  - Footprint (X\xD7Z): ~0.92 \xD7
-    0.88 units (centered on origin)\n  - Height (Y): 1.96 units; base sits at Y =
-    0\n- Pivot/origin: at the center of the base (object is centered in X/Z and rests
-    on Y=0) \u2014 can be placed directly on floors/sills without vertical offset.\n-
-    Orientation notes: taper/slope runs along the Z axis (front/back show the triangular
-    taper). Faces on the X sides are nearly flat rectangular panels.\n- Placement
-    tips: bounding box is tight, so align by origin to snap flush with adjacent plinths;
-    tile/array along the X axis for a continuous band, or rotate 180\xB0 around Y
-    to mirror the tapered face. Consider collision/occlusion on the tapered side
-    when placing against other geometry."
+  AiMetadata: "A narrow vertical roof plinth \u2014 a tall, thin triangular wedge/prism
+    (SM_Bld_House_Roof_Plinth_02) with a small square-ish top and a tapered pointed
+    profile. It is oriented upright (height along the Y axis) with a sloped face
+    running front-to-back (visible as a triangular shape from the front/back)."

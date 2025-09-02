@@ -119,17 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description:\n- A slim rectangular/wooden roof beam placed
-    diagonally in the XY plane. It appears as a narrow bar with a slightly chamfered
-    tip; very thin in Z.\n\nPlacement / integration data (useful):\n- Bounds (local):
-    min (-2.72, -2.50, -0.09), max (0.00, 0.22, 0.09)\n  - Footprint extents \u2248
-    2.72 units (X) by 2.72 units (Y).\n  - Thickness (Z) \u2248 0.18 units.\n- Pivot/origin:
-    at (0,0,0) \u2014 this is at the positive-X end of the beam (one end of the beam),
-    not the center. The beam extends from the origin into negative X and negative
-    Y.\n- Orientation: main axis runs diagonally from the origin toward approximately
-    (-2.72, -2.50, 0). Expect to rotate around origin to change beam direction.\n-
-    Snapping guidance: snap other pieces to the origin to attach at the beam\u2019s
-    outer end. When aligning multiple beams, account for the origin-offset (end-mounted),
-    not center-based placement.\n- Collision/occlusion: use the provided AABB for
-    simple collision checks (the narrow Z extent means collisions are mostly planar).\n-
-    Notes: background in supplied images is fuchsia (magenta)."
+  AiMetadata: "SM_Bld_House_Roof_Beam_01 is a long, narrow rectangular roof beam/plank
+    with a dark material and slightly chamfered edges. It lies roughly flat and runs
+    diagonally across the X\u2013Y plane from the origin toward negative X and negative
+    Y, with minimal thickness along Z."

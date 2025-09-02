@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual: small square stone floor slab, gray textured top, very low
-    thickness (~0.05 units). No tall features; appears as a flat floor tile.\n\n-
-    Bounds & size: min (-1.25, 0.00, -1.25), max (0.00, 0.05, 0.00) \u2192 footprint
-    1.25 x 1.25 units, thickness 0.05 units.\n\n- Pivot/origin: at (0,0,0) which
-    corresponds to the tile's +X/+Z corner and bottom surface (y=0). The tile occupies
-    the negative X and Z directions from the origin.\n\n- Placement notes:\n  - Tile-to-tile
-    snap offsets: translate by \xB11.25 units along X and/or Z to place adjacent
-    tiles so edges meet (e.g., another instance at (1.25,0,0) or (0,0,1.25) will
-    butt against this one's edges).\n  - Vertical stacking: top surface at y = 0.05.
-    If placing walls or other pieces on top, align their bottoms to y = 0.05 (or
-    use a tile with bottom at y = 0 if you want flush).\n  - Rotation: square footprint
-    \u2014 90\xB0 Y-rotations tile normally, but remember the pivot remains at the
-    +X/+Z corner, so rotations may change the world-space corner used for snapping
-    if you rely on the origin.\n  - Collision/occlusion: very shallow \u2014 treat
-    as a floor plane rather than volume for clearance checks.\n\nThese numbers are
-    the key values to use when snapping/tiling this prefab into larger assemblies."
+  AiMetadata: SM_Bld_House_Floor_Stone_03 is a thin, square stone floor tile with
+    a flat textured top and slightly chamfered edges. Its local origin sits at one
+    corner of the piece, so the tile extends into the negative X and negative Z directions
+    with the top face oriented upward.

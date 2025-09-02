@@ -119,25 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Thatch-roof intersection / corner piece: two
-    sloped thatch planes meet at an internal corner (gable/valley geometry) with
-    visible timber underside on the bottom face.\n- Textured thatch on the outer
-    slopes, timber structure on the underside.\n\nBounds & size (local space)\n-
-    Min = (-3.77, -2.68, -2.54), Max = (0.18, 0.06, 0.01)\n- Dimensions \u2248 X:
-    3.95, Y: 2.74, Z: 2.55 (units = prefab units)\n- Origin/pivot sits near the most
-    positive corner (close to Max). The mesh extends mostly into negative X, Y, Z
-    from the origin.\n\nOrientation notes (from renders)\n- Piece slopes upward away
-    from the origin along two axes (forms a corner ridge/valley).\n- Underside shows
-    structural beams; top faces are the visible thatch.\n- One face shows a triangular
-    gable-like opening centered on the negative Y axis in front/back views.\n\nPlacement
-    tips for composing with other prefabs\n- Use the prefab origin (max corner) as
-    the snap point to place at building corners\u2014other roof pieces likely align
-    to its positive corner.\n- Expect geometry and collision to extend into negative
-    X/Y/Z; place so that the negative extents meet adjacent roof panels.\n- Rotate
-    by 90\xB0 increments to fit the corner orientation; verify slope/ridge direction
-    matches neighboring roof pieces.\n- Check underside overlap with eaves/ceiling
-    pieces (structural beams visible) and adjust vertical position by up to ~2.55
-    units if needed.\n- Texture seam: align thatch direction when tiling to avoid
-    mismatched patterns.\n\nQuick checklist\n- Snap origin to building corner, rotate
-    to match ridge direction, confirm no intersection with interior geometry, adjust
-    height to align eaves."
+  AiMetadata: "A small thatched-roof intersection prefab: an L/triangular roof section
+    with a sloped thatch surface, exposed dark wooden framing and a gable-like triangular
+    cutout. It\u2019s oriented with most of the geometry extending into the negative
+    X and Y from the origin, the roof peak/ridge angled toward the negative directions
+    and the overhang sloping down toward the positive axes."

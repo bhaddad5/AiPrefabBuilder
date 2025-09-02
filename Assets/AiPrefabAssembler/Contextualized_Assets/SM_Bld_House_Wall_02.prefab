@@ -119,16 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a thin rectangular house wall panel with a windowed/trimmed
-    front face (darker window area) and a lighter plaster/back face. Side views show
-    a narrow vertical edge/post; top/bottom show the thin thickness bar.\n- Bounds
-    and size: local AABB = X [-2.50, 0.00], Y [0.00, 2.50], Z [-0.12, 0.12]. Width
-    = 2.50, Height = 2.50, Depth = 0.24 units.\n- Origin/pivot: positioned at (0,0,0)
-    \u2014 that is the right face center (X = max), at ground level (Y = min) and
-    centered in depth (Z = 0).\n- Placement notes:\n  - To tile horizontally, offset
-    by 2.50 units in X per panel ( +2.5 to place another to the right, -2.5 to the
-    left).\n  - To stack vertically, offset by 2.50 units in Y.\n  - Depth clearance/adjacency
-    uses 0.24 units in Z.\n  - Orientation matters: front vs back are visually different
-    (choose which side faces exterior/interior).\n- Useful for snapping: use the
-    panel\u2019s right-face origin as the snap point or compute snap using the AABB
-    extents above."
+  AiMetadata: SM_Bld_House_Wall_02 is a thin vertical wall panel with a three-pane
+    window, dark upper trim and lower wooden skirting on the front side and a lighter
+    plastered back. The windowed/front face sits at the origin and points toward
+    +X, with the thin edge of the panel extending out in the negative X direction.

@@ -119,19 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: small L-shaped roof intersection / corner tile piece.
-    Brown clay tiles on the visible sloped surfaces, dark wooden underside and framing
-    visible on the inner faces, with a triangular gable/valley where two slopes meet.\n\n-
-    Bounds & size: min (-3.79, -2.68, -2.56), max (0.18, 0.06, 0.06). Overall footprint
-    \u2248 3.97 \xD7 2.74 units, vertical depth \u2248 2.62 units. Bounding-box center
-    \u2248 (-1.805, -1.31, -1.25).\n\n- Pivot/origin: object origin is at the top
-    corner of the piece (near the highest/topmost roof plane; max Z \u2248 0.06).
-    Most geometry extends into negative X, Y and Z from the origin.\n\n- Placement
-    tips:\n  - Align the prefab origin to the roof corner/ridge you want this intersection
-    to sit on (top plane Z at roof plane).\n  - Adjacent roof pieces should approach
-    from the negative X and negative Y directions relative to this prefab\u2019s
-    origin (this piece extends into those negatives).\n  - Use 90\xB0 rotations to
-    mirror/flip for other corner orientations.\n  - Allow the full footprint (\u22483.97
-    \xD7 2.74) and vertical depth (\u22482.62 below origin) when checking collisions
-    and snapping.\n  - Note visible small edge pegs/tabs on two edges \u2014 likely
-    intended seam/snap edges for neighbors."
+  AiMetadata: A small L-shaped roof intersection module with brown tiled shingles
+    on the exterior and dark wooden framing plus a triangular gable support underneath.
+    It is positioned at the origin and oriented to extend primarily into the negative
+    X, negative Y, and negative Z directions (down and toward back/left from the
+    origin).

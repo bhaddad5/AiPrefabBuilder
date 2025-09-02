@@ -203,17 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- Half-height house wall segment with a centered
-    window. Thin slab thickness ~0.24 units, decorative vertical supports at ends.\n-
-    Prefab bounds: min (-2.50, 0.00, -0.12), max (0.00, 1.25, 0.12) \u2192 size =
-    (2.50, 1.25, 0.24).\n\nPlacement / integration notes:\n- Origin/pivot is at the
-    right vertical edge and the floor: x = 0 (right face), y = 0 (bottom), z = 0
-    (center depth). The geometric center is at (-1.25, 0.625, 0).\n- To tile along
-    the wall direction, translate by \xB12.50 on the X axis (the piece extends in
-    negative X from the origin). Placing a copy at ( -2.50, 0, 0 ) will butt against
-    the current piece\u2019s left edge.\n- Height aligns to floor at y = 0; total
-    height = 1.25 (half-height). Depth is shallow (0.24), so z-alignment is small.\n-
-    If mirroring/rotating is needed (window orientation or decorative trim), rotate
-    180\xB0 around Y to flip left/right (window side will swap).\n- Useful for snapping:
-    treat origin as the segment\u2019s right-edge anchor; use x-offsets in multiples
-    of 2.50 and y = 0 to build continuous half-height walls."
+  AiMetadata: A half-height rectangular house wall segment with a small multi-pane
+    window in a dark frame and vertical paneling/details on either side. It is oriented
+    with its long edge extending along the negative X direction from the origin,
+    with the window on the wall's front face.

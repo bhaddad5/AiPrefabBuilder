@@ -119,21 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Visual summary: small arch/gap roof piece \u2014 two vertical side
-    posts with an arched underside and a flat top/bottom flange. Looks like a bracket/arch
-    segment that creates a gap in a thatch roof or between tower sections.\n\n- Bounds
-    and size:\n  - Min = (-1.41, -1.40, -2.60), Max = (0.16, 0.17, 0.05)\n  - Full
-    size = (1.57, 1.57, 2.65)\n  - Center = (-0.625, -0.615, -1.275)\n  - Half-extents
-    = (0.785, 0.785, 1.325)\n\n- Orientation/pivot note:\n  - The model\u2019s origin/pivot
-    is near the Max corner (around (0.16,0.17,0.05)); most of the geometry extends
-    into negative X, Y and Z from the origin. When you place it, the origin will
-    correspond to the outer/top/back corner of the piece.\n\n- Placement tips for
-    assembling with other prefabs:\n  - Align the prefab by snapping its max-corner
-    origin to the adjacent piece\u2019s matching corner, or translate by the Center
-    offset above to put it at world-centered coordinates.\n  - Use 90\xB0 rotations
-    or mirror across axes to make symmetrical pairs; the arch face will invert when
-    rotated 180\xB0.\n  - The top surface is flat (good for stacking roof panels);
-    the arch is a through-gap \u2014 allow clearance behind/below for overlapping
-    pieces.\n  - Use the half-extents as a collision/occlusion box when packing multiple
-    pieces to avoid overlaps.\n\n- Misc: background is magenta (fuchsia) in the renders
-    (transparent mask color)."
+  AiMetadata: "A small modular thatch-roof tower gap: two vertical wooden posts with
+    a curved arch between them and a flat top beam, textured in dark wood/thatched
+    tones. It is oriented with the arched opening facing forward (Front view), the
+    flat top horizontal, and the piece\u2019s thin depth running back-to-front."

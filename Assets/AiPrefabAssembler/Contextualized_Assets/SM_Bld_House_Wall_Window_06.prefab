@@ -120,19 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- A thin rectangular wall panel with a centered
-    square window and a wooden/planked frame. Front face appears darker (likely exterior);
-    back is slightly lighter (interior).\n\nKey placement info:\n- Bounding box:
-    min (-2.50, 0.00, -0.12), max (0.00, 2.50, 0.12).\n  - Size: X = 2.5 units (width),
-    Y = 2.5 units (height), Z = 0.24 units (thickness).\n- Origin/pivot: at X = 0
-    (right vertical edge), Y = 0 (bottom/floor), Z = 0 (center thickness).\n  - This
-    means the panel extends leftwards from the origin.\n- Tiling/snapping: place
-    adjacent wall pieces by stepping X in 2.5-unit increments (or mirror/rotate 180\xB0
-    around Y to flip window side). Align Y = 0 to floor level.\n- Orientation: front
-    vs back matters for exterior/interior look \u2014 rotate as needed so the darker
-    \u201Cfront\u201D faces outward.\n- Thin thickness (0.24) \u2014 avoid z-overlap
-    with thick neighboring geometry or adjust offsets if you need a thicker wall
-    assembly."
+  AiMetadata: A narrow rectangular wooden house wall panel with a small centered
+    square window framed by planks and visible timber detailing. The thin panel is
+    offset to the negative X side of the origin (extends left of the origin) with
+    the window centered on the panel face.
 --- !u!1 &1603013826330698
 GameObject:
   m_ObjectHideFlags: 0

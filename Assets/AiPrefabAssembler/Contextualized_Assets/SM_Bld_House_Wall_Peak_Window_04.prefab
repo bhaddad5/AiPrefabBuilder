@@ -203,18 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A thin peaked/gable wall panel with a centered
-    rectangular window. Triangular roof peak at the top, flat base at the bottom.\n\nPrecise
-    bounds (useful for snapping/tiling):\n- X: -2.50 to 0.00 (width = 2.50, pivot/attachment
-    at the X = 0 edge)\n- Y: 0.00 to 1.25 (height = 1.25, base at Y = 0)\n- Z: -0.07
-    to 0.07 (thickness = 0.14, centered on Z = 0)\n\nPlacement notes:\n- Origin/pivot
-    is on the right vertical edge (X = 0). When placing multiple prefabs, offset
-    by 2.50 units along X to tile without gaps (or overlap slightly for seams).\n-
-    Base sits at Y = 0 \u2014 place directly on floor/ground with no additional vertical
-    offset.\n- Depth is minimal; align Z = 0 to center thickness with neighboring
-    geometry.\n- Window center is roughly at X = -1.25, Y \u2248 0.62 \u2014 useful
-    for aligning interior features or window openings.\n- To mirror the panel to
-    face the opposite direction, flip/rotate 180\xB0 around Y (or mirror along X)
-    and then snap using the same X step.\n- Very thin panel \u2014 consider adding
-    small overlaps or trim pieces if you need structural thickness when joining to
-    thicker walls."
+  AiMetadata: "SM_Bld_House_Wall_Peak_Window_04 is a thin triangular gable wall section
+    with a central dark-framed, multi-pane window set into sloped roof/wall planes.
+    It is shallow in depth, extending toward negative X, so the windowed fa\xE7ade
+    faces positive X."

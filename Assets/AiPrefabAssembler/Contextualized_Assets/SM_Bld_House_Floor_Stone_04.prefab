@@ -119,19 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Floor_Stone_04 \u2014 brief summary and placement notes\n\n-
-    Appearance: a flat, square stone floor tile (dark gray) \u2014 visible as a filled
-    square in the top render. Side/front/back renders show only a very thin 0.05
-    thickness edge.\n- Bounding box / size: X = 2.50, Z = 2.50, Y = 0.05 (min = (-2.50,
-    0.00, -2.50), max = (0.00, 0.05, 0.00)).\n- Pivot/origin: at (0,0,0) which corresponds
-    to the max corner of the bounds (tile occupies the negative X/Z quadrant). Local
-    center = (-1.25, 0.025, -1.25).\n- Tiling/placement tips:\n  - Tile spacing:
-    place instances on a grid with 2.5-unit increments in X and Z. Example: to put
-    a tile directly to the positive-X side, translate +2.5 on X; to place one to
-    positive-Z, translate +2.5 on Z, etc.\n  - Vertical alignment: top surface is
-    at Y = 0.05 relative to the prefab origin. If you want the tile top flush with
-    world Y = 0, move the prefab down by -0.05.\n  - Rotation: origin at the corner
-    means rotations occur around that corner \u2014 be aware of pivot offset when
-    rotating many tiles or snapping to other prefabs.\n- Use cases: good as a modular
-    floor tile; because pivot is at one corner, assembling rectangles/grids is straightforward
-    using the 2.5 spacing."
+  AiMetadata: A thin, square stone floor tile with a flat gray, slightly mottled
+    surface. It sits flush on the ground with its top face upward and is positioned
+    to extend from the origin into the negative X and negative Z directions.

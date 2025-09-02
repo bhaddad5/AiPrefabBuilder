@@ -120,21 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Quick description\n- A small triangular gable/peak wall with an arched,
-    mullioned window set into it (gable roof shape, window centered in the triangle).
-    Base has a thin sill/ledge.\n\nBounds, size and pivot\n- Min: (-2.50, 0.00, -0.12) 
-    Max: (0.00, 2.50, 0.12)\n- Total extents: X = 2.50 units, Y = 2.50 units, Z =
-    0.24 units thickness.\n- Local origin/pivot = (0,0,0) is at the rightmost bottom
-    center of the piece (right edge, ground level, center depth).\n\nPlacement notes
-    (useful for assembly)\n- Align Y=0 to ground/floor to sit flush.\n- To tile along
-    the X axis, translate adjacent pieces by +/-2.50 units in X (origin-to-origin)
-    so edges meet exactly.\n- Depth is very thin (0.24 total); allow small tolerance
-    or add backing when overlapping other wall thicknesses.\n- Window/face is centered
-    on the triangular face \u2014 orient the prefab so the window faces the desired
-    direction; flip/rotate 180\xB0 if you need the same piece mirrored on the opposite
-    side.\n- Because the pivot is at the right edge, placing a piece to the right
-    of this one requires moving it +2.50 in X; to place to the left move -2.50 in
-    X."
+  AiMetadata: A thin triangular gable wall section with a centered arched window
+    and dark trim/sill. It is ~2.5 units tall and extends 2.5 units to the negative
+    X direction from the origin, with very shallow depth.
 --- !u!1 &1661389469863928
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,17 @@
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\AiRequestBackend.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\AiRequestBackend.deps.json
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\AiRequestBackend.pdb
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\OpenAI.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Buffers.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.ClientModel.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Diagnostics.DiagnosticSource.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Memory.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Memory.Data.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Numerics.Vectors.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Runtime.CompilerServices.Unsafe.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Text.Encodings.Web.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Text.Json.dll
+F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\Editor\Core\System.Threading.Tasks.Extensions.dll

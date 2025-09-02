@@ -211,21 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Name: SM_Bld_House_Tower_02\n\nVisual summary (brief)\n- A small bay/turret
-    window segment: tall rectangular sides and a square/curved front window face
-    with visible panes/curtain. Top orthographic shows a semi\u2011octagonal/curved
-    roof/trim shape. Looks like a single bay that protrudes from a wall.\n\nBounding
-    box & pivot\n- bounds: min (-2.50, 0.00, -0.07), max (0.00, 2.50, 1.29)\n- size:
-    W = 2.50, H = 2.50, D = 1.36\n- object positioned at (0,0,0) \u2014 that is the
-    box\u2019s max X, min Y (ground), and slightly behind min Z. In other words the
-    origin sits at the rightmost vertical edge and bottom of the prefab.\n- local
-    center = (-1.25, 1.25, 0.61)\n\nPlacement notes for assembling with other prefabs\n-
-    Snap Y to 0 to place on ground; snapping X=0 will align the prefab\u2019s rightmost
-    edge to that world X.\n- To center this piece on a placement point, offset by
-    (-1.25, 1.25, 0.61).\n- Front face shown in the \u201CFront\u201D render \u2014
-    rotate prefab so that that face faces the desired forward direction.\n- Leaves
-    a small rear overhang (min Z = -0.07) \u2014 account for ~0.07 units behind the
-    origin when tight-fitting to a wall.\n- Because it protrudes outward (bay shape),
-    allow ~2.5 units of horizontal space (X) for adjacent modules or use the prefab\u2019s
-    X extent to tile/abut correctly.\n- Recommend a small clearance (~0.05\u20130.1)
-    for trims/overlap to avoid z-fighting when placing next to walls or other bays."
+  AiMetadata: "SM_Bld_House_Tower_02 is a narrow vertical tower wall segment with
+    a semicircular/arched top and a recessed window bay \u2014 the front shows a
+    wide three-pane window with a small railing/ledge while the back shows a curtained
+    window. It is oriented upright (arched roof at the top) with the front facing
+    as in the provided Front render."

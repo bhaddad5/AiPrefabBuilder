@@ -120,25 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Small gabled dormer roof tile with a framed double-window
-    on the front face. Wooden/metal tile texture, triangular gable above the window,
-    sloped underside so it projects out of a main roof.\n\nBounds & size (local space)\n-
-    Min: (-2.56, -2.68, -2.50)\n- Max: ( 0.18,  0.08,  0.00)\n- Size (W x D x H)
-    = (2.74, 2.76, 2.50)\n\nPivot/origin\n- Origin at (0,0,0) is at the top surface
-    (max Z = 0) and near the positive X/Y corner (close to max X = 0.18, max Y =
-    0.08). In other words the pivot sits at the top/front\u2011right area of the
-    piece, not centered.\n\nPlacement notes (useful when composing with other prefabs)\n-
-    Because the pivot is at the top, to place the base (lowest Z) at world height
-    H, set prefab position.z = H - min.z (i.e., H + 2.50).\n- To align a specific
-    side edge to world X/Y: world_pos.x = desired_edge_x - min.x; world_pos.y = desired_edge_y
-    - min.y.\n- The dormer projects outward and has a sloped underside \u2014 orient/rotate
-    to match the main roof pitch before snapping; expect to rotate around the pivot/top
-    edge.\n- Check for overlap: significant negative extents mean most geometry lies
-    in negative X/Y directions from the pivot.\n- Visual cues: use the \"Front\"
-    view (window face) to orient toward the viewer/valley when placing on a roof;
-    side profiles are triangular/sloped (match with roof tiles).\n\nQuick summary:
-    dormer window roof tile, ~2.74\xD72.76\xD72.50 units, pivot at top/front-right;
-    translate by -min to snap its lowest/left/back edges into place."
+  AiMetadata: 'A small gabled roof dormer: dark wooden frame with a double-pane window
+    set into a tiled roof and a little peaked gable above the window. Oriented upright
+    with the window on the front face and the sloped tiled roof projecting above/back
+    of the piece.'
 --- !u!1 &1165696122873556
 GameObject:
   m_ObjectHideFlags: 0

@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short visual description\n- A half-height (short) house wall segment
-    with a framed window: rectangular glass panel(s) in a dark wood/trim frame. Front/back
-    are window faces (slightly different textures); left/right are narrow vertical
-    edge caps.\n- Thin depth (flat plank-like).\n\nSpatial / placement info (useful
-    for tiling/assembly)\n- Bounds (local): X [-2.50, 0.00], Y [0.00, 1.25], Z [-0.12,
-    0.12].\n  - Size: width 2.50 units (X), height 1.25 units (Y), thickness 0.24
-    units (Z).\n- Origin / pivot: at local (0,0,0) \u2014 this is the right face
-    center on the bottom plane (rightmost X, bottom Y, centered in Z).\n- Orientation:
-    long axis runs negative X, height is +Y, thickness along \xB1Z.\n- Tiling tips:\n 
-    - To place segments in a row extending left, increment instance X by -2.50 units
-    per segment (origins at 0, -2.5, -5.0, ...).\n  - To align bottoms to a floor,
-    keep Y = 0 (pivot is at bottom).\n  - Because thickness is small (0.24), watch
-    for z-fighting or need for slight offsets when stacking flush against other thin
-    pieces.\n- Visual context: front/back are window sides \u2014 choose orientation
-    so the visible/window face faces the camera/player as intended (flip/rotate 180\xB0
-    around Y if you need the opposite face forward)."
+  AiMetadata: 'A low, half-height house wall segment: a narrow rectangular panel
+    with a dark outer frame and three inset, window-like sections along its long
+    face. It is aligned along the X-axis, lying flat and extending from the origin
+    toward negative X, with shallow depth and low height.'

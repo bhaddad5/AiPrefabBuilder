@@ -119,21 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "SM_Bld_House_Roof_Thatch_Edge_01 \u2014 brief visual + placement notes\n\nWhat
-    it looks like\n- A low, narrow thatch/wood roof-edge piece: long, slightly tapered/pointed
-    at one end with segmented lath detail along its length. Brown tones. Meant as
-    an eave/edge element rather than a full roof plane.\n\nBounds & geometry\n- Bounding
-    box (local): min (-2.73, -2.61, -0.38), max (0.11, 0.23, 0.38)\n- Sizes: X =
-    2.84, Y = 2.84, Z = 0.76 units\n- The mesh runs diagonally across the XY bounding
-    box: endpoints span from the positive-corner near the origin to the opposite
-    negative corner. Effective longest length \u2248 4.02 units (diagonal of the
-    X/Y extents).\n\nPivot/origin\n- Object positioned at (0,0,0) which is very close
-    to the positive X/Y corner of the bbox (max = 0.11, 0.23). Most geometry extends
-    into negative X and negative Y from the origin.\n\nPlacement tips\n- Snap/align
-    the origin to the outer corner or eave start point of a roof; the piece will
-    extend into negative X/Y from that anchor.\n- Rotate around local Z to align
-    the diagonal seam with roof edges or ridges. Mirror or rotate 180\xB0 to use
-    on opposite sides/corners.\n- Use the bbox extents (2.84 x 2.84 footprint, 0.76
-    height) for collision/grid snapping, but remember the actual piece length is
-    ~4.02 units along its diagonal.\n- Low profile (0.76) \u2014 good for thin eave
-    layers; watch overlap with adjacent roof meshes when tiling."
+  AiMetadata: 'A narrow, low-profile thatch roof edge piece: a brown, segmented beam
+    with tapered ends and visible thatch/ridge details. It lies flat and runs along
+    the X axis, with the thinner/pointed end oriented toward positive X.'

@@ -226,14 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a narrow wall segment with a single wooden door and
-    frame. Front/back have different door textures; door fills most of the vertical
-    space and is flush with the wall.\n- Bounds/origin: size = X 2.50, Y 2.50, Z
-    0.32 (min = -2.50,0.00,-0.16 \u2192 max = 0.00,2.50,0.16). The prefab's origin/pivot
-    is on the right face (X = 0) and at ground level (Y = 0).\n- Placement notes:\n 
-    - Tile/step along X or Y in 2.5 unit increments to abut edges (adjacent copy
-    at +2.5 or -2.5 on X; stack vertically at +2.5 on Y).\n  - Depth clearance \u2248
-    0.32 units; use slightly larger offset if you need a gap.\n  - Be mindful of
-    orientation: origin on the right face means rotations will move the pivot relative
-    to neighbors; align facing so the desired door texture faces your scene front.\n 
-    - Pivot at ground; no vertical offset needed to sit on floor."
+  AiMetadata: A narrow medieval-style wooden plank house door with metal studs, a
+    knob, and a simple stone/wood frame. It sits upright (height along Y), is very
+    thin in Z, and extends from the origin along negative X (hinge/edge at the origin),
+    so the door face points roughly toward -X.

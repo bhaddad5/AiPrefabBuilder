@@ -203,24 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Small thatch-roof house roof segment with a single
-    dormer/window on one vertical face and wooden wall framing on the opposite face.
-    Two triangular sloped eaves extend to the sides; underside has an open square
-    (gable/interior) area.\n\nBounding / pivot info (important for placement)\n-
-    Local AABB: min (-2.55, -2.68, -2.50), max (0.18, 0.18, 0.00).\n- Size (extents):
-    X = 2.73, Y = 2.86, Z = 2.50.\n- Top of mesh is at Z = 0. Bottom (lowest point)
-    at Z = -2.50 \u2014 so Z=0 is the highest surface of the prefab.\n- The mesh
-    extends mostly into negative X, Y and Z from the origin; center offset \u2248
-    (-1.19, -1.25, -1.25) relative to the origin.\n- Origin/pivot sits at an outer/top
-    corner of the model (not centered).\n\nPlacement notes / recommendations\n- When
-    tiling multiple prefabs, align their open/flat top at Z = 0 (the prefab\u2019s
-    top) so bottoms line up at Z = -2.50.\n- Expect to translate by about +1.19,+1.25,+1.25
-    if you want to position by the prefab center instead of the pivot.\n- The dormer/window
-    is on one vertical face; the opposite face is the plain wall \u2014 orient that
-    face outward when assembling fa\xE7ades.\n- There are small projection \u201Cpegs\u201D/stubs
-    on the edges (visible in side/front views) that look intended to match neighboring
-    pieces \u2014 try snapping edges together rather than centering by pivot.\n-
-    Because the origin is at a corner, use grid snapping or offsetting rather than
-    assuming a centered pivot to avoid gaps/overlaps.\n- Z-height (roof top) serves
-    well as the assembly reference plane for stacking or connecting multiple roof
-    pieces."
+  AiMetadata: A small gabled thatch-roof dormer piece (SM_Bld_House_Roof_Thatch_Window_01)
+    with a wooden-framed square window set into a thatched/sloped roof and dark interior/plank
+    detailing. It sits upright at the origin with the dormer/window facing forward
+    and the roof slopes extending left and right, leaving the underside/opening toward
+    the rear.

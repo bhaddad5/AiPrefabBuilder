@@ -20,16 +20,22 @@ public static class BuildPrefabRequester
 			assetsStr = assetsStr.Substring(0, assetsStr.Length - 2);
 
 		string fullPrompt = $"You will be assembling a a Unity Prefab matching the prompt: {prompt}. " +
-			"Use the provided tools to request data on the exact size of the sub-parts you would like to use. " +
+			"Use the provided tools to request data on the exact size of the sub-parts you would like to know more about. " +
+			"Use the provided tools to construct sub-assembly prefabs if you have difficulty lining things up. " +
 			"Format your final return string as \"[assetName,pos:(x;y;z),euler:(x;y;z)]\" for each part instance. " +
 			"Be mindful of the sizes of the parts, and ensure they all line-up properly in the final prefab. " + 
 			"Here is a list of available assets: " +
 			assetsStr;
 
-		AiRequestBackend.OpenAIChatSdk.AskContinuous(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), fullPrompt, new ToolsImplementation(), (s) => Debug.Log(s), (res) => 
-		{
-			FinalResultPrefabBuilder.BuildPrefabFromInstructions(res);
-		});
+		AiRequestBackend.OpenAIChatSdk.AskContinuous(EditorPrefs.GetString("OPENAI_API_KEY"), fullPrompt, new ToolsImplementation(), AiRequestBackend.OpenAIChatSdk.ModelLevel.standard, 
+			(s) => 
+			{
+				Debug.Log($"[{DateTime.Now}] {s}");
+			}, (res) => 
+			{
+				FinalResultPrefabBuilder.BuildPrefabFromInstructions(res);
+				Debug.Log($"[{DateTime.Now}] Complete!");
+			});
 	}
 
 	private static string[] GetAssetPathsInFolder(string folderPath, string filter = "")

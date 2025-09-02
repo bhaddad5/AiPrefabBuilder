@@ -120,28 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A house wall segment with a projecting window
-    box/flower box and small supporting strut, pitched awning/roof above the window
-    and decorative lower trim. Front shows a multi-pane window and a box that sticks
-    out from the wall.\n\nBounds & size:\n- Min = (-2.50, 0.00, -0.50), Max = (0.00,
-    2.56, 1.09)\n- Size (W\xD7H\xD7D) = 2.50 \xD7 2.56 \xD7 1.59 units\n\nOrigin
-    / pivot location (important for placement):\n- Object origin is at (0,0,0) and
-    corresponds to the max X face (right edge), the bottom (ground) face, and a mid-depth
-    position (0 between -0.50 and 1.09).\n- In other words: origin = right/bottom
-    edge; depth: 0.50 units forward from the rear-most point and 1.09 units behind
-    the front-most point.\n\nPlacement notes / tips:\n- To tile this piece left-to-right,
-    place next piece at +2.50 units in X if their origins are both at their right
-    edges (or -2.50 to move this piece so its left edge meets another origin-at-right-edge
-    piece).\n- The prefab sits flush on the ground at Y = 0 (no vertical offset required
-    to sit on floor). Add Y offset if you want it lifted.\n- The window box projects
-    forward 1.09 units from origin; allow clearance in front-facing direction when
-    placing near walkways or other prefabs.\n- Depth is asymmetric around origin
-    \u2014 if you want the box centered on a fa\xE7ade, offset by ~ -0.295 in Z (centroid)
-    or place using the bounding center (midpoint z = 0.295) depending on your placement
-    system.\n- Rotations: rotating 180\xB0 will move the pivot to the opposite face;
-    verify alignment after rotation since origin sits on the right/bottom edge.\n\nKeep
-    these offsets in mind when snapping or scripting placement so seams and overhangs
-    align correctly."
+  AiMetadata: A narrow exterior house wall segment with a small pitched awning, a
+    central multi-pane window and a projecting window/planter box supported by angled
+    brackets and short posts. The prefab sits on the ground (base at Y=0); the window/box
+    faces the +X direction while the body of the piece extends toward negative X.
 --- !u!1 &1311148386988164
 GameObject:
   m_ObjectHideFlags: 0

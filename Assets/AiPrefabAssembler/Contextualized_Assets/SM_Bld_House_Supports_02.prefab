@@ -119,18 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description\n- Small triangular house support bracket: a short
-    horizontal top member with a diagonal brace and a longer diagonal leg extending
-    down and away. Thin in depth (flat plate/rod style).\n\nBounds & footprint\n-
-    Local AABB: min (0.00, -1.80, -0.09), max (2.50, 0.01, 0.09).\n- Overall size
-    \u2248 2.50 units long (X) \xD7 1.81 units tall (Y) \xD7 0.18 units thick (Z).\n\nOrigin
-    / orientation\n- Object origin is at the top inner corner: X=0 at one end of
-    the top member, Y\u22480 at the top surface, Z=0 centered through thickness.\n-
-    Bracket projects in +X and down in -Y from the origin; front/back are asymmetric
-    (looks mirrored left/right).\n\nPlacement notes\n- Snap the origin to the mounting
-    point (underside or wall corner) so the top member sits flush at Y=0.\n- If you
-    need the bracket mirrored, rotate 180\xB0 around Y or mirror on X (orientation
-    matters because front/back are not symmetric).\n- Thin Z thickness means minimal
-    clearance needed sideways; collisions will be primarily in X and Y.\n- Use the
-    bounding box extents when arranging multiple supports to maintain correct spacing
-    (2.50 units along the projection direction and 1.8 units vertical clearance required)."
+  AiMetadata: SM_Bld_House_Supports_02 is a slim roof/ledge support bracket with
+    a short horizontal top beam, a diagonal brace meeting a downward-angled strut,
+    and a thin vertical post beneath the inner end. It is oriented along the +X axis
+    from the origin, with the main horizontal element at the top and the supports
+    extending downward.

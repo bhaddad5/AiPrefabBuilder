@@ -295,18 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: an angled tower corner window prefab (arched window
-    on the \"front\" face, timber/stone detail on the back).\n- Bounds & size: X
-    = -2.50 to 0.00 (width 2.5), Y = 0.00 to 2.50 (height 2.5), Z = -0.07 to 1.11
-    (depth \u2248 1.18).\n- Pivot / origin: placed at (0,0,0). That corresponds to
-    the bottom-right-near corner of the box (X = 0, Y = 0, Z \u2248 -0.07).\n- Default
-    orientation: the arched window faces +Z when unrotated.\n- Placement notes:\n 
-    - Base sits on Y=0 (floor level) \u2014 no vertical offset required.\n  - The
-    piece extends left along -X by 2.5 units and forward along +Z by ~1.18 units
-    from the pivot \u2014 use a 2.5 unit grid for horizontal tiling/snapping.\n 
-    - Rotate around the vertical axis (Y) in 90\xB0 increments to place the window
-    on other corners/facings.\n  - Small negative Z min (-0.07) may create a tiny
-    inset at the near face \u2014 watch for z-fighting or gaps; you may want to snap
-    adjacent pieces to Z = -0.07 or adjust by 0.07.\n  - Back and side faces have
-    visible trim/timbering \u2014 pair with matching corner/edge prefabs or cover
-    seams where needed."
+  AiMetadata: "SM_Bld_House_Tower_Angle_Window_03 is a tall, narrow corner/tower
+    window module with a dark timber-and-stone frame and an arched, mullioned window
+    set into a trapezoidal footprint. It\u2019s oriented upright (Y up), extending
+    left of the origin (negative X) and forward (positive Z), with the arched face
+    as the front."

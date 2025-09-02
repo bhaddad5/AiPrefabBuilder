@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Low, narrow roof-edge/tile trim piece made of
-    a row of repeating rectangular tiles (an eave/edge segment). Appears slightly
-    beveled/rounded on top and thinner underneath.\n\nBounds & size (local space)\n-
-    Min = (-2.59, -2.50, -0.09), Max = (0.02, 0.21, 0.52)\n- Overall footprint \u2248
-    2.61 \xD7 2.71 units, height \u2248 0.61 units\n- Local center \u2248 (-1.285,
-    -1.145, 0.215)\n\nPivot/origin placement\n- Origin is near one end/edge of the
-    piece (positive X/Y side close to the origin). The piece extends mostly into
-    negative X and negative Y from the origin.\n- Top surface reaches z = 0.52, bottom
-    reaches z = -0.09 relative to the origin.\n\nPlacement tips for combining with
-    other prefabs\n- Use the positive-edge at the origin as the \u201Cstart\u201D
-    end when tiling segments end-to-end; align next segment so its positive edge
-    matches the previous segment\u2019s negative edge.\n- Footprint is almost square
-    in X/Y (2.61\xD72.71) because the model is diagonally oriented in its box \u2014
-    rotate so the long repeated-tile axis matches your roof/ridge direction.\n- Leave
-    ~0.61 units vertical clearance above the roof plane if this sits on top; align
-    bottom z = -0.09 to your roof surface if you want the same vertical placement.\n-
-    Snap using bounding-box edges or the computed center offset (-1.285, -1.145,
-    0.215) if you need precise centering.\n\nVisual note\n- Image background is magenta;
-    piece color/lighting may appear darker in some views."
+  AiMetadata: "A narrow, segmented brown roof-tile edge piece made of repeating rectangular/stepped
+    tile blocks \u2014 a linear trim element for a tiled roof. It lies flat and elongated
+    along its long axis with shallow vertical thickness, oriented diagonally/horizontally
+    in the X\u2013Y plane."

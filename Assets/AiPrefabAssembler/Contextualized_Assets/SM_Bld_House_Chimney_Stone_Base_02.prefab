@@ -119,16 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Asset: SM_Bld_House_Chimney_Stone_Base_02 \u2014 stone brick chimney
-    base with a square footprint, slightly tapered sides and decorative lips at base
-    and near top. Top is open/hollow (visible interior walls).\n\n- Bounds (local):
-    min (-1.13, 0.00, -1.13), max (1.13, 3.02, 1.13)\n  - Footprint: 2.26 m \xD7
-    2.26 m\n  - Height: 3.02 m\n  - Half\u2011extents: 1.13 m on X/Z; bottom sits
-    at Y = 0 (pivot at ground level).\n\n- Geometry/placement notes:\n  - Centered
-    origin: object is centered on X/Z and rests on Y = 0 \u2014 place by matching
-    bottoms to surfaces or snapping to a 2.26 m grid.\n  - Square symmetry: can be
-    rotated in 90\xB0 increments without visible mismatch.\n  - Top is an open interior
-    cavity (useful for inserting a flue, cap, or continuing the chimney). Ensure
-    whatever you place above aligns to the centered opening or provides its own sealing.\n 
-    - Use the given bounds as collision/occlusion box; decorative lips are included
-    in those bounds, so no extra clearance required beyond the 2.26 m footprint."
+  AiMetadata: SM_Bld_House_Chimney_Stone_Base_02 is a square stone chimney base with
+    visible brickwork, a slightly tapered upper neck and a flat rimmed cap, showing
+    a hollow square interior opening at the top. It is oriented upright with the
+    open top facing +Y and centered at the origin (0,0,0).

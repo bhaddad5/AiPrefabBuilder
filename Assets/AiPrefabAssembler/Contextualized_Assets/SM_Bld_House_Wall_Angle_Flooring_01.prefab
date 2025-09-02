@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short visual description\n- Low, trapezoidal/wedge-shaped flooring/angle
-    piece with visible plank/rib detail on the top face. Thin profile (almost flat)
-    and tapered sides \u2014 looks like a corner/angle floor tile rather than a full
-    wall.\n\nBounding box & dimensions (local space)\n- Min = (-2.43, 0.02, 0.02);
-    Max = (-0.06, 0.13, 0.98)\n- Width (X) = 2.37 units, Height (Y) = 0.11 units,
-    Depth (Z) = 0.96 units\n- Local center = (-1.245, 0.075, 0.50)\n\nPivot/origin\n-
-    Object origin is at (0,0,0), which lies at the +X short edge of the piece (near
-    Max.x = -0.06). The piece extends primarily in negative X from the pivot.\n\nPlacement
-    notes (useful for composing with other prefabs)\n- To place end-to-end along
-    the long axis, translate by \xB12.37 units in local X (or align pivot to the
-    opposite piece\u2019s end).\n- Depth step for tiling along Z is 0.96 units.\n-
-    Because the origin is at the short +X edge, either offset by (-2.37, 0, 0) or
-    use the local center (-1.245, 0.075, 0.5) for center-based placement.\n- Very
-    low height (0.11) \u2014 align Y=0 to sit flush with floor/other low geometry.\n-
-    Orientation matters for texture continuity (plank direction). Mirror/rotate 180\xB0
-    around Y if you need the tapered end facing the other way.\n- Background color
-    irrelevant; prefab appears textured on top face only (sides are thin/dark)."
+  AiMetadata: Small trapezoidal angled flooring/wall trim piece with ribbed/planked
+    surface and a slight slope, appearing as a dark brown narrow wedge. It is oriented
+    with its long edge extending toward the negative X side (left of the origin)
+    and the tapered edge facing positive X.

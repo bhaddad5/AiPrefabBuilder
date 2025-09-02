@@ -119,16 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A vertical support/post ~2.5 units tall with
-    a framed triangular-brace face. Thin thickness (~0.24 units). Looks like a wall
-    support beam with decorative bracing on the face.\n\nBounds & size:\n- Bounding
-    box: X [-2.50, 0.00], Y [0.00, 2.50], Z [-0.12, 0.12]\n- Size: X = 2.50, Y =
-    2.50, Z = 0.24\n\nOrigin / pivot:\n- Object origin is at (0,0,0) = X=max face,
-    Y=bottom, Z=center. (bottom-right face center of the beam)\n- The decorated framed
-    face is on the X = 0 side (the origin-facing side).\n\nPlacement notes:\n- Align
-    Y=0 with floor/ground; place the X=0 face flush against the wall or adjoining
-    prefab (the beam extends in negative X).\n- Origin is centered in Z, so no Z
-    offset needed for thickness alignment.\n- Rotate 180\xB0 around Y if you need
-    the framed face to point the other way; translate by \xB12.5 in X to tile/chain
-    beams end-to-end.\n- Small thickness (0.24) \u2014 allow thin gap tolerance when
-    snapping to thin walls."
+  AiMetadata: 'A tall, narrow wall support assembly: a thin vertical post with a
+    small base and a square framed plate featuring diagonal braces that form triangular
+    webbing on the framed face. The piece is upright (extends along the Y axis) and
+    projects toward the negative X direction from the origin, with minimal thickness
+    along Z.'

@@ -119,22 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small sloped thatch roof segment: thatched/tan
-    top surface, dark wooden underside/planks, small mounting pegs along two edges.\n-
-    Appears as a single rectangular/ wedge roof tile with a diagonal slope (thin
-    at one edge, thicker at the other).\n\nSpatial / placement info (useful numbers)\n-
-    Local bounds: Min (-2.55, -2.68, -2.50), Max (0.18, 0.06, 0.00).\n- Size (extents):
-    ~2.73 x 2.74 x 2.50 units (X x Y x Z).\n- Pivot/origin location: at (0,0,0) which
-    corresponds to the top/outer corner (max X=0.18, max Y=0.06, max Z=0.00). The
-    mesh extends mostly into negative X and Y and downward in Z.\n- Top of piece
-    is at Z = 0.00 (so Z=0 is the highest surface). Bottom of piece is Z = -2.50.\n\nPractical
-    placement notes\n- Because the pivot is at a corner (not centered), tile/array
-    by translating by the full extents: ~2.73 along X and ~2.74 along Y to place
-    adjacent pieces edge-to-edge.\n- Stack/attach under a ridge or rafters by aligning
-    Z = 0 of this prefab to the roof ridge or to the top of supporting geometry.
-    For stacked vertical alignment use Z offsets of 2.50.\n- Small pegs along edges
-    suggest seam/connection points; align neighboring pieces so pegs meet or sit
-    over support.\n- Model is oriented such that its slope runs diagonally relative
-    to the origin\u2014test rotation 0/90/180 degrees in scene to find matching seam
-    directions before bulk placement.\n- Background in provided renders is magenta
-    (no geometry information)."
+  AiMetadata: "A small square thatch roof panel \u2014 beige wavy thatch on the top
+    and dark wooden planks with support pegs on the underside. It\u2019s oriented
+    with its high edge near the origin (positive corner) and slopes down diagonally
+    toward the negative X/Y/Z directions."

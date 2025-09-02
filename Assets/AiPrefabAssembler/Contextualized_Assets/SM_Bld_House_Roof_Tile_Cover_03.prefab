@@ -119,19 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small wooden roof/tile cover piece: brown
-    tiled top, dark underside with wooden braces and three short feet. Thin, slightly
-    sloped profile; one short edge has staggered/irregular tile ends (asymmetric).\n\nBounds
-    & size (local space)\n- Min = (-1.60, -0.37, -2.50), Max = (0.05, 0.08, 0.00)\n-
-    Size extents = X: 1.65, Y: 0.45, Z: 2.50\n\nPivot / orientation\n- Pivot/origin
-    is at the top/front/right face of the bounding box (near Max X, Max Z, Max Y).\n-
-    Geometry extends primarily into negative X (left), negative Z (back), and negative
-    Y (down).\n\nPlacement notes (useful for assembling with other prefabs)\n- To
-    tile flush along X, offset by ~1.65 units in local X (keep orientation consistent
-    because the piece is asymmetric).\n- To place pieces end-to-end along Z (backwards),
-    offset by ~2.50 units in local Z.\n- Vertical stacking clearance \u2248 0.45
-    units (min Y = -0.37 so feet/braces sit below origin).\n- Mesh underside has
-    feet/braces \u2014 allow for that when snapping to surfaces or adding collision
-    (use the provided bounds for collision).\n- Because the piece is asymmetric (staggered
-    ends), ensure the same face is oriented consistently when lining multiple pieces
-    up, or mirror/rotate intentionally to match seams."
+  AiMetadata: A small rectangular brown roof tile cover with overlapping tile ridges,
+    scalloped outer edge, and wooden slat detailing. It lies flat with the tiled
+    face upward and two short mounting pegs on the underside, forming a low, slightly
+    wedge-shaped profile.

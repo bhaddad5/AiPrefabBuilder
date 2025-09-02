@@ -142,19 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description:\n- Stone corner/arch prefab: vertical rectangular
-    pillar (stacked block stones) with a 90\xB0 curved/overhanging arch piece at
-    the top forming an L-shaped corner bracket. Stone-gray material, carved block
-    details. Background in images is fuchsia.\n\nBounds & size (axis-aligned):\n-
-    Min (-1.25, 0.00, -0.16), Max (0.00, 2.50, 0.16)\n- Dimensions: X = 1.25, Y =
-    2.50, Z = 0.32 (units consistent with scene)\n\nPlacement notes (useful for tiling/snapping
-    with other prefabs):\n- Pivot/origin is on the right/inner vertical face and
-    at the floor (y = 0). The model extends negative X from the origin.\n- Flat face
-    at X = 0 is suitable for butting against other wall pieces; the thin Z dimension
-    makes this a shallow wall/corner element.\n- To make a mirrored corner, rotate
-    around the Y axis (180\xB0) or flip X depending on how your snapping handles
-    negative extents.\n- Align Y = 0 to ground; align X = 0 face to the mating wall/slot.
-    Snap at roof/arch top if stacking vertically.\n- Small depth (0.32) \u2014 check
-    collision padding if used with thicker wall pieces so seams don\u2019t overlap.\n-
-    Useful for outside/inside corner or decorative arch support in a modular stone
-    building system."
+  AiMetadata: A narrow vertical stone arch corner segment with blocky masonry and
+    a curved inner arch detail. It sits upright, rising along Y and projecting to
+    the negative X side of the origin, with minimal thickness along Z.

@@ -119,20 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A small rectangular roof tile cover: tiled/shingled
-    top surface (brown) and a dark underside with short mounting pegs at one corner/edge.\n-
-    Slight pitch/slope (thin profile) \u2014 looks like a roof cap/edge piece, not
-    a full thick block.\n\nBounds & size (local space)\n- Min = (-4.23, -0.71, -2.50),
-    Max = (0.03, 0.08, 0.00)\n- Size = X 4.26, Y 0.79, Z 2.50 (units)\n- Origin is
-    at the piece\u2019s upper corner/edge (near Max values), so the mesh extends
-    primarily in the negative X and negative Z directions from the origin.\n\nPlacement
-    notes for tiling/assembly\n- Connection edge is at the origin (near Max X,Z).
-    To place pieces end-to-end along the long axis, offset by (-4.26, 0, 0).\n- To
-    tile/stack along the depth, offset by (0, 0, -2.50).\n- Vertical alignment: top
-    surface ~ +0.08 and bottom ~ -0.71. If you want the bottom to sit on world Y=0,
-    translate the prefab +0.71 in Y.\n- Because the piece is sloped/thin, rotate
-    carefully so neighboring roof pieces match pitch; the origin sits at the high
-    corner, so rotations around origin will pivot at that connector edge.\n- Watch
-    collision/overlap at the connector pegs (near origin) \u2014 use origin snapping
-    to ensure a clean seam.\n\nColor/background note\n- Renders shown on fuchsia
-    background; actual mesh is brown tiles with dark underside."
+  AiMetadata: A small, low-profile rectangular roof cover made of brown overlapping
+    tiles with a dark wooden underside/frame, slightly sloped along its length. It
+    is oriented extending toward the negative X axis from the origin (the tiled/ridge
+    side points in negative X) and sits close to the base (low Y).

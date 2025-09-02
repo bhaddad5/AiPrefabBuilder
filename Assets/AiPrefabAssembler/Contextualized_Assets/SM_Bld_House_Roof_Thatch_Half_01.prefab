@@ -119,20 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: a half-thatched roof module \u2014 thatch texture on
-    the outer/top face, dark wooden plank structure on the underside, with three
-    small wooden support/attachment pegs along the long underside edge. Designed
-    to be paired/mirrored to make a full roof or to sit on a wall ridge.\n\n- Visual
-    shape: rectangular, sloped wedge (long dimension along Z), thatch on one broad
-    face, exposed planks/rafters on the other.\n\n- Bounds & size:\n  - Min = (-1.29,
-    -1.43, -2.50), Max = (0.18, 0.03, 0.00)\n  - Size = (X 1.47, Y 1.46, Z 2.50)\n\n-
-    Pivot/origin: at (0,0,0) which corresponds to the piece's top/back edge (max
-    Z = 0). The geometry extends negative Z (forward/down from origin).\n\n- Useful
-    placement notes:\n  - If you want the lowest point to sit on world Z = 0, translate
-    the prefab +2.50 units in Z.\n  - To center the mesh on its origin, translate
-    by +0.555, +0.70, +1.25 (half the size in each axis; this moves the center to
-    world origin).\n  - Tabs/pegs run along the long underside\u2014use these for
-    snap/attachment alignment to walls or adjacent roof pieces.\n  - Mirror/rotate
-    the piece to create opposite half-roofs; expect the visible thatch face to be
-    the exterior.  \n- Background in renders is magenta (transparent), not part of
-    the asset."
+  AiMetadata: 'SM_Bld_House_Roof_Thatch_Half_01 is a half-section thatched roof tile:
+    a thin, sloped rectangular piece with textured straw (light brown) on the top
+    and dark wooden planks with small support brackets on the underside and edges.
+    The thatch faces upward (+Y) with the wooden underside down (-Y), and the sloped
+    piece projects rearward toward negative Z from the origin.'

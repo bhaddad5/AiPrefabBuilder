@@ -119,16 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Summary:\n- Small rectangular roof beam / rafter\u2014dark brown,
-    thin long bar with beveled/chamfered ends.\n- Axis-aligned bounding box: min
-    (-1.47, -1.25, -0.09), max (0.00, 0.22, 0.09).\n- Size (extents): (1.47, 1.47,
-    0.18) units (X, Y, Z).\n- Bounding-box center: (-0.735, -0.515, 0.00).\n\nImportant
-    placement notes:\n- Origin/pivot is at the positive X face and near the +Y side
-    (box max X = 0, box max Y = 0.22). In other words the beam extends mostly into
-    negative X from its pivot and slightly toward negative Y.\n- Use the pivot as
-    the \u201Cend\u201D anchor when snapping pieces end-to-end or to a roof frame.\n-
-    Beam is very thin in Z (0.18) \u2014 collisions/occlusion are shallow; align
-    Z precisely when stacking.\n- Appears rotated in-plane in the model (so you may
-    need to rotate around Z to orient along roof slope or ridge).\n- Good for tiling
-    by placing multiple copies with pivot-to-end snapping or translating by the X/Y
-    extents."
+  AiMetadata: A narrow, dark rectangular roof beam/joist with slightly chamfered
+    ends and a subtle tapered profile. It sits at the origin and runs horizontally
+    along the negative X axis (extending from 0 toward -X).

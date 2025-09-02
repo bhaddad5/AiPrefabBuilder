@@ -119,20 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- Quick visual: a small brown segmented roof-edge piece \u2014 a row
-    of ~4\u20135 curved tiles forming an angled/edge section (looks like an end/cap
-    that would run along a roof ridge or eave). The mesh is pitched/angled rather
-    than flat.\n- Bounding box (local space): min (-1.49, -2.62, -0.09), max (0.07,
-    0.17, 0.52) \u2192 size = (1.56, 2.79, 0.61).\n- Local origin/pivot: at (0,0,0)
-    \u2014 this is at the positive X/Y corner of the bounding box (bbox center =
-    ~(-0.71, -1.225, 0.215)), so the model extends mostly into negative X and negative
-    Y from its origin.\n- Primary axis for tiling: long dimension runs along the
-    Y axis (extends toward negative Y). When chaining multiple copies, align origins
-    along Y (or place each tile offset by ~2.79 units in Y depending on desired overlap)
-    or snap origin-to-origin.\n- Orientation notes: height/pitch along Z is small
-    (0.61). The piece likely needs mirroring/rotating for the opposite side of a
-    roof (flip across X or rotate 180\xB0 around Z depending on target orientation).\n-
-    Placement tips: account for the origin offset (the visible geometry sits negative
-    X/Y from the pivot) so snapping to other prefabs should use the origin or adjust
-    by the bbox offset; expect a small overhang toward negative X/Y. Rotate/mirror
-    to match slope direction and ensure seams line up along the Y axis."
+  AiMetadata: 'A small modular roof tile angled-edge segment: a narrow brown strip
+    of repeated curved tiles with pronounced ridges and a stepped profile. Positioned
+    at the origin, it is rotated and tilted so its long axis runs diagonally across
+    the plane (lower-left to upper-right in the renders) with the tile faces sloping
+    outward.'

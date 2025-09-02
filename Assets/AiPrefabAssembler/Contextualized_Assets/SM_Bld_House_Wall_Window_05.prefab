@@ -120,16 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief description:\n- A square house wall segment with a small centered
-    square window and decorative trim/brace below and a lintel above. Texture is
-    stylized stone/wood; thickness is thin.\n\nPlacement/useful info:\n- Bounds size:
-    X = 2.50 units, Y = 2.50 units, Z = 0.24 units (min (-2.50, 0.00, -0.12) to max
-    (0.00, 2.50, 0.12)).\n- Local origin/pivot: bottom-right-center of the piece
-    (X = right face, Y = bottom, Z = center thickness).\n- Tiling: horizontal step
-    = 2.50 units, vertical step = 2.50 units for edge-to-edge tiling.\n- Thickness/flush:
-    half-thickness = 0.12 units (use +/-0.12 to align front/back faces).\n- Orientation:
-    the window face is on the large X\u2013Y surface; rotate 180\xB0 if you need
-    the window to face the opposite direction."
+  AiMetadata: A narrow vertical house wall panel with a centered square window and
+    a small triangular decorative base, thin in depth. It is upright and positioned
+    so the front face sits at the origin while the panel extends backward along the
+    negative X axis.
 --- !u!1 &1976315495626738
 GameObject:
   m_ObjectHideFlags: 0

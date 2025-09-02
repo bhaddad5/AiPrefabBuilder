@@ -120,25 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it looks like\n  - A small thatch-roof section with a centered
-    arched dormer/window on one gabled face. The opposite face is a plain sloped
-    thatch plane. Top shows textured thatch; eaves and a dark trim frame the dormer.\n 
-    - Silhouette is non-rectangular (sloped triangular sides), background is fuchsia
-    (transparent).\n\n- Bounds & size\n  - Min = (-2.70, -2.65, -2.69), Max = (0.04,
-    0.06, 0.15)\n  - Size (extent) = (2.74, 2.71, 2.84)\n\n- Pivot/placement notes\n 
-    - The prefab origin (0,0,0) is at the model\u2019s positive corner (near the
-    small Max values). The model extends primarily into negative local space; center
-    = approx (-1.33, -1.295, -1.27).\n  - For tiling/stacking: translate neighbors
-    by the full extents to abut edges (use \xB12.74, \xB12.71, \xB12.84 along the
-    appropriate axis). If you want symmetrical placement, recenter the pivot to the
-    computed center first.\n  - Orientation: the \u201Cfront\u201D face has the dormer/window;
-    the \u201Cback\u201D face is the plain slope. Match fronts to fronts (or front-to-back)
-    depending on whether you want continuous ridge or repeating dormers.\n  - Small
-    positive max values mean the origin sits very slightly outside the model; snapping
-    to origin will align that positive corner \u2014 account for that offset when
-    lining up seams.\n\n- Useful quick actions\n  - Recenter pivot to (-1.33, -1.295,
-    -1.27) for intuitive placement.\n  - Use the extent values as snap increments
-    when tiling or creating roof runs."
+  AiMetadata: "A small stylized thatched roof gable piece with a central arched window
+    set in dark wooden framing and tan low\u2011poly thatch textures. The arched-window
+    gable is the front face (facing forward / +X), with the roof sloping back toward
+    the negative X side."
 --- !u!1 &1976671642033344
 GameObject:
   m_ObjectHideFlags: 0

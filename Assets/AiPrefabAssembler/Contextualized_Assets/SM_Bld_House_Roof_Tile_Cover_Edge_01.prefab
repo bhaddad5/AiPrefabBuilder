@@ -119,24 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Long, narrow roof edge/cover piece (4.18
-    units long) with several vertical clip/peg posts along its length. Appears tapered
-    at one end and slightly sloped along its length \u2014 an edge/ridge strip for
-    roof tiles.\n\nBounding box & pivot\n- Bounds: min (-4.10, -0.63, -0.50), max
-    (0.08, 0.23, 0.95).\n- Size (max-min): X=4.18, Y=0.86, Z=1.45 (units).\n- Local
-    center = (-2.01, -0.20, 0.225) relative to the prefab pivot; the mesh is offset
-    so it extends mostly in negative X from the pivot. The pivot is near the tapered/inner
-    end (around X \u2248 0.08).\n\nPlacement notes for assembling with other prefabs\n-
-    Orientation: length runs along local X. The positive-X end is the tapered/inner
-    end (near the pivot); pieces naturally extend toward negative X.\n- Use the pivot
-    (origin) as the attachment point for the inner/tapered end. When placing end-to-end,
-    tile subsequent pieces aligned along negative X.\n- Clips/posts along the underside
-    suggest discrete mounting points \u2014 align roof battens or sockets to those
-    posts for consistent spacing.\n- Clearance: allow ~0.1\u20130.2 units extra clearance
-    around the bounding box for overlap and collision tolerance, and ensure Y placement
-    accounts for the prefab sitting slightly below the pivot (center Y = -0.20).\n-
-    Mirroring: you will likely need mirrored versions for the opposite roof side
-    or to reverse slope direction.\n- Snap helpers: snap/align using the prefab origin
-    for seams, and consider using the negative-X offset (-2.01) as the half-length
-    when distributing or lining up multiple pieces.\n\nKeep these offsets and orientation
-    in mind when snapping this piece into larger roof assemblies."
+  AiMetadata: "A long, narrow roof-edge prefab: a segmented brown/tan tiled cover
+    with overlapping end tiles and small vertical support pegs beneath. It\u2019s
+    oriented horizontally along the X axis, running leftward (toward negative X)
+    from the origin."

@@ -119,14 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "- What it is: L-shaped stair/guard railing corner piece (vertical
-    posts with mid/top rails).\n- Orientation & pivot: origin is at the inner corner
-    where the two railing arms meet, at floor level (min Y = 0.01).\n- Bounding box
-    (local): min (-1.26, 0.01, -2.49), max (1.40, 3.53, 0.15). Size = (2.66, 3.52,
-    2.64).\n- Extents from origin: arm extends roughly +X to 1.40 units and roughly
-    -Z to -2.49 units; overall height ~3.53 units.\n- Placement notes: sits on the
-    floor (no vertical offset needed). Snap the origin to the stair corner where
-    you want the inner post. Rotate in 90\xB0 increments to mirror/flip arms. End
-    posts are present at the outer ends \u2014 align other railing prefabs so their
-    end-posts meet to avoid gaps (watch for small origin/pivot mismatches between
-    different pieces). Background color in previews is magenta (ignore)."
+  AiMetadata: SM_Bld_House_Stairs_Railing_02 is an upright L-shaped stair/landing
+    railing section with vertical posts, double horizontal rails, and a taller newel/post
+    at the corner. It is oriented as a right-angle corner piece at the origin, intended
+    to attach along two adjoining stair runs.

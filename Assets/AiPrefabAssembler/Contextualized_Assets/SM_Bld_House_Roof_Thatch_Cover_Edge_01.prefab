@@ -119,27 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- A long, narrow thatch roof-edge piece (thatch
-    cover/trim) with a slight curve and a peaked/ridged profile down the center.
-    It looks like a segmented strip that tapers/thins toward one end.\n\nBounds,
-    orientation, pivot\n- Bounds: min (-4.34, -0.52, -0.38), max (0.02, 0.25, 0.38).\n-
-    Overall size \u2248 X: 4.36 units long, Y: 0.77 units tall, Z: 0.76 units wide.\n-
-    Long axis = X (piece extends in negative X from the origin). Width = Z (centered),
-    Thickness/height = Y (mostly below/around origin).\n- Pivot/origin at (0,0,0)
-    is at the near/inner end of the piece (the short/positive X end).\n\nPlacement
-    notes (useful when composing with other prefabs)\n- Snap rule: this piece extends
-    negative X, so to tile along the X axis place the next piece so its origin (or
-    its max X) aligns with this piece\u2019s min X (or vice versa). In practice align
-    X edges: one prefab\u2019s max X \u2248 0.02 to the next prefab\u2019s min X
-    \u2248 -4.34.\n- Mirror/rotate: to flip orientation along the roof edge rotate
-    180\xB0 around Y or Z (or mirror along X) \u2014 the pivot being at one end makes
-    flipping straightforward but check normals/UVs.\n- Align Z and Y when joining
-    to keep ridge centered and vertical alignment consistent (Z centered at 0, Y
-    pivot sits slightly above the bottom - bottom extends to Y = -0.52).\n- Collision/placement
-    volume: use the bounding box above for quick collisions/snapping; geometry slopes
-    slightly, so raycast placement onto a sloped roof may need a small vertical offset
-    to avoid gaps.\n- Textures/tiling: piece is a discrete segment \u2014 expect
-    visible seams unless overlapping or matching adjacent UVs; consider slight overlap
-    or matching normals when tiling.\n- Summary: origin at inner end, extends negative
-    X ~4.36 units, centered on Z, thin in Y \u2014 align X edges and Z center to
-    chain multiple pieces."
+  AiMetadata: A long, narrow thatched roof edge piece made of segmented straw bundles
+    with a slightly curved, tapered profile and visible seams. It lies flat (thin
+    in Y), centered on Z, and is oriented along the negative X axis, extending left
+    from the origin.

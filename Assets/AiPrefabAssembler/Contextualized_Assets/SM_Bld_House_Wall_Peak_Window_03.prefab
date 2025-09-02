@@ -203,20 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Short description\n- Triangular/peaked house gable wall with a centered
-    arched window. Thin plate-like mesh (gable peak at top, flat base at bottom).\n\nBounding
-    / transform facts (useful for placement)\n- Bounds: X = -2.50 .. 0.00 (width
-    = 2.50), Y = 0.00 .. 3.75 (height = 3.75), Z = -0.12 .. 0.12 (depth/thickness
-    = 0.24).\n- Pivot/origin is at the right-bottom edge (world pos (0,0,0) = rightmost
-    base edge).\n- Front (triangular face) lies near X = 0 and faces outward from
-    the pivot side. Back face is slightly different textured.\n- Window is centered
-    inside the triangular face (roughly centered in X and up the Y axis).\n\nPlacement
-    tips\n- To tile horizontally, step by 2.5 units in X per piece. Example: pieces
-    at X = 0, X = \xB12.5, X = \xB15.0 will abut flush.\n- To center the geometry
-    around a different origin, offset by the midpoint: geometry center is at X =
-    -1.25, Y = 1.875, Z = 0. To move the mesh so its geometric center is at world
-    (0,0,0) add +1.25 in X and -1.875 in Y as needed.\n- Base sits at Y = 0 (no extra
-    vertical offset required to sit on the ground).\n- Depth is small (0.24); when
-    layering or sandwiching walls, use \xB10.12 Z offsets to avoid z-fighting.\n-
-    Note front/back texture difference \u2014 choose orientation accordingly.\n\n(Background
-    color fuchsia in renders is just a mask.)"
+  AiMetadata: A thin, tall triangular gable wall segment with a pointed peak and
+    a centered arched window featuring mullions and a small sill. It is oriented
+    upright (peak at top, base at bottom) as a shallow panel with very little depth.

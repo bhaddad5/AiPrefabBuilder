@@ -203,20 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- Small square roof module with a dormer/window
-    on one face and a tiled pitched roof. Top shows roof tiles and rafters; bottom
-    is an open cavity. Small support/peg stubs appear along the lower edges for snapping/visual
-    continuity.\n\nBounds & pivot (important for placement)\n- Local bounds: min
-    (-2.56, -2.68, -2.50), max (0.18, 0.08, 0.00).\n- Size (extents): (2.74, 2.76,
-    2.50).\n- Bounding-box center: (-1.19, -1.30, -1.25) relative to the object origin
-    (0,0,0).\n- The mesh is offset into negative X, Y, Z relative to the origin;
-    the origin lies near the top/front/right corner (the max corner).\n\nPractical
-    placement notes\n- When tiling/matching with other prefabs, align using the extents
-    or center offset. To center this piece at a world grid position, add (1.19, 1.30,
-    1.25) to the world position to account for the local offset.\n- The dormer/window
-    face defines the \u201Coutward\u201D direction \u2014 keep its rotation consistent
-    so all dormers face the same way on the roof.\n- Use Z (vertical) extent 2.50
-    for stacking/clearance under the module; top clearance above origin is only 0.08.\n-
-    There are visible lower pegs/supports \u2014 use those as visual snap points
-    or align bottoms of adjacent pieces to the same Y/Z baseline for a clean seam.\n-
-    Background magenta (1,0,1) is not part of the mesh."
+  AiMetadata: "A small square roof module with brown tiled shingles and a central
+    peaked dormer containing a dark-framed window, mounted on a timber-clad frame.
+    It\u2019s oriented with the roof sloping diagonally and the dormer/window projecting
+    outward from one side, with an open underside showing the interior."

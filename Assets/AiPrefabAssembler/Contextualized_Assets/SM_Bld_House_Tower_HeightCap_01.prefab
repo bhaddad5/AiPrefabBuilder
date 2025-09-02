@@ -188,22 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4dc76bdb84e4b47a3d3452a741cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiMetadata: "Brief visual description\n- A short, thin semi-circular tower cap
-    / crenellated arch segment. Outer curve has several small rectangular vertical
-    blocks (battlements/merlons). Surfaces are dark (rendered on magenta background).\n\nBounds
-    and size (model-space)\n- Min: (-2.67, 0.00, 0.00)  Max: (0.15, 0.56, 1.59)\n-
-    Total size: X = 2.82, Y = 0.56, Z = 1.59\n- Lowest point is at Y = 0 (sits on
-    floor if placed at origin).\n\nPlacement notes for composing with other prefabs\n-
-    The inner/flat face of the segment is at Z = 0 (so the concave/arch opens toward
-    +Z). Use Z = 0 as the inner wall alignment when forming a ring or lining an interior.\n-
-    Origin is inside the bounding box (not centered): geometry spans negative X to
-    small positive X, so when tiling along X or rotating around a center point, account
-    for the -2.67 offset from the origin.\n- Low profile (0.56 units tall): minimal
-    vertical clearance needed.\n- Battlements/protrusions extend above the arc and
-    outward on the outer curve \u2014 leave clearance when placing adjacent pieces
-    or any overlapping meshes.\n- For circular assemblies: rotate copies around Y
-    and translate their origins so their Z=0 inner faces form the desired inner radius;
-    exact radius must be measured/adjusted in-editor since the model origin is not
-    at the arc\u2019s geometric center.\n- If snapping to grid, use the bounding
-    extents (2.82 \xD7 1.59 footprint) to calculate translation steps or to check
-    overlaps."
+  AiMetadata: "SM_Bld_House_Tower_HeightCap_01 is a dark, semi-circular tower cap
+    segment \u2014 a thin, curved arch/ring piece with several evenly spaced rectangular
+    battlement-like tabs along its outer edge. It lies flat on the horizontal plane
+    (Y up), arching across the negative X toward positive Z direction with a low
+    vertical thickness."
