@@ -6,11 +6,22 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
-public class ToolsImplementation : IToolsImplementation
+public static class ToolsImplementation
 {
 	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";
 
-	public string GetPartMetadata(string part)
+	public static string GetPrefabsMetadata(List<string> req)
+	{
+		string res = "";
+		foreach (var part in req)
+		{
+			res += GetPartMetadata(part);
+		}
+
+		return res;
+	}
+
+	private static string GetPartMetadata(string part)
 	{
 		string prefabPath = $"{folder}/{part}.prefab";
 		var comp = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath)?.GetComponent<AiMetadataFlag>();
@@ -24,7 +35,7 @@ public class ToolsImplementation : IToolsImplementation
 		return $"[{prefabPath}, metadata:{comp.AiMetadata}, boundsMin:{bounds.min}, boundsMax:{bounds.max}],";
 	}
 
-	public (string Info, Dictionary<string, BinaryData> Renders) AnalyzeInstructions(string instructions)
+	public static (string Info, Dictionary<string, BinaryData> Renders) AnalyzeInstructions(string instructions)
 	{
 		if (!Directory.Exists($"{folder}/Tmp"))
 			Directory.CreateDirectory($"{folder}/Tmp");
@@ -48,7 +59,7 @@ public class ToolsImplementation : IToolsImplementation
 		return (boundsStr, res.Renders);
 	}
 
-	public string BuildSubPrefab(string instructions)
+	public static string BuildPrefabSubAssembly(string instructions)
 	{
 		String assetName = Guid.NewGuid().ToString();
 
@@ -66,7 +77,7 @@ public class ToolsImplementation : IToolsImplementation
 		return "Complete";
 	}
 
-	public string InformUserOfCurrentReasoning(string thinking)
+	public static string InformUserOfCurrentReasoning(string thinking)
 	{
 		Debug.Log($"[{DateTime.Now}]Thinking: {thinking}");
 

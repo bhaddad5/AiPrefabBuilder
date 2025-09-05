@@ -37,7 +37,7 @@ public static class BuildPrefabRequester
 		Debug.Log(prefabsPrompt);
 		Debug.Log(prompt);
 
-		string res = await AiRequestBackend.OpenAIChatSdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAIChatSdk.ModelLevel.mini);
+		string res = await AiRequestBackend.OpenAISdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAISdk.ModelLevel.mini);
 
 		Debug.Log(res);
 
