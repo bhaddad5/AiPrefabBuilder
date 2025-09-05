@@ -51,7 +51,7 @@ public static class BuildPrefabRequester
 		string prefabsStr = "";
 		var assets = GetAssetPathsInFolder(folder);
 		foreach (var asset in assets)
-			prefabsStr += $"{Path.GetFileNameWithoutExtension(asset)}, ";
+			prefabsStr += $"{folder}/{Path.GetFileName(asset)}, ";
 		if (prefabsStr.EndsWith(", "))
 			prefabsStr = prefabsStr.Substring(0, prefabsStr.Length - 2);
 
