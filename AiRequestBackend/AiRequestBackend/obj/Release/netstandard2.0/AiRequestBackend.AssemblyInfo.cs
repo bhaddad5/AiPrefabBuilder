@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiRequestBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41aa7ef0efea8585ae6be95ca8094b7d6cf4d2bc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61bddc1e889188a33858efa796e8d741d2f19dd1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiRequestBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiRequestBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

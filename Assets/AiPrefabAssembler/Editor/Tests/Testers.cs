@@ -8,7 +8,7 @@ public static class Testers
 	[MenuItem("AI Prefab Assembly/Test AI Calls", false, 1000)]
 	public static async void TestAiCalls()
 	{
-		var res = await AiRequestBackend.OpenAIChatSdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), "What day is it?");
+		var res = await AiRequestBackend.OpenAIChatSdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), new List<string>() { "You are a snarky asshole." }, "What day is it?");
 		Debug.Log(res);
 		Debug.Log("Done!");
 	}
@@ -113,6 +113,16 @@ public static class Testers
 		}
 
 		GameObject.DestroyImmediate(inst);
+
+		Debug.Log("Done!");
+	}
+
+	[MenuItem("AI Prefab Assembly/Test Scene Description Builder", false, 1000)]
+	public static void TestSceneDescriptionBuilder()
+	{
+		string descr = SceneDescriptionBuilder.BuildSceneDescription();
+
+		Debug.Log(descr);
 
 		Debug.Log("Done!");
 	}

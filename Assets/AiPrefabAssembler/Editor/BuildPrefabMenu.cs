@@ -29,7 +29,7 @@ public class BuildPrefabMenu : EditorWindow
 		if (GUILayout.Button("Build!"))
 		{
 			window.Close();
-			BuildPrefabRequester.RequestBuildPrefab(prompt);
+			BuildPrefabRequester.RequestAiAction(prompt);
 		}
 	}
 }

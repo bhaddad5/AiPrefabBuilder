@@ -18,19 +18,16 @@ namespace AiRequestBackend
 			standard,
 		}
 
-		/// <summary>
-		/// Uses the official OpenAI .NET SDK to get a reply.
-		/// </summary>
-		public static async Task<string> AskAsync(string apiKey, string prompt, ModelLevel level = ModelLevel.mini)
+		public static async Task<string> AskAsync(string apiKey, List<string> systemPrompts, string userPrompt, ModelLevel level = ModelLevel.mini)
 		{
 			var client = BuildClient(apiKey);
 
-			var completion = await client.CompleteChatAsync(
-				new List<ChatMessage>()
-				{
-				//new SystemChatMessage("You are a helpful assistant."),
-				new UserChatMessage(prompt),
-				});
+			List<ChatMessage> prompts = new List<ChatMessage>();
+			foreach (var systemPrompt in systemPrompts)
+				prompts.Add(new SystemChatMessage(systemPrompt));
+			prompts.Add(new UserChatMessage(userPrompt));
+
+			var completion = await client.CompleteChatAsync(prompts);
 
 			return completion.Value.Content[0].Text;
 		}
@@ -100,7 +97,7 @@ namespace AiRequestBackend
 			*/
 			var options = new ChatCompletionOptions
 			{
-				Tools = { getPartsMetadata, analyzeInstructions, informUserOfCurrentReasoning, /*buildSubPrefab*/ }
+				Tools = { getPartsMetadata, informUserOfCurrentReasoning, /*buildSubPrefab, analyzeInstructions*/ }
 			};
 
 			bool loop;
