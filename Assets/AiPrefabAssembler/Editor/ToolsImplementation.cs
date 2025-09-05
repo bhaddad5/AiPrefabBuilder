@@ -21,7 +21,7 @@ public class ToolsImplementation : IToolsImplementation
 
 		var bounds = MetadataRequester.GetBoundsRecursive(comp.gameObject);
 
-		return $"[{part}, metadata:{comp.AiMetadata}, boundsMin:{bounds.min}, boundsMax:{bounds.max}],";
+		return $"[{prefabPath}, metadata:{comp.AiMetadata}, boundsMin:{bounds.min}, boundsMax:{bounds.max}],";
 	}
 
 	public (string Info, Dictionary<string, BinaryData> Renders) AnalyzeInstructions(string instructions)

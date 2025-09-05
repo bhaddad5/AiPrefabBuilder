@@ -13,7 +13,7 @@ public static class Testers
 		Debug.Log("Done!");
 	}
 
-	[MenuItem("AI Prefab Assembly/Test Parsing", false, 1000)]
+	/*[MenuItem("AI Prefab Assembly/Test Parsing", false, 1000)]
 	public static void TestParsing()
 	{
 		string testStr = "[name:SM_Bld_House_Base_Corner_01, pos:(-2.52;0.00;-2.52), euler:(0;0;0)]\r\n[name:SM_Bld_House_Base_Corner_01, pos:(2.52;0.00;-2.52), euler:(0;90;0)]\r\n[name:SM_Bld_House_Base_Corner_01, pos:(2.52;0.00;2.52), euler:(0;180;0)]\r\n[name:SM_Bld_House_Base_Corner_01, pos:(-2.52;0.00;2.52), euler:(0;270;0)]\r\n[name:SM_Bld_House_Wall_01, pos:(-1.26;0.00;-2.52), euler:(0;0;0)]\r\n[name:SM_Bld_House_Wall_Door_01, pos:(1.26;0.00;-2.52), euler:(0;0;0)]\r\n[name:SM_Bld_House_Wall_01, pos:(-1.26;0.00;2.52), euler:(0;180;0)]\r\n[name:SM_Bld_House_Wall_01, pos:(1.26;0.00;2.52), euler:(0;180;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(-2.52;0.00;-1.26), euler:(0;90;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(-2.52;0.00;1.26), euler:(0;90;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(2.52;0.00;-1.26), euler:(0;270;0)]\r\n[name:SM_Bld_House_Wall_02, pos:(2.52;0.00;1.26), euler:(0;270;0)]\r\n[name:SM_Bld_House_Floor_Wood_01, pos:(0.00;0.00;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Roof_Thatch_Angled_01, pos:(0.00;2.60;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Roof_Thatch_Angled_01, pos:(0.00;2.60;0.00), euler:(0;180;0)]\r\n[name:SM_Bld_House_Roof_Thatch_Peak_Cap_01, pos:(0.00;2.90;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Chimney_Base_01, pos:(0.80;2.50;0.60), euler:(0;0;0)]\r\n[name:SM_Bld_House_Chimney_01, pos:(0.80;3.20;0.60), euler:(0;0;0)]\r\n[name:SM_Bld_House_Fireplace_01, pos:(-1.40;0.00;1.00), euler:(0;90;0)]\r\n[name:SM_Bld_House_WoodBeam_01, pos:(0.00;0.00;0.00), euler:(0;0;0)]\r\n[name:SM_Bld_House_Supports_01, pos:(2.20;-0.02;2.20), euler:(0;90;0)]";
@@ -21,7 +21,7 @@ public static class Testers
 		FinalResultPrefabBuilder.BuildPrefabFromInstructions(testStr);
 
 		Debug.Log("Done!");
-	}
+	}*/
 
 	[MenuItem("AI Prefab Assembly/Test Generate Object Metadata", false, 1000)]
 	public static async void TestGenerateObjectMetadata()
@@ -123,6 +123,15 @@ public static class Testers
 		string descr = SceneDescriptionBuilder.BuildSceneDescription();
 
 		Debug.Log(descr);
+
+		Debug.Log("Done!");
+	}
+
+	[MenuItem("AI Prefab Assembly/Test Command Parsing", false, 1000)]
+	public static void TestParsing()
+	{
+		string testStr = "DeleteObject[-43080]\r\nCreateObject[20043080,SM_Bld_House_Roof_Thatch_Cover_01,SM_Bld_House_Roof_Thatch_Cover_01,localPos:(2.5;4.25;0),localEuler:(0;89.968;0),localScale:(1;1;1),46648]\r\nDeleteObject[-50482]\r\nCreateObject[20050482,SM_Bld_House_Roof_Thatch_Cover_Edge_01,SM_Bld_House_Roof_Thatch_Cover_Edge_01,localPos:(-0.25;4.25;0),localEuler:(0;90;0),localScale:(1;1;1),46648]\r\nDeleteObject[-58454]\r\nCreateObject[20058454,SM_Bld_House_Roof_Thatch_Cover_01,SM_Bld_House_Roof_Thatch_Cover_01,localPos:(5;4.25;0),localEuler:(0;89.968;0),localScale:(1;1;1),46648]\r\nDeleteObject[-63776]\r\nCreateObject[20063776,SM_Bld_House_Roof_Thatch_Cover_Edge_01,SM_Bld_House_Roof_Thatch_Cover_Edge_01,localPos:(7.5;4.25;0),localEuler:(0;90;0),localScale:(1;1;1),46648]\r\nDeleteObject[-100116]\r\nCreateObject[200100116,SM_Bld_House_Roof_Thatch_Cover_01,SM_Bld_House_Roof_Thatch_Cover_01,localPos:(7.5;4.25;0),localEuler:(0;89.968;0),localScale:(1;1;1),46648]";
+		AiCommandParser.TryExecuteCommands(testStr);
 
 		Debug.Log("Done!");
 	}

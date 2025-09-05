@@ -67,9 +67,7 @@ public static class SceneDescriptionBuilder
 			selectedString = "Selected,";
 		}
 
-		// Build the required line format
-		// [assetUniqueGuid,assetName,pos:(x;y;z),euler:(x;y;z),scale(x,y,z),children([assetName...])]
-		var line = $"[{selectedString}{guid},{name},pos:({F(p.x)};{F(p.y)};{F(p.z)}),euler:({F(r.x)};{F(r.y)};{F(r.z)}),scale({F(s.x)},{F(s.y)},{F(s.z)}),children({childGuids})]";
+		var line = $"[{selectedString}{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),children({childGuids})]";
 		return line;
 	}
 

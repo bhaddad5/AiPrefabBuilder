@@ -76,9 +76,9 @@ namespace AiRequestBackend
 			};
 
 			ChatTool getPartsMetadata = ChatTool.CreateFunctionTool(
-				functionName: nameof(Tools.GetPartsMetadata),
-				functionDescription: "Retrieves additional metadata and context for specific parts",
-				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"parts\": {\"type\": \"array\",\"description\": \"The list of parts needing metadata\", \"items\": { \"type\": \"string\" }, \"minItems\": 1}},\"required\": [ \"parts\" ]}"));
+				functionName: nameof(Tools.GetPrefabsMetadata),
+				functionDescription: "Retrieves additional metadata and context for specific prefabs",
+				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"prefabs\": {\"type\": \"array\",\"description\": \"The list of parts needing metadata\", \"items\": { \"type\": \"string\" }, \"minItems\": 1}},\"required\": [ \"prefabs\" ]}"));
 
 			ChatTool analyzeInstructions = ChatTool.CreateFunctionTool(
 				functionName: nameof(Tools.AnalyzeInstructions),
@@ -121,14 +121,14 @@ namespace AiRequestBackend
 					{
 						switch (call.FunctionName)
 						{
-							case nameof(Tools.GetPartsMetadata):
+							case nameof(Tools.GetPrefabsMetadata):
 								{
 									var args = JsonDocument.Parse(call.FunctionArguments);
 
 									progressCallback($"GetPartsMetadata Resq: {args.RootElement.GetProperty("parts").ToString()}");
 
 									var partsArray = args.RootElement.GetProperty("parts").EnumerateArray().Select(e => e.GetString()).ToList();
-									string responseToAi = Tools.GetPartsMetadata(impl, partsArray);
+									string responseToAi = Tools.GetPrefabsMetadata(impl, partsArray);
 
 									progressCallback($"GetPartsMetadata Resp: {responseToAi}");
 

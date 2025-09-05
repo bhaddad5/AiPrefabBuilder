@@ -1,3 +1,4 @@
+using OpenAI.Chat;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,33 +19,43 @@ public static class BuildPrefabRequester
 		string generalUnityPrompt = "You are helping a developer perform actions in Unity.  Unity is a Y-up coordinate system where a Distance of 1 = 1 meter.";
 
 		string sceneDescriptionPrompt = "The current Unity scene is described as such: " +
-			"[assetUniqueId,assetName,pos:(x;y;z),euler:(x;y;z),scale(x,y,z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
-			"The selected asset will have the keyword \"Selected\" in its description." + 
+			"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
+			"The selected object will have the keyword \"Selected\" in its description." + 
 			"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
 
 		string aiActionsPrompt = "In response to the user's prompt, respond with a list of Actions. They are: " +
-			"CreateAsset[assetUniqueId,assetName,pos:(x;y;z),euler:(x;y;z),scale(x,y,z),children([assetName...])]. " +
-			"SetAssetParent[assetUniqueId,parentAssetUniqueId]. " +
-			"SetAssetTransform[assetUniqueId,pos:(x;y;z),euler:(x;y;z),scale(x,y,z)]. ";
+			$"{nameof(AiCommandImpl.CreateObject)}[objectCreationUniqueId,prefabPath,newObjectName,localPos:(x;y;z),localEuler:(x;y;z),localScale:(x;y;z),parentUniqueId]. If making a new GameObject with no prefab leave prefabPath blank, if you want it under the root leave parentUniqueId blank,  but leave the commas in both cases." +
+			$"{nameof(AiCommandImpl.DeleteObject)}[objectUniqueId]. " +
+			$"{nameof(AiCommandImpl.SetObjectParent)}[objectUniqueId,parentObjectUniqueId]. " +
+			$"{nameof(AiCommandImpl.SetObjectTransform)}[objectUniqueId,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z)]. ";
 
-		string assetsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using GetPartsMetadata): " + BuildAssetsListString();
+		string prefabsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using GetPartsMetadata): " + BuildPrefabsListString();
 
-		string res = await AiRequestBackend.OpenAIChatSdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, assetsPrompt }, prompt, AiRequestBackend.OpenAIChatSdk.ModelLevel.mini);
+		Debug.Log(generalUnityPrompt);
+		Debug.Log(sceneDescriptionPrompt);
+		Debug.Log(aiActionsPrompt);
+		Debug.Log(prefabsPrompt);
+		Debug.Log(prompt);
+
+		string res = await AiRequestBackend.OpenAIChatSdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAIChatSdk.ModelLevel.mini);
 
 		Debug.Log(res);
+
+		AiCommandParser.TryExecuteCommands(res);
+
 		Debug.Log("Done!");
 	}
 
-	private static string BuildAssetsListString()
+	private static string BuildPrefabsListString()
 	{
-		string assetsStr = "";
+		string prefabsStr = "";
 		var assets = GetAssetPathsInFolder(folder);
 		foreach (var asset in assets)
-			assetsStr += $"{Path.GetFileNameWithoutExtension(asset)}, ";
-		if (assetsStr.EndsWith(", "))
-			assetsStr = assetsStr.Substring(0, assetsStr.Length - 2);
+			prefabsStr += $"{Path.GetFileNameWithoutExtension(asset)}, ";
+		if (prefabsStr.EndsWith(", "))
+			prefabsStr = prefabsStr.Substring(0, prefabsStr.Length - 2);
 
-		return assetsStr;
+		return prefabsStr;
 	}
 
 	private static string[] GetAssetPathsInFolder(string folderPath, string filter = "")

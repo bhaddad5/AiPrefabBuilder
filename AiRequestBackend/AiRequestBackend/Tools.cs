@@ -6,7 +6,7 @@ namespace AiRequestBackend
 {
     public static class Tools
     {
-        public static string GetPartsMetadata(IToolsImplementation impl, List<string> req)
+        public static string GetPrefabsMetadata(IToolsImplementation impl, List<string> req)
         {
             string res = "";
             foreach(var part in req)
