@@ -1,8 +1,3 @@
-using NUnit.Framework;
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,7 +9,6 @@ public class AIRequestMenu : EditorWindow
 
 	static void Init()
 	{
-
 		window = (AIRequestMenu)EditorWindow.GetWindow(typeof(AIRequestMenu));
 		window.Show();
 	}

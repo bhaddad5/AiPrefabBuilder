@@ -26,7 +26,7 @@ public static class MetadataRequester
 			$"The min bounds is {info.Bounds.min}, the max bounds is {info.Bounds.max}.  The object is positioned at (0,0,0). " +
 			$"Following this are images rendering it. The background color is fucia(1,0,1).";
 
-		var res = await AiRequestBackend.OpenAISdk.AskImagesAsync(EditorPrefs.GetString("OPENAI_API_KEY"), prompt, info.Renders);
+		var res = await AiRequestBackend.OpenAISdk.AskImagesAsync(prompt, info.Renders);
 
 		return res;
 	}

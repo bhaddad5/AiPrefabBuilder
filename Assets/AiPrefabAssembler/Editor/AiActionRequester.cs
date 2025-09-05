@@ -1,14 +1,8 @@
-using OpenAI.Chat;
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public static class AiActionRequester
 {
@@ -37,7 +31,7 @@ public static class AiActionRequester
 		Debug.Log(prefabsPrompt);
 		Debug.Log(prompt);
 
-		string res = await AiRequestBackend.OpenAISdk.AskAsync(EditorPrefs.GetString("OPENAI_API_KEY"), new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAISdk.ModelLevel.mini);
+		string res = await AiRequestBackend.OpenAISdk.AskAsync(new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAISdk.Model.mini);
 
 		Debug.Log(res);
 

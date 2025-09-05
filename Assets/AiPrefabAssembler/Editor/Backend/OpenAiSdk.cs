@@ -4,23 +4,44 @@ using System.Collections.Generic;
 using System;
 using System.Text.Json;
 using System.Linq;
+using UnityEditor;
+using UnityEngine;
+using log4net.Core;
 
 namespace AiRequestBackend
 {
 	public static class OpenAISdk
 	{
-		private static ChatClient BuildClient(string apiKey) { return new ChatClient(model: "gpt-5-mini", apiKey: apiKey); }
+		private static ChatClient BuildClient(Model level) 
+		{ 
+			if(String.IsNullOrWhiteSpace(EditorPrefs.GetString("OPENAI_API_KEY")))
+			{
+				Debug.LogError("No API Key Provided!");
+				return null;
+			}
 
-		public enum ModelLevel
+			string modelStr = "gpt-5";
+			if (level == Model.micro)
+				modelStr = "gpt-5-micro";
+			else if (level == Model.mini)
+				modelStr = "gpt-5-mini";
+
+				return new ChatClient(model: modelStr, apiKey: EditorPrefs.GetString("OPENAI_API_KEY"));
+		}
+
+		public enum Model
 		{
 			micro,
 			mini,
 			standard,
 		}
 
-		public static async Task<string> AskAsync(string apiKey, List<string> systemPrompts, string userPrompt, ModelLevel level = ModelLevel.mini)
+		public static async Task<string> AskAsync(List<string> systemPrompts, string userPrompt, Model model = Model.mini)
 		{
-			var client = BuildClient(apiKey);
+			var client = BuildClient(model);
+
+			if (client == null)
+				return null;
 
 			List<ChatMessage> prompts = new List<ChatMessage>();
 			foreach (var systemPrompt in systemPrompts)
@@ -32,9 +53,12 @@ namespace AiRequestBackend
 			return completion.Value.Content[0].Text;
 		}
 
-		public static async Task<string> AskImagesAsync(string apiKey, string prompt, Dictionary<string, BinaryData> imageData)
+		public static async Task<string> AskImagesAsync(string prompt, Dictionary<string, BinaryData> imageData, Model model = Model.mini)
 		{
-			var client = BuildClient(apiKey);
+			var client = BuildClient(model);
+
+			if (client == null)
+				return null;
 
 			List<ChatMessageContentPart> msgs = new List<ChatMessageContentPart>();
 			msgs.Add(ChatMessageContentPart.CreateTextPart(prompt));
@@ -58,14 +82,12 @@ namespace AiRequestBackend
 			return completion.Value.Content[0].Text;
 		}
 
-		public static void AskContinuous(string apiKey, string prompt, ModelLevel level, Action<string> progressCallback, Action<string> finalCallback)
+		public static async void AskContinuous(string apiKey, string prompt, Model model, Action<string> progressCallback, Action<string> finalCallback)
 		{
-			AskContinuousImpl(apiKey, prompt, progressCallback, finalCallback);
-		}
+			var client = BuildClient(model);
 
-		private static async void AskContinuousImpl(string apiKey, string prompt, Action<string> progressCallback, Action<string> finalCallback)
-		{
-			var client = BuildClient(apiKey);
+			if (client == null)
+				return;
 
 			progressCallback($"Prompt: {prompt}");
 
@@ -89,12 +111,7 @@ namespace AiRequestBackend
 				functionName: nameof(ToolsImplementation.InformUserOfCurrentReasoning),
 				functionDescription: "Inform the user in plaintext of your current reasoning.",
 				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"currentReasoning\": {\"type\": \"string\",\"description\": \"Plaintext for the user to understand your current thought process.\"}},\"required\": [ \"currentReasoning\" ]}"));
-			/*
-			ChatTool buildSubPrefab = ChatTool.CreateFunctionTool(
-				functionName: nameof(Tools.BuildPrefabSubAssembly),
-				functionDescription: "Build a prefab sub-assembly with instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part.",
-				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"instructions\": {\"type\": \"string\",\"description\": \"The prefab creation instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part.\"}},\"required\": [ \"instructions\" ]}"));
-			*/
+
 			var options = new ChatCompletionOptions
 			{
 				Tools = { getPartsMetadata, informUserOfCurrentReasoning, /*buildSubPrefab, analyzeInstructions*/ }
