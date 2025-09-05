@@ -1,9 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public static class CommandParsingHelpers
+public static class CommandHelpers
 {
+	public static string ExecuteAllCommands(string allCommands, List<ICommand> AvailableCommands)
+	{
+		List<string> commandNames = new List<string>();
+		foreach (var cmd in AvailableCommands)
+			commandNames.Add(cmd.CommandName);
+
+		List<string> parsedCommands = CommandHelpers.ParseAllCommands(allCommands, commandNames);
+
+		List<string> contextStrings = new List<string>();
+
+		foreach (var cmd in parsedCommands)
+		{
+			var splitCmd = CommandHelpers.SplitCommand(cmd);
+
+			if (splitCmd.Count == 0)
+				continue;
+
+			var commandToUse = AvailableCommands.FirstOrDefault(c => c.CommandName == splitCmd[0]);
+			if (commandToUse == null)
+			{
+				Debug.LogError($"Failed to find Command of type: {splitCmd[0]}");
+				continue;
+			}
+
+			splitCmd.RemoveAt(0);
+
+			if (splitCmd.Count != commandToUse.NumArgs)
+			{
+				Debug.LogError($"Incorrect number of arguments: {cmd}");
+			}
+			
+			string cmdRes = commandToUse.ParseArgsAndExecute(splitCmd);
+
+			if (!string.IsNullOrWhiteSpace(cmdRes))
+				contextStrings.Add(cmdRes);
+		}
+
+		string res = "";
+		foreach (var str in contextStrings)
+		{
+			res += str;
+		}
+
+		return res;
+	}
+
 	public static List<string> ParseAllCommands(string allCommands, List<string> validCommands)
 	{
 		List<string> res = new List<string>();

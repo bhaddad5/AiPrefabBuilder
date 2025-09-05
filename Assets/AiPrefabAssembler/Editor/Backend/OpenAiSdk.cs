@@ -82,7 +82,7 @@ namespace AiRequestBackend
 			return completion.Value.Content[0].Text;
 		}
 
-		public static async void AskContinuous(List<string> systemPrompts, string userPrompt, Model model, Action<string> finalCallback)
+		public static async void AskContinuous(List<string> systemPrompts, string userPrompt, Model model, List<ITool> tools, Action<string> finalCallback)
 		{
 			var client = BuildClient(model);
 
@@ -94,15 +94,18 @@ namespace AiRequestBackend
 				messages.Add(new SystemChatMessage(systemPrompt));
 			messages.Add(new UserChatMessage(userPrompt));
 
-			ChatTool getPartsMetadata = ChatTool.CreateFunctionTool(
-				functionName: nameof(ContextRequestParser.FunctionName),
-				functionDescription: ContextRequestParser.FunctionDescription,
-				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"request\": {\"type\": \"string\",\"description\": \"\"}},\"required\": [ \"request\" ]}"));
-
-			var options = new ChatCompletionOptions
+			//Build Tools Requests
+			var options = new ChatCompletionOptions();
+			foreach (var tool in tools)
 			{
-				Tools = { getPartsMetadata }
-			};
+				string descr = $"{tool.FunctionDescription}" + "Available Commands: ";
+				foreach (var command in tool.AvailableCommands)
+					descr += command.CommandFormattingString;
+
+				BinaryData paramsStr = BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"commands\": {\"type\": \"string\",\"description\": \"All of the Commands you wish to execute.\"}},\"required\": [ \"commands\" ]}");
+
+				options.Tools.Add(ChatTool.CreateFunctionTool(functionName: tool.FunctionName, functionDescription: descr, functionParameters: paramsStr));
+			}
 
 			bool loop = true;
 			while (loop)
@@ -123,21 +126,22 @@ namespace AiRequestBackend
 
 					foreach (var call in completion.ToolCalls)
 					{
-						switch (call.FunctionName)
+						Debug.Log($"Calling tool {call.FunctionName} - {JsonDocument.Parse(call.FunctionArguments).RootElement.GetProperty("commands")}");
+
+						var toolToUse = tools.FirstOrDefault(t => t.FunctionName == call.FunctionName);
+
+						if(toolToUse == null)
 						{
-							case nameof(ContextRequestParser.FunctionName):
-								{
-									var args = JsonDocument.Parse(call.FunctionArguments);
-
-									string responseToAi = ContextRequestParser.BuildContextString(args.RootElement.GetProperty("parts").ToString());
-
-									messages.Add(new ToolChatMessage(call.Id, responseToAi));
-									break;
-								}
-							default:
-								messages.Add(new ToolChatMessage(call.Id, "Tool not implemented."));
-								break;
+							Debug.LogError($"Tool {call.FunctionName} not implemented!");
+							messages.Add(new ToolChatMessage(call.Id, "Tool not implemented."));
+							continue;
 						}
+
+						var args = JsonDocument.Parse(call.FunctionArguments);
+
+						string responseToAi = toolToUse.Execute(args.RootElement.GetProperty("commands").ToString());
+
+						messages.Add(new ToolChatMessage(call.Id, responseToAi));
 					}
 
 					// We satisfied tool calls; loop to let the model use the tool results

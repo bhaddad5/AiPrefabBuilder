@@ -8,36 +8,34 @@ public static class AiActionRequester
 {
 	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";
 
-	public static async void RequestAiAction(string prompt)
-    {
-		string generalUnityPrompt = "You are helping a developer perform actions in Unity.  Unity is a Y-up coordinate system where a Distance of 1 = 1 meter.";
+	public static void RequestAiAction(string prompt)
+	{
+		string generalUnityPrompt = "You are helping a developer perform actions in Unity. " +
+			"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
+			"Always call ContextRequest to learn more about the objects/prefabs you are manipulating, unless you are very sure of their properties! (If the Object's data is provided in the scene description you don't need to re-request it.)" +
+			"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
+			"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
+			"If placing objects contextually to another object, always try to place it under the same parent! ";
+			
 
 		string sceneDescriptionPrompt = "The current Unity scene is described as such: " +
 			"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
 			"The selected object will have the keyword \"Selected\" in its description." + 
 			"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
 
-		string aiActionsPrompt = "In response to the user's prompt, respond with a list of Actions. They are: " +
-			$"{nameof(AiCommandImpl.CreateObject)}[objectCreationUniqueId,prefabPath,newObjectName,localPos:(x;y;z),localEuler:(x;y;z),localScale:(x;y;z),parentUniqueId]. If making a new GameObject with no prefab leave prefabPath blank, if you want it under the root leave parentUniqueId blank,  but leave the commas in both cases." +
-			$"{nameof(AiCommandImpl.DeleteObject)}[objectUniqueId]. " +
-			$"{nameof(AiCommandImpl.SetObjectParent)}[objectUniqueId,parentObjectUniqueId]. " +
-			$"{nameof(AiCommandImpl.SetObjectTransform)}[objectUniqueId,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z)]. ";
-
-		string prefabsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using GetPartsMetadata): " + BuildPrefabsListString();
+		string prefabsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using the provided Tools): " + BuildPrefabsListString();
 
 		Debug.Log(generalUnityPrompt);
 		Debug.Log(sceneDescriptionPrompt);
-		Debug.Log(aiActionsPrompt);
 		Debug.Log(prefabsPrompt);
 		Debug.Log(prompt);
 
-		string res = await AiRequestBackend.OpenAISdk.AskAsync(new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, aiActionsPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAISdk.Model.mini);
+		var tools = new List<ITool>() { new InteractWithSceneTool(), new ContextRequestTool() };
 
-		Debug.Log(res);
-
-		AiCommandParser.TryExecuteCommands(res);
-
-		Debug.Log("Done!");
+		AiRequestBackend.OpenAISdk.AskContinuous(new List<string>() { generalUnityPrompt, sceneDescriptionPrompt, prefabsPrompt }, prompt, AiRequestBackend.OpenAISdk.Model.mini, tools, res =>
+		{
+			Debug.Log(res);
+		});
 	}
 
 	private static string BuildPrefabsListString()
