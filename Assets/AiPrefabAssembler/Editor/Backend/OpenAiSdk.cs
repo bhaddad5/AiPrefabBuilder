@@ -82,43 +82,30 @@ namespace AiRequestBackend
 			return completion.Value.Content[0].Text;
 		}
 
-		public static async void AskContinuous(string apiKey, string prompt, Model model, Action<string> progressCallback, Action<string> finalCallback)
+		public static async void AskContinuous(List<string> systemPrompts, string userPrompt, Model model, Action<string> finalCallback)
 		{
 			var client = BuildClient(model);
 
 			if (client == null)
 				return;
 
-			progressCallback($"Prompt: {prompt}");
-
-			var messages = new List<ChatMessage>
-			{
-				new SystemChatMessage("You are helping build Prefabs in Unity."),
-				new UserChatMessage(prompt),
-			};
+			var messages = new List<ChatMessage>();
+			foreach (var systemPrompt in systemPrompts)
+				messages.Add(new SystemChatMessage(systemPrompt));
+			messages.Add(new UserChatMessage(userPrompt));
 
 			ChatTool getPartsMetadata = ChatTool.CreateFunctionTool(
-				functionName: nameof(ToolsImplementation.GetPrefabsMetadata),
-				functionDescription: "Retrieves additional metadata and context for specific prefabs",
-				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"prefabs\": {\"type\": \"array\",\"description\": \"The list of parts needing metadata\", \"items\": { \"type\": \"string\" }, \"minItems\": 1}},\"required\": [ \"prefabs\" ]}"));
-
-			ChatTool analyzeInstructions = ChatTool.CreateFunctionTool(
-				functionName: nameof(ToolsImplementation.AnalyzeInstructions),
-				functionDescription: "Try assembling parts together with instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part. This will return a series of renderings of the object which you can visually analyze to see if it looks like what you are trying to build.",
-				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"instructions\": {\"type\": \"string\",\"description\": \"The prefab creation instructions formatted as [assetName,pos:(x;y;z),euler:(x;y;z)] for each part.\"}},\"required\": [ \"instructions\" ]}"));
-
-			ChatTool informUserOfCurrentReasoning = ChatTool.CreateFunctionTool(
-				functionName: nameof(ToolsImplementation.InformUserOfCurrentReasoning),
-				functionDescription: "Inform the user in plaintext of your current reasoning.",
-				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"currentReasoning\": {\"type\": \"string\",\"description\": \"Plaintext for the user to understand your current thought process.\"}},\"required\": [ \"currentReasoning\" ]}"));
+				functionName: nameof(ContextRequestParser.FunctionName),
+				functionDescription: ContextRequestParser.FunctionDescription,
+				functionParameters: BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"request\": {\"type\": \"string\",\"description\": \"\"}},\"required\": [ \"request\" ]}"));
 
 			var options = new ChatCompletionOptions
 			{
-				Tools = { getPartsMetadata, informUserOfCurrentReasoning, /*buildSubPrefab, analyzeInstructions*/ }
+				Tools = { getPartsMetadata }
 			};
 
-			bool loop;
-			do
+			bool loop = true;
+			while (loop)
 			{
 				loop = false;
 				ChatCompletion completion = await client.CompleteChatAsync(messages, options);
@@ -138,59 +125,13 @@ namespace AiRequestBackend
 					{
 						switch (call.FunctionName)
 						{
-							case nameof(ToolsImplementation.GetPrefabsMetadata):
+							case nameof(ContextRequestParser.FunctionName):
 								{
 									var args = JsonDocument.Parse(call.FunctionArguments);
 
-									progressCallback($"GetPartsMetadata Resq: {args.RootElement.GetProperty("parts").ToString()}");
-
-									var partsArray = args.RootElement.GetProperty("parts").EnumerateArray().Select(e => e.GetString()).ToList();
-									string responseToAi = ToolsImplementation.GetPrefabsMetadata(partsArray);
-
-									progressCallback($"GetPartsMetadata Resp: {responseToAi}");
+									string responseToAi = ContextRequestParser.BuildContextString(args.RootElement.GetProperty("parts").ToString());
 
 									messages.Add(new ToolChatMessage(call.Id, responseToAi));
-									break;
-								}
-
-							case nameof(ToolsImplementation.BuildPrefabSubAssembly):
-								{
-									var args = JsonDocument.Parse(call.FunctionArguments);
-
-									progressCallback($"Prefab Build Resq: {args.RootElement.GetProperty("instructions").ToString()}");
-
-									var responseToAi = ToolsImplementation.BuildPrefabSubAssembly(args.RootElement.GetProperty("instructions").ToString());
-
-									progressCallback($"Prefab Build Resp: {responseToAi}");
-
-									List<ChatMessageContentPart> msgs = new List<ChatMessageContentPart>();
-									msgs.Add(ChatMessageContentPart.CreateTextPart(responseToAi));
-
-									messages.Add(new ToolChatMessage(call.Id, msgs));
-									break;
-								}
-							case nameof(ToolsImplementation.AnalyzeInstructions):
-								{
-									var args = JsonDocument.Parse(call.FunctionArguments);
-
-									progressCallback($"AnalyzeInstructions Resq: {args.RootElement.GetProperty("instructions").ToString()}");
-
-									var responseToAi = ToolsImplementation.AnalyzeInstructions(args.RootElement.GetProperty("instructions").ToString());
-
-									progressCallback($"AnalyzeInstructions Resp: {responseToAi.Info}");
-
-									List<ChatMessageContentPart> msgs = new List<ChatMessageContentPart>();
-									msgs.Add(ChatMessageContentPart.CreateTextPart(responseToAi.Info));
-									foreach (var id in responseToAi.Renders)
-									{
-										msgs.Add(ChatMessageContentPart.CreateTextPart(id.Key));
-										msgs.Add(ChatMessageContentPart.CreateImagePart(
-											id.Value, // Base64-encoded bytes
-											"image/jpg" // MIME type
-										));
-									}
-
-									messages.Add(new ToolChatMessage(call.Id, msgs));
 									break;
 								}
 							default:
@@ -203,7 +144,6 @@ namespace AiRequestBackend
 					loop = true;
 				}
 			}
-			while (loop);
 		}
 	}
 }

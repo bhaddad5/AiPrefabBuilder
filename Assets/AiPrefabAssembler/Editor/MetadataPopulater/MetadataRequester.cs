@@ -18,12 +18,18 @@ public static class MetadataRequester
 
 		var info = BuildMetadataInfo(prefab);
 
+		if(info.Bounds == null)
+		{
+			Debug.LogError("No renderers on selected object; no metadata can be built.");
+			return "";
+		}
+
 		string prompt = $"Describe what this prefab is & looks like in 2 sentences. " + 
 			$"Keep your answer brief, as it will be fed raw into AI. " +
 			$"Note it's orientation. " +
 			$"The prefab is named {prefab.name}. " +
 			$"The bounds are being provided for context, but do not include them in your answer as they will be sent alongside it regardless." +
-			$"The min bounds is {info.Bounds.min}, the max bounds is {info.Bounds.max}.  The object is positioned at (0,0,0). " +
+			$"The min bounds is {info.Bounds.Value.min}, the max bounds is {info.Bounds.Value.max}.  The object is positioned at (0,0,0). " +
 			$"Following this are images rendering it. The background color is fucia(1,0,1).";
 
 		var res = await AiRequestBackend.OpenAISdk.AskImagesAsync(prompt, info.Renders);
@@ -31,7 +37,7 @@ public static class MetadataRequester
 		return res;
 	}
 
-	public static (Bounds Bounds, Dictionary<string, BinaryData> Renders) BuildMetadataInfo(GameObject prefab)
+	public static (Bounds? Bounds, Dictionary<string, BinaryData> Renders) BuildMetadataInfo(GameObject prefab)
 	{
 		var ob = GameObject.Instantiate(prefab);
 
@@ -122,9 +128,12 @@ public static class MetadataRequester
 		return dst;
 	}
 
-	public static Bounds GetBoundsRecursive(GameObject root)
+	public static Bounds? GetBoundsRecursive(GameObject root)
 	{
 		var renderers = root.GetComponentsInChildren<Renderer>();
+
+		if (renderers.Length == 0)
+			return null;
 
 		Bounds b = renderers[0].bounds;
 		for (int i = 1; i < renderers.Length; i++) b.Encapsulate(renderers[i].bounds);
