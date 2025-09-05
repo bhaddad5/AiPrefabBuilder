@@ -12,6 +12,10 @@ public static class SessionHelpers
 {
 	public static GameObject LookUpObjectById(string id)
 	{
+		//Sometimes the AI like to include the parameter name
+		if (id.Contains(':'))
+			id = id.Substring(id.IndexOf(':') + 1);
+
 		if (SessionContext.CreatedAssetsLookup.ContainsKey(id))
 			return SessionContext.CreatedAssetsLookup[id];
 

@@ -12,7 +12,7 @@ public static class AiActionRequester
 	{
 		string generalUnityPrompt = "You are helping a developer perform actions in Unity. " +
 			"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
-			"Always call ContextRequest to learn more about the objects/prefabs you are manipulating, unless you are very sure of their properties! (If the Object's data is provided in the scene description you don't need to re-request it.)" +
+			"Always call ContextRequest to understand the objects and prefabs you are using! " +
 			"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
 			"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
 			"If placing objects contextually to another object, always try to place it under the same parent! ";
@@ -20,7 +20,7 @@ public static class AiActionRequester
 
 		string sceneDescriptionPrompt = "The current Unity scene is described as such: " +
 			"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
-			"The selected object will have the keyword \"Selected\" in its description." + 
+			"The selected object will have the keyword \"Selected\" in its description. " +
 			"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
 
 		string prefabsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using the provided Tools): " + BuildPrefabsListString();
