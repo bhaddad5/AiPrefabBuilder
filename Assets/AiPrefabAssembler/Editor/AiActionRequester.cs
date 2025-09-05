@@ -10,7 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class BuildPrefabRequester
+public static class AiActionRequester
 {
 	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";
 

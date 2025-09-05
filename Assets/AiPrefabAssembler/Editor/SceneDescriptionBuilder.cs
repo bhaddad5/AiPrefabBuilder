@@ -30,7 +30,7 @@ public static class SceneDescriptionBuilder
 
 	private static void AppendNodeRecursive(Transform t, StringBuilder sb, int indent)
 	{
-		sb.AppendLine(FormatNodeLine(t));
+		sb.AppendLine(BuildGameObjectDescription(t));
 
 		// Children in deterministic order
 		for (int i = 0; i < t.childCount; i++)
@@ -39,7 +39,7 @@ public static class SceneDescriptionBuilder
 		}
 	}
 
-	private static string FormatNodeLine(Transform t)
+	public static string BuildGameObjectDescription(Transform t)
 	{
 		string guid = t.gameObject.GetInstanceID().ToString();
 
