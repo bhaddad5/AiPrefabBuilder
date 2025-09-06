@@ -6,6 +6,8 @@ public class ContextRequestTool : ITool
 {
 	public string FunctionName => "ContextRequest";
 
+	public string ActionProgressDescription => "Fetching Object/Prefab Information";
+
 	public string FunctionDescription { 
 		get {
 			return "You may request Context on prefabs and objects. " +

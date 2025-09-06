@@ -6,6 +6,8 @@ public class InteractWithSceneTool : ITool
 {
 	public string FunctionName => "InteractWithScene";
 
+	public string ActionProgressDescription => "Making Changes to Scene";
+
 	public string FunctionDescription
 	{
 		get

@@ -24,8 +24,10 @@ namespace AiRequestBackend
 		}
 
 		public bool IsProcessingMsg;
+		public string CurrentThinkingStatus;
 
 		public event Action<ChatHistoryEntry> ChatMsgAdded;
+		public event Action<bool> IsProcessingMsgChanged;
 
 		private ChatClient client;
 
@@ -64,7 +66,7 @@ namespace AiRequestBackend
 				return;
 			}
 
-			Debug.Log($"Sending Msg: {msg}");
+			//Debug.Log($"Sending Msg: {msg}");
 
 			currentConversation.Add(new UserChatMessage(msg));
 
@@ -77,6 +79,9 @@ namespace AiRequestBackend
 		public async void ProcessCurrentConversation(List<string> transientContextMsgs)
 		{
 			IsProcessingMsg = true;
+			IsProcessingMsgChanged?.Invoke(IsProcessingMsg);
+
+			CurrentThinkingStatus = "Thinking...";
 
 			List<ChatMessage> tmpConversation = new List<ChatMessage>(currentConversation);
 
@@ -93,11 +98,12 @@ namespace AiRequestBackend
 
 				if (completion.FinishReason == ChatFinishReason.Stop)
 				{
-					Debug.Log($"Recieved Msg Response: {completion.Content[0].Text}");
+					//Debug.Log($"Recieved Msg Response: {completion.Content[0].Text}");
 
 					// Normal assistant message
 					currentConversation.Add(new AssistantChatMessage(completion));
 					IsProcessingMsg = false;
+					IsProcessingMsgChanged?.Invoke(IsProcessingMsg);
 
 					ChatMsgAdded?.Invoke(new ChatHistoryEntry(false, completion.Content[0].Text));
 				}
@@ -108,7 +114,7 @@ namespace AiRequestBackend
 
 					foreach (var call in completion.ToolCalls)
 					{
-						Debug.Log($"Calling tool {call.FunctionName} - {JsonDocument.Parse(call.FunctionArguments).RootElement.GetProperty("commands")}");
+						//Debug.Log($"Calling tool {call.FunctionName} - {JsonDocument.Parse(call.FunctionArguments).RootElement.GetProperty("commands")}");
 
 						var toolToUse = tools.FirstOrDefault(t => t.FunctionName == call.FunctionName);
 
@@ -118,6 +124,8 @@ namespace AiRequestBackend
 							tmpConversation.Add(new ToolChatMessage(call.Id, "Tool not implemented."));
 							continue;
 						}
+
+						CurrentThinkingStatus = $"{toolToUse.ActionProgressDescription}...";
 
 						var args = JsonDocument.Parse(call.FunctionArguments);
 

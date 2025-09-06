@@ -7,6 +7,7 @@ public interface ITool
 {
 	public string FunctionName { get; }
 	public string FunctionDescription { get; }
+	public string ActionProgressDescription { get; }
 	public List<ICommand> AvailableCommands { get; }
 
 	public string Execute(string req);

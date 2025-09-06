@@ -12,17 +12,17 @@ public class AIRequestMenu : EditorWindow
 
 	// Scroll position for chat history
 	private Vector2 chatScroll;
-
 	private bool scrollToBottom;
 
 	private OpenAIConversation Conversation;
 
 	const string generalUnityPrompt = "You are helping a developer perform actions in Unity. " +
-			"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
-			"Always call ContextRequest to understand the objects and prefabs you are using! " +
-			"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
-			"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
-			"If placing objects contextually to another object, always try to place it under the same parent! ";
+		"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
+		"Keep your final response brief and to-the-point, and use object/prefab Names and plain english, not ID numbers. " +
+		"Always call ContextRequest to understand the objects and prefabs you are using! " +
+		"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
+		"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
+		"If placing objects contextually to another object, always try to place it under the same parent! ";
 
 	[MenuItem("AI Prefab Assembly/Request AI Action", false, 200)]
 	static void Init()
@@ -32,21 +32,45 @@ public class AIRequestMenu : EditorWindow
 		window.minSize = new Vector2(420, 260);
 		window.Show();
 
-		window.Conversation = new OpenAIConversation(new List<string>() { generalUnityPrompt }, OpenAISdk.Model.GPT5mini, new List<ITool>() { new InteractWithSceneTool(), new ContextRequestTool() });
+		window.Conversation = new OpenAIConversation(
+			new List<string>() { generalUnityPrompt },
+			OpenAISdk.Model.GPT5mini,
+			new List<ITool>() { new InteractWithSceneTool(), new ContextRequestTool() });
 
 		window.Conversation.ChatMsgAdded += window.AddChat;
+		window.Conversation.IsProcessingMsgChanged += p => window.TriggerRepaint();
 	}
 
 	void OnEnable()
 	{
 		// Open with history scrolled to bottom
 		scrollToBottom = true;
+
+		// Keep spinner animating while thinking
+		EditorApplication.update -= RepaintWhileThinking;
+		EditorApplication.update += RepaintWhileThinking;
+	}
+
+	void OnDisable()
+	{
+		EditorApplication.update -= RepaintWhileThinking;
+	}
+
+	private void RepaintWhileThinking()
+	{
+		if (Conversation != null && Conversation.IsProcessingMsg)
+			Repaint();
 	}
 
 	public void AddChat(OpenAIConversation.ChatHistoryEntry e)
 	{
 		CurrentChatHistory.Add(e);
 		scrollToBottom = true; // auto-jump when new messages arrive
+		Repaint();
+	}
+
+	public void TriggerRepaint()
+	{
 		Repaint();
 	}
 
@@ -97,18 +121,9 @@ public class AIRequestMenu : EditorWindow
 
 				GUILayout.FlexibleSpace();
 
-				// Nudge to left or right by swapping where we place the FlexibleSpace
-				// If FromUser -> bubble should lean right; otherwise lean left
-				// Achieve this by adding an extra FlexibleSpace on the opposite side
-				if (entry.IsFromUser)
-				{
-					// already leaning right due to first FlexibleSpace; do nothing
-				}
-				else
-				{
-					// push bubble to the left
+				// Push AI bubbles left, user bubbles right
+				if (!entry.IsFromUser)
 					GUILayout.FlexibleSpace();
-				}
 
 				GUILayout.EndHorizontal();
 			}
@@ -118,42 +133,70 @@ public class AIRequestMenu : EditorWindow
 		// After layout has completed, jump to bottom once
 		if (scrollToBottom && Event.current.type == EventType.Repaint)
 		{
-			chatScroll.y = float.MaxValue; // or Mathf.Infinity
+			chatScroll.y = float.MaxValue;
 			scrollToBottom = false;
-			Repaint(); // ensures the new position is applied
+			Repaint();
 		}
 
 		GUILayout.Space(6);
 
-		// --- Prompt & button pinned at bottom ---
-		EditorGUILayout.LabelField("Prompt", EditorStyles.boldLabel);
-
-		var textStyle = new GUIStyle(EditorStyles.textArea) { wordWrap = true };
-		prompt = EditorGUILayout.TextArea(
-			prompt ?? string.Empty,
-			textStyle,
-			GUILayout.MinHeight(100),
-			GUILayout.ExpandWidth(true)
-		);
-
-		GUILayout.Space(6);
-
-		if (GUILayout.Button("Go!", GUILayout.Height(30)))
+		// --- Bottom area: either spinner OR input+button ---
+		if (Conversation != null && Conversation.IsProcessingMsg)
 		{
-			string sceneDescriptionPrompt = "The current Unity scene is described as such: " +
-			"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
-			"The selected object will have the keyword \"Selected\" in its description. " +
-			"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
+			DrawSpinnerRow();
+		}
+		else
+		{
+			EditorGUILayout.LabelField("Prompt", EditorStyles.boldLabel);
 
-			string prefabsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using the provided Tools): " + BuildPrefabsListString();
+			var textStyle = new GUIStyle(EditorStyles.textArea) { wordWrap = true };
+			prompt = EditorGUILayout.TextArea(
+				prompt ?? string.Empty,
+				textStyle,
+				GUILayout.MinHeight(100),
+				GUILayout.ExpandWidth(true)
+			);
 
-			Conversation.SendMsg(prompt, new List<string>() { sceneDescriptionPrompt, prefabsPrompt });
-			prompt = "";
+			GUILayout.Space(6);
 
-			scrollToBottom = true;
+			if (GUILayout.Button("Go!", GUILayout.Height(30)))
+			{
+				string sceneDescriptionPrompt =
+					"The current Unity scene is described as such: " +
+					"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
+					"The selected object will have the keyword \"Selected\" in its description. " +
+					"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
+
+				string prefabsPrompt =
+					"These are the prefabs you have available (you can request additional info/context/bounds using the provided Tools): " +
+					BuildPrefabsListString();
+
+				Conversation.SendMsg(prompt, new List<string>() { sceneDescriptionPrompt, prefabsPrompt });
+				prompt = "";
+				scrollToBottom = true;
+			}
 		}
 
 		GUILayout.EndVertical();
+	}
+
+	// Spinner UI (animated using EditorApplication.timeSinceStartup)
+	private void DrawSpinnerRow()
+	{
+		// Built-in spinner frames: "WaitSpin00".."WaitSpin11"
+		int frame = (int)(EditorApplication.timeSinceStartup * 10f) % 12;
+		string frameName = frame < 10 ? $"WaitSpin0{frame}" : $"WaitSpin{frame}";
+		var icon = EditorGUIUtility.IconContent(frameName);
+
+		var dim = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleLeft };
+		using (new EditorGUILayout.HorizontalScope(EditorStyles.helpBox))
+		{
+			GUILayout.Space(4);
+			GUILayout.Label(icon, GUILayout.Width(18), GUILayout.Height(18));
+			GUILayout.Space(6);
+			GUILayout.Label(Conversation.CurrentThinkingStatus, dim, GUILayout.Height(20));
+			GUILayout.FlexibleSpace();
+		}
 	}
 
 	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";
