@@ -67,7 +67,11 @@ public static class SceneDescriptionBuilder
 			selectedString = "Selected,";
 		}
 
-		var line = $"[{selectedString}{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),children({childGuids})]";
+		var bounds = MetadataRequester.GetCombinedLocalBounds(t);
+		var mi = bounds.min;
+		var ma = bounds.max;
+
+		var line = $"[{selectedString}{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),localExtentsMin({F(mi.x)};{F(mi.y)};{F(mi.z)}),localExtentsMax({F(ma.x)};{F(ma.y)};{F(ma.z)}),children({childGuids})]";
 		return line;
 	}
 

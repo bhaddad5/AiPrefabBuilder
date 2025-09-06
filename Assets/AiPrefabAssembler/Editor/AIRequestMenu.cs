@@ -161,6 +161,9 @@ public class AIRequestMenu : EditorWindow
 
 			if (GUILayout.Button("Go!", GUILayout.Height(30)))
 			{
+				if (string.IsNullOrWhiteSpace(prompt))
+					return;
+
 				string sceneDescriptionPrompt =
 					"The current Unity scene is described as such: " +
 					"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +

@@ -13,6 +13,24 @@ public static class Testers
 		Debug.Log("Done!");
 	}
 
+	[MenuItem("AI Prefab Assembly/Test GameObject Description Builder", false, 1000)]
+	public static void TestGameObjectDescriptionBuilder()
+	{
+		var direct = Selection.GetFiltered<GameObject>(SelectionMode.TopLevel | SelectionMode.Editable | SelectionMode.ExcludePrefab);
+
+		if(direct.Length == 0)
+		{
+			Debug.LogError("No GameObject selected!");
+			return;
+		}
+
+		string descr = SceneDescriptionBuilder.BuildGameObjectDescription(direct[0].transform);
+
+		Debug.Log(descr);
+
+		Debug.Log("Done!");
+	}
+
 	[MenuItem("AI Prefab Assembly/Test Scene Description Builder", false, 1000)]
 	public static void TestSceneDescriptionBuilder()
 	{

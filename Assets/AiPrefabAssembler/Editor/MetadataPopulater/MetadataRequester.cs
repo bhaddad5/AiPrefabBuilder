@@ -50,7 +50,7 @@ public static class MetadataRequester
 			converted[t.Key] = Texture2DToJPGBinaryData(t.Value);
 		}
 
-		var bounds = GetBoundsRecursive(ob);
+		var bounds = GetCombinedLocalBounds(ob.transform);
 
 		GameObject.DestroyImmediate(ob);
 
@@ -128,16 +128,52 @@ public static class MetadataRequester
 		return dst;
 	}
 
-	public static Bounds? GetBoundsRecursive(GameObject root)
+	/// <summary>
+	/// Returns a combined Bounds in 'root's local space (pivot-relative),
+	/// covering all Renderers under 'root'.
+	/// </summary>
+	public static Bounds GetCombinedLocalBounds(Transform root, bool includeInactive = false)
 	{
-		var renderers = root.GetComponentsInChildren<Renderer>();
+		var renderers = root.GetComponentsInChildren<Renderer>(includeInactive);
+		bool hasAny = false;
+		Bounds localBounds = new Bounds(Vector3.zero, Vector3.zero);
 
-		if (renderers.Length == 0)
-			return null;
+		foreach (var r in renderers)
+		{
+			// World-space AABB for this renderer
+			Bounds wb = r.bounds;
 
-		Bounds b = renderers[0].bounds;
-		for (int i = 1; i < renderers.Length; i++) b.Encapsulate(renderers[i].bounds);
+			// Get its 8 corners and bring them into root local space
+			Vector3[] corners = GetWorldAABBCorners(wb);
+			for (int i = 0; i < corners.Length; i++)
+				corners[i] = root.InverseTransformPoint(corners[i]);
 
-		return b;
+			// Encapsulate into a local-space bounds
+			if (!hasAny)
+			{
+				localBounds = new Bounds(corners[0], Vector3.zero);
+				hasAny = true;
+			}
+			for (int i = 0; i < corners.Length; i++)
+				localBounds.Encapsulate(corners[i]);
+		}
+
+		return localBounds; // localBounds.center and .extents are relative to root's pivot
+	}
+
+	private static Vector3[] GetWorldAABBCorners(Bounds b)
+	{
+		var c = b.center; var e = b.extents;
+		return new Vector3[]
+		{
+			new Vector3(c.x - e.x, c.y - e.y, c.z - e.z),
+			new Vector3(c.x + e.x, c.y - e.y, c.z - e.z),
+			new Vector3(c.x - e.x, c.y + e.y, c.z - e.z),
+			new Vector3(c.x + e.x, c.y + e.y, c.z - e.z),
+			new Vector3(c.x - e.x, c.y - e.y, c.z + e.z),
+			new Vector3(c.x + e.x, c.y - e.y, c.z + e.z),
+			new Vector3(c.x - e.x, c.y + e.y, c.z + e.z),
+			new Vector3(c.x + e.x, c.y + e.y, c.z + e.z),
+		};
 	}
 }

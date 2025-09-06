@@ -28,7 +28,7 @@ public class GetPrefabContextCommand : ICommand
 			return "";
 		}
 
-		var bounds = MetadataRequester.GetBoundsRecursive(obj) ?? new Bounds();
+		var bounds = MetadataRequester.GetCombinedLocalBounds(obj.transform);
 
 		var comp = obj.GetComponent<AiMetadataFlag>();
 		if (comp == null)

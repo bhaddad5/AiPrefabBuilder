@@ -66,7 +66,7 @@ namespace AiRequestBackend
 				return;
 			}
 
-			//Debug.Log($"Sending Msg: {msg}");
+			Debug.Log($"Sending Msg: {msg}");
 
 			currentConversation.Add(new UserChatMessage(msg));
 
@@ -98,7 +98,7 @@ namespace AiRequestBackend
 
 				if (completion.FinishReason == ChatFinishReason.Stop)
 				{
-					//Debug.Log($"Recieved Msg Response: {completion.Content[0].Text}");
+					Debug.Log($"Recieved Msg Response: {completion.Content[0].Text}");
 
 					// Normal assistant message
 					currentConversation.Add(new AssistantChatMessage(completion));
@@ -114,7 +114,7 @@ namespace AiRequestBackend
 
 					foreach (var call in completion.ToolCalls)
 					{
-						//Debug.Log($"Calling tool {call.FunctionName} - {JsonDocument.Parse(call.FunctionArguments).RootElement.GetProperty("commands")}");
+						Debug.Log($"Calling tool {call.FunctionName} - {JsonDocument.Parse(call.FunctionArguments).RootElement.GetProperty("commands")}");
 
 						var toolToUse = tools.FirstOrDefault(t => t.FunctionName == call.FunctionName);
 
