@@ -1,27 +1,179 @@
+using AiRequestBackend;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 public class AIRequestMenu : EditorWindow
 {
-	private static AIRequestMenu window;
+	private string prompt = "";
+	public List<OpenAIConversation.ChatHistoryEntry> CurrentChatHistory = new List<OpenAIConversation.ChatHistoryEntry>();
+
+	// Scroll position for chat history
+	private Vector2 chatScroll;
+
+	private bool scrollToBottom;
+
+	private OpenAIConversation Conversation;
+
+	const string generalUnityPrompt = "You are helping a developer perform actions in Unity. " +
+			"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
+			"Always call ContextRequest to understand the objects and prefabs you are using! " +
+			"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
+			"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
+			"If placing objects contextually to another object, always try to place it under the same parent! ";
 
 	[MenuItem("AI Prefab Assembly/Request AI Action", false, 200)]
-
 	static void Init()
 	{
-		window = (AIRequestMenu)EditorWindow.GetWindow(typeof(AIRequestMenu));
+		var window = GetWindow<AIRequestMenu>();
+		window.titleContent = new GUIContent("AI Request");
+		window.minSize = new Vector2(420, 260);
 		window.Show();
+
+		window.Conversation = new OpenAIConversation(new List<string>() { generalUnityPrompt }, OpenAISdk.Model.GPT5mini, new List<ITool>() { new InteractWithSceneTool(), new ContextRequestTool() });
+
+		window.Conversation.ChatMsgAdded += window.AddChat;
 	}
 
-	private string prompt;
+	void OnEnable()
+	{
+		// Open with history scrolled to bottom
+		scrollToBottom = true;
+	}
+
+	public void AddChat(OpenAIConversation.ChatHistoryEntry e)
+	{
+		CurrentChatHistory.Add(e);
+		scrollToBottom = true; // auto-jump when new messages arrive
+		Repaint();
+	}
 
 	void OnGUI()
 	{
-		prompt = EditorGUILayout.TextField("Prompt:", prompt);
-
-		if (GUILayout.Button("Go!"))
+		// Styles for chat bubbles
+		var leftStyle = new GUIStyle(EditorStyles.wordWrappedLabel)
 		{
-			AiActionRequester.RequestAiAction(prompt);
+			alignment = TextAnchor.UpperLeft,
+			richText = true,
+			padding = new RectOffset(8, 8, 6, 6),
+		};
+
+		var rightStyle = new GUIStyle(EditorStyles.wordWrappedLabel)
+		{
+			alignment = TextAnchor.UpperRight,
+			richText = true,
+			padding = new RectOffset(8, 8, 6, 6),
+		};
+
+		// A subtle container style for each message (optional)
+		var bubble = new GUIStyle(EditorStyles.helpBox)
+		{
+			padding = new RectOffset(10, 10, 8, 8),
+			margin = new RectOffset(6, 6, 4, 4)
+		};
+
+		GUILayout.BeginVertical();
+
+		// --- Chat history (fills remaining space) ---
+		EditorGUILayout.LabelField("Chat History", EditorStyles.boldLabel);
+
+		chatScroll = EditorGUILayout.BeginScrollView(chatScroll, GUILayout.ExpandHeight(true));
+		{
+			float viewWidth = EditorGUIUtility.currentViewWidth - 40f; // account for margins/scrollbar
+
+			foreach (var entry in CurrentChatHistory)
+			{
+				GUILayout.BeginHorizontal();
+				GUILayout.FlexibleSpace(); // allows nice right/left sizing
+
+				// Constrain bubble width a bit so long lines wrap nicely (roughly 70% of view width)
+				float targetWidth = Mathf.Clamp(viewWidth * 0.9f, 240f, 800f);
+
+				GUILayout.BeginVertical(bubble, GUILayout.MaxWidth(targetWidth), GUILayout.ExpandWidth(false));
+				GUILayout.Label(entry.Text ?? string.Empty, entry.IsFromUser ? rightStyle : leftStyle, GUILayout.ExpandWidth(true));
+				GUILayout.EndVertical();
+
+				GUILayout.FlexibleSpace();
+
+				// Nudge to left or right by swapping where we place the FlexibleSpace
+				// If FromUser -> bubble should lean right; otherwise lean left
+				// Achieve this by adding an extra FlexibleSpace on the opposite side
+				if (entry.IsFromUser)
+				{
+					// already leaning right due to first FlexibleSpace; do nothing
+				}
+				else
+				{
+					// push bubble to the left
+					GUILayout.FlexibleSpace();
+				}
+
+				GUILayout.EndHorizontal();
+			}
 		}
+		EditorGUILayout.EndScrollView();
+
+		// After layout has completed, jump to bottom once
+		if (scrollToBottom && Event.current.type == EventType.Repaint)
+		{
+			chatScroll.y = float.MaxValue; // or Mathf.Infinity
+			scrollToBottom = false;
+			Repaint(); // ensures the new position is applied
+		}
+
+		GUILayout.Space(6);
+
+		// --- Prompt & button pinned at bottom ---
+		EditorGUILayout.LabelField("Prompt", EditorStyles.boldLabel);
+
+		var textStyle = new GUIStyle(EditorStyles.textArea) { wordWrap = true };
+		prompt = EditorGUILayout.TextArea(
+			prompt ?? string.Empty,
+			textStyle,
+			GUILayout.MinHeight(100),
+			GUILayout.ExpandWidth(true)
+		);
+
+		GUILayout.Space(6);
+
+		if (GUILayout.Button("Go!", GUILayout.Height(30)))
+		{
+			string sceneDescriptionPrompt = "The current Unity scene is described as such: " +
+			"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
+			"The selected object will have the keyword \"Selected\" in its description. " +
+			"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
+
+			string prefabsPrompt = "These are the prefabs you have available (you can request additional info/context/bounds using the provided Tools): " + BuildPrefabsListString();
+
+			Conversation.SendMsg(prompt, new List<string>() { sceneDescriptionPrompt, prefabsPrompt });
+			prompt = "";
+
+			scrollToBottom = true;
+		}
+
+		GUILayout.EndVertical();
+	}
+
+	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";
+
+	private static string BuildPrefabsListString()
+	{
+		string prefabsStr = "";
+		var assets = GetAssetPathsInFolder(folder);
+		foreach (var asset in assets)
+			prefabsStr += $"{folder}/{Path.GetFileName(asset)}, ";
+		if (prefabsStr.EndsWith(", "))
+			prefabsStr = prefabsStr.Substring(0, prefabsStr.Length - 2);
+
+		return prefabsStr;
+	}
+
+	private static string[] GetAssetPathsInFolder(string folderPath, string filter = "")
+	{
+		return AssetDatabase.FindAssets(filter, new[] { folderPath })
+			.Select(AssetDatabase.GUIDToAssetPath)
+			.ToArray();
 	}
 }
