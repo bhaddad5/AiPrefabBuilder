@@ -30,7 +30,7 @@ public static class SceneDescriptionBuilder
 
 		string parentId = "";
 		if (t.parent != null)
-			parentId = t.parent.GetInstanceID().ToString();
+			parentId = t.parent.gameObject.GetInstanceID().ToString();
 
 		// Local transforms (hierarchy-relative)
 		var p = t.localPosition;
