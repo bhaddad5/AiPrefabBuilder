@@ -19,8 +19,9 @@ public class AIRequestMenu : EditorWindow
 	const string generalUnityPrompt = "You are helping a developer perform actions in Unity. " +
 		"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
 		"Keep your final response brief and to-the-point, and use object/prefab Names and plain english, not ID numbers. " +
-		"Always call ContextRequest to understand the objects and prefabs you are using! " +
+		"Always request Context to understand the objects and prefabs you are using! " +
 		"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
+		"Always try to batch together as many tool calls as you can, to save time/cycles. " +
 		"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
 		"If placing objects contextually to another object, always try to place it under the same parent! ";
 
@@ -32,10 +33,20 @@ public class AIRequestMenu : EditorWindow
 		window.minSize = new Vector2(420, 260);
 		window.Show();
 
+		List<ICommand> commands = new List<ICommand>()
+		{
+			new GetPrefabContextCommand(),
+			new GetObjectContextCommand(),
+			new CreateObjectCommand(),
+			new DeleteObjectCommand(),
+			new SetObjectParentCommand(),
+			new SetObjectTransformCommand(),
+		};
+
 		window.Conversation = new OpenAIConversation(
 			new List<string>() { generalUnityPrompt },
 			OpenAISdk.Model.GPT5mini,
-			new List<ITool>() { new InteractWithSceneTool(), new ContextRequestTool() });
+			commands);
 
 		window.Conversation.ChatMsgAdded += window.AddChat;
 		window.Conversation.IsProcessingMsgChanged += p => window.TriggerRepaint();

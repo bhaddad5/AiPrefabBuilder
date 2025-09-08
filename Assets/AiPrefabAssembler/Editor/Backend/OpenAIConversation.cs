@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using UnityEditor;
 using UnityEngine;
 
@@ -35,9 +36,9 @@ namespace AiRequestBackend
 
 		private List<ChatMessage> currentConversation = new List<ChatMessage>();
 
-		private List<ITool> tools;
+		private List<ICommand> tools;
 
-		public OpenAIConversation(List<string> systemPrompts, OpenAISdk.Model model, List<ITool> tools)
+		public OpenAIConversation(List<string> systemPrompts, OpenAISdk.Model model, List<ICommand> tools)
         {
 			client = OpenAISdk.BuildClient(model);
 
@@ -48,17 +49,12 @@ namespace AiRequestBackend
 
 			foreach (var tool in tools)
 			{
-				string descr = $"{tool.FunctionDescription}" + "Available Commands: ";
-				foreach (var command in tool.AvailableCommands)
-					descr += command.CommandFormattingString;
-
-				BinaryData paramsStr = BinaryData.FromString("{\"type\": \"object\",\"properties\": {\"commands\": {\"type\": \"string\",\"description\": \"All of the Commands you wish to execute.\"}},\"required\": [ \"commands\" ]}");
-
-				options.Tools.Add(ChatTool.CreateFunctionTool(functionName: tool.FunctionName, functionDescription: descr, functionParameters: paramsStr));
+				string descr = $"{tool.CommandDescription}";
+				options.Tools.Add(ToChatTool(tool));
 			}
 		}
 
-        public void SendMsg(string msg, List<string> transientContextMsgs)
+		public void SendMsg(string msg, List<string> transientContextMsgs)
         {
 			if (IsProcessingMsg)
 			{
@@ -114,24 +110,19 @@ namespace AiRequestBackend
 
 					foreach (var call in completion.ToolCalls)
 					{
-						Debug.Log($"Calling tool {call.FunctionName} - {JsonDocument.Parse(call.FunctionArguments).RootElement.GetProperty("commands")}");
-
-						var toolToUse = tools.FirstOrDefault(t => t.FunctionName == call.FunctionName);
+						var toolToUse = tools.FirstOrDefault(t => t.CommandName == call.FunctionName);
 
 						if (toolToUse == null)
 						{
 							Debug.LogError($"Tool {call.FunctionName} not implemented!");
-							tmpConversation.Add(new ToolChatMessage(call.Id, "Tool not implemented."));
+							tmpConversation.Add(new ToolChatMessage(call.Id, $"Tool {call.FunctionName} not implemented."));
 							continue;
 						}
+						CurrentThinkingStatus = "TODO: FILL IN!";//$"{toolToUse.ActionProgressDescription}...";
 
-						CurrentThinkingStatus = $"{toolToUse.ActionProgressDescription}...";
-
-						var args = JsonDocument.Parse(call.FunctionArguments);
-
-						string responseToAi = toolToUse.Execute(args.RootElement.GetProperty("commands").ToString());
-
-						tmpConversation.Add(new ToolChatMessage(call.Id, responseToAi));
+						//TODO: how to respond to successful no-response calls
+						var toolMsg = HandleToolCall(toolToUse, call);
+						tmpConversation.Add(toolMsg);
 					}
 
 					// We satisfied tool calls; loop to let the model use the tool results
@@ -139,5 +130,114 @@ namespace AiRequestBackend
 				}
 			}
 		}
+
+		#region ICommand Adapters
+
+		public static ChatTool ToChatTool(ICommand command)
+		{
+			if (command == null) throw new ArgumentNullException(nameof(command));
+			if (string.IsNullOrWhiteSpace(command.CommandName))
+				throw new ArgumentException("CommandName is required.", nameof(command));
+
+			// --- Build JSON Schema for parameters ---
+			// {
+			//   "type": "object",
+			//   "properties": { "<name>": { "type": "string", "description": "..." }, ... },
+			//   "required": ["..."],
+			//   "additionalProperties": false
+			// }
+			var properties = new JsonObject();
+
+			if (command.Parameters != null)
+			{
+				foreach (var p in command.Parameters)
+				{
+					if (p == null || string.IsNullOrWhiteSpace(p.Name)) continue;
+
+					var paramSchema = new JsonObject
+					{
+						["type"] = "string"
+					};
+
+					if (!string.IsNullOrWhiteSpace(p.Description))
+						paramSchema["description"] = p.Description;
+
+					properties[p.Name] = paramSchema;
+				}
+			}
+
+			var schema = new JsonObject
+			{
+				["type"] = "object",
+				["properties"] = properties,
+				["additionalProperties"] = false
+			};
+
+			var requiredNames = command.Parameters?
+				.Where(p => p != null && p.Required && !string.IsNullOrWhiteSpace(p.Name))
+				.Select(p => p.Name)
+				.ToArray();
+
+			if (requiredNames != null && requiredNames.Length > 0)
+			{
+				var req = new JsonArray();
+				foreach (var name in requiredNames) req.Add(name);
+				schema["required"] = req;
+			}
+
+			// The SDK expects the JSON schema as BinaryData
+			var parametersJson = BinaryData.FromString(schema.ToJsonString());
+
+			return ChatTool.CreateFunctionTool(
+				functionName: command.CommandName,
+				functionDescription: string.IsNullOrWhiteSpace(command.CommandDescription) ? null : command.CommandDescription,
+				functionParameters: parametersJson
+			);
+		}
+
+
+		public static ToolChatMessage HandleToolCall(ICommand command, ChatToolCall call)
+		{
+			var args = ParseArgs(call.FunctionArguments);
+
+			string argsStr = "";
+			foreach(var arg in args)
+			{
+				argsStr += $"{arg.Key}:{arg.Value},";
+			}
+			if (argsStr.EndsWith(','))
+				argsStr = argsStr.Substring(0, argsStr.Length - 1);
+
+			Debug.Log($"Calling tool {call.FunctionName}({argsStr})");
+
+			string result = command.ParseArgsAndExecute(args);
+			return new ToolChatMessage(call.Id, result);
+		}
+
+		private static Dictionary<string, string> ParseArgs(BinaryData data)
+		{
+			if (data == null) return new();
+
+			string json = data.ToString();                // BinaryData -> UTF-8 string
+			if (string.IsNullOrWhiteSpace(json)) return new();
+
+			using var doc = JsonDocument.Parse(json);
+			if (doc.RootElement.ValueKind != JsonValueKind.Object) return new();
+
+			var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+			foreach (var prop in doc.RootElement.EnumerateObject())
+			{
+				dict[prop.Name?.ToLowerInvariant()] = prop.Value.ValueKind switch
+				{
+					JsonValueKind.String => prop.Value.GetString()?.ToLowerInvariant() ?? "",
+					JsonValueKind.Null => "",
+					// For numbers, bools, arrays, objects: keep raw JSON so ICommand gets *something*.
+					_ => prop.Value.GetRawText()
+				};
+			}
+			return dict;
+		}
+
+		#endregion
 	}
 }

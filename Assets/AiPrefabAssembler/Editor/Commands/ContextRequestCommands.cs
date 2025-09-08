@@ -8,13 +8,13 @@ public class GetPrefabContextCommand : ICommand
 {
 	public string CommandName => "GetPrefabContext";
 
-	public string CommandFormattingString => $"{CommandName}[prefabPath]";
+	public string CommandDescription => "Request Context for a specific prefab. Returns the name, bounds, and a short description if one exists.";
 
-	public int NumArgs => 1;
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath") };
 
-	public string ParseArgsAndExecute(List<string> args)
+	public string ParseArgsAndExecute(Dictionary<string, string> args)
 	{
-		string prefabPath = args[0];
+		string prefabPath = Parameters[0].GetParameter(args);
 
 		return GetPrefabContext(prefabPath);
 	}
@@ -44,13 +44,13 @@ public class GetObjectContextCommand : ICommand
 {
 	public string CommandName => "GetObjectContext";
 
-	public string CommandFormattingString => $"{CommandName}[objectUniqueId]";
+	public string CommandDescription => "Request Context for a specific Object. Returns the name, bounds, children, etc.";
 
-	public int NumArgs => 1;
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId") };
 
-	public string ParseArgsAndExecute(List<string> args)
+	public string ParseArgsAndExecute(Dictionary<string, string> args)
 	{
-		string objectUniqueId = args[0];
+		string objectUniqueId = Parameters[0].GetParameter(args);
 
 		return GetObjectContext(objectUniqueId);
 	}

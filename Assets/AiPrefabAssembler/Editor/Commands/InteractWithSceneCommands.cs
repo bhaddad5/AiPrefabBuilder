@@ -8,19 +8,26 @@ public class CreateObjectCommand : ICommand
 {
 	public string CommandName => "CreateObject";
 
-	public string CommandFormattingString => $"{CommandName}[objectCreationUniqueId,prefabPath,newObjectName,localPos:(x;y;z),localEuler:(x;y;z),localScale:(x;y;z),parentUniqueId]. *If making a new GameObject with no prefab leave prefabPath blank, if you want it under the root leave parentUniqueId blank,  but leave the commas in both cases.";
+	public string CommandDescription => "Creates a new Object.";
 
-	public int NumArgs => 7;
+	public List<Parameter> Parameters => new List<Parameter>() { 
+		new Parameter("objectCreationUniqueId"), 
+		new Parameter("prefabPath"), 
+		new Parameter("newObjectName"), 
+		new Parameter("localPos", "A Vector3 formatted as (x;y;z)"), 
+		new Parameter("localEuler", "A Vector3 formatted as (x;y;z)"),
+		new Parameter("localScale", "A Vector3 formatted as (x;y;z)"), 
+		new Parameter("parentUniqueId", "Don't include if you want to place the object under the scene root", false) };
 
-	public string ParseArgsAndExecute(List<string> args)
+	public string ParseArgsAndExecute(Dictionary<string, string> args)
 	{
-		string creationId = args[0];
-		string prefabPath = args[1];
-		string newObjectName = args[2];
-		Vector3 pos = CommandHelpers.ParseVec3(args[3]);
-		Vector3 rot = CommandHelpers.ParseVec3(args[4]);
-		Vector3 scl = CommandHelpers.ParseVec3(args[5]);
-		string parentId = args[6];
+		string creationId = Parameters[0].GetParameter(args);
+		string prefabPath = Parameters[1].GetParameter(args);
+		string newObjectName = Parameters[2].GetParameter(args);
+		Vector3 pos = Parameters[3].GetParameterAsVec3(args);
+		Vector3 rot = Parameters[4].GetParameterAsVec3(args);
+		Vector3 scl = Parameters[5].GetParameterAsVec3(args);
+		string parentId = Parameters[6].GetParameter(args);
 
 		CreateObject(creationId, prefabPath, newObjectName, pos, rot, scl, parentId);
 
@@ -55,13 +62,13 @@ public class DeleteObjectCommand : ICommand
 {
 	public string CommandName => "DeleteObject";
 
-	public string CommandFormattingString => $"{CommandName}[objectUniqueId]";
+	public string CommandDescription => "Delete an Object.";
 
-	public int NumArgs => 1;
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId") };
 
-	public string ParseArgsAndExecute(List<string> args)
+	public string ParseArgsAndExecute(Dictionary<string, string> args)
 	{
-		string objectUniqueId = args[0];
+		string objectUniqueId = Parameters[0].GetParameter(args);
 
 		DeleteObject(objectUniqueId);
 
@@ -80,14 +87,21 @@ public class SetObjectParentCommand : ICommand
 {
 	public string CommandName => "SetObjectParent";
 
+	public string CommandDescription => "Set an Object's Parent.";
+
+	public List<Parameter> Parameters => new List<Parameter>()	{ 
+		new Parameter("objectUniqueId"),
+		new Parameter("parentObjectUniqueId"),
+	};
+
 	public string CommandFormattingString => $"{CommandName}[objectUniqueId,parentObjectUniqueId]";
 
 	public int NumArgs => 2;
 
-	public string ParseArgsAndExecute(List<string> args)
+	public string ParseArgsAndExecute(Dictionary<string, string> args)
 	{
-		string objectUniqueId = args[0];
-		string parentObjectUniqueId = args[1];
+		string objectUniqueId = Parameters[0].GetParameter(args);
+		string parentObjectUniqueId = Parameters[1].GetParameter(args);
 
 		SetObjectParent(objectUniqueId, parentObjectUniqueId);
 
@@ -109,16 +123,20 @@ public class SetObjectTransformCommand : ICommand
 {
 	public string CommandName => "SetObjectTransform";
 
-	public string CommandFormattingString => $"{CommandName}[objectUniqueId,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z)]";
+	public string CommandDescription => "Set an Object's Transform.";
 
-	public int NumArgs => 4;
+	public List<Parameter> Parameters => new List<Parameter>() { 
+		new Parameter("objectUniqueId"),
+		new Parameter("localPos", "A Vector3 formatted as (x;y;z)"),
+		new Parameter("localEuler", "A Vector3 formatted as (x;y;z)"), 
+		new Parameter("localScale", "A Vector3 formatted as (x;y;z)") };
 
-	public string ParseArgsAndExecute(List<string> args)
+	public string ParseArgsAndExecute(Dictionary<string, string> args)
 	{
-		string objectUniqueId = args[0];
-		Vector3 pos = CommandHelpers.ParseVec3(args[1]);
-		Vector3 rot = CommandHelpers.ParseVec3(args[2]);
-		Vector3 scl = CommandHelpers.ParseVec3(args[3]);
+		string objectUniqueId = Parameters[0].GetParameter(args);
+		Vector3 pos = Parameters[1].GetParameterAsVec3(args);
+		Vector3 rot = Parameters[2].GetParameterAsVec3(args);
+		Vector3 scl = Parameters[3].GetParameterAsVec3(args);
 
 		SetObjectTransform(objectUniqueId, pos, rot, scl);
 
