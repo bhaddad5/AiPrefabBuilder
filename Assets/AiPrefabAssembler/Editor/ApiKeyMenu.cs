@@ -6,7 +6,7 @@ public class ApiKeyMenu : EditorWindow
 {
 	private static ApiKeyMenu window;
 
-	[MenuItem("AI Prefab Assembly/Set API Key", false, 0)]
+	[MenuItem("Forge of Realms/Set API Key", false, 0)]
 
 	static void Init()
 	{

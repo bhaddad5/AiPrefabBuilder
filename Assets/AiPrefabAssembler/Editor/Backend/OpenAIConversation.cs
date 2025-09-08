@@ -211,6 +211,9 @@ namespace AiRequestBackend
 			Debug.Log($"Calling tool {call.FunctionName}({argsStr})");
 
 			string result = command.ParseArgsAndExecute(args);
+
+			Debug.Log($"Tool Response: {result}");
+
 			return new ToolChatMessage(call.Id, result);
 		}
 

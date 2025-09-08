@@ -25,7 +25,7 @@ public class AIRequestMenu : EditorWindow
 		"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
 		"If placing objects contextually to another object, always try to place it under the same parent! ";
 
-	[MenuItem("AI Prefab Assembly/Request AI Action", false, 200)]
+	[MenuItem("Forge of Realms/AI Assistant", false, 200)]
 	static void Init()
 	{
 		var window = GetWindow<AIRequestMenu>();
@@ -36,7 +36,9 @@ public class AIRequestMenu : EditorWindow
 		List<ICommand> commands = new List<ICommand>()
 		{
 			new GetPrefabContextCommand(),
+			new SearchPrefabsContextCommand(),
 			new GetObjectContextCommand(),
+			new SearchObjectsContextCommand(),
 			new CreateObjectCommand(),
 			new DeleteObjectCommand(),
 			new SetObjectParentCommand(),
@@ -175,17 +177,10 @@ public class AIRequestMenu : EditorWindow
 				if (string.IsNullOrWhiteSpace(prompt))
 					return;
 
-				string sceneDescriptionPrompt =
-					"The current Unity scene is described as such: " +
-					"[objectUniqueId,objectName,localPos:(x;y;z),localEuler:(x;y;z),localScale(x;y;z),children(assetUniqueGuid,assetUniqueId,etc...)]. " +
-					"The selected object will have the keyword \"Selected\" in its description. " +
-					"Here is the current scene: " + SceneDescriptionBuilder.BuildSceneDescription();
+				string selectionPrompt =
+					"Here are the UniqueIds of the user's selected Objects: " + SceneDescriptionBuilder.BuildSelectionString();
 
-				string prefabsPrompt =
-					"These are the prefabs you have available (you can request additional info/context/bounds using the provided Tools): " +
-					BuildPrefabsListString();
-
-				Conversation.SendMsg(prompt, new List<string>() { sceneDescriptionPrompt, prefabsPrompt });
+				Conversation.SendMsg(prompt, new List<string>() { selectionPrompt });
 				prompt = "";
 				scrollToBottom = true;
 			}
@@ -211,26 +206,5 @@ public class AIRequestMenu : EditorWindow
 			GUILayout.Label(Conversation.CurrentThinkingStatus, dim, GUILayout.Height(20));
 			GUILayout.FlexibleSpace();
 		}
-	}
-
-	const string folder = "Assets/AiPrefabAssembler/Contextualized_Assets";
-
-	private static string BuildPrefabsListString()
-	{
-		string prefabsStr = "";
-		var assets = GetAssetPathsInFolder(folder);
-		foreach (var asset in assets)
-			prefabsStr += $"{folder}/{Path.GetFileName(asset)}, ";
-		if (prefabsStr.EndsWith(", "))
-			prefabsStr = prefabsStr.Substring(0, prefabsStr.Length - 2);
-
-		return prefabsStr;
-	}
-
-	private static string[] GetAssetPathsInFolder(string folderPath, string filter = "")
-	{
-		return AssetDatabase.FindAssets(filter, new[] { folderPath })
-			.Select(AssetDatabase.GUIDToAssetPath)
-			.ToArray();
 	}
 }

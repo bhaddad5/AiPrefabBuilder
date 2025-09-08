@@ -7,36 +7,19 @@ using UnityEngine.SceneManagement;
 
 public static class SceneDescriptionBuilder
 {
-	public static string BuildSceneDescription()
+	public static string BuildSelectionString()
 	{
-		var scene = SceneManager.GetActiveScene();
-		if (!scene.IsValid() || !scene.isLoaded)
+		var direct = Selection.GetFiltered<GameObject>(SelectionMode.TopLevel | SelectionMode.Editable | SelectionMode.ExcludePrefab);
+
+		string res = "";
+		foreach(var selection in direct)
 		{
-			Debug.LogError("No active scene loaded.");
-			return "";
+			res += $"{selection.GetInstanceID().ToString()},";
 		}
+		if (res.EndsWith(','))
+			res = res.Substring(0, res.Length - 1);
 
-		var sb = new StringBuilder();
-		var roots = scene.GetRootGameObjects();
-		System.Array.Sort(roots, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
-
-		foreach (var root in roots)
-			AppendNodeRecursive(root.transform, sb, 0);
-
-		EditorGUIUtility.systemCopyBuffer = sb.ToString();
-
-		return sb.ToString();
-	}
-
-	private static void AppendNodeRecursive(Transform t, StringBuilder sb, int indent)
-	{
-		sb.AppendLine(BuildGameObjectDescription(t));
-
-		// Children in deterministic order
-		for (int i = 0; i < t.childCount; i++)
-		{
-			AppendNodeRecursive(t.GetChild(i), sb, indent + 1);
-		}
+		return res;
 	}
 
 	public static string BuildGameObjectDescription(Transform t)
@@ -44,6 +27,10 @@ public static class SceneDescriptionBuilder
 		string guid = t.gameObject.GetInstanceID().ToString();
 
 		string name = t.gameObject.name;
+
+		string parentId = "";
+		if (t.parent != null)
+			parentId = t.parent.GetInstanceID().ToString();
 
 		// Local transforms (hierarchy-relative)
 		var p = t.localPosition;
@@ -71,7 +58,7 @@ public static class SceneDescriptionBuilder
 		var mi = bounds.min;
 		var ma = bounds.max;
 
-		var line = $"[{selectedString}{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),localExtentsMin({F(mi.x)};{F(mi.y)};{F(mi.z)}),localExtentsMax({F(ma.x)};{F(ma.y)};{F(ma.z)}),children({childGuids})]";
+		var line = $"[{selectedString}{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),localExtentsMin({F(mi.x)};{F(mi.y)};{F(mi.z)}),localExtentsMax({F(ma.x)};{F(ma.y)};{F(ma.z)}),childrenUniqueIds({childGuids}),parentUniqueId({parentId})]";
 		return line;
 	}
 

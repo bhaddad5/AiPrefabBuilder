@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class Testers
 {
-	[MenuItem("AI Prefab Assembly/Test AI Calls", false, 1000)]
+	[MenuItem("Forge of Realms - Tests/Test AI Calls", false, 1000)]
 	public static async void TestAiCalls()
 	{
 		var res = await AiRequestBackend.OpenAISdk.AskAsync(new List<string>() { "You are a snarky asshole." }, "What day is it?");
@@ -13,7 +13,7 @@ public static class Testers
 		Debug.Log("Done!");
 	}
 
-	[MenuItem("AI Prefab Assembly/Test GameObject Description Builder", false, 1000)]
+	[MenuItem("Forge of Realms - Tests/Test GameObject Description Builder", false, 1000)]
 	public static void TestGameObjectDescriptionBuilder()
 	{
 		var direct = Selection.GetFiltered<GameObject>(SelectionMode.TopLevel | SelectionMode.Editable | SelectionMode.ExcludePrefab);
@@ -25,16 +25,6 @@ public static class Testers
 		}
 
 		string descr = SceneDescriptionBuilder.BuildGameObjectDescription(direct[0].transform);
-
-		Debug.Log(descr);
-
-		Debug.Log("Done!");
-	}
-
-	[MenuItem("AI Prefab Assembly/Test Scene Description Builder", false, 1000)]
-	public static void TestSceneDescriptionBuilder()
-	{
-		string descr = SceneDescriptionBuilder.BuildSceneDescription();
 
 		Debug.Log(descr);
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class MetadataPopulaterTesters
 {
-	[MenuItem("AI Prefab Assembly/Test Generate Object Metadata", false, 1000)]
+	[MenuItem("Forge of Realms - Tests/Test Generate Object Metadata", false, 1000)]
 	public static async void TestGenerateObjectMetadata()
 	{
 		var obj = Helpers.GetSelectedPrefab();
@@ -21,7 +21,7 @@ public static class MetadataPopulaterTesters
 		Debug.Log("Done!");
 	}
 
-	[MenuItem("AI Prefab Assembly/Test Texture Rendering", false, 1000)]
+	[MenuItem("Forge of Realms - Tests/Test Texture Rendering", false, 1000)]
 	public static void TextTextureRendering()
 	{
 		var obj = Helpers.GetSelectedPrefab();

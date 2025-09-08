@@ -8,19 +8,19 @@ using UnityEngine.Profiling.Memory.Experimental;
 
 public static class PrePopulateMetadata
 {
-	[MenuItem("AI Prefab Assembly/Add Metadata To Selected Objects", false, 300)]
+	[MenuItem("Forge of Realms/Add Metadata To Selected Objects", false, 300)]
 	public static void AddMetadataToSelections()
 	{
 		SetMetadataOnSelections(false);
 	}
 
-	[MenuItem("AI Prefab Assembly/Override Metadata on Selected Objects", false, 300)]
+	[MenuItem("Forge of Realms/Override Metadata on Selected Objects", false, 300)]
 	public static void OverrideMetadataOnSelections()
 	{
 		SetMetadataOnSelections(true);
 	}
 
-	[MenuItem("AI Prefab Assembly/Clear All Metadata", false, 303)]
+	[MenuItem("Forge of Realms/Clear All Metadata", false, 303)]
 	public static void ClearAllMetadata()
 	{
 		var prefabs = Helpers.GetAllSelectedPrefabs();
