@@ -30,4 +30,15 @@ public static class Testers
 
 		Debug.Log("Done!");
 	}
+
+	[MenuItem("Forge of Realms - Tests/Test Fetch Models", false, 1000)]
+	public static void TestFetchModels()
+	{
+		var models = ModelFetcher.FetchAllAvailableModels();
+
+		foreach (var model in models)
+			Debug.Log(model.ToString());
+
+		Debug.Log("Done!");
+	}
 }

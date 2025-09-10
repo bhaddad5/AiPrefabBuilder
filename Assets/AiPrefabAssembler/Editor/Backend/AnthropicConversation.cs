@@ -1,13 +1,10 @@
 using Anthropic.SDK;
 using Anthropic.SDK.Common;
 using Anthropic.SDK.Messaging;
-using OpenAI.Chat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Text.Json.Nodes;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -25,9 +22,7 @@ namespace AiRequestBackend
 		List<SystemMessage> startingSystemMsgs = new List<SystemMessage>();
 		private List<Message> currentConversation = new List<Message>();
 		private List<ICommand> tools;
-		private string model;
-
-		const string tmpModelStr = "claude-sonnet-4-20250514";
+		private string modelId;
 
 		public static AnthropicClient BuildClient()
 		{
@@ -40,10 +35,10 @@ namespace AiRequestBackend
 			return new AnthropicClient(EditorPrefs.GetString("ANTHROPIC_API_KEY"));
 		}
 
-		public void InitConversation(IConversation.Model model, List<string> systemPrompts, List<ICommand> tools)
+		public void InitConversation(string modelId, List<string> systemPrompts, List<ICommand> tools)
 		{
 			client = BuildClient();
-			this.model = tmpModelStr;
+			this.modelId = modelId;
 			this.tools = tools;
 
 			foreach (var msg in systemPrompts)
@@ -91,7 +86,7 @@ namespace AiRequestBackend
 			// Create message parameters - this is the correct structure for current SDK
 			var messageParameters = new MessageParameters
 			{
-				Model = model,
+				Model = modelId,
 				MaxTokens = 4096,
 				System = systemMsgs,
 				Messages = new List<Message>(currentConversation), 

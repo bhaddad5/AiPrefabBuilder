@@ -23,9 +23,9 @@ namespace AiRequestBackend
 		private List<ChatMessage> currentConversation = new List<ChatMessage>();
 		private List<ICommand> tools;
 
-		public void InitConversation(IConversation.Model model, List<string> systemPrompts, List<ICommand> tools)
+		public void InitConversation(string modelId, List<string> systemPrompts, List<ICommand> tools)
 		{
-			client = OpenAISdk.BuildClient(model);
+			client = OpenAISdk.BuildClient(modelId);
 
 			this.tools = tools;
 

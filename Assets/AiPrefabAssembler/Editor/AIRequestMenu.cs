@@ -42,7 +42,15 @@ public class AIRequestMenu : EditorWindow
 			new SetObjectTransformCommand(),
 		};
 
-		window.Conversation = AiBackendHelpers.GetConversation(IConversation.Model.ClaudeSonnet4, new List<string>() { generalUnityPrompt }, commands);
+		var model = ModelFetcher.GetCurrentModel();
+
+		if(model == null)
+		{
+			Debug.LogError("No AI Model Selected!!!");
+			window.Close();
+		}	
+
+		window.Conversation = AiBackendHelpers.GetConversation(model, new List<string>() { generalUnityPrompt }, commands);
 
 		window.Conversation.ChatMsgAdded += window.AddChat;
 		window.Conversation.IsProcessingMsgChanged += p => window.TriggerRepaint();

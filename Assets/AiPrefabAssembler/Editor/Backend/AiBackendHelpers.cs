@@ -7,23 +7,26 @@ using static IConversation;
 
 public static class AiBackendHelpers
 {
-    public static IConversation GetConversation(Model model, List<string> systemPrompts, List<ICommand> tools)
+    public static IConversation GetConversation(AiModel model, List<string> systemPrompts, List<ICommand> tools)
     {
         IConversation res = null;
-        if (model == Model.GPT5standard || model == Model.GPT5mini || model == Model.GPT5Micro)
+        if (model.Provider == AiModel.ApiProvider.OpenAI)
         {
             res = new OpenAIConversation();
            
         }
-        else if(model == Model.ClaudeSonnet4)
+        else if(model.Provider == AiModel.ApiProvider.Anthropic)
         {
             res = new AnthropicConversation();
         }
 
         if (res == null)
+        {
             Debug.LogError($"Model {model} not yet implemented!");
-        else
-			res.InitConversation(model, systemPrompts, tools);
+            return null;
+        }
+
+        res.InitConversation(model.Id, systemPrompts, tools);
 
 		return res;
     }

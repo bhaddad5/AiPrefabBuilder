@@ -31,7 +31,7 @@ public interface IConversation
 	public event Action<ChatHistoryEntry> ChatMsgAdded;
 	public event Action<bool> IsProcessingMsgChanged;
 
-	public void InitConversation(Model model, List<string> systemPrompts, List<ICommand> tools);
+	public void InitConversation(string modelId, List<string> systemPrompts, List<ICommand> tools);
 
 	public void SendMsg(string msg, List<string> transientContextMsgs);
 }
