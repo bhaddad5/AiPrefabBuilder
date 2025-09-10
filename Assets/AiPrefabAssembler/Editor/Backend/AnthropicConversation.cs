@@ -335,7 +335,7 @@ namespace AiRequestBackend
 				Source = new ImageSource
 				{
 					Type = SourceType.base64,
-					MediaType = "image/jpg",
+					MediaType = "image/jpeg",
 					Data = base64String
 				}
 			};

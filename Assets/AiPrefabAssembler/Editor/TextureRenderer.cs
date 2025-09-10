@@ -56,15 +56,12 @@ public static class TextureRenderer
 		var originalCulling = cam.cullingMask;
 
 		// --- optionally isolate the target to a single layer ---
-		List<(Transform t, int oldLayer)> layerChanges = null;
 		if (isolateTarget)
 		{
-			layerChanges = new List<(Transform, int)>(64);
 			foreach (var t in target.GetComponentsInChildren<Transform>(true))
 			{
 				if (t.gameObject.layer != isolateLayer)
 				{
-					layerChanges.Add((t, t.gameObject.layer));
 					t.gameObject.layer = isolateLayer;
 				}
 			}
@@ -131,23 +128,6 @@ public static class TextureRenderer
 		}
 		finally
 		{
-			// restore layers
-			if (layerChanges != null)
-				foreach (var (t, oldLayer) in layerChanges) t.gameObject.layer = oldLayer;
-
-			// restore camera
-			cam.transform.SetPositionAndRotation(originalPos, originalRot);
-			cam.targetTexture = originalTargetRT;
-			cam.fieldOfView = originalFOV;
-			cam.orthographicSize = originalOrthoSize;
-			cam.nearClipPlane = originalNear;
-			cam.farClipPlane = originalFar;
-			cam.aspect = originalAspect;
-			cam.orthographic = originalOrtho;
-			cam.clearFlags = originalClear;
-			cam.backgroundColor = originalBG;
-			cam.cullingMask = originalCulling;
-
 			// cleanup
 			rt.Release();
 			Object.DestroyImmediate(rt);

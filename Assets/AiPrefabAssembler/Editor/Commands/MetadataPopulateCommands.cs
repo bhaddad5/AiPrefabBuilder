@@ -1,17 +1,18 @@
-using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
-using UnityEngine.Profiling.Memory.Experimental;
 
-public class RequestPrefabRendersCommand : ICommand
+public class RequestRendersForPrefabDescriptionCommand : ICommand
 {
-	public string CommandName => "RequestPrefabRenders";
+	public string CommandName => "RequestRendersForPrefabDescription";
 
 	public string CommandDescription => "Request low-resolution renderings of all sides of a prefab. " +
-		"After you have done this and analyzed the images, it may be wise to call AssignMetadataToPrefab with a brief 2-sentance summary of what the prefab looks like. " +
-		"This will cache that information for you to use later.";
+		"Call this before you call AssignMetadataToPrefab, and use the data to build the Description." +
+		$"Keep your answer brief (<= 2 sentences), as it will be fed raw into AI. " +
+		$"Note it's orientation. " +
+		$"The bounds are being provided for context, but do not include them in your answer as they will be sent alongside it regardless." +
+		"The background color of the renders is fucia(1,0,1). " +
+		"Note the time-cost of uploading the images, so be mindful of how many of these you request at once.";
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath") };
 
@@ -46,7 +47,9 @@ public class RequestPrefabRendersCommand : ICommand
 
 		var bounds = Helpers.GetCombinedLocalBounds(obj.transform);
 
-		Dictionary<string, Texture2D> six = TextureRenderer.RenderAllSides(obj);
+		var inst = GameObject.Instantiate(obj);
+		Dictionary<string, Texture2D> six = TextureRenderer.RenderAllSides(inst);
+		GameObject.DestroyImmediate(inst);
 
 		return (bounds, six);
 	}
@@ -56,9 +59,9 @@ public class AssignDescriptionToPrefabCommand : ICommand
 {
 	public string CommandName => "AssignMetadataToPrefab";
 
-	public string CommandDescription => "Assign a text-description to a well-known component on the selected prefab that you can use to understand the prefab for future tasks. "+
-		"Generally call this using the information you have inferred from RequestPrefabRenders, unless otherwise instructed. " +
-		"Keep your description to 2-sentances.";
+	public string CommandDescription => "Assign a text-description to a well-known component on the selected prefab that you can use to understand the prefab for future tasks. " +
+		"Call this with the info you have inferred from RequestRendersForPrefabDescription. " +
+		$"Keep your answer brief (<= 2 sentences), as it will be fed raw into AI.";
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath"), new Parameter("description") };
 

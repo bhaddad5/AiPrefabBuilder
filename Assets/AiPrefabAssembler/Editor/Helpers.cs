@@ -8,7 +8,7 @@ public static class Helpers
 	public static GameObject GetSelectedPrefab()
 	{
 		var obj = Selection.activeObject as GameObject;
-		if (PrefabUtility.GetPrefabAssetType(obj) == PrefabAssetType.NotAPrefab)
+		if (obj == null || PrefabUtility.GetPrefabAssetType(obj) == PrefabAssetType.NotAPrefab)
 		{
 			return null;
 		}

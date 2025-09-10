@@ -5,22 +5,6 @@ using UnityEngine;
 
 public static class MetadataPopulaterTesters
 {
-	[MenuItem("Forge of Realms - Tests/Test Generate Object Metadata", false, 1000)]
-	public static async void TestGenerateObjectMetadata()
-	{
-		var obj = Helpers.GetSelectedPrefab();
-		if (obj == null)
-		{
-			Debug.LogError("No prefab selected!");
-			return;
-		}
-
-		var res = await MetadataRequester.GeneratePrefabMetadata(obj);
-
-		Debug.Log(res);
-		Debug.Log("Done!");
-	}
-
 	[MenuItem("Forge of Realms - Tests/Test Texture Rendering", false, 1000)]
 	public static void TextTextureRendering()
 	{
@@ -42,9 +26,6 @@ public static class MetadataPopulaterTesters
 		// 2) Make a parent
 		GameObject parent = new GameObject("SixViewPreview");
 
-		// 3) Order and grid layout: top row (Front, Right, Back), bottom row (Left, Top, Bottom)
-		string[] order = { "Front", "Right", "Back", "Left", "Top", "Bottom" };
-
 		// Precompute grid framing so it's centered in front of camera
 		int cols = 3, rows = 2;
 		float gridWidth = (cols - 1) * tileSpacing;
@@ -64,8 +45,8 @@ public static class MetadataPopulaterTesters
 			return m;
 		}
 
-		// 5) Spawn quads and assign textures
-		for (int i = 0; i < order.Length; i++)
+		int i = 0;
+		foreach(var r in six)
 		{
 			int row = i / cols;
 			int col = i % cols;
@@ -74,7 +55,7 @@ public static class MetadataPopulaterTesters
 			float y = gridHeight * 0.5f - row * tileSpacing;
 
 			var quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-			quad.name = $"SixView_{order[i]}";
+			quad.name = $"SixView_{r.Key}";
 			quad.transform.SetParent(parent.transform, worldPositionStays: true);
 
 			// Place in front of camera, oriented to face the camera
@@ -86,12 +67,10 @@ public static class MetadataPopulaterTesters
 			var coll = quad.GetComponent<Collider>();
 			if (coll) Collider.DestroyImmediate(coll);
 
-			// Assign texture
-			if (six.TryGetValue(order[i], out var tex))
-			{
-				var rend = quad.GetComponent<Renderer>();
-				rend.material = MakeMat(tex);
-			}
+			var rend = quad.GetComponent<Renderer>();
+			rend.material = MakeMat(r.Value);
+
+			i++;
 		}
 
 		GameObject.DestroyImmediate(inst);

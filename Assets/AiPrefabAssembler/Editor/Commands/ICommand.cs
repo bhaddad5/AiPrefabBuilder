@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Parameter
@@ -78,7 +79,7 @@ public class UserToAiMsgImage : UserToAiMsg
 		return Texture2DToJPGBinaryData(Image);
 	}
 
-	private static byte[] Texture2DToJPGBinaryData(Texture2D tex, bool makeReadableIfNeeded = true)
+	private static byte[] Texture2DToJPGBinaryData(Texture2D tex)
 	{
 		if (tex == null) throw new System.ArgumentNullException(nameof(tex));
 
@@ -87,9 +88,6 @@ public class UserToAiMsgImage : UserToAiMsg
 
 		if (!tex.isReadable)
 		{
-			if (!makeReadableIfNeeded)
-				throw new System.InvalidOperationException("Texture is not readable. Enable Read/Write or set makeReadableIfNeeded=true.");
-
 			// Make a readable copy
 			var rt = RenderTexture.GetTemporary(tex.width, tex.height, 0, RenderTextureFormat.RG32);
 			var prev = RenderTexture.active;
@@ -111,7 +109,15 @@ public class UserToAiMsgImage : UserToAiMsg
 		return jpgBytes; // MIME is "image/jpg"
 	}
 
-	private static Texture2D Flatten(Texture2D src)
+	private static void WriteToTestImage(byte[] jpgBytes)
+	{
+		string path = @"F:\Personal Projects\Prefab Assembler\Assets\AiPrefabAssembler\TESTING\" + $"{Guid.NewGuid()}.jpg";
+		Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+		// Write the bytes directly
+		File.WriteAllBytes(path, jpgBytes);
+	}
+
+	public static Texture2D Flatten(Texture2D src)
 	{
 		Color bg = new Color(1f, 0f, 1f);
 

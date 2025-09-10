@@ -9,6 +9,11 @@ public static class SceneDescriptionBuilder
 {
 	public static string BuildPrefabSelectionString()
 	{
+		return string.Join(',', GetAllSelectedPrefabs());
+	}
+
+	public static List<string> GetAllSelectedPrefabs()
+	{
 		var seenPaths = new HashSet<string>();
 
 		// 1) Project selection prefab assets
@@ -27,7 +32,7 @@ public static class SceneDescriptionBuilder
 			seenPaths.Add(path);
 		}
 
-		return string.Join(',', seenPaths);
+		return seenPaths.ToList();
 	}
 
 	public static string BuildSelectionString()
