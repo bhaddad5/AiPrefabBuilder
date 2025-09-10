@@ -10,36 +10,21 @@ using UnityEngine;
 
 namespace AiRequestBackend
 {
-    public class OpenAIConversation
-    {
-		public struct ChatHistoryEntry
-		{
-			public bool IsFromUser;
-			public string Text;
+    public class OpenAIConversation : IConversation
+	{
+		public bool IsProcessingMsg { get; private set; }
+		public string CurrentThinkingStatus { get; private set; }
 
-			public ChatHistoryEntry(bool isFromUser, string text)
-			{
-				IsFromUser = isFromUser;
-				Text = text;
-			}
-		}
-
-		public bool IsProcessingMsg;
-		public string CurrentThinkingStatus;
-
-		public event Action<ChatHistoryEntry> ChatMsgAdded;
+		public event Action<IConversation.ChatHistoryEntry> ChatMsgAdded;
 		public event Action<bool> IsProcessingMsgChanged;
 
 		private ChatClient client;
-
 		private ChatCompletionOptions options = new ChatCompletionOptions();
-
 		private List<ChatMessage> currentConversation = new List<ChatMessage>();
-
 		private List<ICommand> tools;
 
-		public OpenAIConversation(List<string> systemPrompts, OpenAISdk.Model model, List<ICommand> tools)
-        {
+		public void InitConversation(IConversation.Model model, List<string> systemPrompts, List<ICommand> tools)
+		{
 			client = OpenAISdk.BuildClient(model);
 
 			this.tools = tools;
@@ -66,13 +51,13 @@ namespace AiRequestBackend
 
 			currentConversation.Add(new UserChatMessage(msg));
 
-			ChatMsgAdded?.Invoke(new ChatHistoryEntry(true, msg));
+			ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, msg));
 
 			ProcessCurrentConversation(transientContextMsgs);
 		}
 
 		//We don't wanna overload the model with context, so we don't preserve the tool-call back-and-forth between queries.
-		public async void ProcessCurrentConversation(List<string> transientContextMsgs)
+		private async void ProcessCurrentConversation(List<string> transientContextMsgs)
 		{
 			IsProcessingMsg = true;
 			IsProcessingMsgChanged?.Invoke(IsProcessingMsg);
@@ -101,7 +86,7 @@ namespace AiRequestBackend
 					IsProcessingMsg = false;
 					IsProcessingMsgChanged?.Invoke(IsProcessingMsg);
 
-					ChatMsgAdded?.Invoke(new ChatHistoryEntry(false, completion.Content[0].Text));
+					ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(false, completion.Content[0].Text));
 				}
 				else if (completion.FinishReason == ChatFinishReason.ToolCalls)
 				{
@@ -133,7 +118,7 @@ namespace AiRequestBackend
 
 		#region ICommand Adapters
 
-		public static ChatTool ToChatTool(ICommand command)
+		private static ChatTool ToChatTool(ICommand command)
 		{
 			if (command == null) throw new ArgumentNullException(nameof(command));
 			if (string.IsNullOrWhiteSpace(command.CommandName))
@@ -196,7 +181,7 @@ namespace AiRequestBackend
 		}
 
 
-		public static ToolChatMessage HandleToolCall(ICommand command, ChatToolCall call)
+		private static ToolChatMessage HandleToolCall(ICommand command, ChatToolCall call)
 		{
 			var args = ParseArgs(call.FunctionArguments);
 

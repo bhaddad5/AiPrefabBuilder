@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +12,11 @@ public static class SessionHelpers
 {
 	public static GameObject LookUpObjectById(string id)
 	{
+		id = id
+			.Replace('−', '-')  // Unicode minus
+			.Replace('–', '-')  // En dash
+			.Replace('—', '-'); // Em dash
+
 		if (SessionContext.CreatedAssetsLookup.ContainsKey(id))
 			return SessionContext.CreatedAssetsLookup[id];
 

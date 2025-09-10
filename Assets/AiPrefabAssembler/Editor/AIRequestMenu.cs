@@ -1,20 +1,17 @@
-using AiRequestBackend;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 public class AIRequestMenu : EditorWindow
 {
 	private string prompt = "";
-	public List<OpenAIConversation.ChatHistoryEntry> CurrentChatHistory = new List<OpenAIConversation.ChatHistoryEntry>();
+	public List<IConversation.ChatHistoryEntry> CurrentChatHistory = new List<IConversation.ChatHistoryEntry>();
 
 	// Scroll position for chat history
 	private Vector2 chatScroll;
 	private bool scrollToBottom;
 
-	private OpenAIConversation Conversation;
+	private IConversation Conversation;
 
 	const string generalUnityPrompt = "You are helping a developer perform actions in Unity. " +
 		"You can respond to the user with Questions if you need clarification, or you can use the provided Tools to interact with the scene and perform their request, then provide a helpful description of what you did. " +
@@ -45,10 +42,7 @@ public class AIRequestMenu : EditorWindow
 			new SetObjectTransformCommand(),
 		};
 
-		window.Conversation = new OpenAIConversation(
-			new List<string>() { generalUnityPrompt },
-			OpenAISdk.Model.GPT5mini,
-			commands);
+		window.Conversation = AiBackendHelpers.GetConversation(IConversation.Model.ClaudeSonnet4, new List<string>() { generalUnityPrompt }, commands);
 
 		window.Conversation.ChatMsgAdded += window.AddChat;
 		window.Conversation.IsProcessingMsgChanged += p => window.TriggerRepaint();
@@ -75,7 +69,7 @@ public class AIRequestMenu : EditorWindow
 			Repaint();
 	}
 
-	public void AddChat(OpenAIConversation.ChatHistoryEntry e)
+	public void AddChat(IConversation.ChatHistoryEntry e)
 	{
 		CurrentChatHistory.Add(e);
 		scrollToBottom = true; // auto-jump when new messages arrive

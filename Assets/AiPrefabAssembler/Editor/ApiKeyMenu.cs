@@ -10,17 +10,19 @@ public class ApiKeyMenu : EditorWindow
 
 	static void Init()
 	{
-		
 		window = (ApiKeyMenu)EditorWindow.GetWindow(typeof(ApiKeyMenu));
-		window.apiKey = EditorPrefs.GetString("OPENAI_API_KEY");
+		window.openAIApiKey = EditorPrefs.GetString("OPENAI_API_KEY");
+		window.anthropicApiKey = EditorPrefs.GetString("ANTHROPIC_API_KEY");
 		window.Show();
 	}
 
-	private string apiKey;
+	private string openAIApiKey;
+	private string anthropicApiKey;
 
 	void OnGUI()
 	{
-		apiKey = EditorGUILayout.TextField("OpenAI API Key:", apiKey);
+		openAIApiKey = EditorGUILayout.TextField("OpenAI API Key:", openAIApiKey);
+		anthropicApiKey = EditorGUILayout.TextField("Anthropic API Key:", anthropicApiKey);
 
 		if (GUILayout.Button("Done!"))
 		{
@@ -32,7 +34,8 @@ public class ApiKeyMenu : EditorWindow
 
 	private void SetKey()
 	{
-		EditorPrefs.SetString("OPENAI_API_KEY", apiKey);
+		EditorPrefs.SetString("OPENAI_API_KEY", openAIApiKey);
+		EditorPrefs.SetString("ANTHROPIC_API_KEY", anthropicApiKey);
 	}
 
 }

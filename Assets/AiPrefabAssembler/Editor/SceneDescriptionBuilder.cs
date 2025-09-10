@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public static class SceneDescriptionBuilder
 {
@@ -48,24 +47,11 @@ public static class SceneDescriptionBuilder
 			childGuids.Append(t.GetChild(i).gameObject.GetInstanceID().ToString());
 		}
 
-		string selectedString = "";
-		if (IsDirectlySelected(t.gameObject))
-		{
-			selectedString = "Selected,";
-		}
-
 		var bounds = MetadataRequester.GetCombinedLocalBounds(t);
 		var mi = bounds.min;
 		var ma = bounds.max;
 
-		var line = $"[{selectedString}{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),localExtentsMin({F(mi.x)};{F(mi.y)};{F(mi.z)}),localExtentsMax({F(ma.x)};{F(ma.y)};{F(ma.z)}),childrenUniqueIds({childGuids}),parentUniqueId({parentId})]";
+		var line = $"[{guid},{name},localPos:({F(p.x)};{F(p.y)};{F(p.z)}),localEuler:({F(r.x)};{F(r.y)};{F(r.z)}),localScale({F(s.x)};{F(s.y)};{F(s.z)}),localExtentsMin({F(mi.x)};{F(mi.y)};{F(mi.z)}),localExtentsMax({F(ma.x)};{F(ma.y)};{F(ma.z)}),childrenUniqueIds({childGuids}),parentUniqueId({parentId})]";
 		return line;
-	}
-
-	private static bool IsDirectlySelected(GameObject go)
-	{
-		if (go == null) return false;
-		var direct = Selection.GetFiltered<GameObject>(SelectionMode.TopLevel | SelectionMode.Editable | SelectionMode.ExcludePrefab);
-		return direct.Any(s => s == go);
 	}
 }

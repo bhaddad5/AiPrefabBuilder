@@ -12,14 +12,9 @@ namespace AiRequestBackend
 {
 	public static class OpenAISdk
 	{
-		public enum Model
-		{
-			GPT5Micro,
-			GPT5mini,
-			GPT5standard,
-		}
+		
 
-		public static ChatClient BuildClient(Model level) 
+		public static ChatClient BuildClient(IConversation.Model level) 
 		{ 
 			if(String.IsNullOrWhiteSpace(EditorPrefs.GetString("OPENAI_API_KEY")))
 			{
@@ -28,9 +23,9 @@ namespace AiRequestBackend
 			}
 
 			string modelStr = "gpt-5";
-			if (level == Model.GPT5Micro)
+			if (level == IConversation.Model.GPT5Micro)
 				modelStr = "gpt-5-micro";
-			else if (level == Model.GPT5mini)
+			else if (level == IConversation.Model.GPT5mini)
 				modelStr = "gpt-5-mini";
 
 				return new ChatClient(model: modelStr, apiKey: EditorPrefs.GetString("OPENAI_API_KEY"));
@@ -38,7 +33,7 @@ namespace AiRequestBackend
 
 		
 
-		public static async Task<string> AskAsync(List<string> systemPrompts, string userPrompt, Model model = Model.GPT5mini)
+		public static async Task<string> AskAsync(List<string> systemPrompts, string userPrompt, IConversation.Model model = IConversation.Model.GPT5mini)
 		{
 			var client = BuildClient(model);
 
@@ -55,7 +50,7 @@ namespace AiRequestBackend
 			return completion.Value.Content[0].Text;
 		}
 
-		public static async Task<string> AskImagesAsync(string prompt, Dictionary<string, BinaryData> imageData, Model model = Model.GPT5mini)
+		public static async Task<string> AskImagesAsync(string prompt, Dictionary<string, BinaryData> imageData, IConversation.Model model = IConversation.Model.GPT5mini)
 		{
 			var client = BuildClient(model);
 
