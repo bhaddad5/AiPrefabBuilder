@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -11,30 +9,30 @@ public class CreateObjectCommand : ICommand
 	public string CommandDescription => "Creates a new Object.";
 
 	public List<Parameter> Parameters => new List<Parameter>() { 
-		new Parameter("objectCreationUniqueId"), 
+		new Parameter("objectCreationUniqueId", Parameter.ParamType.Int), 
 		new Parameter("prefabPath"), 
 		new Parameter("newObjectName"), 
-		new Parameter("localPos", "A Vector3 formatted as (x;y;z)"), 
-		new Parameter("localEuler", "A Vector3 formatted as (x;y;z)"),
-		new Parameter("localScale", "A Vector3 formatted as (x;y;z)"), 
-		new Parameter("parentUniqueId", "Don't include if you want to place the object under the scene root", false) };
+		new Parameter("localPos", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"), 
+		new Parameter("localEuler", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"),
+		new Parameter("localScale", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"), 
+		new Parameter("parentUniqueId", Parameter.ParamType.Int, "Don't include if you want to place the object under the scene root", false) };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string creationId = Parameters[0].GetParameter(args);
-		string prefabPath = Parameters[1].GetParameter(args);
-		string newObjectName = Parameters[2].GetParameter(args);
-		Vector3 pos = Parameters[3].GetParameterAsVec3(args);
-		Vector3 rot = Parameters[4].GetParameterAsVec3(args);
-		Vector3 scl = Parameters[5].GetParameterAsVec3(args);
-		string parentId = Parameters[6].GetParameter(args);
+		int creationId = Parameters[0].Get<int>(args);
+		string prefabPath = Parameters[1].Get<string>(args);
+		string newObjectName = Parameters[2].Get<string>(args);
+		Vector3 pos = Parameters[3].Get<Vector3>(args);
+		Vector3 rot = Parameters[4].Get<Vector3>(args);
+		Vector3 scl = Parameters[5].Get<Vector3>(args);
+		int parentId = Parameters[6].Get<int>(args);
 
 		CreateObject(creationId, prefabPath, newObjectName, pos, rot, scl, parentId);
 
 		return "";
 	}
 
-	public static void CreateObject(string creationId, string prefabPath, string newObjectName, Vector3 pos, Vector3 rot, Vector3 scl, string optionalParentUniqueId)
+	public static void CreateObject(int creationId, string prefabPath, string newObjectName, Vector3 pos, Vector3 rot, Vector3 scl, int optionalParentUniqueId)
 	{
 		var asset = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
 
@@ -45,7 +43,7 @@ public class CreateObjectCommand : ICommand
 		}
 
 		Transform parent = null;
-		if (optionalParentUniqueId != "")
+		if (optionalParentUniqueId != 0)
 			parent = SessionHelpers.LookUpObjectById(optionalParentUniqueId)?.transform;
 
 		var obj = GameObject.Instantiate(asset, parent);
@@ -64,18 +62,18 @@ public class DeleteObjectCommand : ICommand
 
 	public string CommandDescription => "Delete an Object.";
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId") };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId", Parameter.ParamType.Int) };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string objectUniqueId = Parameters[0].GetParameter(args);
+		int objectUniqueId = Parameters[0].Get<int>(args);
 
 		DeleteObject(objectUniqueId);
 
 		return "";
 	}
 
-	public static void DeleteObject(string objectUniqueId)
+	public static void DeleteObject(int objectUniqueId)
 	{
 		var obj = SessionHelpers.LookUpObjectById(objectUniqueId);
 		if (obj != null)
@@ -90,25 +88,20 @@ public class SetObjectParentCommand : ICommand
 	public string CommandDescription => "Set an Object's Parent.";
 
 	public List<Parameter> Parameters => new List<Parameter>()	{ 
-		new Parameter("objectUniqueId"),
-		new Parameter("parentObjectUniqueId"),
+		new Parameter("objectUniqueId", Parameter.ParamType.Int),
+		new Parameter("parentObjectUniqueId", Parameter.ParamType.Int),
 	};
 
-	public string CommandFormattingString => $"{CommandName}[objectUniqueId,parentObjectUniqueId]";
-
-	public int NumArgs => 2;
-
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string objectUniqueId = Parameters[0].GetParameter(args);
-		string parentObjectUniqueId = Parameters[1].GetParameter(args);
-
+		int objectUniqueId = Parameters[0].Get<int>(args);
+		int parentObjectUniqueId = Parameters[1].Get<int>(args);
 		SetObjectParent(objectUniqueId, parentObjectUniqueId);
 
 		return "";
 	}
 
-	public static void SetObjectParent(string objectUniqueId, string parentObjectUniqueId)
+	public static void SetObjectParent(int objectUniqueId, int parentObjectUniqueId)
 	{
 		var obj = SessionHelpers.LookUpObjectById(objectUniqueId);
 
@@ -126,24 +119,24 @@ public class SetObjectTransformCommand : ICommand
 	public string CommandDescription => "Set an Object's Transform.";
 
 	public List<Parameter> Parameters => new List<Parameter>() { 
-		new Parameter("objectUniqueId"),
-		new Parameter("localPos", "A Vector3 formatted as (x;y;z)"),
-		new Parameter("localEuler", "A Vector3 formatted as (x;y;z)"), 
-		new Parameter("localScale", "A Vector3 formatted as (x;y;z)") };
+		new Parameter("objectUniqueId", Parameter.ParamType.Int),
+		new Parameter("localPos", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"),
+		new Parameter("localEuler", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"), 
+		new Parameter("localScale", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)") };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string objectUniqueId = Parameters[0].GetParameter(args);
-		Vector3 pos = Parameters[1].GetParameterAsVec3(args);
-		Vector3 rot = Parameters[2].GetParameterAsVec3(args);
-		Vector3 scl = Parameters[3].GetParameterAsVec3(args);
+		int objectUniqueId = Parameters[0].Get<int>(args);
+		Vector3 pos = Parameters[1].Get<Vector3>(args	);
+		Vector3 rot = Parameters[2].Get<Vector3>(args);
+		Vector3 scl = Parameters[3].Get<Vector3>(args);
 
 		SetObjectTransform(objectUniqueId, pos, rot, scl);
 
 		return "";
 	}
 
-	public static void SetObjectTransform(string objectUniqueId, Vector3 pos, Vector3 rot, Vector3 scl)
+	public static void SetObjectTransform(int objectUniqueId, Vector3 pos, Vector3 rot, Vector3 scl)
 	{
 		var obj = SessionHelpers.LookUpObjectById(objectUniqueId);
 

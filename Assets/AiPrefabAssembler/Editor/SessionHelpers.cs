@@ -5,30 +5,17 @@ using UnityEngine;
 
 public static class SessionContext
 {
-	public static Dictionary<string, GameObject> CreatedAssetsLookup = new Dictionary<string, GameObject>();
+	public static Dictionary<int, GameObject> CreatedAssetsLookup = new Dictionary<int, GameObject>();
 }
 
 public static class SessionHelpers
 {
-	public static GameObject LookUpObjectById(string id)
+	public static GameObject LookUpObjectById(int id)
 	{
-		id = id
-			.Replace('−', '-')  // Unicode minus
-			.Replace('–', '-')  // En dash
-			.Replace('—', '-'); // Em dash
-
 		if (SessionContext.CreatedAssetsLookup.ContainsKey(id))
 			return SessionContext.CreatedAssetsLookup[id];
 
-		int instanceId = 0;
-
-		if (!Int32.TryParse(id, out instanceId))
-		{
-			Debug.LogError("Failed to parse InstanceId " + id);
-			return null;
-		}
-
-		var obj = EditorUtility.InstanceIDToObject(instanceId) as GameObject;
+		var obj = EditorUtility.InstanceIDToObject(id) as GameObject;
 
 		if (obj == null)
 		{

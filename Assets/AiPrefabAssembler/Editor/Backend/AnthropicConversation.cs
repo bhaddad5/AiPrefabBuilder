@@ -3,6 +3,7 @@ using Anthropic.SDK.Common;
 using Anthropic.SDK.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.Json.Nodes;
 using UnityEditor;
@@ -186,6 +187,49 @@ namespace AiRequestBackend
 
 		#region ICommand Adapters
 
+		private static JsonObject BuildParamSchema(Parameter p)
+		{
+			switch (p.Type)
+			{
+				case Parameter.ParamType.Int:
+					return new JsonObject
+					{
+						["type"] = "integer",
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+
+				case Parameter.ParamType.Vector3:
+					// Represent a Unity-style Vector3 as an object { x:number, y:number, z:number }
+					var vecProps = new JsonObject
+					{
+						["x"] = new JsonObject { ["type"] = "number" },
+						["y"] = new JsonObject { ["type"] = "number" },
+						["z"] = new JsonObject { ["type"] = "number" }
+					};
+
+					var vecReq = new JsonArray { "x", "y", "z" };
+
+					var vec = new JsonObject
+					{
+						["type"] = "object",
+						["properties"] = vecProps,
+						["required"] = vecReq,
+						["additionalProperties"] = false,
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+
+					return vec;
+
+				case Parameter.ParamType.String:
+				default:
+					return new JsonObject
+					{
+						["type"] = "string",
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+			}
+		}
+
 		private static Anthropic.SDK.Common.Tool ToClaudeTool(ICommand command)
 		{
 			if (command == null) throw new ArgumentNullException(nameof(command));
@@ -201,15 +245,8 @@ namespace AiRequestBackend
 				{
 					if (p == null || string.IsNullOrWhiteSpace(p.Name)) continue;
 
-					var paramSchema = new JsonObject
-					{
-						["type"] = "string"
-					};
-
-					if (!string.IsNullOrWhiteSpace(p.Description))
-						paramSchema["description"] = p.Description;
-
-					properties[p.Name] = paramSchema;				}
+					properties[p.Name] = BuildParamSchema(p);
+				}
 			}
 
 			var schema = new JsonObject
@@ -231,18 +268,17 @@ namespace AiRequestBackend
 				schema["required"] = req;
 			}
 
-			//Debug.Log($"Function Exposed: {command.CommandName}, descr = {command.CommandDescription}, schema = {schema.ToString()}");
+			Debug.Log($"Function: {command.CommandName}, descr={command.CommandDescription}, schema={schema.ToString()}");
 
-			// Return Function instead of Tool - this is the correct type for current SDK
 			return new Function(command.CommandName, command.CommandDescription ?? "", schema);
 		}
 
 		private static ToolResultContent HandleToolCall(ICommand command, ToolUseContent toolUse)
 		{
-			var args = ParseArgs(toolUse.Input);
+			var args = ParseTypedArgs(toolUse.Input, command.Parameters);
 
 			string argsStr = "";
-			foreach (var arg in args)
+			foreach (var arg in args.Values)
 			{
 				argsStr += $"{arg.Key}:{arg.Value},";
 			}
@@ -262,28 +298,58 @@ namespace AiRequestBackend
 			};
 		}
 
-		private static Dictionary<string, string> ParseArgs(JsonNode input)
+		// Example: produce typed values (int, Vector3, string) from JsonNode
+		private static TypedArgs ParseTypedArgs(JsonNode input, IEnumerable<Parameter> paramDefs)
 		{
-			if (input == null) return new Dictionary<string, string>();
+			var result = new TypedArgs();
+			if (input is not JsonObject obj) return result;
 
-			var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+			// index param defs by name
+			var byName = paramDefs?.ToDictionary(p => p.Name, StringComparer.OrdinalIgnoreCase)
+						 ?? new Dictionary<string, Parameter>(StringComparer.OrdinalIgnoreCase);
 
-			if (input is JsonObject obj)
+			foreach (var (key, node) in obj)
 			{
-				foreach (var prop in obj)
-				{
-					if (prop.Key == null) continue;
+				if (string.IsNullOrWhiteSpace(key)) continue;
 
-					dict[prop.Key.ToLowerInvariant()] = prop.Value?.GetValue<object>() switch
+				object value = node;
+
+				if (byName.TryGetValue(key, out var def))
+				{
+					switch (def.Type)
 					{
-						string str => str.ToLowerInvariant(),
-						null => "",
-						_ => prop.Value.ToString()
-					};
+						case Parameter.ParamType.Int:
+							if (node is JsonValue jv && jv.TryGetValue<long>(out var l))
+								value = (int)l;
+							break;
+
+						case Parameter.ParamType.Vector3:
+							if (node is JsonObject vo &&
+								vo.TryGetPropertyValue("x", out var nx) &&
+								vo.TryGetPropertyValue("y", out var ny) &&
+								vo.TryGetPropertyValue("z", out var nz) &&
+								float.TryParse(nx.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fx) &&
+								float.TryParse(ny.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fy) &&
+								float.TryParse(nz.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fz))
+							{
+								value = new Vector3(fx, fy, fz);
+							}
+							break;
+
+						case Parameter.ParamType.String:
+						default:
+							if (node is JsonValue sv && sv.TryGetValue<string>(out var s))
+								value = s;
+							else
+								value = node.ToJsonString();
+							break;
+					}
 				}
+
+				result.Values[key] = value;
 			}
 
-			return dict;
+			return result;
 		}
 
 		#endregion

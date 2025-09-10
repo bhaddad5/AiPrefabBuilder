@@ -1,7 +1,7 @@
 using OpenAI.Chat;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -118,19 +118,56 @@ namespace AiRequestBackend
 
 		#region ICommand Adapters
 
+		private static JsonObject BuildParamSchema(Parameter p)
+		{
+			switch (p.Type)
+			{
+				case Parameter.ParamType.Int:
+					return new JsonObject
+					{
+						["type"] = "integer",
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+
+				case Parameter.ParamType.Vector3:
+					// Represent a Unity-style Vector3 as an object { x:number, y:number, z:number }
+					var vecProps = new JsonObject
+					{
+						["x"] = new JsonObject { ["type"] = "number" },
+						["y"] = new JsonObject { ["type"] = "number" },
+						["z"] = new JsonObject { ["type"] = "number" }
+					};
+
+					var vecReq = new JsonArray { "x", "y", "z" };
+
+					var vec = new JsonObject
+					{
+						["type"] = "object",
+						["properties"] = vecProps,
+						["required"] = vecReq,
+						["additionalProperties"] = false,
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+
+					return vec;
+
+				case Parameter.ParamType.String:
+				default:
+					return new JsonObject
+					{
+						["type"] = "string",
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+			}
+		}
+
 		private static ChatTool ToChatTool(ICommand command)
 		{
 			if (command == null) throw new ArgumentNullException(nameof(command));
 			if (string.IsNullOrWhiteSpace(command.CommandName))
 				throw new ArgumentException("CommandName is required.", nameof(command));
 
-			// --- Build JSON Schema for parameters ---
-			// {
-			//   "type": "object",
-			//   "properties": { "<name>": { "type": "string", "description": "..." }, ... },
-			//   "required": ["..."],
-			//   "additionalProperties": false
-			// }
+			// Build JSON Schema for parameters
 			var properties = new JsonObject();
 
 			if (command.Parameters != null)
@@ -139,15 +176,7 @@ namespace AiRequestBackend
 				{
 					if (p == null || string.IsNullOrWhiteSpace(p.Name)) continue;
 
-					var paramSchema = new JsonObject
-					{
-						["type"] = "string"
-					};
-
-					if (!string.IsNullOrWhiteSpace(p.Description))
-						paramSchema["description"] = p.Description;
-
-					properties[p.Name] = paramSchema;
+					properties[p.Name] = BuildParamSchema(p);
 				}
 			}
 
@@ -170,6 +199,8 @@ namespace AiRequestBackend
 				schema["required"] = req;
 			}
 
+			Debug.Log($"Function: {command.CommandName}, descr={command.CommandDescription}, schema={schema.ToString()}");
+
 			// The SDK expects the JSON schema as BinaryData
 			var parametersJson = BinaryData.FromString(schema.ToJsonString());
 
@@ -183,10 +214,10 @@ namespace AiRequestBackend
 
 		private static ToolChatMessage HandleToolCall(ICommand command, ChatToolCall call)
 		{
-			var args = ParseArgs(call.FunctionArguments);
+			var args = ParseTypedArgs(call.FunctionArguments, command.Parameters);
 
 			string argsStr = "";
-			foreach(var arg in args)
+			foreach(var arg in args.Values)
 			{
 				argsStr += $"{arg.Key}:{arg.Value},";
 			}
@@ -202,28 +233,60 @@ namespace AiRequestBackend
 			return new ToolChatMessage(call.Id, result);
 		}
 
-		private static Dictionary<string, string> ParseArgs(BinaryData data)
+		// Example: produce typed values (int, Vector3, string) from JsonNode
+		private static TypedArgs ParseTypedArgs(BinaryData data, IEnumerable<Parameter> paramDefs)
 		{
-			if (data == null) return new();
+			JsonNode input = JsonNode.Parse(data.ToString());
 
-			string json = data.ToString();                // BinaryData -> UTF-8 string
-			if (string.IsNullOrWhiteSpace(json)) return new();
+			var result = new TypedArgs();
+			if (input is not JsonObject obj) return result;
 
-			using var doc = JsonDocument.Parse(json);
-			if (doc.RootElement.ValueKind != JsonValueKind.Object) return new();
+			// index param defs by name
+			var byName = paramDefs?.ToDictionary(p => p.Name, StringComparer.OrdinalIgnoreCase)
+						 ?? new Dictionary<string, Parameter>(StringComparer.OrdinalIgnoreCase);
 
-			var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-			foreach (var prop in doc.RootElement.EnumerateObject())
+			foreach (var (key, node) in obj)
 			{
-				dict[prop.Name?.ToLowerInvariant()] = prop.Value.ValueKind switch
+				if (string.IsNullOrWhiteSpace(key)) continue;
+
+				object value = node;
+
+				if (byName.TryGetValue(key, out var def))
 				{
-					JsonValueKind.String => prop.Value.GetString()?.ToLowerInvariant() ?? "",
-					JsonValueKind.Null => "",
-					// For numbers, bools, arrays, objects: keep raw JSON so ICommand gets *something*.
-					_ => prop.Value.GetRawText()
-				};
+					switch (def.Type)
+					{
+						case Parameter.ParamType.Int:
+							if (node is JsonValue jv && jv.TryGetValue<long>(out var l))
+								value = (int)l;
+							break;
+
+						case Parameter.ParamType.Vector3:
+							if (node is JsonObject vo &&
+								vo.TryGetPropertyValue("x", out var nx) &&
+								vo.TryGetPropertyValue("y", out var ny) &&
+								vo.TryGetPropertyValue("z", out var nz) &&
+								float.TryParse(nx.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fx) &&
+								float.TryParse(ny.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fy) &&
+								float.TryParse(nz.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fz))
+							{
+								value = new Vector3(fx, fy, fz);
+							}
+							break;
+
+						case Parameter.ParamType.String:
+						default:
+							if (node is JsonValue sv && sv.TryGetValue<string>(out var s))
+								value = s;
+							else
+								value = node.ToJsonString();
+							break;
+					}
+				}
+
+				result.Values[key] = value;
 			}
-			return dict;
+
+			return result;
 		}
 
 		#endregion

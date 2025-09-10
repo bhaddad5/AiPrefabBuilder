@@ -14,9 +14,9 @@ public class GetPrefabContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath") };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string prefabPath = Parameters[0].GetParameter(args);
+		string prefabPath = Parameters[0].Get<string>(args);
 
 		return GetPrefabContext(prefabPath);
 	}
@@ -50,9 +50,9 @@ public class SearchPrefabsContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string searchString = Parameters[0].GetParameter(args);
+		string searchString = Parameters[0].Get<string>(args);
 
 		return SearchForPrefabsContext(searchString);
 	}
@@ -103,16 +103,16 @@ public class GetObjectContextCommand : ICommand
 
 	public string CommandDescription => "Request Context for a specific Object. Returns the name, bounds, children, etc.";
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId") };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId", Parameter.ParamType.Int) };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string objectUniqueId = Parameters[0].GetParameter(args);
+		var objectUniqueId = Parameters[0].Get<int>(args);
 
 		return GetObjectContext(objectUniqueId);
 	}
 
-	private static string GetObjectContext(string objectUniqueId)
+	private static string GetObjectContext(int objectUniqueId)
 	{
 		GameObject obj = SessionHelpers.LookUpObjectById(objectUniqueId);
 
@@ -131,9 +131,9 @@ public class SearchObjectsContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
 
-	public string ParseArgsAndExecute(Dictionary<string, string> args)
+	public string ParseArgsAndExecute(TypedArgs args)
 	{
-		string searchString = Parameters[0].GetParameter(args);
+		var searchString = Parameters[0].Get<string>(args);
 
 		return SearchForObjectsContext(searchString);
 	}
