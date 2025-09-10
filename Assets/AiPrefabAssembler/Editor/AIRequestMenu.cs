@@ -40,6 +40,8 @@ public class AIRequestMenu : EditorWindow
 			new DeleteObjectCommand(),
 			new SetObjectParentCommand(),
 			new SetObjectTransformCommand(),
+			new RequestPrefabRendersCommand(),
+			new AssignDescriptionToPrefabCommand(),
 		};
 
 		var model = ModelFetcher.GetCurrentModel();
@@ -179,10 +181,13 @@ public class AIRequestMenu : EditorWindow
 				if (string.IsNullOrWhiteSpace(prompt))
 					return;
 
-				string selectionPrompt =
+				string objectSelectionPrompt =
 					"Here are the UniqueIds of the user's selected Objects: " + SceneDescriptionBuilder.BuildSelectionString();
 
-				Conversation.SendMsg(prompt, new List<string>() { selectionPrompt });
+				string prefabSelectionPrompt =
+					"Here are the UniqueIds of the user's selected Prefabs: " + SceneDescriptionBuilder.BuildPrefabSelectionString();
+
+				Conversation.SendMsg(new List<UserToAiMsg>() { new UserToAiMsgText(prompt) }, new List<string>() { objectSelectionPrompt, prefabSelectionPrompt });
 				prompt = "";
 				scrollToBottom = true;
 			}

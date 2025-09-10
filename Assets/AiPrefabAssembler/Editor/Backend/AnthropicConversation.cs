@@ -1,6 +1,7 @@
 using Anthropic.SDK;
 using Anthropic.SDK.Common;
 using Anthropic.SDK.Messaging;
+using OpenAI.Chat;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -46,7 +47,7 @@ namespace AiRequestBackend
 				startingSystemMsgs.Add(new SystemMessage(msg));
 		}
 
-		public void SendMsg(string msg, List<string> transientContextMsgs)
+		public void SendMsg(List<UserToAiMsg> msgs, List<string> transientContextMsgs)
 		{
 			if (IsProcessingMsg)
 			{
@@ -54,19 +55,26 @@ namespace AiRequestBackend
 				return;
 			}
 
-			Debug.Log($"Sending Msg: {msg}");
-
-			foreach(var tcMsg in transientContextMsgs)
-				Debug.Log($"Context Msg: {tcMsg}");
+			var chatMsgs = GetContent(msgs);
 
 			// Add user message to conversation history
-			currentConversation.Add(new Message
-			{
-				Role = RoleType.User,
-				Content = new List<ContentBase> { new TextContent { Text = msg } }
-			});
+			currentConversation.Add(new Message	{Role = RoleType.User, Content = chatMsgs,});
 
-			ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, msg));
+			foreach (var msg in msgs)
+			{
+				if (msg is UserToAiMsgText t)
+				{
+					Debug.Log($"Sending Msg: {t.Text}");
+					ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, t.Text));
+				}
+				else if (msg is UserToAiMsgImage i)
+				{
+					Debug.Log($"Sending Msg: {i.Image.name}");
+				}
+			}
+
+			foreach (var tcMsg in transientContextMsgs)
+				Debug.Log($"Context Msg: {tcMsg}");
 
 			ProcessCurrentConversation(transientContextMsgs);
 		}
@@ -287,14 +295,49 @@ namespace AiRequestBackend
 
 			Debug.Log($"Calling tool {toolUse.Name}({argsStr})");
 
-			string result = command.ParseArgsAndExecute(args);
+			var result = command.ParseArgsAndExecute(args);
 
-			Debug.Log($"Tool Response: {result}");
+			var resultContent = GetContent(result);
+
+			if (resultContent.Count == 0)
+				resultContent.Add(new TextContent { Text = "Done" });
+
+			Debug.Log($"Tool Response: {String.Join(',', result)}");
 
 			return new ToolResultContent
 			{
 				ToolUseId = toolUse.Id,
-				Content = new List<ContentBase> { new TextContent { Text = result } }
+				Content = resultContent,
+			};
+		}
+
+		private static List<ContentBase> GetContent(List<UserToAiMsg> msgs)
+		{
+			var res = new List<ContentBase>();
+			foreach (var commandRes in msgs)
+			{
+				if (commandRes is UserToAiMsgText t)
+					res.Add(new TextContent { Text = t.Text });
+				else if (commandRes is UserToAiMsgImage i)
+					res.Add(CreateImageContentFromTexture(i.GetImageBytes()));
+			}
+			return res;
+		}
+
+		public static ImageContent CreateImageContentFromTexture(byte[] imageBytes)
+		{
+			// Convert to base64 string
+			string base64String = Convert.ToBase64String(imageBytes);
+
+			// Create ImageContent
+			return new ImageContent
+			{
+				Source = new ImageSource
+				{
+					Type = SourceType.base64,
+					MediaType = "image/jpg",
+					Data = base64String
+				}
 			};
 		}
 

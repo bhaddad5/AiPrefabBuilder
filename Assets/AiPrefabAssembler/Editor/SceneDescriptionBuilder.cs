@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,29 @@ using UnityEngine;
 
 public static class SceneDescriptionBuilder
 {
+	public static string BuildPrefabSelectionString()
+	{
+		var seenPaths = new HashSet<string>();
+
+		// 1) Project selection prefab assets
+		foreach (var obj in Selection.GetFiltered<GameObject>(SelectionMode.Assets))
+		{
+			var path = AssetDatabase.GetAssetPath(obj);
+			if (string.IsNullOrEmpty(path)) continue;
+			if (!path.EndsWith(".prefab", System.StringComparison.OrdinalIgnoreCase)) continue;
+
+			var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+			if (!go) continue;
+
+			var type = PrefabUtility.GetPrefabAssetType(go);
+			if (type == PrefabAssetType.NotAPrefab) continue; // safety
+
+			seenPaths.Add(path);
+		}
+
+		return string.Join(',', seenPaths);
+	}
+
 	public static string BuildSelectionString()
 	{
 		var direct = Selection.GetFiltered<GameObject>(SelectionMode.TopLevel | SelectionMode.Editable | SelectionMode.ExcludePrefab);
@@ -47,7 +71,7 @@ public static class SceneDescriptionBuilder
 			childGuids.Append(t.GetChild(i).gameObject.GetInstanceID().ToString());
 		}
 
-		var bounds = MetadataRequester.GetCombinedLocalBounds(t);
+		var bounds = Helpers.GetCombinedLocalBounds(t);
 		var mi = bounds.min;
 		var ma = bounds.max;
 

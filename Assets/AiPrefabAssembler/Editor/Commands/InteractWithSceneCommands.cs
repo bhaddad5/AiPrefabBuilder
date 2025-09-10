@@ -17,7 +17,7 @@ public class CreateObjectCommand : ICommand
 		new Parameter("localScale", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"), 
 		new Parameter("parentUniqueId", Parameter.ParamType.Int, "Don't include if you want to place the object under the scene root", false) };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		int creationId = Parameters[0].Get<int>(args);
 		string prefabPath = Parameters[1].Get<string>(args);
@@ -29,7 +29,7 @@ public class CreateObjectCommand : ICommand
 
 		CreateObject(creationId, prefabPath, newObjectName, pos, rot, scl, parentId);
 
-		return "";
+		return new List<UserToAiMsg>();
 	}
 
 	public static void CreateObject(int creationId, string prefabPath, string newObjectName, Vector3 pos, Vector3 rot, Vector3 scl, int optionalParentUniqueId)
@@ -64,13 +64,13 @@ public class DeleteObjectCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId", Parameter.ParamType.Int) };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		int objectUniqueId = Parameters[0].Get<int>(args);
 
 		DeleteObject(objectUniqueId);
 
-		return "";
+		return new List<UserToAiMsg>();
 	}
 
 	public static void DeleteObject(int objectUniqueId)
@@ -92,13 +92,13 @@ public class SetObjectParentCommand : ICommand
 		new Parameter("parentObjectUniqueId", Parameter.ParamType.Int),
 	};
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		int objectUniqueId = Parameters[0].Get<int>(args);
 		int parentObjectUniqueId = Parameters[1].Get<int>(args);
 		SetObjectParent(objectUniqueId, parentObjectUniqueId);
 
-		return "";
+		return new List<UserToAiMsg>();
 	}
 
 	public static void SetObjectParent(int objectUniqueId, int parentObjectUniqueId)
@@ -124,7 +124,7 @@ public class SetObjectTransformCommand : ICommand
 		new Parameter("localEuler", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)"), 
 		new Parameter("localScale", Parameter.ParamType.Vector3, "A Vector3 formatted as (x;y;z)") };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		int objectUniqueId = Parameters[0].Get<int>(args);
 		Vector3 pos = Parameters[1].Get<Vector3>(args	);
@@ -133,7 +133,7 @@ public class SetObjectTransformCommand : ICommand
 
 		SetObjectTransform(objectUniqueId, pos, rot, scl);
 
-		return "";
+		return new List<UserToAiMsg>();
 	}
 
 	public static void SetObjectTransform(int objectUniqueId, Vector3 pos, Vector3 rot, Vector3 scl)

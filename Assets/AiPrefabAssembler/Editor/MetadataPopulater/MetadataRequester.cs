@@ -50,7 +50,7 @@ public static class MetadataRequester
 			converted[t.Key] = Texture2DToJPGBinaryData(t.Value);
 		}
 
-		var bounds = GetCombinedLocalBounds(ob.transform);
+		var bounds = Helpers.GetCombinedLocalBounds(ob.transform);
 
 		GameObject.DestroyImmediate(ob);
 
@@ -126,54 +126,5 @@ public static class MetadataRequester
 		}
 		dst.SetPixels32(p); dst.Apply();
 		return dst;
-	}
-
-	/// <summary>
-	/// Returns a combined Bounds in 'root's local space (pivot-relative),
-	/// covering all Renderers under 'root'.
-	/// </summary>
-	public static Bounds GetCombinedLocalBounds(Transform root, bool includeInactive = false)
-	{
-		var renderers = root.GetComponentsInChildren<Renderer>(includeInactive);
-		bool hasAny = false;
-		Bounds localBounds = new Bounds(Vector3.zero, Vector3.zero);
-
-		foreach (var r in renderers)
-		{
-			// World-space AABB for this renderer
-			Bounds wb = r.bounds;
-
-			// Get its 8 corners and bring them into root local space
-			Vector3[] corners = GetWorldAABBCorners(wb);
-			for (int i = 0; i < corners.Length; i++)
-				corners[i] = root.InverseTransformPoint(corners[i]);
-
-			// Encapsulate into a local-space bounds
-			if (!hasAny)
-			{
-				localBounds = new Bounds(corners[0], Vector3.zero);
-				hasAny = true;
-			}
-			for (int i = 0; i < corners.Length; i++)
-				localBounds.Encapsulate(corners[i]);
-		}
-
-		return localBounds; // localBounds.center and .extents are relative to root's pivot
-	}
-
-	private static Vector3[] GetWorldAABBCorners(Bounds b)
-	{
-		var c = b.center; var e = b.extents;
-		return new Vector3[]
-		{
-			new Vector3(c.x - e.x, c.y - e.y, c.z - e.z),
-			new Vector3(c.x + e.x, c.y - e.y, c.z - e.z),
-			new Vector3(c.x - e.x, c.y + e.y, c.z - e.z),
-			new Vector3(c.x + e.x, c.y + e.y, c.z - e.z),
-			new Vector3(c.x - e.x, c.y - e.y, c.z + e.z),
-			new Vector3(c.x + e.x, c.y - e.y, c.z + e.z),
-			new Vector3(c.x - e.x, c.y + e.y, c.z + e.z),
-			new Vector3(c.x + e.x, c.y + e.y, c.z + e.z),
-		};
 	}
 }

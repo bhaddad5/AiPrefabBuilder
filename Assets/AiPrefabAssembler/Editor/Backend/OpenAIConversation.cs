@@ -23,9 +23,20 @@ namespace AiRequestBackend
 		private List<ChatMessage> currentConversation = new List<ChatMessage>();
 		private List<ICommand> tools;
 
+		public static ChatClient BuildClient(string modelId)
+		{
+			if (String.IsNullOrWhiteSpace(EditorPrefs.GetString("OPENAI_API_KEY")))
+			{
+				Debug.LogError("No API Key Provided!");
+				return null;
+			}
+
+			return new ChatClient(model: modelId, apiKey: EditorPrefs.GetString("OPENAI_API_KEY"));
+		}
+
 		public void InitConversation(string modelId, List<string> systemPrompts, List<ICommand> tools)
 		{
-			client = OpenAISdk.BuildClient(modelId);
+			client = BuildClient(modelId);
 
 			this.tools = tools;
 
@@ -39,7 +50,7 @@ namespace AiRequestBackend
 			}
 		}
 
-		public void SendMsg(string msg, List<string> transientContextMsgs)
+		public void SendMsg(List<UserToAiMsg> msgs, List<string> transientContextMsgs)
         {
 			if (IsProcessingMsg)
 			{
@@ -47,11 +58,25 @@ namespace AiRequestBackend
 				return;
 			}
 
-			Debug.Log($"Sending Msg: {msg}");
+			var chatMsgs = ToChatContent(msgs);
 
-			currentConversation.Add(new UserChatMessage(msg));
+			currentConversation.Add(new UserChatMessage(chatMsgs));
 
-			ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, msg));
+			foreach(var msg in msgs)
+			{
+				if (msg is UserToAiMsgText t)
+				{
+					Debug.Log($"Sending Msg: {t.Text}");
+					ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, t.Text));
+				}
+				else if (msg is UserToAiMsgImage i)
+				{
+					Debug.Log($"Sending Msg: {i.Image.name}");
+				}
+			}
+
+			foreach (var tcMsg in transientContextMsgs)
+				Debug.Log($"Context Msg: {tcMsg}");
 
 			ProcessCurrentConversation(transientContextMsgs);
 		}
@@ -226,11 +251,32 @@ namespace AiRequestBackend
 
 			Debug.Log($"Calling tool {call.FunctionName}({argsStr})");
 
-			string result = command.ParseArgsAndExecute(args);
+			var result = command.ParseArgsAndExecute(args);
 
-			Debug.Log($"Tool Response: {result}");
+			var respContent = ToChatContent(result);
 
-			return new ToolChatMessage(call.Id, result);
+			if (respContent.Count == 0)
+				respContent.Add(ChatMessageContentPart.CreateTextPart("Done"));
+
+			Debug.Log($"Tool Response: {String.Join(',', result)}");
+
+			return new ToolChatMessage(call.Id, respContent);
+		}
+
+		private static List<ChatMessageContentPart> ToChatContent(List<UserToAiMsg> msgs)
+		{
+			List<ChatMessageContentPart> res = new List<ChatMessageContentPart>();
+			foreach (var commandRes in msgs)
+			{
+				if (commandRes is UserToAiMsgText t)
+					res.Add(ChatMessageContentPart.CreateTextPart(t.Text));
+				else if (commandRes is UserToAiMsgImage i)
+					res.Add(ChatMessageContentPart.CreateImagePart(
+					BinaryData.FromBytes(i.GetImageBytes()), // Base64-encoded bytes
+					"image/jpg" // MIME type
+				));
+			}
+			return res;
 		}
 
 		// Example: produce typed values (int, Vector3, string) from JsonNode

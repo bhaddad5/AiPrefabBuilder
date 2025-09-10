@@ -5,14 +5,6 @@ using UnityEngine;
 
 public static class Testers
 {
-	[MenuItem("Forge of Realms - Tests/Test AI Calls", false, 1000)]
-	public static async void TestAiCalls()
-	{
-		var res = await AiRequestBackend.OpenAISdk.AskAsync(new List<string>() { "You are a snarky asshole." }, "What day is it?");
-		Debug.Log(res);
-		Debug.Log("Done!");
-	}
-
 	[MenuItem("Forge of Realms - Tests/Test GameObject Description Builder", false, 1000)]
 	public static void TestGameObjectDescriptionBuilder()
 	{

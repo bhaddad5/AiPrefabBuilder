@@ -14,11 +14,11 @@ public class GetPrefabContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath") };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		string prefabPath = Parameters[0].Get<string>(args);
 
-		return GetPrefabContext(prefabPath);
+		return new List<UserToAiMsg>() { new UserToAiMsgText(GetPrefabContext(prefabPath)) };
 	}
 
 	public static string GetPrefabContext(string prefabPath)
@@ -30,15 +30,15 @@ public class GetPrefabContextCommand : ICommand
 			return "";
 		}
 
-		var bounds = MetadataRequester.GetCombinedLocalBounds(obj.transform);
+		var bounds = Helpers.GetCombinedLocalBounds(obj.transform);
 
 		var comp = obj.GetComponent<AiMetadataFlag>();
 		if (comp == null)
 		{
-			return $"[{prefabPath}, boundsMin{bounds.min}, boundsMax{bounds.max}],"; ;
+			return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}],"; ;
 		}
 
-		return $"[{prefabPath}, boundsMin{bounds.min}, boundsMax{bounds.max}, metadata:\"{comp.AiMetadata}\"],";
+		return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}, metadata:\"{comp.AiMetadata}\"],";
 	}
 }
 
@@ -50,11 +50,11 @@ public class SearchPrefabsContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		string searchString = Parameters[0].Get<string>(args);
 
-		return SearchForPrefabsContext(searchString);
+		return new List<UserToAiMsg>() { new UserToAiMsgText(SearchForPrefabsContext(searchString)) };
 	}
 
 	private static string SearchForPrefabsContext(string searchString)
@@ -105,11 +105,11 @@ public class GetObjectContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId", Parameter.ParamType.Int) };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		var objectUniqueId = Parameters[0].Get<int>(args);
 
-		return GetObjectContext(objectUniqueId);
+		return new List<UserToAiMsg>() { new UserToAiMsgText(GetObjectContext(objectUniqueId)) };
 	}
 
 	private static string GetObjectContext(int objectUniqueId)
@@ -131,11 +131,11 @@ public class SearchObjectsContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
 
-	public string ParseArgsAndExecute(TypedArgs args)
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		var searchString = Parameters[0].Get<string>(args);
 
-		return SearchForObjectsContext(searchString);
+		return new List<UserToAiMsg>() { new UserToAiMsgText(SearchForObjectsContext(searchString)) };
 	}
 
 	private static string SearchForObjectsContext(string searchString)

@@ -33,5 +33,5 @@ public interface IConversation
 
 	public void InitConversation(string modelId, List<string> systemPrompts, List<ICommand> tools);
 
-	public void SendMsg(string msg, List<string> transientContextMsgs);
+	public void SendMsg(List<UserToAiMsg> msgs, List<string> transientContextMsgs);
 }
