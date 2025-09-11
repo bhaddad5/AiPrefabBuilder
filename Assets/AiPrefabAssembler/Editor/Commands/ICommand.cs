@@ -32,7 +32,8 @@ public class Parameter
 			return t;
 		}
 
-		Debug.LogError($"Failed to parse arg {Name} in {String.Join(',', args.Values.Keys)}");
+		if(Required)
+			Debug.LogError($"Failed to parse arg {Name} in {String.Join(',', args.Values.Keys)}");
 
 		return default;
 	}
