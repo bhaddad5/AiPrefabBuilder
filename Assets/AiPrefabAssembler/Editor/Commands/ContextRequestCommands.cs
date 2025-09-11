@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class GetPrefabContextCommand : ICommand
 	public string CommandDescription => "Request Context for a specific prefab. Returns the name, bounds, and a short description if one exists.";
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath") };
+
+	public bool EndConversation => false;
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
@@ -38,7 +41,7 @@ public class GetPrefabContextCommand : ICommand
 			return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}],"; ;
 		}
 
-		return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}, metadata:\"{comp.AiMetadata}\"],";
+		return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}, metadata:\"{comp.AiMetadataDescription}\"],";
 	}
 }
 
@@ -47,6 +50,8 @@ public class SearchPrefabsContextCommand : ICommand
 	public string CommandName => "SearchPrefabsContext";
 
 	public string CommandDescription => "Search for prefabs and their context info in the Assets folder using the given String.";
+
+	public bool EndConversation => false;
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
 
@@ -97,11 +102,111 @@ public class SearchPrefabsContextCommand : ICommand
 	}
 }
 
+//TODO: List prefabs by tag command!!!
+
+public class ListAllPrefabsWithTagCommand : ICommand
+{
+	public string CommandName => "ListAllPrefabsWithTag";
+
+	public string CommandDescription => "Returns a list of all prefabs marked with the given tag.";
+
+	public bool EndConversation => false;
+
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tag") };
+
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
+	{
+		string tag = Parameters[0].Get<string>(args);
+
+		return new List<UserToAiMsg>() { new UserToAiMsgText(string.Join(',', FindAllPrefabsWithTag(tag))) };
+	}
+
+	public static List<string> FindAllPrefabsWithTag(string tag)
+	{
+		HashSet<string> res = new HashSet<string>();
+
+		string[] prefabGuids = AssetDatabase.FindAssets("t:prefab");
+
+		foreach (var guid in prefabGuids)
+		{
+			string prefabPath = AssetDatabase.GUIDToAssetPath(guid);
+			if (string.IsNullOrEmpty(prefabPath))
+				continue;
+
+			var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+			if (obj == null)
+			{
+				Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
+				continue;
+			}
+
+			var flag = obj.GetComponent<AiMetadataFlag>();
+			if (flag != null && flag.AiMetadataTags.Contains(tag))
+			{
+				res.Add(prefabPath);
+			}
+		}
+
+		return res.ToList();
+	}
+}
+
+public class GetAllPrefabTagsCommand : ICommand
+{
+	public string CommandName => "GetAllPrefabTags";
+
+	public string CommandDescription => "Get a list of all Tags that have currently been assigned to Prefabs.";
+
+	public bool EndConversation => false;
+
+	public List<Parameter> Parameters => new List<Parameter>() { };
+
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
+	{
+		return new List<UserToAiMsg>() { new UserToAiMsgText(string.Join(',', GetAllTagsInFileSystem())) };
+	}
+
+	public static List<string> GetAllTagsInFileSystem()
+	{
+		HashSet<string> res = new HashSet<string>();
+
+		string[] prefabGuids = AssetDatabase.FindAssets("t:prefab");
+
+		foreach (var guid in prefabGuids)
+		{
+			string prefabPath = AssetDatabase.GUIDToAssetPath(guid);
+			if (string.IsNullOrEmpty(prefabPath))
+				continue;
+
+			var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+			if (obj == null)
+			{
+				Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
+				continue;
+			}
+
+			var flag = obj.GetComponent<AiMetadataFlag>();
+			if (flag != null)
+			{
+				foreach (var tag in flag.AiMetadataTags)
+				{
+					if(!res.Contains(tag))
+						res.Add(tag);
+				}
+			}
+		}
+
+		return res.ToList();
+	}
+}
+
 public class GetObjectContextCommand : ICommand
 {
 	public string CommandName => "GetObjectContext";
 
 	public string CommandDescription => "Request Context for a specific Object. Returns the name, bounds, children, etc.";
+
+	public bool EndConversation => false;
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId", Parameter.ParamType.Int) };
 
@@ -128,6 +233,8 @@ public class SearchObjectsContextCommand : ICommand
 	public string CommandName => "SearchObjectsContext";
 
 	public string CommandDescription => "Search for objects and their context info in the Scene using the given String.";
+
+	public bool EndConversation => false;
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
 

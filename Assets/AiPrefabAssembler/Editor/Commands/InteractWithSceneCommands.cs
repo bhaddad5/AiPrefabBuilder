@@ -8,6 +8,8 @@ public class CreateObjectCommand : ICommand
 
 	public string CommandDescription => "Creates a new Object.";
 
+	public bool EndConversation => false;
+
 	public List<Parameter> Parameters => new List<Parameter>() { 
 		new Parameter("objectCreationUniqueId", Parameter.ParamType.Int), 
 		new Parameter("prefabPath"), 
@@ -62,6 +64,8 @@ public class DeleteObjectCommand : ICommand
 
 	public string CommandDescription => "Delete an Object.";
 
+	public bool EndConversation => false;
+
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("objectUniqueId", Parameter.ParamType.Int) };
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
@@ -86,6 +90,8 @@ public class SetObjectParentCommand : ICommand
 	public string CommandName => "SetObjectParent";
 
 	public string CommandDescription => "Set an Object's Parent.";
+
+	public bool EndConversation => false;
 
 	public List<Parameter> Parameters => new List<Parameter>()	{ 
 		new Parameter("objectUniqueId", Parameter.ParamType.Int),
@@ -117,6 +123,8 @@ public class SetObjectTransformCommand : ICommand
 	public string CommandName => "SetObjectTransform";
 
 	public string CommandDescription => "Set an Object's Transform.";
+
+	public bool EndConversation => false;
 
 	public List<Parameter> Parameters => new List<Parameter>() { 
 		new Parameter("objectUniqueId", Parameter.ParamType.Int),

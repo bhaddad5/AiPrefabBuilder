@@ -118,6 +118,8 @@ namespace AiRequestBackend
 					// Add assistant message (which contains tool calls) to history
 					tmpConversation.Add(new AssistantChatMessage(completion));
 
+					List<ICommand> toolsUsed = new List<ICommand>();
+
 					foreach (var call in completion.ToolCalls)
 					{
 						var toolToUse = tools.FirstOrDefault(t => t.CommandName == call.FunctionName);
@@ -128,7 +130,10 @@ namespace AiRequestBackend
 							tmpConversation.Add(new ToolChatMessage(call.Id, $"Tool {call.FunctionName} not implemented."));
 							continue;
 						}
-						CurrentThinkingStatus = "TODO: FILL IN!";//$"{toolToUse.ActionProgressDescription}...";
+
+						toolsUsed.Add(toolToUse);
+
+						CurrentThinkingStatus = $"Calling: {toolToUse.CommandName}";
 
 						//TODO: how to respond to successful no-response calls
 						var toolMsg = HandleToolCall(toolToUse, call);
@@ -136,7 +141,7 @@ namespace AiRequestBackend
 					}
 
 					// We satisfied tool calls; loop to let the model use the tool results
-					loop = true;
+					loop = toolsUsed.Any(t => !t.EndConversation);
 				}
 			}
 		}

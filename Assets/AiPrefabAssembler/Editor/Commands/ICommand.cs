@@ -142,6 +142,7 @@ public interface ICommand
 {
     public string CommandName { get; }
 	public string CommandDescription { get; }
+	public bool EndConversation { get; }
 
     public List<Parameter> Parameters { get; }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AiMetadataFlag : MonoBehaviour
 {
+	public List<string> AiMetadataTags = new List<string>();
+
 	[TextArea(3, 10)]
-	public string AiMetadata;
+	public string AiMetadataDescription = "";
 }

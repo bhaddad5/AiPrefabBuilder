@@ -41,6 +41,8 @@ public class AIRequestMenu : EditorWindow
 			new DeleteObjectCommand(),
 			new SetObjectParentCommand(),
 			new SetObjectTransformCommand(),
+			new GetAllPrefabTagsCommand(),
+			new ListAllPrefabsWithTagCommand(),
 		};
 
 		var model = ModelFetcher.GetCurrentModel();
@@ -186,7 +188,10 @@ public class AIRequestMenu : EditorWindow
 				string prefabSelectionPrompt =
 					"Here are the UniqueIds of the user's selected Prefabs: " + SceneDescriptionBuilder.BuildPrefabSelectionString();
 
-				Conversation.SendMsg(new List<UserToAiMsg>() { new UserToAiMsgText(prompt) }, new List<string>() { objectSelectionPrompt, prefabSelectionPrompt });
+				string tagsPrompt =
+					"Here are all of the prefab tags currently present in the project: " + string.Join(',', GetAllPrefabTagsCommand.GetAllTagsInFileSystem());
+
+				Conversation.SendMsg(new List<UserToAiMsg>() { new UserToAiMsgText(prompt) }, new List<string>() { objectSelectionPrompt, prefabSelectionPrompt, tagsPrompt });
 				prompt = "";
 				scrollToBottom = true;
 			}

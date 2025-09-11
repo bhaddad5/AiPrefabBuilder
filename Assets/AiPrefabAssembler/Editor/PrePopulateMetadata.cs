@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,7 +20,6 @@ public static class PrePopulateMetadata
 		Debug.Log($"Generating AI Metadata for {prefabs.Count} prefabs.  This might take awhile...");
 
 		DoNextPrefab("", prefabs);
-
 	}
 
 	private static void DoNextPrefab(string prefabPath, List<string> prefabs)
@@ -57,30 +57,23 @@ public static class PrePopulateMetadata
 			return;
 		}
 
-		var conversation = AiBackendHelpers.GetConversation(model, new List<string>(), new List<ICommand>());
+		var setTagsTool = new SetPrefabTagsCommand();
 
-		conversation.ChatMsgAdded += (msg) =>
+		var conversation = AiBackendHelpers.GetConversation(model, new List<string>(), new List<ICommand>() { new SetPrefabDescriptionCommand(), setTagsTool, });
+
+		setTagsTool.TagsSet += () =>
 		{
-			if (!msg.IsFromUser)
-			{
-				var flag = obj.GetComponent<AiMetadataFlag>();
-				if (flag == null)
-					flag = obj.AddComponent<AiMetadataFlag>();
-
-				flag.AiMetadata = msg.Text;
-
-				EditorUtility.SetDirty(obj);
-
-				callback(prefabPath);
-			}
+			callback(prefabPath);
 		};
 
 		List<UserToAiMsg> msgs = new List<UserToAiMsg>();
 
-		string prompt = $"Describe what this prefab is & looks like in 2 sentences. " +
-			$"Keep your answer brief, as it will be fed raw into AI. " +
-			$"Note it's orientation. " +
-			$"The prefab is named {Path.GetFileNameWithoutExtension(prefabPath)}. " +
+		string prompt = $"Populate a Description and Tags for the prefab: {prefabPath}. " +
+			$"Use the SetPrefabDescription and the SetPrefabTags tools. " +
+			$"Keep your Description brief (~2 sentences), as it will be fed raw into AI. " +
+			$"Note the prefab's orientation, and how/where it should be placed in the description. " +
+			$"Try to use existing tags where they would make sense. "+
+			$"Your tags should contain things like Category (prop, character, vehicle, structure, foliage, VFX, SFX, UI), Material (wood, metal, glass, concrete, etc), Function (door, container, weapon, light, seat, control-panel, etc), and Scale (small, medium, large). " +
 			$"Following this are images rendering it. The background color is fucia(1,0,1).";
 		msgs.Add(new UserToAiMsgText(prompt));
 
@@ -98,6 +91,96 @@ public static class PrePopulateMetadata
 			$"The min bounds is {bounds.min}, the max bounds is {bounds.max}.  The object is positioned at (0,0,0).";
 		msgs.Add(new UserToAiMsgText(boundsMsg));
 
+		var allTags = GetAllPrefabTagsCommand.GetAllTagsInFileSystem();
+		string tagsMsg = $"Here is a list of all Tags currently in use by the system.  Try to use these where possible: {string.Join(',', allTags)}";
+		msgs.Add(new UserToAiMsgText(tagsMsg));
+
 		conversation.SendMsg(msgs, new List<string>());
+	}
+}
+
+public class SetPrefabDescriptionCommand : ICommand
+{
+	public string CommandName => "SetPrefabDescription";
+
+	public string CommandDescription => "Assigns a text description to a well-known component on the prefab.";
+
+	public bool EndConversation => true;
+
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath"), new Parameter("description") };
+
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
+	{
+		string prefabPath = Parameters[0].Get<string>(args);
+		string description = Parameters[1].Get<string>(args);
+
+		AssignDescription(prefabPath, description);
+
+		return new List<UserToAiMsg>();
+	}
+
+	public static void AssignDescription(string prefabPath, string description)
+	{
+		var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+		if (obj == null)
+		{
+			Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
+			return;
+		}
+
+		var flag = obj.GetComponent<AiMetadataFlag>();
+		if (flag == null)
+			flag = obj.AddComponent<AiMetadataFlag>();
+
+		flag.AiMetadataDescription = description;
+
+		EditorUtility.SetDirty(obj);
+	}
+}
+
+public class SetPrefabTagsCommand : ICommand
+{
+	public string CommandName => "SetPrefabTags";
+
+	public string CommandDescription => "Assigns up-to 5 tags to a well-known component on the prefab.";
+
+	public bool EndConversation => true;
+
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath"), new Parameter("tags", Parameter.ParamType.String, "A list of tags separated by ',' characters") };
+
+	public event Action TagsSet;
+
+	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
+	{
+		string prefabPath = Parameters[0].Get<string>(args);
+		string tags = Parameters[1].Get<string>(args);
+
+		AssignTags(prefabPath, tags);
+
+		TagsSet?.Invoke();
+
+		return new List<UserToAiMsg>();
+	}
+
+	public static void AssignTags(string prefabPath, string tags)
+	{
+		var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+		if (obj == null)
+		{
+			Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
+			return;
+		}
+
+		var flag = obj.GetComponent<AiMetadataFlag>();
+		if (flag == null)
+			flag = obj.AddComponent<AiMetadataFlag>();
+
+		var tagsList = tags.Split(',');
+		for (int i = 0; i < tagsList.Length; i++)
+			tagsList[i] = tagsList[i].Trim();
+
+		flag.AiMetadataTags = tagsList.ToList();
+
+		EditorUtility.SetDirty(obj);
 	}
 }
