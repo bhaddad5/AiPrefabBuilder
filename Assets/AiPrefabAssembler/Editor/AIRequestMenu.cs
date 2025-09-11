@@ -20,8 +20,7 @@ public class AIRequestMenu : EditorWindow
 		"Always try to figure out what they need and call the InteractWithScene tool to do it, before responding! " +
 		"Always try to batch together as many tool calls as you can, to save time/cycles. " +
 		"Unity is a Y-up coordinate system where a Distance of 1 = 1 meter. " +
-		"If placing objects contextually to another object, always try to place it under the same parent! " +
-		"Any requests to generate metadata for a prefab should call RequestRendersForPrefabDescription followed by AssignMetadataToPrefab.";
+		"If placing objects contextually to another object, always try to place it under the same parent! ";
 
 	[MenuItem("Forge of Realms/AI Assistant", false, 200)]
 	static void Init()

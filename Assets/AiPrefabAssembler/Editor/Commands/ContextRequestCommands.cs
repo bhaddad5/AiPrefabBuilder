@@ -7,6 +7,27 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public static class SearchHelpers
+{
+	public static Parameter Top25Param => new Parameter("resultsIndex25", Parameter.ParamType.Int, "Index-0 identifier of which 25 results you would like.  So pass in 0 for results 1-25, 1 for 26-50, etc.", false);
+
+	public static (List<string> results, int startIndex, int endIndex) FilterOn25Index(int index, List<string> inputs)
+	{
+		int desiredStartIndex = index * 25;
+		if (desiredStartIndex >= inputs.Count)
+			desiredStartIndex = 0;
+		int endIndex = Math.Min(desiredStartIndex + 25, inputs.Count);
+
+		List<string> res = new List<string>();
+		for (int i = desiredStartIndex; i < endIndex; i++)
+		{
+			res.Add(inputs[i]);
+		}
+
+		return (res, desiredStartIndex, endIndex-1);
+	}
+}
+
 public class GetPrefabContextCommand : ICommand
 {
 	public string CommandName => "GetPrefabContext";
@@ -49,40 +70,31 @@ public class SearchPrefabsContextCommand : ICommand
 {
 	public string CommandName => "SearchPrefabsContext";
 
-	public string CommandDescription => "Search for prefabs and their context info in the Assets folder using the given String.";
+	public string CommandDescription => "Search for prefabs in the Assets folder using the given String.";
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString"), SearchHelpers.Top25Param };
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		string searchString = Parameters[0].Get<string>(args);
+		int index = Parameters[1].Get<int>(args);
 
-		return new List<UserToAiMsg>() { new UserToAiMsgText(SearchForPrefabsContext(searchString)) };
+		var foundItems = SearchThroughFileSystem(searchString.ToLowerInvariant());
+
+		var filter = SearchHelpers.FilterOn25Index(index, foundItems);
+
+		if (filter.results.Count == 0)
+			return new List<UserToAiMsg>() { new UserToAiMsgText($"No prefabs found.") };
+
+		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {foundItems.Count} prefabs.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
 	}
 
-	private static string SearchForPrefabsContext(string searchString)
+	public static List<string> SearchThroughFileSystem(string searchString)
 	{
 		List<string> foundItems = new List<string>();
-		SearchThroughFileSystem(searchString.ToLowerInvariant(), foundItems);
 
-		StringBuilder sb = new StringBuilder();
-		foreach (var item in foundItems)
-		{
-			sb.Append(GetPrefabContextCommand.GetPrefabContext(item));
-		}
-
-		string res = sb.ToString();
-
-		if (res == "")
-			res = "No objects found.";
-
-		return res;
-	}
-
-	public static void SearchThroughFileSystem(string searchString, List<string> foundItems)
-	{
 		string[] prefabGuids = AssetDatabase.FindAssets("t:prefab");
 
 		foreach (var guid in prefabGuids)
@@ -99,6 +111,8 @@ public class SearchPrefabsContextCommand : ICommand
 			if (match)
 				foundItems.Add(path);
 		}
+
+		return foundItems;
 	}
 }
 
@@ -110,7 +124,7 @@ public class ListPrefabsWithTagCommand : ICommand
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tag"), new Parameter("resultsIndex25", Parameter.ParamType.Int, "Index-0 identifier of which 25 results you would like.  So pass in 0 for results 1-25, 1 for 26-50, etc.", false) };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tag"), SearchHelpers.Top25Param };
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
@@ -119,22 +133,12 @@ public class ListPrefabsWithTagCommand : ICommand
 
 		var allPrefabs = FindAllPrefabsWithTag(tag);
 
-		int desiredStartIndex = index * 25;
-		if (desiredStartIndex >= allPrefabs.Count)
-			desiredStartIndex = 0;
+		var filter = SearchHelpers.FilterOn25Index(index, allPrefabs);
 
-		List<string> res = new List<string>();
-		int endIndex = desiredStartIndex;
-		for(int i = desiredStartIndex; i < allPrefabs.Count; i++)
-		{
-			endIndex = i;
-			res.Add(allPrefabs[i]);
-		}
-
-		if(res.Count == 0)
+		if (filter.results.Count == 0)
 			return new List<UserToAiMsg>() { new UserToAiMsgText($"No prefabs found.") };
 
-		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {allPrefabs.Count} prefabs.  ({desiredStartIndex},{endIndex})={string.Join(',', res)}") };
+		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {allPrefabs.Count} prefabs.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
 	}
 
 	public static List<string> FindAllPrefabsWithTag(string tag)
@@ -248,39 +252,29 @@ public class SearchObjectsContextCommand : ICommand
 {
 	public string CommandName => "SearchObjectsContext";
 
-	public string CommandDescription => "Search for objects and their context info in the Scene using the given String.";
+	public string CommandDescription => "Search for object uniqueIds in the Scene using the given String.";
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString") };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString"), SearchHelpers.Top25Param };
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		var searchString = Parameters[0].Get<string>(args);
+		int index = Parameters[1].Get<int>(args);
 
-		return new List<UserToAiMsg>() { new UserToAiMsgText(SearchForObjectsContext(searchString)) };
-	}
-
-	private static string SearchForObjectsContext(string searchString)
-	{
-		List<GameObject> foundItems = new List<GameObject>();
+		List<string> foundItems = new List<string>();
 		SearchThroughWholeScene(searchString.ToLowerInvariant(), foundItems);
 
-		StringBuilder sb = new StringBuilder();
-		foreach(var item in foundItems)
-		{
-			sb.Append(SceneDescriptionBuilder.BuildGameObjectDescription(item.transform));
-		}
+		var filter = SearchHelpers.FilterOn25Index(index, foundItems);
 
-		string res = sb.ToString();
+		if (filter.results.Count == 0)
+			return new List<UserToAiMsg>() { new UserToAiMsgText($"No objects found.") };
 
-		if (res == "")
-			res = "No objects found.";
-
-		return res;
+		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {foundItems.Count} objects.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
 	}
 
-	public static void SearchThroughWholeScene(string searchString, List<GameObject> foundItems)
+	public static void SearchThroughWholeScene(string searchString, List<string> foundItems)
 	{
 		var scene = SceneManager.GetActiveScene();
 		if (!scene.IsValid() || !scene.isLoaded)
@@ -295,10 +289,10 @@ public class SearchObjectsContextCommand : ICommand
 			CheckNodeRecursive(root, searchString, foundItems);
 	}
 
-	private static void CheckNodeRecursive(GameObject g, string searchString, List<GameObject> foundItems)
+	private static void CheckNodeRecursive(GameObject g, string searchString, List<string> foundItems)
 	{
 		if (g.name.ToLowerInvariant().Contains(searchString))
-			foundItems.Add(g);
+			foundItems.Add(g.GetInstanceID().ToString());
 
 		// Children in deterministic order
 		for (int i = 0; i < g.transform.childCount; i++)
