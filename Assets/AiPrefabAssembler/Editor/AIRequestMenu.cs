@@ -41,7 +41,7 @@ public class AIRequestMenu : EditorWindow
 			new SetObjectParentCommand(),
 			new SetObjectTransformCommand(),
 			new GetAllPrefabTagsCommand(),
-			new ListPrefabsWithTagCommand(),
+			new ListPrefabsWithTagsCommand(),
 		};
 
 		var model = ModelFetcher.GetCurrentModel();

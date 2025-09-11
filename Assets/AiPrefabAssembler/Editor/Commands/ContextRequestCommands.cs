@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -116,22 +115,25 @@ public class SearchPrefabsContextCommand : ICommand
 	}
 }
 
-public class ListPrefabsWithTagCommand : ICommand
+public class ListPrefabsWithTagsCommand : ICommand
 {
-	public string CommandName => "ListPrefabsWithTag";
+	public string CommandName => "ListPrefabsWithTags";
 
-	public string CommandDescription => "Returns a list of 25 prefabs marked with the given tag.";
+	public string CommandDescription => "Returns a list of 25 prefabs marked with all the given tags.";
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tag"), SearchHelpers.Top25Param };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tags", Parameter.ParamType.String, "A list of tags separated by ',' characters"), SearchHelpers.Top25Param };
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
-		string tag = Parameters[0].Get<string>(args);
+		List<string> tags = Parameters[0].Get<string>(args).Split(',').ToList();
 		int index = Parameters[1].Get<int>(args);
 
-		var allPrefabs = FindAllPrefabsWithTag(tag);
+		for (int i = 0; i < tags.Count; i++)
+			tags[i] = tags[i].Trim();
+
+		var allPrefabs = FindAllPrefabsWithTag(tags);
 
 		var filter = SearchHelpers.FilterOn25Index(index, allPrefabs);
 
@@ -141,7 +143,7 @@ public class ListPrefabsWithTagCommand : ICommand
 		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {allPrefabs.Count} prefabs.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
 	}
 
-	public static List<string> FindAllPrefabsWithTag(string tag)
+	public static List<string> FindAllPrefabsWithTag(List<string> tags)
 	{
 		HashSet<string> res = new HashSet<string>();
 
@@ -161,9 +163,19 @@ public class ListPrefabsWithTagCommand : ICommand
 			}
 
 			var flag = obj.GetComponent<AiMetadataFlag>();
-			if (flag != null && flag.AiMetadataTags.Contains(tag))
+			if (flag != null)
 			{
-				res.Add(prefabPath);
+				bool valid = true;
+				foreach(var tag in tags)
+				{
+					if (!flag.AiMetadataTags.Contains(tag))
+					{
+						valid = false;
+						break;
+					}
+				}
+				if(valid)
+					res.Add(prefabPath);
 			}
 		}
 
