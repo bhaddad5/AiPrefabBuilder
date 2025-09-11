@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Profiling.Memory.Experimental;
 
 public static class PrePopulateMetadata
 {
@@ -19,17 +18,34 @@ public static class PrePopulateMetadata
 
 		Debug.Log($"Generating AI Metadata for {prefabs.Count} prefabs.  This might take awhile...");
 
-		AddMetadataToPrefabCallback(prefabs[0], () => { Debug.Log("TODO: DO OTHERS!!!"); });
+		DoNextPrefab("", prefabs);
 
 	}
 
-	private static void AddMetadataToPrefabCallback(string prefabPath, Action callback)
+	private static void DoNextPrefab(string prefabPath, List<string> prefabs)
+	{
+		if (!string.IsNullOrEmpty(prefabPath))
+		{
+			prefabs.Remove(prefabPath);
+			Debug.Log($"Completed Metadata on {prefabPath}.  {prefabs.Count} remaining...");
+		}
+		if (prefabs.Count > 0)
+		{
+			AddMetadataToPrefabCallback(prefabs[0], path => DoNextPrefab(path, prefabs));
+		}
+		else
+		{
+			Debug.Log("All prefab metadata requests processed!");
+		}
+	}
+
+	private static void AddMetadataToPrefabCallback(string prefabPath, Action<string> callback)
 	{
 		var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
 		if (obj == null)
 		{
 			Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
-			callback();
+			callback(prefabPath);
 			return;
 		}
 
@@ -37,7 +53,7 @@ public static class PrePopulateMetadata
 		if (model == null)
 		{
 			Debug.LogError("No AI Model Selected!!!");
-			callback();
+			callback(prefabPath);
 			return;
 		}
 
@@ -55,7 +71,7 @@ public static class PrePopulateMetadata
 
 				EditorUtility.SetDirty(obj);
 
-				callback();
+				callback(prefabPath);
 			}
 		};
 
