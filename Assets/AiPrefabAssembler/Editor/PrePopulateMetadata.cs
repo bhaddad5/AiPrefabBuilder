@@ -26,6 +26,12 @@ public static class PrePopulateMetadata
 	{
 		if (!string.IsNullOrEmpty(prefabPath))
 		{
+			//We have already handled this prefab so do nothing!!!
+			if(!prefabs.Contains(prefabPath))
+			{
+				return;
+			}
+
 			prefabs.Remove(prefabPath);
 			Debug.Log($"Completed Metadata on {prefabPath}.  {prefabs.Count} remaining...");
 		}
@@ -58,10 +64,15 @@ public static class PrePopulateMetadata
 		}
 
 		var setTagsTool = new SetPrefabTagsCommand();
+		var setDescrTool = new SetPrefabDescriptionCommand();
 
-		var conversation = AiBackendHelpers.GetConversation(model, new List<string>(), new List<ICommand>() { new SetPrefabDescriptionCommand(), setTagsTool, });
+		var conversation = AiBackendHelpers.GetConversation(model, new List<string>(), new List<ICommand>() { setDescrTool, setTagsTool, });
 
 		setTagsTool.TagsSet += () =>
+		{
+			callback(prefabPath);
+		};
+		setDescrTool.DescrsSet += () =>
 		{
 			callback(prefabPath);
 		};
@@ -69,7 +80,7 @@ public static class PrePopulateMetadata
 		List<UserToAiMsg> msgs = new List<UserToAiMsg>();
 
 		string prompt = $"Populate a Description and Tags for the prefab: {prefabPath}. " +
-			$"Use the SetPrefabDescription and the SetPrefabTags tools. " +
+			$"Always call both the SetPrefabDescription and the SetPrefabTags tools, and always do so at the same time. " +
 			$"Keep your Description brief (~2 sentences), as it will be fed raw into AI. " +
 			$"Note the prefab's orientation, and how/where it should be placed in the description. " +
 			$"Try to use existing tags where they would make sense. "+
@@ -109,12 +120,16 @@ public class SetPrefabDescriptionCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath"), new Parameter("description") };
 
+	public event Action DescrsSet;
+
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		string prefabPath = Parameters[0].Get<string>(args);
 		string description = Parameters[1].Get<string>(args);
 
 		AssignDescription(prefabPath, description);
+
+		DescrsSet?.Invoke();
 
 		return new List<UserToAiMsg>();
 	}
