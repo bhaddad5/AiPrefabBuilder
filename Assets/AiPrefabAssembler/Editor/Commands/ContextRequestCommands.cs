@@ -41,7 +41,7 @@ public class GetPrefabContextCommand : ICommand
 			return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}],"; ;
 		}
 
-		return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}, metadata:\"{comp.AiMetadataDescription}\"],";
+		return $"[{prefabPath}, boundsMin:{bounds.min}, boundsMax:{bounds.max}, description:\"{comp.AiMetadataDescription}\"],";
 	}
 }
 
@@ -102,23 +102,39 @@ public class SearchPrefabsContextCommand : ICommand
 	}
 }
 
-//TODO: List prefabs by tag command!!!
-
-public class ListAllPrefabsWithTagCommand : ICommand
+public class ListPrefabsWithTagCommand : ICommand
 {
-	public string CommandName => "ListAllPrefabsWithTag";
+	public string CommandName => "ListPrefabsWithTag";
 
-	public string CommandDescription => "Returns a list of all prefabs marked with the given tag.";
+	public string CommandDescription => "Returns a list of 25 prefabs marked with the given tag.";
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tag") };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tag"), new Parameter("resultsIndex25", Parameter.ParamType.Int, "Index-0 identifier of which 25 results you would like.  So pass in 0 for results 1-25, 1 for 26-50, etc.", false) };
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		string tag = Parameters[0].Get<string>(args);
+		int index = Parameters[1].Get<int>(args);
 
-		return new List<UserToAiMsg>() { new UserToAiMsgText(string.Join(',', FindAllPrefabsWithTag(tag))) };
+		var allPrefabs = FindAllPrefabsWithTag(tag);
+
+		int desiredStartIndex = index * 25;
+		if (desiredStartIndex >= allPrefabs.Count)
+			desiredStartIndex = 0;
+
+		List<string> res = new List<string>();
+		int endIndex = desiredStartIndex;
+		for(int i = desiredStartIndex; i < allPrefabs.Count; i++)
+		{
+			endIndex = i;
+			res.Add(allPrefabs[i]);
+		}
+
+		if(res.Count == 0)
+			return new List<UserToAiMsg>() { new UserToAiMsgText($"No prefabs found.") };
+
+		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {allPrefabs.Count} prefabs.  ({desiredStartIndex},{endIndex})={string.Join(',', res)}") };
 	}
 
 	public static List<string> FindAllPrefabsWithTag(string tag)

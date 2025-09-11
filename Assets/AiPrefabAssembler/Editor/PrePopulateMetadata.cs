@@ -83,8 +83,8 @@ public static class PrePopulateMetadata
 			$"Always call both the SetPrefabDescription and the SetPrefabTags tools, and always do so at the same time. " +
 			$"Keep your Description brief (~2 sentences), as it will be fed raw into AI. " +
 			$"Note the prefab's orientation, and how/where it should be placed in the description. " +
-			$"Try to use existing tags where they would make sense. "+
-			$"Your tags should contain things like Category (prop, character, vehicle, structure, foliage, VFX, SFX, UI), Material (wood, metal, glass, concrete, etc), Function (door, container, weapon, light, seat, control-panel, etc), and Scale (small, medium, large). " +
+			$"Try to use existing tags where they would make sense, but don't be afraid to make new ones, especially if this is a new \"kind of thing\". "+
+			$"Your tags should contain things like Category (prop, character, vehicle, structure, foliage, VFX, SFX, UI), Function (door, container, weapon, light, seat, control-panel, etc), and other descriptors/tidbits you might find useful. " +
 			$"Following this are images rendering it. The background color is fucia(1,0,1).";
 		msgs.Add(new UserToAiMsgText(prompt));
 

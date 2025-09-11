@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using UnityEditor;
 
 public class AiModel
@@ -36,6 +34,7 @@ public static class ModelFetcher
 		var allModels = new List<AiModel>();
 
 		allModels.Add(new AiModel(AiModel.ApiProvider.Anthropic, "claude-sonnet-4-20250514", "Claude Sonnet 4"));
+		allModels.Add(new AiModel(AiModel.ApiProvider.Anthropic, "claude-3-5-haiku-20241022", "Claude Haiku 3.5"));
 		allModels.Add(new AiModel(AiModel.ApiProvider.OpenAI, "gpt-5", "GPT 5"));
 		allModels.Add(new AiModel(AiModel.ApiProvider.OpenAI, "gpt-5-mini", "GPT 5 Mini"));
 
