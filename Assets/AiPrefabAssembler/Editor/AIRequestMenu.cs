@@ -30,10 +30,11 @@ public class AIRequestMenu : EditorWindow
 		window.minSize = new Vector2(420, 260);
 		window.Show();
 
+		var lookupTable = new ContextLookupTable();
+
 		List<ICommand> commands = new List<ICommand>()
 		{
 			new GetPrefabContextCommand(),
-			new SearchPrefabsContextCommand(),
 			new GetObjectContextCommand(),
 			new SearchObjectsContextCommand(),
 			new CreateObjectCommand(),
@@ -41,7 +42,7 @@ public class AIRequestMenu : EditorWindow
 			new SetObjectParentCommand(),
 			new SetObjectTransformCommand(),
 			new GetAllPrefabTagsCommand(),
-			new ListPrefabsWithTagsCommand(),
+			new ListPrefabsWithTagsCommand(lookupTable),
 		};
 
 		var model = ModelFetcher.GetCurrentModel();

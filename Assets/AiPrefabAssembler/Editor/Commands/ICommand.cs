@@ -10,6 +10,7 @@ public class Parameter
 		String,
 		Int,
 		Vector3,
+		StringList,
 	}
 
     public string Name;

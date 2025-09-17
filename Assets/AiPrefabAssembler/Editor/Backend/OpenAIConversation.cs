@@ -181,6 +181,16 @@ namespace AiRequestBackend
 
 					return vec;
 
+				case Parameter.ParamType.StringList:
+					var arr = new JsonObject
+					{
+						["type"] = "array",
+						["items"] = new JsonObject { ["type"] = "string" },
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+
+					return arr;
+
 				case Parameter.ParamType.String:
 				default:
 					return new JsonObject
@@ -321,6 +331,21 @@ namespace AiRequestBackend
 								float.TryParse(nz.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fz))
 							{
 								value = new Vector3(fx, fy, fz);
+							}
+							break;
+
+						case Parameter.ParamType.StringList:
+							if (node is JsonArray ja)
+							{
+								var stringList = new List<string>();
+								foreach (var item in ja)
+								{
+									if (item is JsonValue slv && slv.TryGetValue<string>(out var sl))
+										stringList.Add(sl);
+									else
+										stringList.Add(item?.ToString() ?? "");
+								}
+								value = stringList;
 							}
 							break;
 

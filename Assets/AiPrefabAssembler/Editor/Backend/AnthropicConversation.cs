@@ -64,17 +64,17 @@ namespace AiRequestBackend
 			{
 				if (msg is UserToAiMsgText t)
 				{
-					Debug.Log($"Sending Msg: {t.Text}");
+					//Debug.Log($"Sending Msg: {t.Text}");
 					ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, t.Text));
 				}
 				else if (msg is UserToAiMsgImage i)
 				{
-					Debug.Log($"Sending Msg: {i.Image.name}");
+					//Debug.Log($"Sending Msg: {i.Image.name}");
 				}
 			}
 
-			foreach (var tcMsg in transientContextMsgs)
-				Debug.Log($"Context Msg: {tcMsg}");
+			//foreach (var tcMsg in transientContextMsgs)
+			//	Debug.Log($"Context Msg: {tcMsg}");
 
 			ProcessCurrentConversation(transientContextMsgs);
 		}
@@ -121,7 +121,7 @@ namespace AiRequestBackend
 						var textContent = response.Content.OfType<TextContent>().FirstOrDefault();
 						if (textContent != null)
 						{
-							Debug.Log($"Received Msg Response: {textContent.Text}");
+							//Debug.Log($"Received Msg Response: {textContent.Text}");
 
 							// Add assistant message to conversation history
 							currentConversation.Add(new Message
@@ -157,7 +157,7 @@ namespace AiRequestBackend
 
 							if (toolToUse == null)
 							{
-								Debug.LogError($"Tool {toolUse.Name} not implemented!");
+								//Debug.LogError($"Tool {toolUse.Name} not implemented!");
 								toolResults.Add(new ToolResultContent
 								{
 									ToolUseId = toolUse.Id,
@@ -232,6 +232,14 @@ namespace AiRequestBackend
 
 					return vec;
 
+				case Parameter.ParamType.StringList:
+					return new JsonObject
+					{
+						["type"] = "array",
+						["items"] = new JsonObject { ["type"] = "string" },
+						["description"] = string.IsNullOrWhiteSpace(p.Description) ? "" : p.Description
+					};
+
 				case Parameter.ParamType.String:
 				default:
 					return new JsonObject
@@ -280,7 +288,7 @@ namespace AiRequestBackend
 				schema["required"] = req;
 			}
 
-			Debug.Log($"Function: {command.CommandName}, descr={command.CommandDescription}, schema={schema.ToString()}");
+			//Debug.Log($"Function: {command.CommandName}, descr={command.CommandDescription}, schema={schema.ToString()}");
 
 			return new Function(command.CommandName, command.CommandDescription ?? "", schema);
 		}
@@ -297,7 +305,7 @@ namespace AiRequestBackend
 			if (argsStr.EndsWith(','))
 				argsStr = argsStr.Substring(0, argsStr.Length - 1);
 
-			Debug.Log($"Calling tool {toolUse.Name}({argsStr})");
+			//Debug.Log($"Calling tool {toolUse.Name}({argsStr})");
 
 			var result = command.ParseArgsAndExecute(args);
 
@@ -306,7 +314,7 @@ namespace AiRequestBackend
 			if (resultContent.Count == 0)
 				resultContent.Add(new TextContent { Text = "Done" });
 
-			Debug.Log($"Tool Response: {String.Join(',', result)}");
+			//Debug.Log($"Tool Response: {String.Join(',', result)}");
 
 			return new ToolResultContent
 			{
@@ -380,6 +388,21 @@ namespace AiRequestBackend
 								float.TryParse(nz.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out var fz))
 							{
 								value = new Vector3(fx, fy, fz);
+							}
+							break;
+
+						case Parameter.ParamType.StringList:
+							if (node is JsonArray ja)
+							{
+								var stringList = new List<string>();
+								foreach (var item in ja)
+								{
+									if (item is JsonValue slv && slv.TryGetValue<string>(out var sl))
+										stringList.Add(sl);
+									else
+										stringList.Add(item?.ToString() ?? "");
+								}
+								value = stringList;
 							}
 							break;
 

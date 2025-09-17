@@ -65,121 +65,32 @@ public class GetPrefabContextCommand : ICommand
 	}
 }
 
-public class SearchPrefabsContextCommand : ICommand
-{
-	public string CommandName => "SearchPrefabsContext";
-
-	public string CommandDescription => "Search for prefabs in the Assets folder using the given String.";
-
-	public bool EndConversation => false;
-
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString"), SearchHelpers.Top25Param };
-
-	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
-	{
-		string searchString = Parameters[0].Get<string>(args);
-		int index = Parameters[1].Get<int>(args);
-
-		var foundItems = SearchThroughFileSystem(searchString.ToLowerInvariant());
-
-		var filter = SearchHelpers.FilterOn25Index(index, foundItems);
-
-		if (filter.results.Count == 0)
-			return new List<UserToAiMsg>() { new UserToAiMsgText($"No prefabs found.") };
-
-		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {foundItems.Count} prefabs.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
-	}
-
-	public static List<string> SearchThroughFileSystem(string searchString)
-	{
-		List<string> foundItems = new List<string>();
-
-		string[] prefabGuids = AssetDatabase.FindAssets("t:prefab");
-
-		foreach (var guid in prefabGuids)
-		{
-			string path = AssetDatabase.GUIDToAssetPath(guid);
-			if (string.IsNullOrEmpty(path)) 
-				continue;
-
-			// File name check (fast)
-			string fileNameNoExt = Path.GetFileNameWithoutExtension(path).ToLowerInvariant();
-
-			bool match = fileNameNoExt?.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) >= 0;
-
-			if (match)
-				foundItems.Add(path);
-		}
-
-		return foundItems;
-	}
-}
-
 public class ListPrefabsWithTagsCommand : ICommand
 {
 	public string CommandName => "ListPrefabsWithTags";
 
-	public string CommandDescription => "Returns a list of 25 prefabs marked with all the given tags.";
+	public string CommandDescription => "Returns a list of the top-25 prefabs that best match the provided tags.";
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tags", Parameter.ParamType.String, "A list of tags separated by ',' characters"), SearchHelpers.Top25Param };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tags", Parameter.ParamType.StringList) };
+
+	private ContextLookupTable lookupTable;
+	public ListPrefabsWithTagsCommand(ContextLookupTable lookupTable)
+	{
+		this.lookupTable = lookupTable;
+	}
 
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
-		List<string> tags = Parameters[0].Get<string>(args).Split(',').ToList();
-		int index = Parameters[1].Get<int>(args);
+		List<string> tags = Parameters[0].Get<List<string>>(args);
 
-		for (int i = 0; i < tags.Count; i++)
-			tags[i] = tags[i].Trim();
+		var allPrefabs = lookupTable.SearchTags(tags, 25);
 
-		var allPrefabs = FindAllPrefabsWithTag(tags);
-
-		var filter = SearchHelpers.FilterOn25Index(index, allPrefabs);
-
-		if (filter.results.Count == 0)
+		if (allPrefabs.Count == 0)
 			return new List<UserToAiMsg>() { new UserToAiMsgText($"No prefabs found.") };
 
-		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {allPrefabs.Count} prefabs.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
-	}
-
-	public static List<string> FindAllPrefabsWithTag(List<string> tags)
-	{
-		HashSet<string> res = new HashSet<string>();
-
-		string[] prefabGuids = AssetDatabase.FindAssets("t:prefab");
-
-		foreach (var guid in prefabGuids)
-		{
-			string prefabPath = AssetDatabase.GUIDToAssetPath(guid);
-			if (string.IsNullOrEmpty(prefabPath))
-				continue;
-
-			var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-			if (obj == null)
-			{
-				Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
-				continue;
-			}
-
-			var flag = obj.GetComponent<AiMetadataFlag>();
-			if (flag != null)
-			{
-				bool valid = true;
-				foreach(var tag in tags)
-				{
-					if (!flag.AiMetadataTags.Contains(tag))
-					{
-						valid = false;
-						break;
-					}
-				}
-				if(valid)
-					res.Add(prefabPath);
-			}
-		}
-
-		return res.ToList();
+		return new List<UserToAiMsg>() { new UserToAiMsgText($"{string.Join(',', allPrefabs)}") };
 	}
 }
 
