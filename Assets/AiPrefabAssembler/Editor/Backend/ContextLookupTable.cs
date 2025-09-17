@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ContextLookupTable
 {
-	public Dictionary<string, AiMetadataFlag> ContextLookup = new Dictionary<string, AiMetadataFlag>();
-	//public List<(string title, string description, string id)> ContextInfo = new List<(string title, string description, string id)>();
-	public List<(string id, List<string> tags)> ContextInfoTags = new List<(string id, List<string> tags)>();
+	public List<(string name, int id)> ObjectNames = new List<(string name, int id)>();
+
+
+	public Dictionary<string, AiMetadataFlag> PrefabContextLookup = new Dictionary<string, AiMetadataFlag>();
+	public List<(string id, List<string> tags)> PrefabContextInfoTags = new List<(string id, List<string> tags)>();
 
 	public ContextLookupTable()
     {
@@ -16,6 +19,30 @@ public class ContextLookupTable
     public void Rebuild()
     {
 		FindAllFlaggedPrefabs();
+	}
+
+	public void FindAllSceneObjects()
+	{
+		var scene = SceneManager.GetActiveScene();
+		if (!scene.IsValid() || !scene.isLoaded)
+		{
+			Debug.LogError("No active scene loaded.");
+			return;
+		}
+
+		var roots = scene.GetRootGameObjects();
+
+		foreach (var root in roots)
+			CheckNodeRecursive(root);
+	}
+
+	private void CheckNodeRecursive(GameObject g)
+	{
+		ObjectNames.Add((g.name, g.GetInstanceID()));
+
+		// Children in deterministic order
+		for (int i = 0; i < g.transform.childCount; i++)
+			CheckNodeRecursive(g.transform.GetChild(i).gameObject);
 	}
 
 	public void FindAllFlaggedPrefabs()
@@ -40,18 +67,29 @@ public class ContextLookupTable
 			var flag = obj.GetComponent<AiMetadataFlag>();
 			if (flag != null)
 			{
-				ContextLookup[prefabPath] = flag;
+				PrefabContextLookup[prefabPath] = flag;
 				//ContextInfo.Add((flag.AiMetadataTitle, flag.AiMetadataSummary, prefabPath));
-				ContextInfoTags.Add((prefabPath, flag.AiMetadataTags));
+				PrefabContextInfoTags.Add((prefabPath, flag.AiMetadataTags));
 			}
 		}
 	}
 
-	public List<string> SearchTags(List<string> tags, int count)
+	public List<string> SearchPrefabTags(List<string> tags)
 	{
-		var matches = ContextLookupHelpers.TopMatches(tags, ContextInfoTags, count);
+		var matches = ContextLookupHelpers.TopMatches(tags, PrefabContextInfoTags);
 
 		List<string> res = new List<string>();
+		foreach (var match in matches)
+			res.Add(match.id);
+
+		return res;
+	}
+
+	public List<int> SearchObjectNames(string searchString)
+	{
+		var matches = ContextLookupHelpers.TopMatches(searchString, ObjectNames);
+
+		List<int> res = new List<int>();
 		foreach (var match in matches)
 		{
 			res.Add(match.id);

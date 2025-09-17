@@ -41,7 +41,7 @@ public static class Testers
 
 		int count = 25;
 
-		var res = table.SearchTags(new List<string>() { "skeletal", "bone", "remains" }, count);
+		var res = table.SearchPrefabTags(new List<string>() { "skeletal", "bone", "remains" }, count);
 
 		Debug.Log($"Found ({res.Count}/{count}): ");
 

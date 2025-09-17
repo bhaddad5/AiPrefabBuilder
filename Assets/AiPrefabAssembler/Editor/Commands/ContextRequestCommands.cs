@@ -65,18 +65,18 @@ public class GetPrefabContextCommand : ICommand
 	}
 }
 
-public class ListPrefabsWithTagsCommand : ICommand
+public class SearchPrefabsWithTagsCommand : ICommand
 {
-	public string CommandName => "ListPrefabsWithTags";
+	public string CommandName => "SearchPrefabsWithTags";
 
 	public string CommandDescription => "Returns a list of the top-25 prefabs that best match the provided tags.";
 
 	public bool EndConversation => false;
 
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tags", Parameter.ParamType.StringList) };
+	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("tags", Parameter.ParamType.StringList), SearchHelpers.Top25Param };
 
 	private ContextLookupTable lookupTable;
-	public ListPrefabsWithTagsCommand(ContextLookupTable lookupTable)
+	public SearchPrefabsWithTagsCommand(ContextLookupTable lookupTable)
 	{
 		this.lookupTable = lookupTable;
 	}
@@ -84,13 +84,16 @@ public class ListPrefabsWithTagsCommand : ICommand
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		List<string> tags = Parameters[0].Get<List<string>>(args);
+		int index = Parameters[1].Get<int>(args);
 
-		var allPrefabs = lookupTable.SearchTags(tags, 25);
+		var foundItems = lookupTable.SearchPrefabTags(tags);
 
-		if (allPrefabs.Count == 0)
+		var filter = SearchHelpers.FilterOn25Index(index, foundItems);
+
+		if (filter.results.Count == 0)
 			return new List<UserToAiMsg>() { new UserToAiMsgText($"No prefabs found.") };
 
-		return new List<UserToAiMsg>() { new UserToAiMsgText($"{string.Join(',', allPrefabs)}") };
+		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {foundItems.Count} prefabs.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
 	}
 }
 
@@ -173,7 +176,7 @@ public class GetObjectContextCommand : ICommand
 
 public class SearchObjectsContextCommand : ICommand
 {
-	public string CommandName => "SearchObjectsContext";
+	public string CommandName => "SearchObjectsByString";
 
 	public string CommandDescription => "Search for object uniqueIds in the Scene using the given String.";
 
@@ -181,13 +184,19 @@ public class SearchObjectsContextCommand : ICommand
 
 	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("searchString"), SearchHelpers.Top25Param };
 
+	private ContextLookupTable lookupTable;
+	public SearchObjectsContextCommand(ContextLookupTable lookupTable)
+	{
+		this.lookupTable = lookupTable;
+	}
+
 	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
 	{
 		var searchString = Parameters[0].Get<string>(args);
 		int index = Parameters[1].Get<int>(args);
 
 		List<string> foundItems = new List<string>();
-		SearchThroughWholeScene(searchString.ToLowerInvariant(), foundItems);
+		var foundIds = lookupTable.SearchObjectNames(searchString);
 
 		var filter = SearchHelpers.FilterOn25Index(index, foundItems);
 
@@ -195,30 +204,5 @@ public class SearchObjectsContextCommand : ICommand
 			return new List<UserToAiMsg>() { new UserToAiMsgText($"No objects found.") };
 
 		return new List<UserToAiMsg>() { new UserToAiMsgText($"Found {foundItems.Count} objects.  ({filter.startIndex},{filter.endIndex})={string.Join(',', filter.results)}") };
-	}
-
-	public static void SearchThroughWholeScene(string searchString, List<string> foundItems)
-	{
-		var scene = SceneManager.GetActiveScene();
-		if (!scene.IsValid() || !scene.isLoaded)
-		{
-			Debug.LogError("No active scene loaded.");
-			return;
-		}
-
-		var roots = scene.GetRootGameObjects();
-
-		foreach (var root in roots)
-			CheckNodeRecursive(root, searchString, foundItems);
-	}
-
-	private static void CheckNodeRecursive(GameObject g, string searchString, List<string> foundItems)
-	{
-		if (g.name.ToLowerInvariant().Contains(searchString))
-			foundItems.Add(g.GetInstanceID().ToString());
-
-		// Children in deterministic order
-		for (int i = 0; i < g.transform.childCount; i++)
-			CheckNodeRecursive(g.transform.GetChild(i).gameObject, searchString, foundItems);
 	}
 }

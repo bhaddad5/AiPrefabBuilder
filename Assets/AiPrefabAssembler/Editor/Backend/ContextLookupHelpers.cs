@@ -5,6 +5,8 @@ using System.Text.RegularExpressions;
 
 public static class ContextLookupHelpers
 {
+	//STRING MATCHING
+
 	// ---------------- Levenshtein for titles ----------------
 	private static int Levenshtein(string a, string b, bool ignoreCase)
 	{
@@ -57,64 +59,6 @@ public static class ContextLookupHelpers
 		return 1.0 - (double)dist / maxLen; // 0..1
 	}
 
-	// ---------------- Token helpers for descriptions ----------------
-	private static readonly Regex Tokenizer = new Regex(@"[A-Za-z0-9]+", RegexOptions.Compiled);
-
-	// Minimal English stopwords; expand if you like.
-	private static readonly HashSet<string> Stop = new HashSet<string>(new[]
-	{
-		"a","an","the","and","or","but","for","of","to","in","on","at","by",
-		"from","with","as","is","are","was","were","be","been","being",
-		"this","that","these","those","it","its","into","over","under","up","down"
-	}, StringComparer.OrdinalIgnoreCase);
-
-	private static List<string> Tokenize(string s, bool removeStop = true, int minLen = 2)
-	{
-		if (string.IsNullOrEmpty(s)) return new List<string>();
-		var matches = Tokenizer.Matches(s);
-		var tokens = new List<string>(matches.Count);
-		foreach (Match m in matches)
-		{
-			var t = m.Value.ToLowerInvariant();
-			if (t.Length < minLen) continue;
-			if (removeStop && Stop.Contains(t)) continue;
-			tokens.Add(t);
-		}
-		return tokens;
-	}
-
-	// Soft Dice coefficient:
-	// - For each query token, find best description token by similarity.
-	// - Count it as a match if similarity >= tokenThreshold.
-	// - Dice = 2 * matches / (|Q| + |D|)   (where |D| is unique tokens, to avoid overweighting repeats)
-	private static double SoftTokenDice(string query, string text, double tokenThreshold = 0.84)
-	{
-		var q = Tokenize(query);
-		var d = Tokenize(text);
-		if (q.Count == 0 || d.Count == 0) return 0.0;
-
-		// Unique description tokens so repeats don’t inflate score
-		var du = d.Distinct().ToList();
-
-		int matches = 0;
-		foreach (var qt in q)
-		{
-			double best = 0.0;
-			foreach (var dt in du)
-			{
-				double sim = NormalizedEditSim(qt, dt, ignoreCase: true);
-				if (sim > best) best = sim;
-				if (best == 1.0) break;
-			}
-			if (best >= tokenThreshold) matches++;
-		}
-
-		// Dice with soft matches; clamp to [0,1]
-		double dice = (2.0 * matches) / (q.Count + du.Count);
-		if (dice < 0) dice = 0;
-		if (dice > 1) dice = 1;
-		return dice;
-	}
 
 	private static double ContainmentBoost(string query, string field)
 	{
@@ -122,62 +66,37 @@ public static class ContextLookupHelpers
 		return field.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ? 0.05 : 0.0;
 	}
 
-	public static List<(string title, string description, string id, double score)> TopMatches(
+	public static List<(string name, int id, double score)> TopMatches(
 		string query,
-		IEnumerable<(string title, string description, string id)> candidates,
-		int topN = 25,
+		IEnumerable<(string name, int id)> candidates,
 		double minScore = .2,
-		double titleWeight = 0.70,     // title matters more
 		double tokenThreshold = 0.84)  // how close tokens must be to count as a match
 	{
 		if (candidates == null) return new();
 
-		if (titleWeight < 0) titleWeight = 0;
-		if (titleWeight > 1) titleWeight = 1;
-		double descWeight = 1.0 - titleWeight;
-
 		return candidates
 			.Select(c =>
 			{
-				double t = NormalizedEditSim(query, c.title ?? "", ignoreCase: true) + ContainmentBoost(query, c.title);
+				double t = NormalizedEditSim(query, c.name ?? "", ignoreCase: true) + ContainmentBoost(query, c.name);
 				if (t > 1) t = 1;
-
-				double d = SoftTokenDice(query, c.description ?? "", tokenThreshold) + ContainmentBoost(query, c.description);
-				if (d > 1) d = 1;
-
-				double blended = titleWeight * t + descWeight * d;
-				return (c.title, c.description, c.id, blended);
+				return (c.name, c.id, t);
 			})
-			.Where(x => x.blended >= minScore)
-			.OrderByDescending(x => x.blended)
-			.ThenBy(x => x.title ?? string.Empty, StringComparer.Ordinal)
-			.ThenBy(x => x.id ?? string.Empty, StringComparer.Ordinal)
-			.Take(topN)
-			.Select(x => (x.title, x.description, x.id, x.blended))
+			.Where(x => x.t >= minScore)
+			.OrderByDescending(x => x.t)
+			.Select(x => (x.name, x.id, x.t))
 			.ToList();
 	}
 
 
 
-
-
-
-
-
-
-
-
-	//TAG MATCHER
-
-
+	//TAG MATCHING
 
 	/// <summary>
 	/// Returns up to topN objects with highest IDF-weighted Jaccard similarity to the queryTags.
 	/// </summary>
 	public static List<(string id, double score)> TopMatches(
 		IEnumerable<string> queryTags,
-		IEnumerable<(string id, List<string> tags)> objects,
-		int topN = 25)
+		IEnumerable<(string id, List<string> tags)> objects)
 	{
 		if (queryTags == null) throw new ArgumentNullException(nameof(queryTags));
 		if (objects == null) throw new ArgumentNullException(nameof(objects));
@@ -241,7 +160,6 @@ public static class ContextLookupHelpers
 			.Where(x => x.score > 0)              // drop total non-matches; remove if you want everything
 			.OrderByDescending(x => x.score)
 			.ThenBy(x => x.id, StringComparer.Ordinal)
-			.Take(topN)
 			.ToList();
 
 		return results;
