@@ -5,9 +5,9 @@ using UnityEngine;
 public class AiMetadataFlag : MonoBehaviour
 {
 
-	public string AiMetadataTitle = "";
+	//public string AiMetadataTitle = "";
 
-	public string AiMetadataSummary = "";
+	//public string AiMetadataSummary = "";
 
 	[TextArea(3, 10)]
 	public string AiMetadataDescription = "";

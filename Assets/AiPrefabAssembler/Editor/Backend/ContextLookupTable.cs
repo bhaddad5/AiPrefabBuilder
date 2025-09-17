@@ -5,7 +5,7 @@ using UnityEngine;
 public class ContextLookupTable
 {
 	public Dictionary<string, AiMetadataFlag> ContextLookup = new Dictionary<string, AiMetadataFlag>();
-	public List<(string title, string description, string id)> ContextInfo = new List<(string title, string description, string id)>();
+	//public List<(string title, string description, string id)> ContextInfo = new List<(string title, string description, string id)>();
 	public List<(string id, List<string> tags)> ContextInfoTags = new List<(string id, List<string> tags)>();
 
 	public ContextLookupTable()
@@ -38,10 +38,10 @@ public class ContextLookupTable
 			}
 
 			var flag = obj.GetComponent<AiMetadataFlag>();
-			if (flag != null && !string.IsNullOrEmpty(flag.AiMetadataTitle))
+			if (flag != null)
 			{
 				ContextLookup[prefabPath] = flag;
-				ContextInfo.Add((flag.AiMetadataTitle, flag.AiMetadataSummary, prefabPath));
+				//ContextInfo.Add((flag.AiMetadataTitle, flag.AiMetadataSummary, prefabPath));
 				ContextInfoTags.Add((prefabPath, flag.AiMetadataTags));
 			}
 		}
@@ -53,19 +53,6 @@ public class ContextLookupTable
 
 		List<string> res = new List<string>();
 		foreach (var match in matches)
-		{
-			res.Add(match.id);
-		}
-
-		return res;
-	}
-
-	public List<string> Search(string searchString, int count)
-    {
-		var matches = ContextLookupHelpers.TopMatches(searchString, ContextInfo, count);
-
-		List<string> res = new List<string>();
-		foreach(var match in matches)
 		{
 			res.Add(match.id);
 		}

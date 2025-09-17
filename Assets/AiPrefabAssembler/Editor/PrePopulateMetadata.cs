@@ -64,21 +64,11 @@ public static class PrePopulateMetadata
 		}
 
 		var setTagsTool = new SetPrefabTagsCommand();
-		var setTitleTool = new SetPrefabTitleCommand();
-		var setSummaryTool = new SetPrefabSummaryCommand();
 		var setDescrTool = new SetPrefabDescriptionCommand();
 
-		var conversation = AiBackendHelpers.GetConversation(model, new List<string>(), new List<ICommand>() { setTitleTool, setSummaryTool, setDescrTool, setTagsTool, });
+		var conversation = AiBackendHelpers.GetConversation(model, new List<string>(), new List<ICommand>() { setDescrTool, setTagsTool, });
 
 		setTagsTool.TagsSet += () =>
-		{
-			callback(prefabPath);
-		};
-		setTitleTool.TitleSet += () =>
-		{
-			callback(prefabPath);
-		};
-		setSummaryTool.SummarySet += () =>
 		{
 			callback(prefabPath);
 		};
@@ -90,7 +80,7 @@ public static class PrePopulateMetadata
 		List<UserToAiMsg> msgs = new List<UserToAiMsg>();
 
 		string prompt = $"Populate a Description and Tags for the prefab: {prefabPath}. " +
-			$"Always call the SetPrefabTitle, the SetPrefabSummary, the SetPrefabDescription, and the SetPrefabTags tools, and always do all 4 calls at the same time. " +
+			$"Always call the SetPrefabDescription and SetPrefabTags tools, and always do both calls at the same time. " +
 			$"Note the prefab's orientation in the Description, and how/where it should be placed. " +
 			$"Try to use existing tags where they would make sense, but don't be afraid to make new ones, especially if this is a new \"kind of thing\". "+
 			$"Your tags should contain things like Category (prop, character, vehicle, structure, foliage, VFX, SFX, UI), Function (door, container, weapon, light, seat, control-panel, etc), and other descriptors/tidbits you might find useful. " +
@@ -116,92 +106,6 @@ public static class PrePopulateMetadata
 		msgs.Add(new UserToAiMsgText(tagsMsg));
 
 		conversation.SendMsg(msgs, new List<string>());
-	}
-}
-
-public class SetPrefabTitleCommand : ICommand
-{
-	public string CommandName => "SetPrefabTitle";
-
-	public string CommandDescription => "Assigns a title to the prefab.";
-
-	public bool EndConversation => true;
-
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath"), new Parameter("title", Parameter.ParamType.String, "A Title, no more than 3 words long") };
-
-	public event Action TitleSet;
-
-	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
-	{
-		string prefabPath = Parameters[0].Get<string>(args);
-		string title = Parameters[1].Get<string>(args);
-
-		AssignTitle(prefabPath, title);
-
-		TitleSet?.Invoke();
-
-		return new List<UserToAiMsg>();
-	}
-
-	public static void AssignTitle(string prefabPath, string title)
-	{
-		var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-		if (obj == null)
-		{
-			Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
-			return;
-		}
-
-		var flag = obj.GetComponent<AiMetadataFlag>();
-		if (flag == null)
-			flag = obj.AddComponent<AiMetadataFlag>();
-
-		flag.AiMetadataTitle = title;
-
-		EditorUtility.SetDirty(obj);
-	}
-}
-
-public class SetPrefabSummaryCommand : ICommand
-{
-	public string CommandName => "SetPrefabSummary";
-
-	public string CommandDescription => "Assigns a summary to the prefab.";
-
-	public bool EndConversation => true;
-
-	public List<Parameter> Parameters => new List<Parameter>() { new Parameter("prefabPath"), new Parameter("summary", Parameter.ParamType.String, "A Summary, no more than 10 words long") };
-
-	public event Action SummarySet;
-
-	public List<UserToAiMsg> ParseArgsAndExecute(TypedArgs args)
-	{
-		string prefabPath = Parameters[0].Get<string>(args);
-		string summary = Parameters[1].Get<string>(args);
-
-		AssignSummary(prefabPath, summary);
-
-		SummarySet?.Invoke();
-
-		return new List<UserToAiMsg>();
-	}
-
-	public static void AssignSummary(string prefabPath, string summary)
-	{
-		var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-		if (obj == null)
-		{
-			Debug.LogError($"Failed to find Prefab at path: {prefabPath}");
-			return;
-		}
-
-		var flag = obj.GetComponent<AiMetadataFlag>();
-		if (flag == null)
-			flag = obj.AddComponent<AiMetadataFlag>();
-
-		flag.AiMetadataSummary = summary;
-
-		EditorUtility.SetDirty(obj);
 	}
 }
 
