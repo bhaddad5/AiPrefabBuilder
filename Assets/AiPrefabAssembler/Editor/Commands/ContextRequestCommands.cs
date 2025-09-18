@@ -197,6 +197,8 @@ public class SearchObjectsContextCommand : ICommand
 
 		List<string> foundItems = new List<string>();
 		var foundIds = lookupTable.SearchObjectNames(searchString);
+		foreach (var id in foundIds)
+			foundItems.Add(id.ToString());
 
 		var filter = SearchHelpers.FilterOn25Index(index, foundItems);
 

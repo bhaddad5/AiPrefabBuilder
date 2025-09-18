@@ -36,7 +36,7 @@ public class AIRequestMenu : EditorWindow
 		{
 			new GetPrefabContextCommand(),
 			new GetObjectContextCommand(),
-			new SearchObjectsContextCommand(),
+			new SearchObjectsContextCommand(lookupTable),
 			new CreateObjectCommand(),
 			new DeleteObjectCommand(),
 			new SetObjectParentCommand(),

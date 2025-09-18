@@ -18,6 +18,7 @@ public class ContextLookupTable
 
     public void Rebuild()
     {
+		FindAllSceneObjects();
 		FindAllFlaggedPrefabs();
 	}
 
@@ -51,9 +52,9 @@ public class ContextLookupTable
 
 		string[] prefabGuids = AssetDatabase.FindAssets("t:prefab");
 
-		foreach (var guid in prefabGuids)
+		for (int i = 0; i < prefabGuids.Length; i++)
 		{
-			string prefabPath = AssetDatabase.GUIDToAssetPath(guid);
+			string prefabPath = AssetDatabase.GUIDToAssetPath(prefabGuids[i]);
 			if (string.IsNullOrEmpty(prefabPath))
 				continue;
 
@@ -68,7 +69,6 @@ public class ContextLookupTable
 			if (flag != null)
 			{
 				PrefabContextLookup[prefabPath] = flag;
-				//ContextInfo.Add((flag.AiMetadataTitle, flag.AiMetadataSummary, prefabPath));
 				PrefabContextInfoTags.Add((prefabPath, flag.AiMetadataTags));
 			}
 		}
@@ -92,6 +92,7 @@ public class ContextLookupTable
 		List<int> res = new List<int>();
 		foreach (var match in matches)
 		{
+			Debug.Log(match.id + ", " + match.score);
 			res.Add(match.id);
 		}
 

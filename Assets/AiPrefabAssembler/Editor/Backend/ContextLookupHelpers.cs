@@ -63,13 +63,13 @@ public static class ContextLookupHelpers
 	private static double ContainmentBoost(string query, string field)
 	{
 		if (string.IsNullOrEmpty(query) || string.IsNullOrEmpty(field)) return 0.0;
-		return field.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ? 0.05 : 0.0;
+		return field.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ? 0.6 : 0.0;
 	}
 
 	public static List<(string name, int id, double score)> TopMatches(
 		string query,
 		IEnumerable<(string name, int id)> candidates,
-		double minScore = .2,
+		double minScore = .5,
 		double tokenThreshold = 0.84)  // how close tokens must be to count as a match
 	{
 		if (candidates == null) return new();

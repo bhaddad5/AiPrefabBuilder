@@ -26,6 +26,8 @@ namespace AiRequestBackend
 		private List<ICommand> tools;
 		private string modelId;
 
+		public static bool verboseLogging = false;
+
 		public static AnthropicClient BuildClient()
 		{
 			if (String.IsNullOrWhiteSpace(EditorPrefs.GetString("ANTHROPIC_API_KEY")))
@@ -64,17 +66,22 @@ namespace AiRequestBackend
 			{
 				if (msg is UserToAiMsgText t)
 				{
-					//Debug.Log($"Sending Msg: {t.Text}");
+					if (verboseLogging)
+						Debug.Log($"Sending Msg: {t.Text}");
 					ChatMsgAdded?.Invoke(new IConversation.ChatHistoryEntry(true, t.Text));
 				}
 				else if (msg is UserToAiMsgImage i)
 				{
-					//Debug.Log($"Sending Msg: {i.Image.name}");
+					if (verboseLogging)
+						Debug.Log($"Sending Msg: {i.Image.name}");
 				}
 			}
 
-			//foreach (var tcMsg in transientContextMsgs)
-			//	Debug.Log($"Context Msg: {tcMsg}");
+			if (verboseLogging)
+			{
+				foreach (var tcMsg in transientContextMsgs)
+					Debug.Log($"Context Msg: {tcMsg}");
+			}
 
 			ProcessCurrentConversation(transientContextMsgs);
 		}
@@ -121,7 +128,8 @@ namespace AiRequestBackend
 						var textContent = response.Content.OfType<TextContent>().FirstOrDefault();
 						if (textContent != null)
 						{
-							//Debug.Log($"Received Msg Response: {textContent.Text}");
+							if (verboseLogging)
+								Debug.Log($"Received Msg Response: {textContent.Text}");
 
 							// Add assistant message to conversation history
 							currentConversation.Add(new Message
@@ -157,7 +165,7 @@ namespace AiRequestBackend
 
 							if (toolToUse == null)
 							{
-								//Debug.LogError($"Tool {toolUse.Name} not implemented!");
+								Debug.LogError($"Tool {toolUse.Name} not implemented!");
 								toolResults.Add(new ToolResultContent
 								{
 									ToolUseId = toolUse.Id,
@@ -288,7 +296,8 @@ namespace AiRequestBackend
 				schema["required"] = req;
 			}
 
-			//Debug.Log($"Function: {command.CommandName}, descr={command.CommandDescription}, schema={schema.ToString()}");
+			if (verboseLogging)
+				Debug.Log($"Function Exposed: {command.CommandName}, descr={command.CommandDescription}, schema={schema.ToString()}");
 
 			return new Function(command.CommandName, command.CommandDescription ?? "", schema);
 		}
@@ -305,7 +314,8 @@ namespace AiRequestBackend
 			if (argsStr.EndsWith(','))
 				argsStr = argsStr.Substring(0, argsStr.Length - 1);
 
-			//Debug.Log($"Calling tool {toolUse.Name}({argsStr})");
+			if (verboseLogging)
+				Debug.Log($"Calling tool {toolUse.Name}({argsStr})");
 
 			var result = command.ParseArgsAndExecute(args);
 
@@ -314,7 +324,8 @@ namespace AiRequestBackend
 			if (resultContent.Count == 0)
 				resultContent.Add(new TextContent { Text = "Done" });
 
-			//Debug.Log($"Tool Response: {String.Join(',', result)}");
+			if (verboseLogging)
+				Debug.Log($"Tool Response: {String.Join(',', result)}");
 
 			return new ToolResultContent
 			{
