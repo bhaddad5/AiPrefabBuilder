@@ -45,7 +45,7 @@ public static class PrePopulateMetadata
 		}
 	}
 
-	private static void AddMetadataToPrefabCallback(string prefabPath, Action<string> callback)
+	public static void AddMetadataToPrefabCallback(string prefabPath, Action<string> callback)
 	{
 		var obj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
 		if (obj == null)

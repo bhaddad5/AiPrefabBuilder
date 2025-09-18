@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public static class MetadataPopulaterTesters
+public static class TextureRenderingTest
 {
 	[MenuItem("Forge of Realms - Tests/Test Texture Rendering", false, 1000)]
 	public static void TextTextureRendering()
